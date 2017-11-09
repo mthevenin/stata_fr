@@ -1,0 +1,308 @@
+---
+output: 
+  html_document: 
+    theme: flatly
+    highlight: haddock
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+---
+
+```{r, echo=FALSE, include=FALSE}
+require(knitr)
+statapath <- "C:\\Program Files (x86)\\Stata15\\StataSE-64"
+opts_chunk$set(engine="stata", engine.path=statapath, comment="")
+```
+
+
+
+
+<BR><BR>
+**Contenu**  
+
+<!--html_preserve-->
+<table class="table table-striped table-hover table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th>#</th>
+      <th>Nom</th>
+      <th>Type</th>
+      <th>Remarques</th>
+    </tr>
+  </thead>
+<tbody>
+   
+    <tr>
+      <td>1</td>
+      <td>cpairs</td>
+      <td>qualité de l'ajustement</td>
+      <td></td>
+    </tr>  
+    <tr>
+      <td>2</td>
+      <td>ggof</td>
+      <td>qualité de l'ajustement</td>
+      <td></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>tmt3</td>
+      <td>test paramètres</td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>4</td>
+      <td>qlt</td>
+      <td>analyse de survie</td>
+      <td></td>
+    </tr>   
+    <tr>
+      <td>5</td>
+      <td>competout</td>
+      <td>analyse de survie</td>
+      <td></td>
+    </tr> 
+    <tr>
+      <td>6</td>
+      <td>gpct</td>
+      <td>graphique</td>
+      <td>version très provisoire</td>
+    <tr>
+      <td>7</td>
+      <td>margins_transform</td>
+      <td>postestimation</td>
+      <td>commande programmée par J.Pitblato (StataCorp LP)</td>
+    </tr>       
+    </tr>     
+  </tbody>
+  </table>
+<!--/html_preserve-->
+
+
+
+
+
+
+# cpairs {.tabset .tabset-fade .tabset-pills}
+
+Calcule quelques statistiques de mesure de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.   
+Le temps d’exécution de la commande peut être un peu long.  
+  
+**Statistiques**:    
+proportions de paires concordantes et discordantes, D de Somer, Tau-a, Gamma et aire sous la courbe de ROC (c-AUC)
+
+
+**Syntaxe**:   
+`cpairs variable_dependante`  
+
+
+**Exemple**:  
+```{r}    
+    webuse lbw, clear  
+    logit low age lwt i.race smoke ptl ht ui, cformat(%9.2f) pformat(%5.3f) sformat(%8.3f)  
+
+    cpairs low  
+```
+
+<br>
+
+# ggof{.tabset .tabset-fade .tabset-pills}
+
+Sous forme de graphiques combinés, la commande présente des éléments de diagnostique de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.  
+
+**Graphiques**: 
+probabilités prédites vs réponse, courbe de Roc, densités des probabilités prédites selon la réponse.  
+Le graphique affiche également le résultat du test d’Hosmer et Lemeshow pour 10 groupes.
+
+**Syntaxe**:  
+`ggof variable_dependante`  
+
+**Exemple**:  
+```{r}
+qui webuse lbw, clear  
+qui logit low age lwt i.race smoke ptl ht ui
+    ggof low
+```
+
+-------------
+![](ggof.png)
+-------------
+
+<br>
+
+#tmt3{.tabset .tabset-fade .tabset-pills}
+
+Affiche des tests multiples d’hypothèse nulle après un modèle ($b_1=b_2=…b_p=0=$). Utile seulement pour les variables catégorielles à plus de 2 modalités.     
+
+**Modèles** (vérifiés):  
+regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit  
+
+**Syntaxe**: 
+`tmt3 variables`  
+
+##Exemple avec logit
+```{r}
+    qui webuse lbw, clear  
+    qui logit low age lwt i.race smoke ptl ht ui
+    tmt3 race
+```
+    
+##Exemple avec  mlogit
+```{r}
+    webuse sysdsn1, clear
+    qui mlogit insure age male nonwhite i.site
+    tmt3 site
+```
+    
+##Exemple avec regress
+```{r}
+    webuse auto, clear
+    qui gen gweight=weight
+    qui recode gweight min/2239=1 2240/3189=2 3190/3599=3 3600/max=4
+    qui regress mpg ib2.gweight ib2.rep78 i.foreign
+    tmt3 gweight rep78
+```
+
+
+
+<br>
+
+#qlt{.tabset .tabset-fade .tabset-pills}
+
+Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande `ltable`).
+La commande `ltable` ne permettant de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option `saving(nom_base)`.  
+
+**Estimations des durées de vie avec Stata et Stata* (***voir ce que fait R avec les différents package***):     
+Rappel: la méthode actuarielle est une méthode dite continue, il convient donc d’avoir des bornes ouvertes ou fermées sur chaque intervalle.  
+La définition des bornes diffère entre Sles deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .    
+
+**Stata** :  $t(i) \leq t < t(i+1)$         
+**Sas**    :  $t(i) < t \leq t(i+1)$       
+
+
+La commande `qlt` permet de récupérer des tables de survie identiques entre les deux logiciels et donc d’afficher par exemple la même durée médiane.
+
+Syntaxe:  
+`qlt [if/in] [, sas]`  
+
+**Exemple**:  
+```{r}
+    webuse rat, clear
+    ltable t died, saving(lt, replace) interval(10) by(group)
+    use lt, clear
+    qlt if group==1
+  	use lt, clear
+	  qlt if group==1, sas
+  	list
+	  use lt, clear
+    qlt if group==2
+  	use lt, clear
+	  qlt if group==2, sas
+	  list
+```	  
+
+<br>
+
+
+#competout{.tabset .tabset-fade .tabset-pills}
+
+**Maj 2017***:
+Voir également la commande stcomlist(***```ssc install stcomlist```***), très proche si l'on excepte la question du test de Gray.***  
+
+Pour la prise en compte des risques concurrents en analyse des durées, **competout** affiche les sous forme de tableau les estimateurs des incidences cumulées, et le graphique associé. En option, plusieurs tests sont exécutés. **competout** utilise des commandes existantes qui seront automatiquement installées si besoin.     
+Pour le test de Gray, il est exécuté par **R**. Cela nécessite donc  une installation particulière décrite dans le fichier d’aide, mais aucune connaissance du langage R n’est requise (le fichier **competout_gray_test.do** doit se trouver dans le même répertoire que **competout.ado**).
+
+**Syntaxe**:  
+```[bysort variable: ] competout variable_duree variable_evenement [if/in], event(#) [group(variable) test(s/r/sr) exc(nom_fichier)]``` 
+
+**Exemple**: 
+```{r}
+    use http://www.stata-press.com/data/cggm3/bc_compete, clear
+    competout time status, event(1) group(drug) test(s)
+```
+
+![](competout.png)
+
+**Note**: ***le document étant généré par **rstudio** et exécutant Stata en mode batch, l'option test(r) ou test(sr) de la commande ne peut pas ici fonctionnée car elle exécute R en mode batch également.***
+
+<br>
+
+
+#gpct{.tabset .tabset-fade .tabset-pills} 
+
+
+***Améliorations prévues:***   
+- prise en charge des pondérations.   
+- Reporter les intervalles de confiances, avec une option pour les versions de Stata <15 et une option pour la version 15 afin de bénéficier des effets transparenc.    
+- ***Dans le cas d’une variable (Y) binaire, ne tracer qu’une seule courbe avec choix de la modalité***.    
+
+**gpct** permet de tracer sous forme de courbes des pourcentages issus d’un tableau croisé de type `tab X Y, nof r`.     
+Les labels des courbes sont récupérées à partir des labels des modalités de la variables Y, seulement si ces labels sont compatibles avec des noms de variable Stata.  
+
+**Syntaxe**:  
+```gpct variable_abcisse variable_ordonnée [if/in] [, lab(0/1)]```   
+
+option ```lab(0)```:  sans récupération des labels des modalités de Y.    
+option ```lab(1)```:  avec récupération des labels des modalités de Y. 
+
+**Exemple**: 
+```{r}
+    use  http://www.stata-press.com/data/r15/nlswork.dta, clear
+    label define msp 0 "married" 1 "unmarried", modify
+    label value msp msp
+
+On va tracer les valeurs du tableau:
+    tab year msp, nof r
+
+    gpct year msp, lab(0)
+    gpct year msp, lab(1)
+```
+
+![Sans label](gpct1.png)
+    
+![Avec labels](gpct2.png)
+
+
+<br>
+
+
+#margins_transform
+
+Auteur: **J.Pitblado - StataCorp LP**
+
+
+Correction des bornes des intervalles de confiances des valeurs prédites moyennes générées par `margins` [avec option `predict()`]   
+Appliquées à un modèle non linéaire, la commande margins renvoie des valeurs erronées aux bornes des intervalles de confiance des valeurs prédites moyennes ajustées. Cela se traduit, par exemple, par des valeurs  négatives ou supérieures à un lorsqu’il s’agit d’estimer des probabilités. 
+Dans le cas de la commande margins, le changement d’échelle est effectué immédiatement une fois la combinaison linéaire définie, le calcul de la variance et des bornes venant ensuite ; alors que la méthode correcte consiste à calculer la variance et les bornes sur la combinaison linéaire ajustée, le changement d’échelle s’effectuant en toute fin.  
+A noter que ce problème ne se pose pas pour le calcul des effets marginaux (option `dydx`).      
+**J.Pitblado** (**StataCorp**) a programmé une commande pour résoudre ce problème, pour l’instant non officielle, qui calcule correctement les bornes.
+Après l’estimation du modèle, la commande margins doit être exécutée avec en option `predict(xb)`.
+Si on souhaite récupérer les valeurs des bornes sous forme de variable pour faire, par exemple, une représentation graphique, on utilisera l’option `mat(nom)`. Les valeurs des bornes seront données pour les variables nom2 nom3.
+
+**installation**:  
+``` 
+ssc install transform_margins
+help transform_margins
+```
+
+**Syntaxe**:    
+``` 
+transform_margins nom_fonction(@) [, mat(nom])]
+```
+
+Liste de quelques fonctions à appliquer à transform_margins:  
+Modèle logit   : `invlogistic(@)`    
+Modèle probit  : `normal(@)` 
+Modèle cloglog : `invcloglog(@)`  
+Modèles Poisson, Binomial-Négatif, Gamma avec lien log…:  `exp(@)`  
+
+```{r}
+    qui sysuse auto, clear
+    qui logit foreign mpg
+        margins, at(mpg=(5(5)40))
+
+    qui margins, at(mpg=(5(5)40)) predict(xb)
+        transform_margins invlogit(@)
+```
+
+

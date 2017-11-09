@@ -1,0 +1,27 @@
+name: ""
+
+output_dir: "."
+
+navbar:
+  title: "Stata: Commandes et Utilitaires"
+  left:
+    - text: "Accueil"
+      href: index.html
+    - text: "Analyse"
+      menu:
+      - text: "Commandes"
+        href: commandes.html
+      - text: "Thèmes graphiques"
+        href:  scheme.html
+    - text: "Utilitaires"
+      href: utils.html     
+    - text: "Markdown"
+      menu:
+      - text: "Avec Stata"
+        href: mdstata.html
+      - text: "Avec Rmarkdown"
+        href:  mdrmarkdown.html
+        
+output:
+  html_document:
+    theme: flatly

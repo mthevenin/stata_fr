@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title></title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+
+.section h2 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h3 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h4 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h5 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+.section h6 {
+  padding-top: 65px;
+  margin-top: -65px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+  padding-left: 25px;
+  text-indent: 0;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Stata: Commandes et Utilitaires</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Accueil</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Analyse
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="commandes.html">Commandes</a>
+    </li>
+    <li>
+      <a href="scheme.html">Thèmes graphiques</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="utils.html">Utilitaires</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Markdown
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="mdstata.html">Avec Stata</a>
+    </li>
+    <li>
+      <a href="mdrmarkdown.html">Avec Rmarkdown</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+
+</div>
+
+
+<p><br><br> Les thèmes graphiques proposés par défaut par le logiciel ne correspondent plus aux standards.<br />
+Plusieurs packages externes permettent de récupérer des thèmes directement ou d’en créer par exécution d’un .do : thèmes de type <strong>burd</strong>, <strong>plottig</strong>, <strong>plotplain</strong>, et type <strong>ggplot</strong> avec la commande brewscheme.</p>
+<p><strong>Thèmes graphiques</strong><br />
+Les thèmes sont chargeables avec la commande <code>set scheme</code> avec option <code>permanently</code> pour les appliquer à toutes les sessions ou via le menu (edit =&gt; preference =&gt; graph preference =&gt; scheme).<br />
+Pour appliquer un thème pour un graphique particulier, on utilise en option du graphique <code>scheme(nom_theme)</code>.</p>
+<p><strong>Avec la version Stata 15</strong>: des messages d’avertissement liés à la non reconnaissance de certains styles peuvent se produire. Cela ne bloque pas l’exécution de la création du graphique qui prendra des valeurs par défaut.</p>
+<div id="themes-en-installation-directe" class="section level1">
+<h1><span class="header-section-number">1</span> Thèmes en installation directe</h1>
+<div id="themes-de-type-burd" class="section level2">
+<h2><span class="header-section-number">1.1</span> Thèmes de type Burd</h2>
+<p>8 thèmes graphiques : burd, burd3 à burd10</p>
+<p>Auteur : <strong>François Briatte</strong></p>
+<p><strong>Installation</strong><br />
+<code>ssc install scheme_burd</code></p>
+<p><strong>Exemple</strong></p>
+<pre class="stata"><code>    sysuse uslifeexp, clear
+    tw line le_wmale year || line le_bmale year || line le_wfemale year || line le_bfemale year , ///
+    scheme(burd4) name(b4) legend(pos(6))
+    graph export &quot;b4.png&quot;, name(b4) replace </code></pre>
+<pre><code> .     sysuse uslifeexp, clear
+(U.S. life expectancy, 1900-1999)
+
+.     tw line le_wmale year || line le_bmale year || line le_wfemale year || li
+&gt; ne le_bfemale year , ///
+&gt;     scheme(burd4) name(b4) legend(pos(6))
+
+.     graph export &quot;b4.png&quot;, name(b4) replace 
+(file b4.png written in PNG format)</code></pre>
+<div class="figure">
+<img src="b4.png" />
+
+</div>
+</div>
+<div id="themes-plotplain-plottig" class="section level2 tabset tabset-fade tabset-pills">
+<h2><span class="header-section-number">1.2</span> Thèmes plotplain, plottig</h2>
+<p>4 thèmes graphiques: plotting, plottigbling, plotplain, plotplainblind.</p>
+<p>Auteur: <strong>Daniel Bischof</strong></p>
+<p><strong>Installation</strong><br />
+<code>ssc install blindschemes</code></p>
+<p><strong>Références</strong><br />
+<a href="https://danbischof.com/2015/02/04/stata-figure-schemes/" class="uri">https://danbischof.com/2015/02/04/stata-figure-schemes/</a><br />
+<a href="http://www.stata-journal.com/sjpdf.html?articlenum=gr0070" class="uri">http://www.stata-journal.com/sjpdf.html?articlenum=gr0070</a></p>
+<div id="exemple-plottig" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Exemple plottig</h3>
+<pre><code>    sysuse uslifeexp, clear
+    tw line le_wmale year || line le_bmale year || line le_wfemale year || line le_bfemale year, ///
+    scheme(plottig) name(pt) legend(pos(6))
+    graph export &quot;pt.png&quot;, name(pt) replace </code></pre>
+<div class="figure">
+<img src="pt.png" />
+
+</div>
+</div>
+<div id="exemple-plotplain" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Exemple plotplain</h3>
+<pre><code>    sysuse uslifeexp, clear
+    tw line le_wmale year || line le_bmale year || line le_wfemale year || line le_bfemale year , ///
+    scheme(plotplain) name(pp) legend(pos(3))
+    graph export &quot;pp.png&quot;, name(pp) replace </code></pre>
+<div class="figure">
+<img src="pp.png" />
+
+</div>
+<p><br><br></p>
+</div>
+</div>
+</div>
+<div id="themes-a-parametrer-commande-brewscheme" class="section level1">
+<h1><span class="header-section-number">2</span> Thèmes à paramétrer: commande brewscheme</h1>
+<p>Serie d’outils pour générer des styles et couleurs.</p>
+<p>Auteur : <strong>William Buchanan</strong></p>
+<p><strong>Installatio</strong> (préférer l’installation via github qui donne la version la plus récente):<br />
+<code>net inst brewscheme, from(&quot;https://wbuchanan.github.io/brewscheme/&quot;) replace</code></p>
+<p>ou</p>
+<p><code>ssc install brewscheme</code></p>
+<p><strong>Références</strong>:<br />
+<a href="https://wbuchanan.github.io/brewscheme/" class="uri">https://wbuchanan.github.io/brewscheme/</a><br />
+<a href="https://github.com/wbuchanan/brewscheme" class="uri">https://github.com/wbuchanan/brewscheme</a><br />
+<a href="https://wbuchanan.github.io/brewscheme/brewscheme.pdf" class="uri">https://wbuchanan.github.io/brewscheme/brewscheme.pdf</a></p>
+<p><strong>Exemple</strong></p>
+<p>Exécuter les deux programmes suivants (à exécuter impérativement à partir d’un .do)</p>
+<p>Programme 1 (auteur: W.Buchanan )</p>
+<pre><code>* Code pour générer un style ggplot (R): ggtest (on peut le renommer dans le programme ci-dessous)  
+
+// Change the end of line delimiter
+#d ;
+
+// Generate the theme file used to simulate ggplot2 aesthetics
+brewtheme ggtheme, numticks(&quot;major 5&quot; &quot;horizontal_major 5&quot; &quot;vertical_major 5&quot;     
+&quot;horizontal_minor 10&quot; &quot;vertical_minor 10&quot;) color(&quot;plotregion gs15&quot;          
+&quot;matrix_plotregion gs15&quot; &quot;background gs15&quot; &quot;textbox gs15&quot; &quot;legend gs15&quot;       
+&quot;box gs15&quot; &quot;mat_label_box gs15&quot; &quot;text_option_fill gs15&quot; &quot;clegend gs15&quot;        
+&quot;histback gs15&quot; &quot;pboxlabelfill gs15&quot; &quot;plabelfill gs15&quot; &quot;pmarkbkfill gs15&quot;      
+&quot;pmarkback gs15&quot;) linew(&quot;major_grid medthick&quot; &quot;minor_grid thin&quot; &quot;legend medium&quot;    
+&quot;clegend medium&quot;) clockdir(&quot;legend_position 3&quot;) yesno(&quot;draw_major_grid yes&quot;     
+&quot;draw_minor_grid yes&quot; &quot;legend_force_draw yes&quot; &quot;legend_force_nodraw no&quot;        
+&quot;draw_minor_vgrid yes&quot; &quot;draw_minor_hgrid yes&quot; &quot;extend_grid_low yes&quot;         
+&quot;extend_grid_high yes&quot; &quot;extend_axes_low no&quot; &quot;extend_axes_high no&quot;)          
+gridsty(&quot;minor minor&quot;) axissty(&quot;horizontal_default horizontal_withgrid&quot;       
+&quot;vertical_default vertical_withgrid&quot;) linepattern(&quot;major_grid solid&quot;        
+&quot;minor_grid solid&quot;) linesty(&quot;major_grid major_grid&quot; &quot;minor_grid minor_grid&quot;)     
+ticksty(&quot;minor minor_notick&quot; &quot;minor_notick minor_notick&quot;)               
+ticksetsty(&quot;major_vert_withgrid minor_vert_nolabel&quot;                 
+&quot;major_horiz_withgrid minor_horiz_nolabel&quot;                      
+&quot;major_horiz_nolabel major_horiz_default&quot;                       
+&quot;major_vert_nolabel major_vert_default&quot;) gsize(&quot;minortick_label minuscule&quot;        
+&quot;minortick tiny&quot;) numsty(&quot;legend_cols 1&quot; &quot;legend_rows 0&quot; &quot;zyx2rows 0&quot; 
+&quot;zyx2cols 1&quot;) verticaltext(&quot;legend top&quot;);
+
+// Change the end of line delimiter back to a carriage return
+#d cr</code></pre>
+<p>Programme2</p>
+<pre><code>* Création du thème ggtest2 
+brewscheme, scheme(ggtest2) const(orange) cone(blue) consat(20) scatc(5)    ///  
+scatst(ggplot2) piest(ggplot2) piec(6) barst(ggplot2) barc(2) linec(5)      ///   
+linest(ggplot2) areast(ggplot2) areac(5) somest(ggplot2) somec(24) cic(3)   ///   
+cist(ggplot2) themef(ggplot2)</code></pre>
+<pre><code>    sysuse uslifeexp, clear
+    tw line le_wmale year || line le_bmale year || line le_wfemale year || line le_bfemale year, ///
+    scheme(ggtest2) name(bs) legend(pos(3))
+    graph export &quot;bs.png&quot;, name(bs) replace </code></pre>
+<div class="figure">
+<img src="bs.png" />
+
+</div>
+<p><br><br></p>
+</div>
+<div id="comparaisons" class="section level1 tabset tabset-fade tabset-pills">
+<h1><span class="header-section-number">3</span> Comparaisons</h1>
+<div id="comparaison-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Comparaison 1</h2>
+<p>Avec un nuage de point.</p>
+<pre class="{]}"><code>sysuse auto, clear
+local sc s1color ggtest2 plottig plotplain burd burd3 burd4 burd6  burd9
+
+foreach sc2 of local sc {
+
+ tw                                                                         ///
+    (lfit mpg weight,                  legend(lab(1 &quot;Ols fit&quot;)))            ///   
+    (scatter mpg weight if rep78 == 1, legend(lab(2 &quot;mpg for rep78==1&quot;)))   ///                                     
+    (scatter mpg weight if rep78 == 2, legend(lab(3 &quot;mpg for rep78==2&quot;)))   ///   
+    (scatter mpg weight if rep78 == 3, legend(lab(4 &quot;mpg for rep78==3&quot;)))   ///   
+    (scatter mpg weight if rep78 == 4, legend(lab(5 &quot;mpg for rep78==4&quot;)))   ///   
+    (scatter mpg weight if rep78 == 5, legend(lab(6 &quot;mpg for rep78==5&quot;))),  /// 
+     legend(rows(2)) scheme(`sc2&#39;) title(&quot;scheme = `sc2&#39;&quot;) nodraw name(`sc2&#39;)     
+}
+
+grc1leg s1color ggtest2 plottig plotplain, cols(2)  legendfrom(ggtest2)
+grc1leg burd3 burd4 burd6 burd9          , cols(2)  legendfrom(burd6)</code></pre>
+<p><img src="comp1.png" /><br />
+<img src="comp1b.png" /></p>
+</div>
+<div id="comparaison-2" class="section level2">
+<h2><span class="header-section-number">3.2</span> Comparaison 2</h2>
+<p>Avec les courbes d’espérance de vie</p>
+<pre><code>sysuse uslifeexp, clear
+local sc s1color ggtest2 plottig plotplain burd3 burd4 burd6 burd9 
+
+foreach sc2 of local sc {
+    tw line le_male year || line le_female year, /// 
+    scheme(`sc2&#39;) title(&quot;scheme = `sc2&#39;&quot;) nodraw name(`sc2&#39;)     
+}
+
+grc1leg s1color ggtest2 plottig plotplain, cols(2)  legendfrom(ggtest2) name(comp2)
+     graph export &quot;comp2.png&quot;, name(comp2) replace 
+grc1leg burd3 burd4 burd6 burd9     , cols(2)  legendfrom(burd6)   name(comp2b)
+     graph export &quot;comp2b.png&quot;, name(comp2b) replace </code></pre>
+<p><img src="comp2.png" /> <img src="comp2b.png" /></p>
+</div>
+<div id="comparaison-3" class="section level2">
+<h2><span class="header-section-number">3.3</span> Comparaison 3</h2>
+<p>Première comparaison avec les effets de transparence de la version 15 de Stata.</p>
+<pre><code>sysuse auto, clear
+local sc s1color ggtest2 plottig plotplain
+
+foreach sc2 of local sc {
+
+ tw                                                                                           ///
+ (lfit mpg weight,                  legend(lab(1 &quot;Ols fit&quot;))          color(cranberry%60)) ///   
+ (scatter mpg weight if rep78 == 1, legend(lab(2 &quot;mpg for rep78==1&quot;)) color(midblue%30))   ///                                     
+ (scatter mpg weight if rep78 == 2, legend(lab(3 &quot;mpg for rep78==2&quot;)) color(midgreen%30))  ///   
+ (scatter mpg weight if rep78 == 3, legend(lab(4 &quot;mpg for rep78==3&quot;)) color(sand%30))      ///   
+ (scatter mpg weight if rep78 == 4, legend(lab(5 &quot;mpg for rep78==4&quot;)) color(pink%30))      ///   
+ (scatter mpg weight if rep78 == 5, legend(lab(6 &quot;mpg for rep78==5&quot;)) color(orange_red%30)),/// 
+ legend(rows(2)) scheme(`sc2&#39;) title(&quot;scheme = `sc2&#39;&quot;) nodraw name(`sc2&#39;)     
+}
+
+grc1leg s1color ggtest2 plottig plotplain, cols(2)  legendfrom(ggtest2) name(comp3)
+     graph export &quot;comp3.png&quot;, name(comp3) replace 
+</code></pre>
+<div class="figure">
+<img src="comp3.png" />
+
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

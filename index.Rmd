@@ -1,0 +1,49 @@
+---
+output: 
+  html_document: 
+    theme: flatly
+---
+
+<script>
+   $(document).ready(function() {
+     $head = $('#header');
+     $head.prepend('<img src=\"logo_ined.png\" style=\"float: right;width: 150px; padding-top: 30px\"/>')
+   });
+</script>
+
+
+
+<div class="col" style="padding-top: 30px;">
+<div class="col-sm-8">
+
+# STATA
+ [Marc Thevenin](mailto:marc.thevenin@ined.fr)  
+
+
+</div>
+
+
+<div class="col" style="padding-top: 30px;">
+<div class="col-sm-8">
+
+<br><br>
+ 
+<div class="jumbotron">
+<a href="https://www.ined.fr" class="btn btn-success">Site de l'Ined</a>  
+<br>
+<a href="https://sms.site.ined.fr" class="btn btn-primary">Site du service des méthodes statistiques de l'Ined</a>  
+<br>
+<a href="https://statapp.site.ined.fr/fr/presentation" class="btn btn-success">Site des Rencontres de Statistique Appliquée (RSA)</a>  
+<br>
+<a href="https://russ.site.ined.fr" class="btn btn-primary">Site du séminaire R à l'Usage des Sciences Sociales (RUSS)</a>    
+</div>
+
+
+<br><br>
+Pages réalisée avec [Rstudio](href:https://www.rstudio.com), thème graphique de type bootstrap disponible sur le site [bootswatch](https://bootswatch.com/) 
+
+
+
+
+
+
