@@ -254,7 +254,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Stata: Commandes et Utilitaires</a>
+      <a class="navbar-brand" href="index.html"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -311,7 +311,136 @@ div.tocify {
 
 
 <p><br><br></p>
-<p><strong>Pour bientôt</strong></p>
+<div id="fichier-profile.do" class="section level1">
+<h1><span class="header-section-number">1</span> Fichier profile.do</h1>
+<p>Le programme profile.do permet d’exécuter des commandes à l’ouverture d’une session de Stata.<br />
+Le fichier profile.do, s’il n’existe pas, est à coller dans <code>C:\Users\user_name</code> (C =&gt; utilisateurs =&gt; nom_utilisateur). Les fonctionnalités proposées peuvent être désactivées en insérant des zones de commentaires ou tout simplement en les supprimant, ou ajoutée à un profile.do existant.<br />
+Le contenu du profile.do est paramétré ici pour fonctionner sur Windows. Pour l’utiliser sous environnement Linux, il suffit de modifier les chemins d’accès.<br />
+<br> Fonctionnalités proposées:</p>
+<ul>
+<li><p>Affectation d’un répertoire par défaut. Voir « Répertoire de fichiers temporaires ou « trash box » » plus bas.</p></li>
+<li><p>Lecture des .ado dans le lecteur D. Conseillé à l’Ined en raison du système de sauvegarde. Au préalable il convient de coller le répertoire ado qui se trouve normalement sur la racine du lecteur C, dans la racine du lecteur D.</p></li>
+<li><p>désactivation du blocage du défilement de l’output.</p></li>
+<li><p>Activation d’un répertoire « temporaire » (identique au répertoire par défaut) : Voir Répertoire de fichiers temporaires ou « trash box » plus bas.</p></li>
+<li><p>Création d’un fichier log à chaque ouverture de session : voir ci-dessous Création automatique d’un fichier log à l’ouverture d’une session.</p></li>
+<li><p>Paramétrage de la commande <code>rsource</code> (Newson) : pour les personnes désirant exécuter un script R dans un .do. Si l’exécutable de R se trouve dans un emplacement différent que celui paramétré dans le profile.do proposé ici, il suffit de modifier le chemin d’accès.</p></li>
+</ul>
+<p><br> Contenu du fichier profile.do</p>
+<pre><code>**************************
+* profile.do Ined        *
+* M.Thevenin Ined-SMS    *
+**************************
+
+*****************************
+* ado + et personal dans D: *
+***************************** 
+sysdir set PLUS &quot;d:\ado\plus&quot;
+sysdir set PERSONAL &quot;d:\ado\personal&quot;
+
+****************
+** STATA_TEMP **
+****************
+
+*****************************************
+* répertoire par défaut dans Stata_temp *
+*****************************************
+cd &quot;D:/stata_temp/&quot;
+
+*************************************************
+* chargement du répertoire  $tmp dans stata tmp *
+*************************************************
+noisily display as result &quot;Librairie temporaire tmp chargee dans D:stata_temp&quot;
+global tmp &quot;D:/stata_temp/&quot;
+
+*************************************************
+* affichage du contenu du repertoire stata_temp *
+*************************************************
+noisily display as txt    &quot;------------------------------------&quot;
+noisily display as result &quot;  Contenu du repertoire stata_temp  &quot;
+noisily display as txt    &quot;------------------------------------&quot;
+noisily dir &quot;D:/stata_temp/*&quot;
+
+*************************************************
+* chargement du répertoire  $tmp dans stata_temp *
+*************************************************
+noisily display as result &quot;Librairie temporaire tmp chargee dans D:stata_temp/&quot;
+global tmp &quot;D:/stata_temp/&quot;
+
+*******************************************************
+* chargement du répertoire  $sg dans stata_temp/graph *
+*******************************************************
+noisily display as result &quot;Enregistrement des graphs dans D:stata_temp/graph/ avec macro sg&quot;
+global sg &quot;D:/stata_temp/graph/&quot;
+
+******************************************
+* Creation automatique d&#39;un fichier .log *
+******************************************
+capture log close statalog
+local cdt = &quot;`c(current_date)&#39;&quot;
+local cdt: subinstr local cdt &quot; &quot; &quot;-&quot;, all
+local cti = &quot;`c(current_time)&#39;&quot;
+local cti: subinstr local cti &quot;:&quot; &quot;.&quot;, all
+local statalogname &quot;statalog_`cdt&#39;_`cti&#39;.log&quot;
+noisily display &quot;Creation d&#39;un fichier log dans D:/stata_temp/log/&quot;
+noisily display &quot;Nom du log: `statalogname&#39;&quot;
+log using &quot;D:/stata_temp/log/`statalogname&#39;&quot; , text name(statalog)
+noisily display &quot;&quot;
+
+*****************
+* R source path *
+*****************
+global Rterm_path `&quot;C:\Program Files\R\R-3.4.2\bin\i386\R.exe&quot;&#39;
+global Rterm_options `&quot;--slave --vanilla --args  &quot;`tf1&#39;&quot; &quot;`tf2&#39;&quot; &quot;&#39;
+
+
+***************************************************
+* supprimer le blocage du défilement  de l&#39;output *
+***************************************************
+set more off, permanently</code></pre>
+<p><BR></p>
+</div>
+<div id="un-libname" class="section level1">
+<h1><span class="header-section-number">2</span> Un “Libname”&quot;</h1>
+<p>Le principe consiste à affecter plusieurs répertoires de travail en début de programme (cf libname avec Sas).<br />
+On peut en début de programme affecter plusieurs répertoires où se trouvent, par exemple, plusieurs bases de données. On pourra alors faire les manipulations courantes de fichiers enregistrés dans plusieurs répertoires.</p>
+<p><strong>Exemple</strong>: La base b1.dta se trouve dans le répertoire X et la base b2.dta se trouve dans le répertoire Y. Pour affecter les répertoires, on utilise des macros soit locale ou globale. En terme de syntaxe, la macro globale présente un avantage (<code>$nom_macro</code> au lieu de `<code>nom_macro'</code>), il faut néanmoins vérifier qu’un nom de macro global n’est pas déjà utilisé et, de préférence, supprimer la nouvelle macro ou les nouvelles affectés aux répertoires en fin de programme.</p>
+<pre><code>macro list
+
+macro global X “path/X”
+macro global Y “path/Y
+
+use  $X/base1, clear
+sort id
+save $X/base1, replace
+use  $Y/base1, clear
+sort  id
+merge id using $X/base1
+
+macro drop X Y</code></pre>
+<p><BR></p>
+</div>
+<div id="repertoire-temporaires-ou-trash-box" class="section level1">
+<h1><span class="header-section-number">3</span> Répertoire « temporaires » ou « trash box »</h1>
+<p>Stata dispose d’un système d’enregistrement et d’ouverture des fichiers par défaut. A l’Ined il se situe dans la racine du lecteur D (pour vérifier l’emplacement du répertoire par défaut : exécuter <code>pwd</code>).<br />
+Dans un programme, une fois qu’un répertoire est affecté avec la commande <code>cd</code>, ce répertoire par défaut n’est plus identifié comme tel, celui affecté par <code>cd</code> prenant le relais. La solution proposée ici est de créer un répertoire nommé « stata_temp » dans D :/ et d’utiliser soit les commandes dédiées et incluses dans le package <em>stata_commands</em> (<code>tuse</code>, <code>tsave</code>, <code>tdir</code> et <code>terase</code>), soit la macro globale associée <code>$tmp</code>. Le répertoire sera reconnu grâce au profile.do (voir plus haut). Le nom de la macro associé est tmp.</p>
+<p><strong>Les commandes associées</strong>:<br />
+- <code>tuse  nom_base</code> : ouvre une base (identique à use $tmp/nom_base).<br />
+- <code>tsave nom_base</code> : sauvegarde une base (identique à save $tmp/nom_base).<br />
+- <code>tdir  nom_base</code> : affiche le contenu du répertoire stata_temp. A l’ouverture d’une session Stata, le contenu du répertoire est affiché (propriété du profile, on peut supprimer cet affichage).<br />
+- <code>terase [extension fichier]</code>: efface le contenu du répertoire. terase seul supprime tous les fichiers Stata totalement ou par type de fichier (voir le fichier d’aide):<br />
+<code>terase</code><br />
+<code>terase log</code><br />
+<code>terase dta</code></p>
+<p>Pour apparier une ou plusieurs base présente dans ce répertoire, on utilisera le nom de la macro variable <code>$tmp/</code>, par exemple: <code>merge id using $tmp/b1 $tmp/b2</code></p>
+<p>Le nom de la macro peut être modifié dans le profile.do. Par exemple si on préfère que cela soit t au lieu de tmp, il suffit de modifier la ligne <code>global tmp &quot;D:/stata_temp/&quot;</code> par <code>global t &quot;D:/stata_temp/&quot;</code>.</p>
+<p><br></p>
+</div>
+<div id="creation-automatique-dun-fichier-log-a-louverture-dune-session" class="section level1">
+<h1><span class="header-section-number">4</span> Création automatique d’un fichier log à l’ouverture d’une session</h1>
+<p>Ici les fichiers log sont enregistrés dans le sous répertoire « log » du répertoire <strong>stata_temp</strong>. Il faut donc créer ce répertoire (D:stata_temp/log/). Les log sontdirectement générés dans le profile.do (voir ci-dessus).</p>
+<p>En exécutant la commande <code>terase</code> (ou <code>terase log</code>), le log d’une session active ne sera pas supprimé.</p>
+<p>Si l’on souhaite modifier l’emplacement des fichiers log, par exemple de <strong>:D/Stata_temp/log</strong> vers <strong>:D/stata_log</strong>, il suffit de créer un répertoire stata_log dans :D et de modifier la ligne suivante dans le <strong>profile.do</strong> : <code>log using &quot;D:/stata_temp/log/</code>statalogname’&quot; , text name(statalog)<code>par</code>log using “D:/stata_log/<code>statalogname'&quot; , text name(statalog)</code></p>
+</div>
 
 
 
