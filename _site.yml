@@ -1,9 +1,7 @@
 name: ""
-
 output_dir: "."
-
 navbar:
-  title: "Stata: Commandes et Utilitaires"
+  title: ""
   left:
     - text: "Accueil"
       href: index.html

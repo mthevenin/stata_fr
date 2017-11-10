@@ -1,14 +1,13 @@
 ---
 output: 
-  html_document: 
-    theme: flatly
+  html_document:
+    theme: flatly 
 ---
-
 
 <div class="col" style="padding-top: 30px;">
 <div class="col-sm-8">
 
-# STATA
+# Stata: commandes, utilitaires et markdown
  [Marc Thevenin](mailto:marc.thevenin@ined.fr)  
 
 
@@ -32,7 +31,7 @@ output:
 
 
 <br><br>
-Pages réalisée avec [Rstudio](href:https://www.rstudio.com), thème graphique de type bootstrap disponible sur le site [bootswatch](https://bootswatch.com/) 
+Pages réalisées avec [Rstudio](href:https://www.rstudio.com), thème graphique de type bootstrap disponible sur le site [bootswatch](https://bootswatch.com/) 
 
 
 
