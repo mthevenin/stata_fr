@@ -107,7 +107,7 @@ set more off, permanently
 
 <BR>
 
-# Un "Libname""
+# Un "Libname"
 
 Le principe consiste à affecter plusieurs répertoires de travail en début de programme (cf libname avec Sas).  
 On peut en début de programme affecter plusieurs répertoires où se trouvent, par exemple, plusieurs bases de données. On pourra alors faire les manipulations courantes de fichiers enregistrés dans plusieurs répertoires.
@@ -161,11 +161,14 @@ Ici les fichiers log sont enregistrés dans le sous répertoire « log » du réperto
 En exécutant la commande `terase` (ou `terase log`), le log d’une session active ne sera pas supprimé.
  
 
-Si l’on souhaite modifier l’emplacement des fichiers log, par exemple de **:D/Stata_temp/log**  vers  **:D/stata_log**, il suffit de créer un répertoire stata_log dans :D et de modifier la ligne suivante dans le **profile.do** :
-`log using "D:/stata_temp/log/`statalogname'" , text name(statalog)`  
+Si l’on souhaite modifier l’emplacement des fichiers log, par exemple de **:D/Stata_temp/log**  vers  **:D/stata_log**, il suffit de créer un répertoire stata_log dans :D et de modifier la ligne suivante dans le **profile.do** :  
+```{}
+log using "D:/stata_temp/log/`statalogname'" , text name(statalog)`  
+```
 par  
+```{}
 `log using "D:/stata_log/`statalogname'" , text name(statalog)`  
-
+```
 
 
 

@@ -400,7 +400,7 @@ set more off, permanently</code></pre>
 <p><BR></p>
 </div>
 <div id="un-libname" class="section level1">
-<h1><span class="header-section-number">2</span> Un “Libname”&quot;</h1>
+<h1><span class="header-section-number">2</span> Un “Libname”</h1>
 <p>Le principe consiste à affecter plusieurs répertoires de travail en début de programme (cf libname avec Sas).<br />
 On peut en début de programme affecter plusieurs répertoires où se trouvent, par exemple, plusieurs bases de données. On pourra alors faire les manipulations courantes de fichiers enregistrés dans plusieurs répertoires.</p>
 <p><strong>Exemple</strong>: La base b1.dta se trouve dans le répertoire X et la base b2.dta se trouve dans le répertoire Y. Pour affecter les répertoires, on utilise des macros soit locale ou globale. En terme de syntaxe, la macro globale présente un avantage (<code>$nom_macro</code> au lieu de `<code>nom_macro'</code>), il faut néanmoins vérifier qu’un nom de macro global n’est pas déjà utilisé et, de préférence, supprimer la nouvelle macro ou les nouvelles affectés aux répertoires en fin de programme.</p>
@@ -439,7 +439,10 @@ Dans un programme, une fois qu’un répertoire est affecté avec la commande <c
 <h1><span class="header-section-number">4</span> Création automatique d’un fichier log à l’ouverture d’une session</h1>
 <p>Ici les fichiers log sont enregistrés dans le sous répertoire « log » du répertoire <strong>stata_temp</strong>. Il faut donc créer ce répertoire (D:stata_temp/log/). Les log sontdirectement générés dans le profile.do (voir ci-dessus).</p>
 <p>En exécutant la commande <code>terase</code> (ou <code>terase log</code>), le log d’une session active ne sera pas supprimé.</p>
-<p>Si l’on souhaite modifier l’emplacement des fichiers log, par exemple de <strong>:D/Stata_temp/log</strong> vers <strong>:D/stata_log</strong>, il suffit de créer un répertoire stata_log dans :D et de modifier la ligne suivante dans le <strong>profile.do</strong> : <code>log using &quot;D:/stata_temp/log/</code>statalogname’&quot; , text name(statalog)<code>par</code>log using “D:/stata_log/<code>statalogname'&quot; , text name(statalog)</code></p>
+<p>Si l’on souhaite modifier l’emplacement des fichiers log, par exemple de <strong>:D/Stata_temp/log</strong> vers <strong>:D/stata_log</strong>, il suffit de créer un répertoire stata_log dans :D et de modifier la ligne suivante dans le <strong>profile.do</strong> :</p>
+<pre><code>log using &quot;D:/stata_temp/log/`statalogname&#39;&quot; , text name(statalog)`  </code></pre>
+<p>par</p>
+<pre><code>`log using &quot;D:/stata_log/`statalogname&#39;&quot; , text name(statalog)`  </code></pre>
 </div>
 
 
