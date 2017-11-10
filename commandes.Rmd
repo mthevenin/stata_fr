@@ -78,10 +78,19 @@ opts_chunk$set(engine="stata", engine.path=statapath, comment="")
   </table>
 <!--/html_preserve-->
 
+<br>
 
+- **Installation**:  
+Les 6 commandes sont installées directement avec:
+```{}
+net install stata_commands, replace from("https://raw.githubusercontent.com/mthevenin/stata_commands/master/")
+```
+- **Désinstallation**:  
+```{}
+ado uninstall stata_commands
+```
 
-
-
+<br>
 
 # cpairs {.tabset .tabset-fade .tabset-pills}
 
@@ -132,7 +141,7 @@ qui logit low age lwt i.race smoke ptl ht ui
 
 #tmt3{.tabset .tabset-fade .tabset-pills}
 
-Affiche des tests multiples d’hypothèse nulle après un modèle ($b_1=b_2=…b_p=0=$). Utile seulement pour les variables catégorielles à plus de 2 modalités.     
+Affiche des tests multiples d’hypothèse nulle après un modèle ($b_1=b_2=…b_p=0$). Utile seulement pour les variables catégorielles à plus de 2 modalités.     
 
 **Modèles** (vérifiés):  
 regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit  
@@ -174,7 +183,7 @@ La commande `ltable` ne permettant de récupérer directement la fonction d survie
 
 **Estimations des durées de vie avec Stata et Stata* (***voir ce que fait R avec les différents package***):     
 Rappel: la méthode actuarielle est une méthode dite continue, il convient donc d’avoir des bornes ouvertes ou fermées sur chaque intervalle.  
-La définition des bornes diffère entre Sles deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .    
+La définition des bornes diffère entre les deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .    
 
 **Stata** :  $t(i) \leq t < t(i+1)$         
 **Sas**    :  $t(i) < t \leq t(i+1)$       
@@ -223,7 +232,7 @@ Pour le test de Gray, il est exécuté par **R**. Cela nécessite donc  une install
 
 ![](competout.png)
 
-**Note**: ***le document étant généré par **rstudio** et exécutant Stata en mode batch, l'option test(r) ou test(sr) de la commande ne peut pas ici fonctionnée car elle exécute R en mode batch également.***
+**Note**: ***le document étant généré par **rstudio** et exécutant Stata en mode batch, l'option test(r) ou test(sr) de la commande fonctionne pas ici car elle exécute R en mode batch également.***
 
 <br>
 
