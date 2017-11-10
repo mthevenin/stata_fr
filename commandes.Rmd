@@ -67,16 +67,31 @@ opts_chunk$set(engine="stata", engine.path=statapath, comment="")
       <td>gpct</td>
       <td>graphique</td>
       <td>version très provisoire</td>
+    </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> 
     <tr>
       <td>7</td>
       <td>margins_transform</td>
       <td>postestimation</td>
       <td>commande programmée par J.Pitblato (StataCorp LP)</td>
     </tr>       
-    </tr>     
+     
   </tbody>
   </table>
 <!--/html_preserve-->
+
+<br>
+**Badges**    
+<span class="badge badge-info">help file</span>   
+Fichier d'aide dans le package  
+<span class="badge badge-warning">Version provisoire</span>   
+Améliorations à venir  
+
 
 <br>
 
@@ -92,7 +107,11 @@ ado uninstall stata_commands
 
 <br>
 
-# cpairs {.tabset .tabset-fade .tabset-pills}
+# Commandes maison
+
+## cpairs {.tabset .tabset-fade .tabset-pills}
+
+<span class="badge badge-info">help file</span>
 
 Calcule quelques statistiques de mesure de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.   
 Le temps d’exécution de la commande peut être un peu long.  
@@ -115,12 +134,14 @@ proportions de paires concordantes et discordantes, D de Somer, Tau-a, Gamma et 
 
 <br>
 
-# ggof{.tabset .tabset-fade .tabset-pills}
+## ggof{.tabset .tabset-fade .tabset-pills}
+
+<span class="badge badge-info">help file</span>
 
 Sous forme de graphiques combinés, la commande présente des éléments de diagnostique de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.  
 
 **Graphiques**: 
-probabilités prédites vs réponse, courbe de Roc, densités des probabilités prédites selon la réponse.  
+Probabilités prédites vs réponse, courbe de Roc, densités des probabilités prédites selon la réponse.  
 Le graphique affiche également le résultat du test d’Hosmer et Lemeshow pour 10 groupes.
 
 **Syntaxe**:  
@@ -139,7 +160,9 @@ qui logit low age lwt i.race smoke ptl ht ui
 
 <br>
 
-#tmt3{.tabset .tabset-fade .tabset-pills}
+##tmt3{.tabset .tabset-fade .tabset-pills}
+
+<span class="badge badge-info">help file</span>
 
 Affiche des tests multiples d’hypothèse nulle après un modèle ($b_1=b_2=…b_p=0$). Utile seulement pour les variables catégorielles à plus de 2 modalités.     
 
@@ -149,21 +172,21 @@ regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit
 **Syntaxe**: 
 `tmt3 variables`  
 
-##Exemple avec logit
+###Exemple avec logit
 ```{r}
     qui webuse lbw, clear  
     qui logit low age lwt i.race smoke ptl ht ui
     tmt3 race
 ```
     
-##Exemple avec  mlogit
+###Exemple avec  mlogit
 ```{r}
     webuse sysdsn1, clear
     qui mlogit insure age male nonwhite i.site
     tmt3 site
 ```
     
-##Exemple avec regress
+###Exemple avec regress
 ```{r}
     webuse auto, clear
     qui gen gweight=weight
@@ -176,7 +199,7 @@ regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit
 
 <br>
 
-#qlt{.tabset .tabset-fade .tabset-pills}
+##qlt{.tabset .tabset-fade .tabset-pills}
 
 Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande `ltable`).
 La commande `ltable` ne permettant de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option `saving(nom_base)`.  
@@ -213,7 +236,9 @@ Syntaxe:
 <br>
 
 
-#competout{.tabset .tabset-fade .tabset-pills}
+##competout{.tabset .tabset-fade .tabset-pills}
+
+<span class="badge badge-info">help file</span>
 
 **Maj 2017***:
 Voir également la commande stcomlist(***```ssc install stcomlist```***), très proche si l'on excepte la question du test de Gray.***  
@@ -237,13 +262,15 @@ Pour le test de Gray, il est exécuté par **R**. Cela nécessite donc  une install
 <br>
 
 
-#gpct{.tabset .tabset-fade .tabset-pills} 
+##gpct{.tabset .tabset-fade .tabset-pills} 
 
+<span class="badge badge-info">help file</span>
+<span class="badge badge-warning">Version provisoire</span>
 
 ***Améliorations prévues:***   
-- prise en charge des pondérations.   
-- Reporter les intervalles de confiances, avec une option pour les versions de Stata <15 et une option pour la version 15 afin de bénéficier des effets transparenc.    
-- ***Dans le cas d’une variable (Y) binaire, ne tracer qu’une seule courbe avec choix de la modalité***.    
+- prise en charge des pondérations.  
+- Reporter les intervalles de confiances, avec une option pour les versions de Stata <15 et une option pour la version 15 afin de bénéficier des effets de transparence.      
+- Dans le cas d’une variable binaire, ne tracer qu’une seule courbe avec choix de la modalité.  
 
 **gpct** permet de tracer sous forme de courbes des pourcentages issus d’un tableau croisé de type `tab X Y, nof r`.     
 Les labels des courbes sont récupérées à partir des labels des modalités de la variables Y, seulement si ces labels sont compatibles avec des noms de variable Stata.  
@@ -275,7 +302,9 @@ On va tracer les valeurs du tableau:
 <br>
 
 
-#margins_transform
+# Autres auteurs
+
+##margins_transform
 
 Auteur: **J.Pitblado - StataCorp LP**
 

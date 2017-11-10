@@ -254,7 +254,7 @@ div.tocify {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Stata: Commandes et Utilitaires</a>
+      <a class="navbar-brand" href="index.html"></a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -358,16 +358,28 @@ div.tocify {
       <td>gpct</td>
       <td>graphique</td>
       <td>version très provisoire</td>
+    </tr>
+     <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr> 
     <tr>
       <td>7</td>
       <td>margins_transform</td>
       <td>postestimation</td>
       <td>commande programmée par J.Pitblato (StataCorp LP)</td>
     </tr>       
-    </tr>     
+     
   </tbody>
   </table>
 
+<p><br> <strong>Badges</strong><br />
+<span class="badge badge-info">help file</span><br />
+Fichier d’aide dans le package<br />
+<span class="badge badge-warning">Version provisoire</span><br />
+Améliorations à venir</p>
 <p><br></p>
 <ul>
 <li><p><strong>Installation</strong>:<br />
@@ -377,8 +389,11 @@ Les 6 commandes sont installées directement avec:</p>
 <pre><code>ado uninstall stata_commands</code></pre></li>
 </ul>
 <p><br></p>
-<div id="cpairs" class="section level1 tabset tabset-fade tabset-pills">
-<h1><span class="header-section-number">1</span> cpairs</h1>
+<div id="commandes-maison" class="section level1">
+<h1><span class="header-section-number">1</span> Commandes maison</h1>
+<div id="cpairs" class="section level2 tabset tabset-fade tabset-pills">
+<h2><span class="header-section-number">1.1</span> cpairs</h2>
+<p><span class="badge badge-info">help file</span></p>
 <p>Calcule quelques statistiques de mesure de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.<br />
 Le temps d’exécution de la commande peut être un peu long.</p>
 <p><strong>Statistiques</strong>:<br />
@@ -441,10 +456,11 @@ Proportion Discordant =   0.254
                 c-AUC =   0.746</code></pre>
 <p><br></p>
 </div>
-<div id="ggof" class="section level1 tabset tabset-fade tabset-pills">
-<h1><span class="header-section-number">2</span> ggof</h1>
+<div id="ggof" class="section level2 tabset tabset-fade tabset-pills">
+<h2><span class="header-section-number">1.2</span> ggof</h2>
+<p><span class="badge badge-info">help file</span></p>
 <p>Sous forme de graphiques combinés, la commande présente des éléments de diagnostique de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.</p>
-<p><strong>Graphiques</strong>: probabilités prédites vs réponse, courbe de Roc, densités des probabilités prédites selon la réponse.<br />
+<p><strong>Graphiques</strong>: Probabilités prédites vs réponse, courbe de Roc, densités des probabilités prédites selon la réponse.<br />
 Le graphique affiche également le résultat du test d’Hosmer et Lemeshow pour 10 groupes.</p>
 <p><strong>Syntaxe</strong>:<br />
 <code>ggof variable_dependante</code></p>
@@ -466,14 +482,15 @@ qui logit low age lwt i.race smoke ptl ht ui
 </table>
 <p><br></p>
 </div>
-<div id="tmt3" class="section level1 tabset tabset-fade tabset-pills">
-<h1><span class="header-section-number">3</span> tmt3</h1>
-<p>Affiche des tests multiples d’hypothèse nulle après un modèle (<span class="math inline">\(b_1=b_2=…b_p=0=\)</span>). Utile seulement pour les variables catégorielles à plus de 2 modalités.</p>
+<div id="tmt3" class="section level2 tabset tabset-fade tabset-pills">
+<h2><span class="header-section-number">1.3</span> tmt3</h2>
+<p><span class="badge badge-info">help file</span></p>
+<p>Affiche des tests multiples d’hypothèse nulle après un modèle (<span class="math inline">\(b_1=b_2=…b_p=0\)</span>). Utile seulement pour les variables catégorielles à plus de 2 modalités.</p>
 <p><strong>Modèles</strong> (vérifiés):<br />
 regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit</p>
 <p><strong>Syntaxe</strong>: <code>tmt3 variables</code></p>
-<div id="exemple-avec-logit" class="section level2">
-<h2><span class="header-section-number">3.1</span> Exemple avec logit</h2>
+<div id="exemple-avec-logit" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Exemple avec logit</h3>
 <pre class="stata"><code>    qui webuse lbw, clear  
     qui logit low age lwt i.race smoke ptl ht ui
     tmt3 race</code></pre>
@@ -491,8 +508,8 @@ Type-III multiple test for categorical covariable(s) after logit
          race|        2    7.00521      0.030   
 -------------+-----------------------------------</code></pre>
 </div>
-<div id="exemple-avec-mlogit" class="section level2">
-<h2><span class="header-section-number">3.2</span> Exemple avec mlogit</h2>
+<div id="exemple-avec-mlogit" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Exemple avec mlogit</h3>
 <pre class="stata"><code>    webuse sysdsn1, clear
     qui mlogit insure age male nonwhite i.site
     tmt3 site</code></pre>
@@ -519,8 +536,8 @@ For insure = 3
          site|        2    6.80668      0.033   
 -------------+-----------------------------------</code></pre>
 </div>
-<div id="exemple-avec-regress" class="section level2">
-<h2><span class="header-section-number">3.3</span> Exemple avec regress</h2>
+<div id="exemple-avec-regress" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> Exemple avec regress</h3>
 <pre class="stata"><code>    webuse auto, clear
     qui gen gweight=weight
     qui recode gweight min/2239=1 2240/3189=2 3190/3599=3 3600/max=4
@@ -548,12 +565,12 @@ Type-III multiple test for categorical covariable(s) after regress
 <p><br></p>
 </div>
 </div>
-<div id="qlt" class="section level1 tabset tabset-fade tabset-pills">
-<h1><span class="header-section-number">4</span> qlt</h1>
+<div id="qlt" class="section level2 tabset tabset-fade tabset-pills">
+<h2><span class="header-section-number">1.4</span> qlt</h2>
 <p>Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande <code>ltable</code>). La commande <code>ltable</code> ne permettant de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option <code>saving(nom_base)</code>.</p>
 <p><strong>Estimations des durées de vie avec Stata et Stata* (</strong><em>voir ce que fait R avec les différents package</em>**):<br />
 Rappel: la méthode actuarielle est une méthode dite continue, il convient donc d’avoir des bornes ouvertes ou fermées sur chaque intervalle.<br />
-La définition des bornes diffère entre Sles deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .</p>
+La définition des bornes diffère entre les deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .</p>
 <p><strong>Stata</strong> : <span class="math inline">\(t(i) \leq t &lt; t(i+1)\)</span><br />
 <strong>Sas</strong> : <span class="math inline">\(t(i) &lt; t \leq t(i+1)\)</span></p>
 <p>La commande <code>qlt</code> permet de récupérer des tables de survie identiques entre les deux logiciels et donc d’afficher par exemple la même durée médiane.</p>
@@ -616,8 +633,9 @@ end of do-file
 r(101);</code></pre>
 <p><br></p>
 </div>
-<div id="competout" class="section level1 tabset tabset-fade tabset-pills">
-<h1><span class="header-section-number">5</span> competout</h1>
+<div id="competout" class="section level2 tabset tabset-fade tabset-pills">
+<h2><span class="header-section-number">1.5</span> competout</h2>
+<p><span class="badge badge-info">help file</span></p>
 <p><strong>Maj 2017</strong><em>: Voir également la commande stcomlist(</em><strong><code>ssc install stcomlist</code></strong><em>), très proche si l’on excepte la question du test de Gray.</em>**</p>
 <p>Pour la prise en compte des risques concurrents en analyse des durées, <strong>competout</strong> affiche les sous forme de tableau les estimateurs des incidences cumulées, et le graphique associé. En option, plusieurs tests sont exécutés. <strong>competout</strong> utilise des commandes existantes qui seront automatiquement installées si besoin.<br />
 Pour le test de Gray, il est exécuté par <strong>R</strong>. Cela nécessite donc une installation particulière décrite dans le fichier d’aide, mais aucune connaissance du langage R n’est requise (le fichier <strong>competout_gray_test.do</strong> doit se trouver dans le même répertoire que <strong>competout.ado</strong>).</p>
@@ -689,15 +707,16 @@ Chi2(1) = 5.6476  -  p =  0.01748</code></pre>
 <img src="competout.png" />
 
 </div>
-<p><strong>Note</strong>: <em><strong>le document étant généré par </strong>rstudio<strong> et exécutant Stata en mode batch, l’option test(r) ou test(sr) de la commande ne peut pas ici fonctionnée car elle exécute R en mode batch également.</strong></em></p>
+<p><strong>Note</strong>: <em><strong>le document étant généré par </strong>rstudio<strong> et exécutant Stata en mode batch, l’option test(r) ou test(sr) de la commande fonctionne pas ici car elle exécute R en mode batch également.</strong></em></p>
 <p><br></p>
 </div>
-<div id="gpct" class="section level1 tabset tabset-fade tabset-pills">
-<h1><span class="header-section-number">6</span> gpct</h1>
+<div id="gpct" class="section level2 tabset tabset-fade tabset-pills">
+<h2><span class="header-section-number">1.6</span> gpct</h2>
+<p><span class="badge badge-info">help file</span> <span class="badge badge-warning">Version provisoire</span></p>
 <p><strong><em>Améliorations prévues:</em></strong><br />
 - prise en charge des pondérations.<br />
-- Reporter les intervalles de confiances, avec une option pour les versions de Stata &lt;15 et une option pour la version 15 afin de bénéficier des effets transparenc.<br />
-- <strong><em>Dans le cas d’une variable (Y) binaire, ne tracer qu’une seule courbe avec choix de la modalité</em></strong>.</p>
+- Reporter les intervalles de confiances, avec une option pour les versions de Stata &lt;15 et une option pour la version 15 afin de bénéficier des effets de transparence.<br />
+- Dans le cas d’une variable binaire, ne tracer qu’une seule courbe avec choix de la modalité.</p>
 <p><strong>gpct</strong> permet de tracer sous forme de courbes des pourcentages issus d’un tableau croisé de type <code>tab X Y, nof r</code>.<br />
 Les labels des courbes sont récupérées à partir des labels des modalités de la variables Y, seulement si ces labels sont compatibles avec des noms de variable Stata.</p>
 <p><strong>Syntaxe</strong>:<br />
@@ -738,8 +757,11 @@ r(199);</code></pre>
 </div>
 <p><br></p>
 </div>
-<div id="margins_transform" class="section level1">
-<h1><span class="header-section-number">7</span> margins_transform</h1>
+</div>
+<div id="autres-auteurs" class="section level1">
+<h1><span class="header-section-number">2</span> Autres auteurs</h1>
+<div id="margins_transform" class="section level2">
+<h2><span class="header-section-number">2.1</span> margins_transform</h2>
 <p>Auteur: <strong>J.Pitblado - StataCorp LP</strong></p>
 <p>Correction des bornes des intervalles de confiances des valeurs prédites moyennes générées par <code>margins</code> [avec option <code>predict()</code>]<br />
 Appliquées à un modèle non linéaire, la commande margins renvoie des valeurs erronées aux bornes des intervalles de confiance des valeurs prédites moyennes ajustées. Cela se traduit, par exemple, par des valeurs négatives ou supérieures à un lorsqu’il s’agit d’estimer des probabilités. Dans le cas de la commande margins, le changement d’échelle est effectué immédiatement une fois la combinaison linéaire définie, le calcul de la variance et des bornes venant ensuite ; alors que la méthode correcte consiste à calculer la variance et les bornes sur la combinaison linéaire ajustée, le changement d’échelle s’effectuant en toute fin.<br />
@@ -819,6 +841,7 @@ Expression   : Pr(foreign), predict()
           7  |  .7707955   .4519781     .93203
           8  |  .8820117   .5300384   .9802168
 ----------------------------------------------</code></pre>
+</div>
 </div>
 
 
