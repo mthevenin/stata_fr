@@ -568,7 +568,7 @@ Type-III multiple test for categorical covariable(s) after regress
 <div id="qlt" class="section level2 tabset tabset-fade tabset-pills">
 <h2><span class="header-section-number">1.4</span> qlt</h2>
 <p>Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande <code>ltable</code>). La commande <code>ltable</code> ne permettant de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option <code>saving(nom_base)</code>.</p>
-<p><strong>Estimations des durées de vie avec Stata et Stata* (</strong><em>voir ce que fait R avec les différents package</em>**):<br />
+<p><strong>Estimations des durées de vie avec Stata et Stata</strong> (voir ce que fait R avec):<br />
 Rappel: la méthode actuarielle est une méthode dite continue, il convient donc d’avoir des bornes ouvertes ou fermées sur chaque intervalle.<br />
 La définition des bornes diffère entre les deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .</p>
 <p><strong>Stata</strong> : <span class="math inline">\(t(i) \leq t &lt; t(i+1)\)</span><br />
@@ -581,12 +581,10 @@ La définition des bornes diffère entre les deux logiciels, ce qui génère des
     ltable t died, saving(lt, replace) interval(10) by(group)
     use lt, clear
     qlt if group==1
-    use lt, clear
       qlt if group==1, sas
     list
       use lt, clear
     qlt if group==2
-    use lt, clear
       qlt if group==2, sas
       list</code></pre>
 <pre><code> .     webuse rat, clear
@@ -626,11 +624,85 @@ group = 2
 .     use lt, clear
 
 .     qlt if group==1
-if not allowed
-r(101);
+Duree pour differents quantiles de la fonction de survie
+Definition des bornes Stata-ltable
+S(t)=0.90: t=  158.000
+S(t)=0.75: t=  183.750
+S(t)=0.50: t=  207.159
+S(t)=0.25: t=  228.663
+S(t)=0.10: t=  256.103
 
-end of do-file
-r(101);</code></pre>
+.           qlt if group==1, sas
+Duree pour differents quantiles de la fonction de survie
+Definition des bornes Sas-lifetest
+S(t)=0.90: t=  178.000
+S(t)=0.75: t=  193.750
+S(t)=0.50: t=  217.159
+S(t)=0.25: t=  238.663
+S(t)=0.10: t=  292.205
+
+.         list
+
+     +---------------------------------------------------------------+
+     | group    t0    t1   survival   sesurv~l   lsurvi~l   usurvi~l |
+     |---------------------------------------------------------------|
+  1. |     1   140   150          1          .          .          . |
+  2. |     1   160   170   .9473684   1.000122   .6811868   .9924147 |
+  3. |     1   180   190   .8947368   .7074713   .6407943   .9725854 |
+  4. |     1   190   200   .7894737    .501165   .5319127   .9152861 |
+  5. |     1   200   210   .6842105   .4107024   .4279406   .8439419 |
+     |---------------------------------------------------------------|
+  6. |     1   210   220   .5789474   .3579703   .3320811   .7626399 |
+  7. |     1   220   230   .4686717   .3250582   .2385695   .6698043 |
+  8. |     1   230   240   .3515038   .3059934   .1488843   .5632942 |
+  9. |     1   240   250   .2343358    .296977   .0745044   .4445302 |
+ 10. |     1   260   270   .1673827   .3064088   .0384353   .3751437 |
+     |---------------------------------------------------------------|
+ 11. |     1   300   310   .0836914   .3605598   .0065463   .2941596 |
+ 12. |     1   310     .          0   .3605598          .          . |
+     +---------------------------------------------------------------+
+
+.           use lt, clear
+
+.     qlt if group==2
+Duree pour differents quantiles de la fonction de survie
+Definition des bornes Stata-ltable
+S(t)=0.90: t=  151.000
+S(t)=0.75: t=  200.884
+S(t)=0.50: t=  222.018
+S(t)=0.25: t=  270.688
+S(t)=0.10: t=  290.825
+
+.           qlt if group==2, sas
+Duree pour differents quantiles de la fonction de survie
+Definition des bornes Sas-lifetest
+S(t)=0.90: t=  163.000
+S(t)=0.75: t=  230.295
+S(t)=0.50: t=  237.339
+S(t)=0.25: t=  285.344
+S(t)=0.10: t=  320.550
+
+.           list
+
+     +---------------------------------------------------------------+
+     | group    t0    t1   survival   sesurv~l   lsurvi~l   usurvi~l |
+     |---------------------------------------------------------------|
+  1. |     2   140   150          1          .          .          . |
+  2. |     2   150   160    .952381   1.000099   .7072068   .9931521 |
+  3. |     2   160   170   .9047619   .7074019   .6700459   .9752942 |
+  4. |     2   190   200   .8571429    .577922    .619718   .9515517 |
+  5. |     2   200   210   .8095238   .5009308   .5689051   .9238889 |
+     |---------------------------------------------------------------|
+  6. |     2   230   240   .7604617   .4489701   .5167726   .8926294 |
+  7. |     2   240   250   .4055796   .3003117   .1967718   .6059566 |
+  8. |     2   260   270   .3548822   .2916758   .1596231   .5571687 |
+  9. |     2   280   290   .3041847    .285085   .1248152    .506286 |
+ 10. |     2   290   300   .2027898   .2791921   .0634287   .3972666 |
+     |---------------------------------------------------------------|
+ 11. |     2   320   330   .1013949    .292591   .0172292   .2753105 |
+ 12. |     2   340   350   .0506974   .3266003   .0034972   .2076033 |
+ 13. |     2   350     .   .0506974   .3266003   .0034972   .2076033 |
+     +---------------------------------------------------------------+</code></pre>
 <p><br></p>
 </div>
 <div id="competout" class="section level2 tabset tabset-fade tabset-pills">
