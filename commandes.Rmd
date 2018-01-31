@@ -18,6 +18,7 @@ opts_chunk$set(engine="stata", engine.path=statapath, comment="")
 
 
 <BR><BR>
+
 **Contenu**  
 
 <!--html_preserve-->
@@ -89,8 +90,10 @@ Améliorations prévues
 
 <br>
 
+# Commandes
+
 - **Installation**:  
-Les 6 commandes sont installées directement avec:
+Les 5 commandes sont installées directement avec:
 ```{}
 net install stata_commands, replace from("https://raw.githubusercontent.com/mthevenin/stata_commands/master/")
 ```
@@ -98,6 +101,7 @@ net install stata_commands, replace from("https://raw.githubusercontent.com/mthe
 ```{}
 ado uninstall stata_commands
 ```
+
 
 
 <br>
