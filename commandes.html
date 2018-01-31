@@ -324,12 +324,6 @@ div.tocify {
 <tbody>
    
     <tr>
-      <td>1</td>
-      <td>cpairs</td>
-      <td>qualité de l'ajustement</td>
-      <td></td>
-    </tr>  
-    <tr>
       <td>2</td>
       <td>ggof</td>
       <td>qualité de l'ajustement</td>
@@ -375,11 +369,11 @@ div.tocify {
   </tbody>
   </table>
 
-<p><br> <strong>Badges</strong><br />
+<p><br> <strong>Tags</strong><br />
 <span class="badge badge-info">help file</span><br />
-Fichier d’aide dans le package<br />
+Fichier d’aide associé à la commande<br />
 <span class="badge badge-warning">Version provisoire</span><br />
-Améliorations à venir</p>
+Améliorations prévues</p>
 <p><br></p>
 <ul>
 <li><p><strong>Installation</strong>:<br />
@@ -389,75 +383,8 @@ Les 6 commandes sont installées directement avec:</p>
 <pre><code>ado uninstall stata_commands</code></pre></li>
 </ul>
 <p><br></p>
-<div id="commandes-maison" class="section level1">
-<h1><span class="header-section-number">1</span> Commandes maison</h1>
-<div id="cpairs" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.1</span> cpairs</h2>
-<p><span class="badge badge-info">help file</span></p>
-<p>Calcule quelques statistiques de mesure de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.<br />
-Le temps d’exécution de la commande peut être un peu long.</p>
-<p><strong>Statistiques</strong>:<br />
-proportions de paires concordantes et discordantes, D de Somer, Tau-a, Gamma et aire sous la courbe de ROC (c-AUC)</p>
-<p><strong>Syntaxe</strong>:<br />
-<code>cpairs variable_dependante</code></p>
-<p><strong>Exemple</strong>:</p>
-<pre class="stata"><code>    webuse lbw, clear  
-    logit low age lwt i.race smoke ptl ht ui, cformat(%9.2f) pformat(%5.3f) sformat(%8.3f)  
-
-    cpairs low  </code></pre>
-<pre><code> .     webuse lbw, clear  
-(Hosmer &amp; Lemeshow data)
-
-.     logit low age lwt i.race smoke ptl ht ui, cformat(%9.2f) pformat(%5.3f) s
-&gt; format(%8.3f)  
-
-Iteration 0:   log likelihood =   -117.336  
-Iteration 1:   log likelihood = -101.28644  
-Iteration 2:   log likelihood = -100.72617  
-Iteration 3:   log likelihood =   -100.724  
-Iteration 4:   log likelihood =   -100.724  
-
-Logistic regression                             Number of obs     =        189
-                                                LR chi2(8)        =      33.22
-                                                Prob &gt; chi2       =     0.0001
-Log likelihood =   -100.724                     Pseudo R2         =     0.1416
-
-------------------------------------------------------------------------------
-         low |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         age |      -0.03       0.04   -0.743   0.457        -0.10        0.04
-         lwt |      -0.02       0.01   -2.188   0.029        -0.03       -0.00
-             |
-        race |
-      black  |       1.26       0.53    2.399   0.016         0.23        2.29
-      other  |       0.86       0.44    1.963   0.050         0.00        1.72
-             |
-       smoke |       0.92       0.40    2.304   0.021         0.14        1.71
-         ptl |       0.54       0.35    1.565   0.118        -0.14        1.22
-          ht |       1.83       0.69    2.650   0.008         0.48        3.19
-          ui |       0.76       0.46    1.651   0.099        -0.14        1.66
-       _cons |       0.46       1.20    0.383   0.702        -1.90        2.82
-------------------------------------------------------------------------------
-
-. 
-.     cpairs low  
-
-Association of Predicted Probabilities and Observed Responses
-
-      Number of pairs =    7670
-
-Proportion Concordant =   0.746
-Proportion Discordant =   0.254
-      Proportion Tied =   0.000
-
-            Somer&#39;s D =   0.492
-                Gamma =   0.493
-                Tau-a =   0.213
-                c-AUC =   0.746</code></pre>
-<p><br></p>
-</div>
 <div id="ggof" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.2</span> ggof</h2>
+<h2><span class="header-section-number">0.1</span> ggof</h2>
 <p><span class="badge badge-info">help file</span></p>
 <p>Sous forme de graphiques combinés, la commande présente des éléments de diagnostique de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.</p>
 <p><strong>Graphiques</strong>: Probabilités prédites vs réponse, courbe de Roc, densités des probabilités prédites selon la réponse.<br />
@@ -483,14 +410,14 @@ qui logit low age lwt i.race smoke ptl ht ui
 <p><br></p>
 </div>
 <div id="tmt3" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.3</span> tmt3</h2>
+<h2><span class="header-section-number">0.2</span> tmt3</h2>
 <p><span class="badge badge-info">help file</span></p>
 <p>Affiche des tests multiples d’hypothèse nulle après un modèle (<span class="math inline">\(b_1=b_2=…b_p=0\)</span>). Utile seulement pour les variables catégorielles à plus de 2 modalités.</p>
 <p><strong>Modèles</strong> (vérifiés):<br />
 regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit</p>
 <p><strong>Syntaxe</strong>: <code>tmt3 variables</code></p>
 <div id="exemple-avec-logit" class="section level3">
-<h3><span class="header-section-number">1.3.1</span> Exemple avec logit</h3>
+<h3><span class="header-section-number">0.2.1</span> Exemple avec logit</h3>
 <pre class="stata"><code>    qui webuse lbw, clear  
     qui logit low age lwt i.race smoke ptl ht ui
     tmt3 race</code></pre>
@@ -509,7 +436,7 @@ Type-III multiple test for categorical covariable(s) after logit
 -------------+-----------------------------------</code></pre>
 </div>
 <div id="exemple-avec-mlogit" class="section level3">
-<h3><span class="header-section-number">1.3.2</span> Exemple avec mlogit</h3>
+<h3><span class="header-section-number">0.2.2</span> Exemple avec mlogit</h3>
 <pre class="stata"><code>    webuse sysdsn1, clear
     qui mlogit insure age male nonwhite i.site
     tmt3 site</code></pre>
@@ -537,7 +464,7 @@ For insure = 3
 -------------+-----------------------------------</code></pre>
 </div>
 <div id="exemple-avec-regress" class="section level3">
-<h3><span class="header-section-number">1.3.3</span> Exemple avec regress</h3>
+<h3><span class="header-section-number">0.2.3</span> Exemple avec regress</h3>
 <pre class="stata"><code>    webuse auto, clear
     qui gen gweight=weight
     qui recode gweight min/2239=1 2240/3189=2 3190/3599=3 3600/max=4
@@ -566,9 +493,9 @@ Type-III multiple test for categorical covariable(s) after regress
 </div>
 </div>
 <div id="qlt" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.4</span> qlt</h2>
+<h2><span class="header-section-number">0.3</span> qlt</h2>
 <p>Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande <code>ltable</code>). La commande <code>ltable</code> ne permettant de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option <code>saving(nom_base)</code>.</p>
-<p><strong>Estimations des durées de vie avec Stata et Stata</strong> (voir ce que fait R avec):<br />
+<p><strong>Estimations des durées de vie avec Stata et Stata</strong> (voir ce que fait R):<br />
 Rappel: la méthode actuarielle est une méthode dite continue, il convient donc d’avoir des bornes ouvertes ou fermées sur chaque intervalle.<br />
 La définition des bornes diffère entre les deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .</p>
 <p><strong>Stata</strong> : <span class="math inline">\(t(i) \leq t &lt; t(i+1)\)</span><br />
@@ -706,7 +633,7 @@ S(t)=0.10: t=  320.550
 <p><br></p>
 </div>
 <div id="competout" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.5</span> competout</h2>
+<h2><span class="header-section-number">0.4</span> competout</h2>
 <p><span class="badge badge-info">help file</span></p>
 <p><strong>Maj 2017</strong><em>: Voir également la commande stcomlist(</em><strong><code>ssc install stcomlist</code></strong><em>), très proche si l’on excepte la question du test de Gray.</em>**</p>
 <p>Pour la prise en compte des risques concurrents en analyse des durées, <strong>competout</strong> affiche les sous forme de tableau les estimateurs des incidences cumulées, et le graphique associé. En option, plusieurs tests sont exécutés. <strong>competout</strong> utilise des commandes existantes qui seront automatiquement installées si besoin.<br />
@@ -783,7 +710,7 @@ Chi2(1) = 5.6476  -  p =  0.01748</code></pre>
 <p><br></p>
 </div>
 <div id="gpct" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.6</span> gpct</h2>
+<h2><span class="header-section-number">0.5</span> gpct</h2>
 <p><span class="badge badge-info">help file</span> <span class="badge badge-warning">Version provisoire</span></p>
 <p><strong><em>Améliorations prévues:</em></strong><br />
 - prise en charge des pondérations.<br />
@@ -829,11 +756,10 @@ r(199);</code></pre>
 </div>
 <p><br></p>
 </div>
-</div>
 <div id="autres-auteurs" class="section level1">
-<h1><span class="header-section-number">2</span> Autres auteurs</h1>
+<h1><span class="header-section-number">1</span> Autres auteurs</h1>
 <div id="margins_transform" class="section level2">
-<h2><span class="header-section-number">2.1</span> margins_transform</h2>
+<h2><span class="header-section-number">1.1</span> margins_transform</h2>
 <p>Auteur: <strong>J.Pitblado - StataCorp LP</strong></p>
 <p>Correction des bornes des intervalles de confiances des valeurs prédites moyennes générées par <code>margins</code> [avec option <code>predict()</code>]<br />
 Appliquées à un modèle non linéaire, la commande margins renvoie des valeurs erronées aux bornes des intervalles de confiance des valeurs prédites moyennes ajustées. Cela se traduit, par exemple, par des valeurs négatives ou supérieures à un lorsqu’il s’agit d’estimer des probabilités. Dans le cas de la commande margins, le changement d’échelle est effectué immédiatement une fois la combinaison linéaire définie, le calcul de la variance et des bornes venant ensuite ; alors que la méthode correcte consiste à calculer la variance et les bornes sur la combinaison linéaire ajustée, le changement d’échelle s’effectuant en toute fin.<br />

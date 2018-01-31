@@ -33,12 +33,6 @@ opts_chunk$set(engine="stata", engine.path=statapath, comment="")
 <tbody>
    
     <tr>
-      <td>1</td>
-      <td>cpairs</td>
-      <td>qualité de l'ajustement</td>
-      <td></td>
-    </tr>  
-    <tr>
       <td>2</td>
       <td>ggof</td>
       <td>qualité de l'ajustement</td>
@@ -86,11 +80,11 @@ opts_chunk$set(engine="stata", engine.path=statapath, comment="")
 <!--/html_preserve-->
 
 <br>
-**Badges**    
+**Tags**    
 <span class="badge badge-info">help file</span>   
-Fichier d'aide dans le package  
+Fichier d'aide associé à la commande  
 <span class="badge badge-warning">Version provisoire</span>   
-Améliorations à venir  
+Améliorations prévues
 
 
 <br>
@@ -105,32 +99,6 @@ net install stata_commands, replace from("https://raw.githubusercontent.com/mthe
 ado uninstall stata_commands
 ```
 
-<br>
-
-# Commandes maison
-
-## cpairs {.tabset .tabset-fade .tabset-pills}
-
-<span class="badge badge-info">help file</span>
-
-Calcule quelques statistiques de mesure de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.   
-Le temps d’exécution de la commande peut être un peu long.  
-  
-**Statistiques**:    
-proportions de paires concordantes et discordantes, D de Somer, Tau-a, Gamma et aire sous la courbe de ROC (c-AUC)
-
-
-**Syntaxe**:   
-`cpairs variable_dependante`  
-
-
-**Exemple**:  
-```{r}    
-    webuse lbw, clear  
-    logit low age lwt i.race smoke ptl ht ui, cformat(%9.2f) pformat(%5.3f) sformat(%8.3f)  
-
-    cpairs low  
-```
 
 <br>
 
@@ -204,12 +172,12 @@ regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit
 Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande `ltable`).
 La commande `ltable` ne permettant de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option `saving(nom_base)`.  
 
-**Estimations des durées de vie avec Stata et Stata* (***voir ce que fait R avec les différents package***):     
+**Estimations des durées de vie avec Stata et Stata** (voir ce que fait R):     
 Rappel: la méthode actuarielle est une méthode dite continue, il convient donc d’avoir des bornes ouvertes ou fermées sur chaque intervalle.  
 La définition des bornes diffère entre les deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .    
 
-**Stata** :  $t(i) \leq t < t(i+1)$         
-**Sas**    :  $t(i) < t \leq t(i+1)$       
+**Stata** :   $t(i) \leq t < t(i+1)$         
+**Sas**   :   $t(i) < t \leq t(i+1)$       
 
 
 La commande `qlt` permet de récupérer des tables de survie identiques entre les deux logiciels et donc d’afficher par exemple la même durée médiane.
@@ -223,12 +191,10 @@ Syntaxe:
     ltable t died, saving(lt, replace) interval(10) by(group)
     use lt, clear
     qlt if group==1
-  	use lt, clear
 	  qlt if group==1, sas
   	list
 	  use lt, clear
     qlt if group==2
-  	use lt, clear
 	  qlt if group==2, sas
 	  list
 ```	  
