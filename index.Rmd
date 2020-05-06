@@ -1,0 +1,29 @@
+---
+output: 
+  html_document:
+    theme: flatly 
+---
+
+# Stata: Commandes, utilitaires, graphiques et Python
+ [Marc Thevenin](mailto:marc.thevenin@ined.fr)  
+
+<br><br>
+Grosse mise à jour en cours (au fil de l'eau en 2020): 
+
+- Ajout de commandes: ```diffrmst``` et ```stphcure``` en analyse des durées
+- Maj de la commande ```gpct```: calcul et report sur le graphique des intervalles de confiance
+- Suppression de la partie sur le markdown, qui n'a jamais été faite. Des liens et quelques commentaires seront données dans la page *utilitaire*
+- Ajout d'une page sur l'utilisation de Python avec Stata (depuis la version 16 - printemps 2019)
+- Une véritable section dédiée aux graphiques
+
+
+<br><br>
+*Liens Ined*   
+Site de l'Ined: https://www.ined.fr  
+Site du service des méthodes statistiques: https://sms.site.ined.fr  
+Site des Rencontres de Statistique Appliquée: https://statapp.site.ined.fr/fr/presentation   
+Site du séminaire R à l'Usage des Sciences Sociales (RUSS): https://russ.site.ined.fr
+
+
+<br><br>
+Pages réalisées avec [Rstudio](href:https://www.rstudio.com), thèmes graphiques de type bootstrap disponibles sur le site [bootswatch](https://bootswatch.com/) 
