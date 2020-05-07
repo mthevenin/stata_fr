@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title></title>
+<title>commandes.utf8</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -55,9 +55,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -71,13 +69,18 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -93,7 +96,6 @@ body {
   padding-top: 65px;
   margin-top: -65px;
 }
-
 .section h2 {
   padding-top: 65px;
   margin-top: -65px;
@@ -113,6 +115,43 @@ body {
 .section h6 {
   padding-top: 65px;
   margin-top: -65px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -134,47 +173,66 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -188,6 +246,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -223,8 +287,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -233,6 +295,16 @@ div.tocify {
 
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -259,40 +331,19 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Accueil</a>
+  <a href="index.html">Stata</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Analyse
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="commandes.html">Commandes</a>
-    </li>
-    <li>
-      <a href="scheme.html">Thèmes graphiques</a>
-    </li>
-  </ul>
+<li>
+  <a href="commandes.html">Commandes</a>
+</li>
+<li>
+  <a href="scheme.html">Graphiques</a>
 </li>
 <li>
   <a href="utils.html">Utilitaires</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Markdown
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="mdstata.html">Avec Stata</a>
-    </li>
-    <li>
-      <a href="mdrmarkdown.html">Avec Rmarkdown</a>
-    </li>
-  </ul>
+<li>
+  <a href="utils.html">Python</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -325,84 +376,76 @@ div.tocify {
 <tbody>
    
     <tr>
-      <td>2</td>
+      <td>1</td>
       <td>ggof</td>
       <td>qualité de l'ajustement</td>
       <td></td>
     </tr>
     <tr>
-      <td>3</td>
+      <td>2</td>
       <td>tmt3</td>
       <td>test paramètres</td>
       <td></td>
     </tr> 
     <tr>
-      <td>4</td>
+      <td>3</td>
       <td>qlt</td>
-      <td>analyse de survie</td>
+      <td>analyse des durées</td>
       <td></td>
     </tr>   
     <tr>
-      <td>5</td>
+      <td>4</td>
       <td>competout</td>
       <td>analyse de survie</td>
       <td></td>
     </tr> 
     <tr>
-      <td>6</td>
+      <td>5</td>
       <td>gpct</td>
       <td>graphique</td>
-      <td>version très provisoire</td>
+      <td>maj 2020</td>
     </tr>
      <tr>
-      <td></td>
-      <td></td>
-      <td></td>
-      <td></td>
-    </tr> 
-    <tr>
+      <td>6</td>
+      <td>diffrmst</td>
+      <td>Analyse des durées</td>
+      <td>Ajout 2020</td>
+    </tr>
+         <tr>
       <td>7</td>
-      <td>margins_transform</td>
-      <td>postestimation</td>
-      <td>commande programmée par J.Pitblato (StataCorp LP)</td>
-    </tr>       
+      <td>stphcure</td>
+      <td>Analyse des durées</td>
+      <td>Ajout fin 2020</td>
+    </tr>
+     
      
   </tbody>
   </table>
 
-<p><br> <strong>Tags</strong><br />
-<span class="badge badge-info">help file</span><br />
-Fichier d’aide associé à la commande<br />
-<span class="badge badge-warning">Version provisoire</span><br />
-Améliorations prévues</p>
-<p><br></p>
-<div id="commandes" class="section level1">
-<h1><span class="header-section-number">1</span> Commandes</h1>
+<p><br> <br></p>
 <ul>
-<li><p><strong>Installation</strong>:<br />
-Les 5 commandes sont installées directement avec:</p>
-<pre><code>net install stata_commands, replace from(&quot;https://raw.githubusercontent.com/mthevenin/stata_commands/master/&quot;)</code></pre></li>
-<li><p><strong>Désinstallation</strong>:</p>
-<pre><code>ado uninstall stata_commands</code></pre></li>
+<li><strong>Installation</strong>:<br />
+Les commandes peuvent être installées directement avec:</li>
 </ul>
+<pre><code>net install stata_commands, replace from(&quot;https://raw.githubusercontent.com/mthevenin/stata_commands/master/&quot;)</code></pre>
+<ul>
+<li><strong>Désinstallation</strong>:<br />
+</li>
+</ul>
+<pre><code>ado uninstall stata_commands</code></pre>
 <p><br></p>
-<div id="ggof" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.1</span> ggof</h2>
+<div id="ggof" class="section level1 tabset tabset-fade tabset-pills">
+<h1><span class="header-section-number">1</span> ggof</h1>
 <p><span class="badge badge-info">help file</span></p>
-<p>Sous forme de graphiques combinés, la commande présente des éléments de diagnostique de la qualité de l’ajustement après un modèle de type logit, probit, cloglog.</p>
+<p>Sous forme de graphiques combinés, la commande présente des éléments de diagnostique de la qualité de l?ajustement après un modèle de type logit, probit, cloglog.</p>
 <p><strong>Graphiques</strong>: Probabilités prédites vs réponse, courbe de Roc, densités des probabilités prédites selon la réponse.<br />
 Le graphique affiche également le résultat du test d’Hosmer et Lemeshow pour 10 groupes.</p>
 <p><strong>Syntaxe</strong>:<br />
 <code>ggof variable_dependante</code></p>
 <p><strong>Exemple</strong>:</p>
-<pre class="stata"><code>qui webuse lbw, clear  
+<pre><code>qui webuse lbw, clear  
 qui logit low age lwt i.race smoke ptl ht ui
     ggof low</code></pre>
-<pre><code> . qui webuse lbw, clear  
-
-. qui logit low age lwt i.race smoke ptl ht ui
-
-.     ggof low</code></pre>
 <table>
 <tbody>
 <tr class="odd">
@@ -412,23 +455,17 @@ qui logit low age lwt i.race smoke ptl ht ui
 </table>
 <p><br></p>
 </div>
-<div id="tmt3" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.2</span> tmt3</h2>
+<div id="tmt3" class="section level1 tabset tabset-fade tabset-pills">
+<h1><span class="header-section-number">2</span> tmt3</h1>
 <p><span class="badge badge-info">help file</span></p>
-<p>Affiche des tests multiples d’hypothèse nulle après un modèle (<span class="math inline">\(b_1=b_2=…b_p=0\)</span>). Utile seulement pour les variables catégorielles à plus de 2 modalités.</p>
+<p>Affiche des tests multiples d’hypothèse nulle après un modèle (<span class="math inline">\(b_1=b_2=...=b_p=0\)</span>). Utile seulement pour les variables catégorielles avec plus de 2 modalités.</p>
 <p><strong>Modèles</strong> (vérifiés):<br />
 regress, logit, probit, cloglog, poisson, nbreg, cox, mlogit, ologit, oprobit</p>
 <p><strong>Syntaxe</strong>: <code>tmt3 variables</code></p>
-<div id="exemple-avec-logit" class="section level3">
-<h3><span class="header-section-number">1.2.1</span> Exemple avec logit</h3>
-<pre class="stata"><code>    qui webuse lbw, clear  
+<p><em>Exemple avec logit</em></p>
+<pre><code>    qui webuse lbw, clear  
     qui logit low age lwt i.race smoke ptl ht ui
-    tmt3 race</code></pre>
-<pre><code> .     qui webuse lbw, clear  
-
-.     qui logit low age lwt i.race smoke ptl ht ui
-
-.     tmt3 race
+    tmt3 race
 
 Type-III multiple test for categorical covariable(s) after logit
 
@@ -436,19 +473,15 @@ Type-III multiple test for categorical covariable(s) after logit
    Variables |       df      Khi2      Prob&gt;chi2
 -------------+-----------------------------------
          race|        2    7.00521      0.030   
--------------+-----------------------------------</code></pre>
-</div>
-<div id="exemple-avec-mlogit" class="section level3">
-<h3><span class="header-section-number">1.2.2</span> Exemple avec mlogit</h3>
-<pre class="stata"><code>    webuse sysdsn1, clear
+-------------+-----------------------------------
+
+    
+    </code></pre>
+<p><em>Exemple avec mlogit</em></p>
+<pre><code>    webuse sysdsn1, clear
     qui mlogit insure age male nonwhite i.site
-    tmt3 site</code></pre>
-<pre><code> .     webuse sysdsn1, clear
-(Health insurance data)
+    tmt3 site
 
-.     qui mlogit insure age male nonwhite i.site
-
-.     tmt3 site
 
 Type-III multiple test for categorical covariable(s) after mlogit
 
@@ -464,26 +497,14 @@ For insure = 3
    Variables |       df      Khi2      Prob&gt;chi2
 -------------+-----------------------------------
          site|        2    6.80668      0.033   
--------------+-----------------------------------</code></pre>
-</div>
-<div id="exemple-avec-regress" class="section level3">
-<h3><span class="header-section-number">1.2.3</span> Exemple avec regress</h3>
-<pre class="stata"><code>    webuse auto, clear
+        </code></pre>
+<p><em>Exemple avec regress</em></p>
+<pre><code>    webuse auto, clear
     qui gen gweight=weight
     qui recode gweight min/2239=1 2240/3189=2 3190/3599=3 3600/max=4
     qui regress mpg ib2.gweight ib2.rep78 i.foreign
-    tmt3 gweight rep78</code></pre>
-<pre><code> .     webuse auto, clear
-(1978 Automobile Data)
-
-.     qui gen gweight=weight
-
-.     qui recode gweight min/2239=1 2240/3189=2 3190/3599=3 3600/max=4
-
-.     qui regress mpg ib2.gweight ib2.rep78 i.foreign
-
-.     tmt3 gweight rep78
-
+    tmt3 gweight rep78
+    
 Type-III multiple test for categorical covariable(s) after regress
 
 -------------+--------------------------
@@ -491,69 +512,27 @@ Type-III multiple test for categorical covariable(s) after regress
 -------------+--------------------------
       gweight| (3,60)    31.5   0.000
         rep78| (4,60)    2.65   0.042
--------------+--------------------------</code></pre>
+-------------+--------------------------
+    </code></pre>
 <p><br></p>
 </div>
-</div>
-<div id="qlt" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.3</span> qlt</h2>
-<p>Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande <code>ltable</code>). La commande <code>ltable</code> ne permettant de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option <code>saving(nom_base)</code>.</p>
-<p><strong>Estimations des durées de vie avec Stata et Stata</strong> (voir ce que fait R):<br />
-Rappel: la méthode actuarielle est une méthode dite continue, il convient donc d’avoir des bornes ouvertes ou fermées sur chaque intervalle.<br />
-La définition des bornes diffère entre les deux logiciels, ce qui génère des résultats différents: au niveau des estimations de la survie reportées sur chaque intervalle et donc au final sur les durées estimées pour différents quantiles de la fonction de séjour (calcul par interpolation linéaire) .</p>
+<div id="qlt" class="section level1 tabset tabset-fade tabset-pills">
+<h1><span class="header-section-number">3</span> qlt</h1>
+<p>Calcul des durées pour plusieurs quantiles de la fonction de survie estimée à partir de la méthode actuarielle (commande <code>ltable</code>). La commande <code>ltable</code> ne permettant pas de récupérer directement la fonction d survie estimées, il convient d’utiliser l’option <code>saving(nom_base)</code>.</p>
+<p><strong>Estimations des durées avec Stata et Sas</strong>:<br />
+Rappel: Comme la méthode actuarielle est une méthode dite continue, elle nécessite d’avoir des bornes ouvertes ou fermées sur chaque intervalle. La définition des bornes diffère entre les deux logiciels, ce qui génère des résultats différents au niveau des estimations de la survie reportées sur chaque intervalle, et donc au final sur les durées estimées pour différents sur les quantiles(calcul par interpolation linéaire) .</p>
 <p><strong>Stata</strong> : <span class="math inline">\(t(i) \leq t &lt; t(i+1)\)</span><br />
 <strong>Sas</strong> : <span class="math inline">\(t(i) &lt; t \leq t(i+1)\)</span></p>
-<p>La commande <code>qlt</code> permet de récupérer des tables de survie identiques entre les deux logiciels et donc d’afficher par exemple la même durée médiane.</p>
+<p>La commande <code>qlt</code> permet de récupérer des tables de survie identiques entre les deux logiciels et donc d’afficher, par exemple, la même durée médiane.</p>
 <p>Syntaxe:<br />
 <code>qlt [if/in] [, sas]</code></p>
 <p><strong>Exemple</strong>:</p>
-<pre class="stata"><code>    webuse rat, clear
-    ltable t died, saving(lt, replace) interval(10) by(group)
-    use lt, clear
-    qlt if group==1
-      qlt if group==1, sas
-    list
-      use lt, clear
-    qlt if group==2
-      qlt if group==2, sas
-      list</code></pre>
-<pre><code> .     webuse rat, clear
+<pre><code>webuse rat, clear
+qui ltable t died, saving(lt, replace) interval(10) by(group)
+qui use lt, clear
 
-.     ltable t died, saving(lt, replace) interval(10) by(group)
+qlt if group==1
 
-                 Beg.                                 Std.
-   Interval     Total   Deaths   Lost    Survival    Error     [95% Conf. Int.]
--------------------------------------------------------------------------------
-group = 1
-  140   150        19        1      0     0.9474    0.0512     0.6812    0.9924
-  160   170        18        1      0     0.8947    0.0704     0.6408    0.9726
-  180   190        17        2      0     0.7895    0.0935     0.5319    0.9153
-  190   200        15        2      0     0.6842    0.1066     0.4279    0.8439
-  200   210        13        2      0     0.5789    0.1133     0.3321    0.7626
-  210   220        11        2      1     0.4687    0.1155     0.2386    0.6698
-  220   230         8        2      0     0.3515    0.1125     0.1489    0.5633
-  230   240         6        2      0     0.2343    0.1010     0.0745    0.4445
-  240   250         4        1      1     0.1674    0.0917     0.0384    0.3751
-  260   270         2        1      0     0.0837    0.0749     0.0065    0.2942
-  300   310         1        1      0     0.0000         .          .         .
-group = 2
-  140   150        21        1      0     0.9524    0.0465     0.7072    0.9932
-  150   160        20        1      0     0.9048    0.0641     0.6700    0.9753
-  160   170        19        1      0     0.8571    0.0764     0.6197    0.9516
-  190   200        18        1      0     0.8095    0.0857     0.5689    0.9239
-  200   210        17        1      1     0.7605    0.0935     0.5168    0.8926
-  230   240        15        7      0     0.4056    0.1099     0.1968    0.6060
-  240   250         8        1      0     0.3549    0.1072     0.1596    0.5572
-  260   270         7        1      0     0.3042    0.1032     0.1248    0.5063
-  280   290         6        2      0     0.2028    0.0903     0.0634    0.3973
-  290   300         4        2      0     0.1014    0.0679     0.0172    0.2753
-  320   330         2        1      0     0.0507    0.0494     0.0035    0.2076
-  340   350         1        0      1     0.0507    0.0494     0.0035    0.2076
--------------------------------------------------------------------------------
-
-.     use lt, clear
-
-.     qlt if group==1
 Duree pour differents quantiles de la fonction de survie
 Definition des bornes Stata-ltable
 S(t)=0.90: t=  158.000
@@ -562,7 +541,8 @@ S(t)=0.50: t=  207.159
 S(t)=0.25: t=  228.663
 S(t)=0.10: t=  256.103
 
-.           qlt if group==1, sas
+qlt if group==1, sas
+
 Duree pour differents quantiles de la fonction de survie
 Definition des bornes Sas-lifetest
 S(t)=0.90: t=  178.000
@@ -571,7 +551,7 @@ S(t)=0.50: t=  217.159
 S(t)=0.25: t=  238.663
 S(t)=0.10: t=  292.205
 
-.         list
+ list
 
      +---------------------------------------------------------------+
      | group    t0    t1   survival   sesurv~l   lsurvi~l   usurvi~l |
@@ -592,9 +572,10 @@ S(t)=0.10: t=  292.205
  12. |     1   310     .          0   .3605598          .          . |
      +---------------------------------------------------------------+
 
-.           use lt, clear
-
-.     qlt if group==2
+ 
+use lt, clear
+qlt if group==2
+   
 Duree pour differents quantiles de la fonction de survie
 Definition des bornes Stata-ltable
 S(t)=0.90: t=  151.000
@@ -603,7 +584,8 @@ S(t)=0.50: t=  222.018
 S(t)=0.25: t=  270.688
 S(t)=0.10: t=  290.825
 
-.           qlt if group==2, sas
+qlt if group==2, sas
+
 Duree pour differents quantiles de la fonction de survie
 Definition des bornes Sas-lifetest
 S(t)=0.90: t=  163.000
@@ -612,7 +594,8 @@ S(t)=0.50: t=  237.339
 S(t)=0.25: t=  285.344
 S(t)=0.10: t=  320.550
 
-.           list
+. 
+.   list
 
      +---------------------------------------------------------------+
      | group    t0    t1   survival   sesurv~l   lsurvi~l   usurvi~l |
@@ -632,24 +615,21 @@ S(t)=0.10: t=  320.550
  11. |     2   320   330   .1013949    .292591   .0172292   .2753105 |
  12. |     2   340   350   .0506974   .3266003   .0034972   .2076033 |
  13. |     2   350     .   .0506974   .3266003   .0034972   .2076033 |
-     +---------------------------------------------------------------+</code></pre>
+     +---------------------------------------------------------------+
+</code></pre>
 <p><br></p>
 </div>
-<div id="competout" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.4</span> competout</h2>
+<div id="competout" class="section level1 tabset tabset-fade tabset-pills">
+<h1><span class="header-section-number">4</span> competout</h1>
 <p><span class="badge badge-info">help file</span></p>
 <p><strong>Maj 2017</strong><em>: Voir également la commande stcomlist(</em><strong><code>ssc install stcomlist</code></strong><em>), très proche si l’on excepte la question du test de Gray.</em>**</p>
-<p>Pour la prise en compte des risques concurrents en analyse des durées, <strong>competout</strong> affiche les sous forme de tableau les estimateurs des incidences cumulées, et le graphique associé. En option, plusieurs tests sont exécutés. <strong>competout</strong> utilise des commandes existantes qui seront automatiquement installées si besoin.<br />
-Pour le test de Gray, il est exécuté par <strong>R</strong>. Cela nécessite donc une installation particulière décrite dans le fichier d’aide, mais aucune connaissance du langage R n’est requise (le fichier <strong>competout_gray_test.do</strong> doit se trouver dans le même répertoire que <strong>competout.ado</strong>).</p>
+<p>Pour la prise en compte des risques concurrents en analyse des durées, <strong>competout</strong> affiche les estimateurs des incidences cumulées sous forme de tableau, et le graphique associé. En option, plusieurs tests peuvent être exécutés. <strong>competout</strong> utilise des commandes existantes qui seront automatiquement installées si besoin.<br />
+Pour le test de Gray, il est exécuté par <strong>R</strong>. Cela nécessite donc une installation particulière d’écrite dans le fichier d’aide. Aucune connaissance du langage R n’est cependant requise (le fichier <strong>competout_gray_test.do</strong> doit se trouver dans le même répertoire que <strong>competout.ado</strong>).</p>
 <p><strong>Syntaxe</strong>:<br />
 <code>[bysort variable: ] competout variable_duree variable_evenement [if/in], event(#) [group(variable) test(s/r/sr) exc(nom_fichier)]</code></p>
 <p><strong>Exemple</strong>:</p>
-<pre class="stata"><code>    use http://www.stata-press.com/data/cggm3/bc_compete, clear
-    competout time status, event(1) group(drug) test(s)</code></pre>
-<pre><code> .     use http://www.stata-press.com/data/cggm3/bc_compete, clear
-(Breast cancer with competing risks)
-
-.     competout time status, event(1) group(drug) test(s)
+<pre><code>    qui use http://www.stata-press.com/data/cggm3/bc_compete, clear
+    competout time status, event(1) group(drug) test(sr)
 
 Cumulative incidence for drug=0
 
@@ -704,146 +684,140 @@ Pepe and Mori test comparing the cumulative incidence of two groups of drug
 Chi2(1) = 4.6845  -  p =  0.03044
 
 Competing event failure:  status == 2
-Chi2(1) = 5.6476  -  p =  0.01748</code></pre>
-<div class="figure">
-<img src="competout.png" />
+Chi2(1) = 5.6476  -  p =  0.01748
 
-</div>
-<p><strong>Note</strong>: <em><strong>le document étant généré par </strong>rstudio<strong> et exécutant Stata en mode batch, l’option test(r) ou test(sr) de la commande fonctionne pas ici car elle exécute R en mode batch également.</strong></em></p>
+
+Gray&#39;s test
+
+using Rsource (Newson) &amp; cmprsk (Gray)
+
+Line 1 - Test for main event failure:  status == 1
+Line 2 - Test for competing event(s) failure:  status == 2
+
+rsource, terminator(END_OF_R)
+Assumed R program path: &quot;C:\Program Files\R\R-3.4.3\bin\R.exe&quot;
+Beginning of R output
+      Chi2 df     Pr&gt;Chi2
+1 4.908811  1 0.026720033
+2 8.615262  1 0.003333579
+End of R output
+    
+    </code></pre>
+<p><img src="competout.png" /></p>
 <p><br></p>
 </div>
-<div id="gpct" class="section level2 tabset tabset-fade tabset-pills">
-<h2><span class="header-section-number">1.5</span> gpct</h2>
-<p><span class="badge badge-info">help file</span> <span class="badge badge-warning">Version provisoire</span></p>
-<p><strong><em>Améliorations prévues:</em></strong><br />
-- prise en charge des pondérations.<br />
-- Reporter les intervalles de confiances, avec une option pour les versions de Stata &lt;15 et une option pour la version 15 afin de bénéficier des effets de transparence.<br />
-- Dans le cas d’une variable binaire, ne tracer qu’une seule courbe avec choix de la modalité.</p>
-<p><strong>gpct</strong> permet de tracer sous forme de courbes des pourcentages issus d’un tableau croisé de type <code>tab X Y, nof r</code>.<br />
-Les labels des courbes sont récupérées à partir des labels des modalités de la variables Y, seulement si ces labels sont compatibles avec des noms de variable Stata.</p>
+<div id="gpct" class="section level1 tabset tabset-fade tabset-pills">
+<h1><span class="header-section-number">5</span> gpct</h1>
+<p><span class="badge badge-info">help file</span></p>
+<p><strong><em>Mise à jour:</em></strong></p>
+<ul>
+<li>Calcul et report des intervalles de confiances (méthode clopper-wilson) avec l’option <code>ci</code>.</li>
+<li>Prise en charge automatique des labels des modalités de la variable.</li>
+<li>On peut conserver les % sous formes de variable (option <code>keep</code>).</li>
+<li>Le graphique peut-être customisé avec les options graphiques supportées par la commande <code>line</code>, à l’exeption de l’option <strong>legend</strong> qui est utilisée par le programme.</li>
+</ul>
+<p><strong>A faire</strong>: prise en charge des pondérations.</p>
+<p><strong>gpct</strong> permet de tracer sous forme de courbes des pourcentages issus d’un tableau croisé de type <code>tab X Y, nof r</code>.</p>
 <p><strong>Syntaxe</strong>:<br />
-<code>gpct variable_abcisse variable_ordonnée [if/in] [, lab(0/1)]</code></p>
-<p>option <code>lab(0)</code>: sans récupération des labels des modalités de Y.<br />
-option <code>lab(1)</code>: avec récupération des labels des modalités de Y.</p>
+<code>gpct variable_continue variable_catégorielle [if/in] [, ci gops(string) mts keep]</code><br />
+<br> Voir le fichier d’aide pour les options</p>
 <p><strong>Exemple</strong>:</p>
-<pre class="stata"><code>    use  http://www.stata-press.com/data/r15/nlswork.dta, clear
+<pre><code>    use  http://www.stata-press.com/data/r15/nlswork.dta, clear
     label define msp 0 &quot;married&quot; 1 &quot;unmarried&quot;, modify
     label value msp msp
 
-On va tracer les valeurs du tableau:
-    tab year msp, nof r
-
-    gpct year msp, lab(0)
-    gpct year msp, lab(1)</code></pre>
-<pre><code> .     use  http://www.stata-press.com/data/r15/nlswork.dta, clear
-(National Longitudinal Survey.  Young Women 14-26 years of age in 1968)
-
-.     label define msp 0 &quot;married&quot; 1 &quot;unmarried&quot;, modify
-
-.     label value msp msp
-
-. 
-. On va tracer les valeurs du tableau:
-command On is unrecognized
-r(199);
-
-end of do-file
-r(199);</code></pre>
-<div class="figure">
-<img src="gpct1.png" alt="Sans label" />
-<p class="caption">Sans label</p>
-</div>
-<div class="figure">
-<img src="gpct2.png" alt="Avec labels" />
-<p class="caption">Avec labels</p>
-</div>
+    gpct age msp if age&gt;=20 &amp; age&lt;=40, ci gops(title(&quot;Statut matrimonial de 20 à 40 ans&quot;) ylabel(0(0.1)1)) mts
+</code></pre>
+<p><img src="gpct.png" /></p>
 <p><br></p>
 </div>
-</div>
-<div id="autres-auteurs" class="section level1">
-<h1><span class="header-section-number">2</span> Autres auteurs</h1>
-<div id="margins_transform" class="section level2">
-<h2><span class="header-section-number">2.1</span> margins_transform</h2>
-<p>Auteur: <strong>J.Pitblado - StataCorp LP</strong></p>
-<p>Correction des bornes des intervalles de confiances des valeurs prédites moyennes générées par <code>margins</code> [avec option <code>predict()</code>]<br />
-Appliquées à un modèle non linéaire, la commande margins renvoie des valeurs erronées aux bornes des intervalles de confiance des valeurs prédites moyennes ajustées. Cela se traduit, par exemple, par des valeurs négatives ou supérieures à un lorsqu’il s’agit d’estimer des probabilités. Dans le cas de la commande margins, le changement d’échelle est effectué immédiatement une fois la combinaison linéaire définie, le calcul de la variance et des bornes venant ensuite ; alors que la méthode correcte consiste à calculer la variance et les bornes sur la combinaison linéaire ajustée, le changement d’échelle s’effectuant en toute fin.<br />
-A noter que ce problème ne se pose pas pour le calcul des effets marginaux (option <code>dydx</code>).<br />
-<strong>J.Pitblado</strong> (<strong>StataCorp</strong>) a programmé une commande pour résoudre ce problème, pour l’instant non officielle, qui calcule correctement les bornes. Après l’estimation du modèle, la commande margins doit être exécutée avec en option <code>predict(xb)</code>. Si on souhaite récupérer les valeurs des bornes sous forme de variable pour faire, par exemple, une représentation graphique, on utilisera l’option <code>mat(nom)</code>. Les valeurs des bornes seront données pour les variables nom2 nom3.</p>
-<p><strong>installation</strong>:</p>
-<pre><code>ssc install transform_margins
-help transform_margins</code></pre>
-<p><strong>Syntaxe</strong>:</p>
-<pre><code>transform_margins nom_fonction(@) [, mat(nom])]</code></pre>
-<p>Liste de quelques fonctions à appliquer à transform_margins:<br />
-Modèle logit : <code>invlogistic(@)</code><br />
-Modèle probit : <code>normal(@)</code> Modèle cloglog : <code>invcloglog(@)</code><br />
-Modèles Poisson, Binomial-Négatif, Gamma avec lien log…: <code>exp(@)</code></p>
-<pre class="stata"><code>    qui sysuse auto, clear
-    qui logit foreign mpg
-        margins, at(mpg=(5(5)40))
+<div id="diffrmst" class="section level1 tabset tabset-fade tabset-pills">
+<h1><span class="header-section-number">6</span> diffrmst</h1>
+<p>La comparaison des RMST (Restricted Mean of Survival Time) présente plusieurs avantages par rapport au test du log-rang, et à ces multiples versions::</p>
+<ul>
+<li>N’est pas sensible au distribution des censures à droite.</li>
+<li>N’est pas sensible à l’hypothèse de proportionalité des risques.</li>
+<li>Permet une lecture en terme de différence des durées moyennes de séjour (survie).</li>
+<li>On peut choisir la borne maximal à la durée pour les calcul des rmst. C’est justement l’objet de cette commande que d’offrir des résultats des comparaisons pour toutes les durées où un évènement a été observé.</li>
+</ul>
+<p>Source: <a href="https://journals.sagepub.com/doi/pdf/10.1177/1536867X1601600310" class="uri">https://journals.sagepub.com/doi/pdf/10.1177/1536867X1601600310</a></p>
+<p><strong>Syntaxe</strong>:<br />
+<code>gpct variable, [ng]</code><br />
+<br></p>
+<ul>
+<li>L’option <code>ng</code> permet de ne pas générer le graphique</li>
+<li>La commande <code>strmst2</code> est installée automatiquement avec <code>diffrmst</code></li>
+<li>La variable ne peut comporter que deux modalités de comparaison (c’est la contrainte imposée par <code>strmst2</code>).</li>
+</ul>
+<pre><code>* la base pbc est téléchargeable avec la commande strmst2
+use pbc, clear
+stset time, f(status)
+diffrmst treatment
 
-    qui margins, at(mpg=(5(5)40)) predict(xb)
-        transform_margins invlogit(@)</code></pre>
-<pre><code> .     qui sysuse auto, clear
+* extrait du tableau
 
-.     qui logit foreign mpg
+  +-------------------------------------------------------------------------------+
+  |    _time     _rmst1     _rmst0       _diff          _l          _u         _p |
+  |-------------------------------------------------------------------------------|
+  | .1122519   .1122519   .1122519           0           0           0          . |
+  | .1396304   .1394571   .1396304   -.0001733   -.0001733   -.0001733          . |
+  | .1943874   .1938676   .1940318   -.0001643   -.0011864    .0008579   .7527578 |
+  | .2108145   .2100867   .2103523   -.0002655   -.0014908    .0009597    .671001 |
+  | .3011636   .2992921    .299528   -.0002358    -.003352    .0028803   .8820767 |
+  |-------------------------------------------------------------------------------|
+  | .3559206   .3533561   .3532183    .0001377   -.0043421    .0046176   .9519514 |
+  | .3586585   .3560593   .3558851    .0001742   -.0044227    .0047711   .9407999 |
+  | .3832991    .380232   .3798857    .0003463   -.0053301    .0060228   .9048129 |
+  | .4900753    .484305   .4838885    .0004165   -.0083805    .0092136   .9260591 |
+  | .5092403   .5028635   .5025557    .0003079   -.0090761    .0096918    .948731 |
+  |-------------------------------------------------------------------------------|
+  | .5229295   .5161195   .5158004    .0003191   -.0097163    .0103546   .9503055 |
+  | .5420945    .534678   .5342187    .0004593   -.0102124     .011131   .9327726 |
+  | .5667351   .5583829   .5578993    .0004836   -.0110561    .0120234   .9345359 |
+  | .5913758   .5820879   .5814199    .0006679   -.0117686    .0131044   .9161667 |
+  | .6105407   .6005251   .5995893    .0009357   -.0122029    .0140744   .8889861 |
+  |-------------------------------------------------------------------------------|
+  | .7227926   .7078037   .7060099    .0017938   -.0157935    .0193811   .8415548 |
+  | .8323066   .8124658   .8084127    .0040532   -.0185099    .0266163    .724773 |
+  | .8788501   .8569473   .8516316    .0053157   -.0193574    .0299888   .6728329 |
+  | .8925394   .8700301   .8642542    .0057759   -.0195332     .031085   .6546639 |
+  | .9144422   .8909625    .884308    .0066545   -.0196653    .0329743   .6202179 |
+  |-------------------------------------------------------------------------------|
+  | .9527721   .9273517   .9194023    .0079494   -.0204813      .03638   .5836803 |
+  | 1.062286   1.030628   1.019672    .0109559   -.0229056    .0448175   .5259846 |
+  |  1.09514   1.061402   1.049752    .0116499   -.0238792    .0471791   .5204387 |
+  | 1.259411   1.214237   1.200156    .0140804    -.030021    .0581818   .5314698 |
+  | 1.409993   1.354335   1.337049    .0172861   -.0354319    .0700041   .5204401 |
+  |-------------------------------------------------------------------------------|
+  .                                                                               .
+  .                                                                               .
+  .                                                                               .
+  .                                                                               .
+  |-------------------------------------------------------------------------------|
+  | 9.368925   6.855622   6.992892     -.13727   -.8761555    .6016155   .7157671 |
+  | 9.385352   6.863472   7.001159   -.1376871   -.8783254    .6029512   .7155864 |
+  | 9.431896   6.885712   7.023517   -.1378042   -.8833281    .6077197   .7171399 |
+  | 9.467488    6.90272   7.039799   -.1370796   -.8862833     .612124   .7198877 |
+  | 9.785079   7.054479   7.185092    -.130614   -.9137435    .6525154   .7437495 |
+  |-------------------------------------------------------------------------------|
+  | 9.793292   7.058185    7.18885   -.1306649   -.9148641    .6535343   .7439907 |
+  | 9.804244   7.063128    7.19386   -.1307327   -.9161143     .654649   .7442347 |
+  | 9.812457   7.066834   7.197618   -.1307835   -.9170547    .6554878   .7444181 |
+  | 9.886379   7.098233   7.231436   -.1332034   -.9273038    .6608971    .742332 |
+  | 10.05339   7.169169    7.30784   -.1386705   -.9508823    .6735412   .7379054 |
+  |-------------------------------------------------------------------------------|
+  | 10.14921   7.209871   7.351678   -.1418074   -.9646641    .6810493   .7355356 |
+  | 10.29979    7.27383   7.420568   -.1467368   -.9866738    .6932002    .732046 |
+  | 10.45859   7.341279   7.488371   -.1470919   -1.005198    .7110141   .7368962 |
+  |  10.4668   7.344768   7.491878   -.1471103   -1.006163    .7119419   .7371436 |
+  | 10.51061   7.363374   7.510582   -.1472083   -1.011328    .7169117   .7384609 |
+  |-------------------------------------------------------------------------------|
+  | 10.54073   7.376166   7.522453   -.1462864   -1.013793    .7212203   .7410177 |
+  +-------------------------------------------------------------------------------+
 
-.         margins, at(mpg=(5(5)40))
 
-Adjusted predictions                            Number of obs     =         74
-Model VCE    : OIM
-
-Expression   : Pr(foreign), predict()
-
-1._at        : mpg             =           5
-
-2._at        : mpg             =          10
-
-3._at        : mpg             =          15
-
-4._at        : mpg             =          20
-
-5._at        : mpg             =          25
-
-6._at        : mpg             =          30
-
-7._at        : mpg             =          35
-
-8._at        : mpg             =          40
-
-------------------------------------------------------------------------------
-             |            Delta-method
-             |     Margin   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
--------------+----------------------------------------------------------------
-         _at |
-          1  |   .0271183   .0252542     1.07   0.283    -.0223792    .0766157
-          2  |   .0583461   .0389888     1.50   0.135    -.0180704    .1347627
-          3  |   .1210596   .0509373     2.38   0.017     .0212244    .2208948
-          4  |   .2344013   .0547344     4.28   0.000      .127124    .3416787
-          5  |   .4049667   .0743318     5.45   0.000      .259279    .5506543
-          6  |   .6020462   .1162814     5.18   0.000     .3741387    .8299536
-          7  |   .7707955   .1266899     6.08   0.000     .5224879    1.019103
-          8  |   .8820117   .1004224     8.78   0.000     .6851874    1.078836
-------------------------------------------------------------------------------
-
-. 
-.     qui margins, at(mpg=(5(5)40)) predict(xb)
-
-.         transform_margins invlogit(@)
-----------------------------------------------
-             |         b         ll         ul
--------------+--------------------------------
-         _at |
-          1  |  .0271183   .0042517    .153952
-          2  |  .0583461   .0151856   .1993467
-          3  |  .1210596   .0511398   .2603462
-          4  |  .2344013    .144129   .3575909
-          5  |  .4049667   .2710298   .5547246
-          6  |  .6020462   .3688264   .7966118
-          7  |  .7707955   .4519781     .93203
-          8  |  .8820117   .5300384   .9802168
-----------------------------------------------</code></pre>
-</div>
+</code></pre>
+<p><img src="diffrmst.png" /></p>
 </div>
 
 
@@ -864,6 +838,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
