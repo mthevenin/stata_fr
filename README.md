@@ -1,2 +1,2 @@
 # stata_fr
-commandes, tutos, stata markdown
+commandes, graph, python avec Stata
