@@ -1,14 +1,15 @@
 ---
-output: 
-  html_document: 
-    theme: flatly
+title: "Accueil"
 ---
 
 
  
 <br><br>
 
-Grosse mise à jour en cours (au fil de l'eau en 2020):
+Formation **Introduction à Stata**: https://mthevenin.github.io/stata_fr/   
+
+<br>
+**Grosse mise à jour en cours (au fil de l'eau en 2020)**:
 
 - Ajout de commandes: ```diffrmst``` et ```stphcure``` en analyse des durées
 - Maj de la commande ```gpct```: calcul et report sur le graphique des intervalles de confiance
@@ -28,7 +29,7 @@ Grosse mise à jour en cours (au fil de l'eau en 2020):
 Marc Thevenin: (mailto:marc.thevenin@ined.fr)  
  Service des Méthodes Statistiques - Ined -
 <br><br>
-Support de formation réalisé avec [Rstudio](href:https://www.rstudio.com), thème graphique de type bootstrap disponible sur le site [bootswatch](https://bootswatch.com/) 
+Support réalisé avec [Rstudio](href:https://www.rstudio.com)
 
 
 

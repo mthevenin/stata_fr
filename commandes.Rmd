@@ -1,11 +1,5 @@
 ---
-output: 
-  html_document: 
-    theme: flatly
-    highlight: haddock
-    number_sections: yes
-    toc: yes
-    toc_float: yes
+title: "COMMANDES"
 ---
 
 ```{r, echo=FALSE, include=FALSE}
@@ -453,10 +447,10 @@ Voir le fichier d'aide pour les options
 
 La comparaison des RMST (Restricted Mean of Survival Time) présente plusieurs avantages par rapport au test du log-rang, et à ces multiples versions::  
 
-- N'est pas sensible au distribution des censures à droite.
+- N'est pas sensible aux distributions des censures à droite.
 - N'est pas sensible à l'hypothèse de proportionalité des risques.
 - Permet une lecture en terme de différence des durées moyennes de séjour (survie).
-- On peut choisir la borne maximal à la durée pour les calcul des rmst. C'est justement l'objet de cette commande que d'offrir des résultats des comparaisons pour toutes les durées où un évènement a été observé.
+- On peut choisir la borne maximal à la durée pour les calcul des rmst. C'est justement l'objet de cette commande que d'offrir les résultats des comparaisons pour toutes les durées où un évènement a été observé.
 
 Source: https://journals.sagepub.com/doi/pdf/10.1177/1536867X1601600310
 

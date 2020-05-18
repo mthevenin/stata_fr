@@ -4,17 +4,21 @@ navbar:
   left:
     - text: "Stata"
       href: index.html
-    - text: "Commandes"
-      href: commandes.html
+    - text: "tips & Utilitaires"
+      href: utils.html      
     - text: "Graphiques"
       href:  scheme.html
-    - text: "Utilitaires"
-      href: utils.html         
     - text: "Python"
-      href: utils.html  
+      href: python.html  
+    - text: "Commandes"
+      href: commandes.html 
 
-output:
- html_document:
-   theme: flatly
+output: 
+  html_document: 
+    theme: cerulean
+    highlight: haddock
+    number_sections: yes
+    toc: yes
+    toc_float: yes
 
   
