@@ -7,7 +7,7 @@ navbar:
     - text: "tips & Utilitaires"
       href: utils.html      
     - text: "Graphiques"
-      href:  scheme.html
+      href:  graphiques.html
     - text: "Python"
       href: python.html  
     - text: "Commandes"
