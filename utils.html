@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
 
-<title></title>
+<title>UTILITAIRES</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -55,9 +55,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -71,13 +69,18 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -85,34 +88,70 @@ button.code-folding-btn:focus {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 60px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
-
 .section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -134,47 +173,66 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
-
-
-<script>
-$(document).ready(function ()  {
-
-    // move toc-ignore selectors from section div to header
-    $('div.section.toc-ignore')
-        .removeClass('toc-ignore')
-        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
-
-    // establish options
-    var options = {
-      selectors: "h1,h2,h3",
-      theme: "bootstrap3",
-      context: '.toc-content',
-      hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
-      },
-      ignoreSelector: ".toc-ignore",
-      scrollTo: 0
-    };
-    options.showAndHide = true;
-    options.smoothScroll = true;
-
-    // tocify
-    var toc = $("#TOC").tocify(options).data("toc-tocify");
-});
-</script>
 
 <style type="text/css">
 
@@ -188,6 +246,12 @@ $(document).ready(function ()  {
 }
 }
 
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
 
 .toc-content {
   padding-left: 30px;
@@ -223,8 +287,6 @@ div.tocify {
 
 .tocify-subheader .tocify-item {
   font-size: 0.90em;
-  padding-left: 25px;
-  text-indent: 0;
 }
 
 .tocify .list-group-item {
@@ -233,6 +295,16 @@ div.tocify {
 
 
 </style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
@@ -259,40 +331,19 @@ div.tocify {
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Accueil</a>
-</li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Analyse
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="commandes.html">Commandes</a>
-    </li>
-    <li>
-      <a href="scheme.html">Thèmes graphiques</a>
-    </li>
-  </ul>
+  <a href="index.html">Stata</a>
 </li>
 <li>
-  <a href="utils.html">Utilitaires</a>
+  <a href="utils.html">tips &amp; Utilitaires</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Markdown
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="mdstata.html">Avec Stata</a>
-    </li>
-    <li>
-      <a href="mdrmarkdown.html">Avec Rmarkdown</a>
-    </li>
-  </ul>
+<li>
+  <a href="scheme.html">Graphiques</a>
+</li>
+<li>
+  <a href="python.html">Python</a>
+</li>
+<li>
+  <a href="commandes.html">Commandes</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -306,6 +357,7 @@ div.tocify {
 
 
 
+<h1 class="title toc-ignore">UTILITAIRES</h1>
 
 </div>
 
@@ -314,16 +366,17 @@ div.tocify {
 <div id="fichier-profile.do" class="section level1">
 <h1><span class="header-section-number">1</span> Fichier profile.do</h1>
 <p>Le programme profile.do permet d’exécuter des commandes à l’ouverture d’une session de Stata.<br />
-Le fichier profile.do, s’il n’existe pas, est à coller dans <code>C:\Users\user_name</code> (C =&gt; utilisateurs =&gt; nom_utilisateur). Les fonctionnalités proposées peuvent être désactivées en insérant des zones de commentaires ou tout simplement en les supprimant, ou ajoutée à un profile.do existant.<br />
-Le contenu du profile.do est paramétré ici pour fonctionner sur Windows. Pour l’utiliser sous environnement Linux, il suffit de modifier les chemins d’accès.<br />
+Le fichier <code>profile.do</code>, s’il n’existe pas, est à coller dans <code>C:\Users\user_name</code> (C =&gt; utilisateurs =&gt; nom_utilisateur). Les fonctionnalités proposées ici peuvent être désactivées en insérant des zones de commentaires ou tout simplement en les supprimant, ou ajoutée à un profile.do existant (penser à changer les chemins si nécessaire.<br />
+Le contenu du profile.do est paramétré pour fonctionner sur Windows. Pour l’utiliser sous environnement Linux ou mac, il suffit de modifier les chemins d’accès.<br />
 <br> Fonctionnalités proposées:</p>
 <ul>
-<li><p>Affectation d’un répertoire par défaut. Voir « Répertoire de fichiers temporaires ou « trash box » » plus bas.</p></li>
-<li><p>Lecture des .ado dans le lecteur D. Conseillé à l’Ined en raison du système de sauvegarde. Au préalable il convient de coller le répertoire ado qui se trouve normalement sur la racine du lecteur C, dans la racine du lecteur D.</p></li>
-<li><p>désactivation du blocage du défilement de l’output.</p></li>
-<li><p>Activation d’un répertoire « temporaire » (identique au répertoire par défaut) : Voir Répertoire de fichiers temporaires ou « trash box » plus bas.</p></li>
-<li><p>Création d’un fichier log à chaque ouverture de session : voir ci-dessous Création automatique d’un fichier log à l’ouverture d’une session.</p></li>
-<li><p>Paramétrage de la commande <code>rsource</code> (Newson) : pour les personnes désirant exécuter un script R dans un .do. Si l’exécutable de R se trouve dans un emplacement différent que celui paramétré dans le profile.do proposé ici, il suffit de modifier le chemin d’accès.</p></li>
+<li>Affectation d’un répertoire par défaut. Voir la section <em>Répertoire de fichiers temporaires trash box</em> plus loin.</li>
+<li>Chargement des .ado externes dans le lecteur D. Conseillé à l’Ined en raison du système de sauvegarde. Au préalable il convient de coller le répertoire <em>ado</em> qui se trouve normalement sur la racine du lecteur C, dans la racine du lecteur D.</li>
+<li>désactivation du blocage du défilement de l’output.</li>
+<li>Activation d’un répertoire temporaire (identique au répertoire par défaut) : Voir la section *Répertoire de fichiers temporaires ou trash boxé plus loin.</li>
+<li>Création d’un fichier log à chaque ouverture de session : voir ci-dessous *Création automatique d’un fichier log à l’ouverture d’une session.<br />
+</li>
+<li>Paramétrage de la commande <code>rsource</code> (Newson) : pour les personnes désirant exécuter un script R dans un .do. Si l’exécutable de R se trouve dans un emplacement différent de celui paramétré dans le profile.do proposé ici, il suffit de modifier le chemin d’accès.</li>
 </ul>
 <p><br> Contenu du fichier profile.do</p>
 <pre><code>**************************
@@ -342,7 +395,7 @@ sysdir set PERSONAL &quot;d:\ado\personal&quot;
 ****************
 
 *****************************************
-* répertoire par défaut dans Stata_temp *
+* r?pertoire par défaut dans Stata_temp *
 *****************************************
 cd &quot;D:/stata_temp/&quot;
 
@@ -366,11 +419,6 @@ noisily dir &quot;D:/stata_temp/*&quot;
 noisily display as result &quot;Librairie temporaire tmp chargee dans D:stata_temp/&quot;
 global tmp &quot;D:/stata_temp/&quot;
 
-*******************************************************
-* chargement du répertoire  $sg dans stata_temp/graph *
-*******************************************************
-noisily display as result &quot;Enregistrement des graphs dans D:stata_temp/graph/ avec macro sg&quot;
-global sg &quot;D:/stata_temp/graph/&quot;
 
 ******************************************
 * Creation automatique d&#39;un fichier .log *
@@ -401,48 +449,63 @@ set more off, permanently</code></pre>
 </div>
 <div id="un-libname" class="section level1">
 <h1><span class="header-section-number">2</span> Un “Libname”</h1>
-<p>Le principe consiste à affecter plusieurs répertoires de travail en début de programme (cf libname avec Sas).<br />
-On peut en début de programme affecter plusieurs répertoires où se trouvent, par exemple, plusieurs bases de données. On pourra alors faire les manipulations courantes de fichiers enregistrés dans plusieurs répertoires.</p>
-<p><strong>Exemple</strong>: La base b1.dta se trouve dans le répertoire X et la base b2.dta se trouve dans le répertoire Y. Pour affecter les répertoires, on utilise des macros soit locale ou globale. En terme de syntaxe, la macro globale présente un avantage (<code>$nom_macro</code> au lieu de `<code>nom_macro'</code>), il faut néanmoins vérifier qu’un nom de macro global n’est pas déjà utilisé et, de préférence, supprimer la nouvelle macro ou les nouvelles affectés aux répertoires en fin de programme.</p>
+<p><strong>Mai 2020</strong>: la version 16 de Stata (2019) intègre un système de <em>frame</em> permettant de manipuler plusieurs bases sans passer par les étapes <code>use - save</code></p>
+<p>Le principe consiste à affecter plusieurs répertoires de travail en début de programme (cf libname avec Sas) simplement à l’aide de macros. On pourra alors faire les manipulations courantes de fichiers enregistrés dans plusieurs répertoires sans avoir à modifier le répertoire actif avec la commande <code>cd</code>.</p>
+<p><strong>Exemple</strong>: La base data1.dta se trouve dans le répertoire X et la base data2.dta se trouve dans le répertoire Y. Pour affecter les répertoires, on utilise des macros soit locale ou globale. En terme de syntaxe. La macro globale présente un avantage en terme de syntaxe (<code>$nom_macro</code>), il faut n?anmoins vérifier qu’un nom de macro global n’est pas déjà utilisé et, de préférence, supprimer les nouvelles macro en fin de programme.</p>
 <pre><code>macro list
 
-macro global X “path/X”
-macro global Y “path/Y
+macro global X &quot;path/X&quot;
+macro global Y &quot;path/Y&quot;
 
-use  $X/base1, clear
+use  $X/data1, clear
 sort id
-save $X/base1, replace
-use  $Y/base1, clear
+save $X/data1, replace
+use  $Y/data2, clear
 sort  id
-merge id using $X/base1
+merge id using $X/data1
 
 macro drop X Y</code></pre>
 <p><BR></p>
 </div>
-<div id="repertoire-temporaires-ou-trash-box" class="section level1">
-<h1><span class="header-section-number">3</span> Répertoire « temporaires » ou « trash box »</h1>
-<p>Stata dispose d’un système d’enregistrement et d’ouverture des fichiers par défaut. A l’Ined il se situe dans la racine du lecteur D (pour vérifier l’emplacement du répertoire par défaut : exécuter <code>pwd</code>).<br />
-Dans un programme, une fois qu’un répertoire est affecté avec la commande <code>cd</code>, ce répertoire par défaut n’est plus identifié comme tel, celui affecté par <code>cd</code> prenant le relais. La solution proposée ici est de créer un répertoire nommé « stata_temp » dans D :/ et d’utiliser soit les commandes dédiées et incluses dans le package <em>stata_commands</em> (<code>tuse</code>, <code>tsave</code>, <code>tdir</code> et <code>terase</code>), soit la macro globale associée <code>$tmp</code>. Le répertoire sera reconnu grâce au profile.do (voir plus haut). Le nom de la macro associé est tmp.</p>
+<div id="répertoire-temporaires-ou-trash-box" class="section level1">
+<h1><span class="header-section-number">3</span> Répertoire temporaires ou trash box</h1>
+<p>Stata dispose d’un système d’enregistrement et d’ouverture des fichiers par défaut. A l’Ined il se situe dans la racine du lecteur D (pour vérifier l’emplacement de ce répertoire par défaut : exécuter <code>pwd</code>).<br />
+Dans un programme, une fois qu’un répertoire est affecté avec la commande <code>cd</code>, le répertoire par défaut n’est plus identifié comme tel, celui affecté par <code>cd</code> prenant le relais. La solution proposée ici est de créer un répertoire nommé <em>stata_temp</em> dans D :/ et d’utiliser soit les commandes dédiées et incluses dans le package <em>stata_commands</em> (<code>tuse</code>, <code>tsave</code>, <code>tdir</code> et <code>terase</code>), soit la macro globale associée <code>$tmp</code>. Le répertoire sera reconnu grâce au profile.do (voir plus haut), et le nom de la macro qui lui est associée <em>tmp</em>.</p>
 <p><strong>Les commandes associées</strong>:<br />
-- <code>tuse  nom_base</code> : ouvre une base (identique à use $tmp/nom_base).<br />
-- <code>tsave nom_base</code> : sauvegarde une base (identique à save $tmp/nom_base).<br />
+- <code>tuse  nom_base</code> : ouvre une base (identique à <code>use $tmp/nom_base</code>).<br />
+- <code>tsave nom_base</code> : sauvegarde une base (identique ? save $tmp/nom_base).<br />
 - <code>tdir  nom_base</code> : affiche le contenu du répertoire stata_temp. A l’ouverture d’une session Stata, le contenu du répertoire est affiché (propriété du profile, on peut supprimer cet affichage).<br />
-- <code>terase [extension fichier]</code>: efface le contenu du répertoire. terase seul supprime tous les fichiers Stata totalement ou par type de fichier (voir le fichier d’aide):<br />
+- <code>terase [extension fichier]</code>: efface le contenu du répertoire. <code>terase</code> seul supprime tous les fichiers Stata:<br />
 <code>terase</code><br />
 <code>terase log</code><br />
 <code>terase dta</code></p>
-<p>Pour apparier une ou plusieurs base présente dans ce répertoire, on utilisera le nom de la macro variable <code>$tmp/</code>, par exemple: <code>merge id using $tmp/b1 $tmp/b2</code></p>
-<p>Le nom de la macro peut être modifié dans le profile.do. Par exemple si on préfère que cela soit t au lieu de tmp, il suffit de modifier la ligne <code>global tmp &quot;D:/stata_temp/&quot;</code> par <code>global t &quot;D:/stata_temp/&quot;</code>.</p>
+<p>Pour apparier une ou plusieurs base enregistrées dans ce répertoire, on utilisera le nom de la macro variable <code>$tmp/</code>, par exemple: <code>merge id using $tmp/base1</code>.</p>
+<p>Le nom de la macro peut être modifiée dans le <em>profile.do</em>. Par exemple si on préfère que cela soit t au lieu de tmp, il suffit de modifier la ligne <code>global tmp "D:/stata_temp/"</code> par <code>global t "D:/stata_temp/"</code>.</p>
 <p><br></p>
 </div>
-<div id="creation-automatique-dun-fichier-log-a-louverture-dune-session" class="section level1">
+<div id="création-automatique-dun-fichier-log-à-louverture-dune-session" class="section level1">
 <h1><span class="header-section-number">4</span> Création automatique d’un fichier log à l’ouverture d’une session</h1>
-<p>Ici les fichiers log sont enregistrés dans le sous répertoire « log » du répertoire <strong>stata_temp</strong>. Il faut donc créer ce répertoire (D:stata_temp/log/). Les log sontdirectement générés dans le profile.do (voir ci-dessus).</p>
+<p>Ici les fichiers log sont enregistrés le sous répertoire <strong>log</strong> du répertoire <strong>stata_temp</strong>. Il faut donc créer ce répertoire (D:stata_temp/log/). Les log sont directement générés dans le profile.do (voir plus haut).</p>
 <p>En exécutant la commande <code>terase</code> (ou <code>terase log</code>), le log d’une session active ne sera pas supprimé.</p>
 <p>Si l’on souhaite modifier l’emplacement des fichiers log, par exemple de <strong>:D/Stata_temp/log</strong> vers <strong>:D/stata_log</strong>, il suffit de créer un répertoire stata_log dans :D et de modifier la ligne suivante dans le <strong>profile.do</strong> :</p>
-<pre><code>log using &quot;D:/stata_temp/log/`statalogname&#39;&quot; , text name(statalog)`  </code></pre>
+<pre><code>log using &quot;D:/stata_temp/log/`statalogname&#39;&quot; , text name(statalog)  </code></pre>
 <p>par</p>
-<pre><code>`log using &quot;D:/stata_log/`statalogname&#39;&quot; , text name(statalog)`  </code></pre>
+<pre><code>log using &quot;D:/stata_log/`statalogname&#39;&quot; , text name(statalog)  </code></pre>
+</div>
+<div id="markdown-stata-avec-rstudio-et-python" class="section level1">
+<h1><span class="header-section-number">5</span> Markdown, Stata avec RStudio et Python</h1>
+<p>Le markdown est un langage d’édition et de formatage de texte particulièrement simplifié. Via des commandes externes puis via une intégration interne, il est possible d’exécuter des programmes Stata commentés via ce “langage”.<br />
+L’intégration via la commande <code>dyndoc</code> (pour dynamic document) ne m’ayant pas du tout emballé, loin de là, je passe. ((<a href="https://www.stata.com/features/overview/markdown/" class="uri">https://www.stata.com/features/overview/markdown/</a>). <br> <strong>Avec RStudio</strong><br />
+Il est possible d’exécuter des programmes Stata avec R dans un document markdown avec RStudio avec le paquet <strong>Statamarkdown</strong> (Doug Hemken). Si le temps d’exécution ne m’est franchement pas paru optimal, cette fonctionalité est particulièrement intéressante pour éditer facilement et rapidement des document html, word ou pdf. Défauts: l’intégration au document des graphiques Stata n’est pas automatique et, plus embêtant, les commandes externes ne sont pas reconnues et doivent être placées dans le ado officiel.</p>
+<p>Sources:</p>
+<ul>
+<li>Julien Barnier: <a href="https://juba.github.io/tidyverse/13-rmarkdown.html">markdown avec Rstudio</a></li>
+<li>Doug Hemken: <a href="%5Bhttps://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown">statamarkdown</a></li>
+</ul>
+<p><strong>Avec Jupyter (Python)</strong><br />
+Même chose avec le noyau Stata du notebook <strong>Jupyter</strong> (nécessite Anaconda). Le temps d’exécution m’est apparu plus rapide qu’avec Rstudio. Avantage: l’intégration des graphiques Stata au document est automatique.<br />
+Source: Kyle Barron <a href="https://kylebarron.dev/stata_kernel/">Stata kernel</a><br />
+<br> <strong>Non testé</strong>: exécution de Stata avec l’éditeur <strong>Atom</strong> (auteur: également Kyle Barron).</p>
 </div>
 
 
@@ -463,6 +526,49 @@ $(document).ready(function () {
 });
 
 
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
 </script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
