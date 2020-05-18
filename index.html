@@ -9,35 +9,22 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Marc Thevenin" />
 
 
-<title>index.utf8</title>
+<title>FORMATION STATA</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/flatly.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
 
-<style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
 
 
 
@@ -102,33 +89,33 @@ summary {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 60px;
+  padding-top: 51px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h2 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h3 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h4 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h5 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .section h6 {
-  padding-top: 65px;
-  margin-top: -65px;
+  padding-top: 56px;
+  margin-top: -56px;
 }
 .dropdown-submenu {
   position: relative;
@@ -248,6 +235,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -255,6 +305,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -267,24 +327,12 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html"></a>
+      <a class="navbar-brand" href="index.html">FORMATION STATA</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="index.html">Stata</a>
-</li>
-<li>
-  <a href="commandes.html">Commandes</a>
-</li>
-<li>
-  <a href="scheme.html">Graphiques</a>
-</li>
-<li>
-  <a href="utils.html">Utilitaires</a>
-</li>
-<li>
-  <a href="utils.html">Python</a>
+  <a href="index.html">Home</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -298,29 +346,1702 @@ $(document).ready(function () {
 
 
 
+<h1 class="title toc-ignore">FORMATION STATA</h1>
+<h4 class="author">Marc Thevenin</h4>
 
 </div>
 
 
-<p><br><br></p>
-<p>Grosse mise à jour en cours (au fil de l’eau en 2020):</p>
+<p>Pour commencer:</p>
 <ul>
-<li>Ajout de commandes: <code>diffrmst</code> et <code>stphcure</code> en analyse des durées</li>
-<li>Maj de la commande <code>gpct</code>: calcul et report sur le graphique des intervalles de confiance</li>
-<li>Suppression de la partie sur le markdown, qui n’a jamais été faite. Des liens et quelques commentaires seront données dans la page <em>utilitaire</em></li>
-<li>Ajout d’une page sur l’utilisation de Python avec Stata (depuis la version 16 - printemps 2019)</li>
-<li>Une véritable section dédiée aux graphiques</li>
+<li>Ouvrir une session Stata</li>
+<li>Ouvrir un log de session: <code>file</code> =&gt; <code>log</code> =&gt; <code>begin</code></li>
+<li>Dans la fenêtre <strong>command</strong> de l’environnement principal, exécuter la ligne <code>sysuse auto</code></li>
 </ul>
-<p><br><br> <em>Liens Ined</em><br />
-<strong>Site de l’Ined</strong>: <a href="https://www.ined.fr" class="uri">https://www.ined.fr</a><br />
-<strong>Site du service des méthodes statistiques</strong>: <a href="https://sms.site.ined.fr" class="uri">https://sms.site.ined.fr</a><br />
-<strong>Site des Rencontres de Statistique Appliquée</strong>: <a href="https://statapp.site.ined.fr/fr/presentation" class="uri">https://statapp.site.ined.fr/fr/presentation</a><br />
-<strong>Site du séminaire R à l’Usage des Sciences Sociales (RUSS)</strong>: <a href="https://russ.site.ined.fr" class="uri">https://russ.site.ined.fr</a></p>
-<p><br><br> Marc Thevenin: (<a href="mailto:marc.thevenin@ined.fr" class="uri">mailto:marc.thevenin@ined.fr</a>)<br />
-Service des Méthodes Statistiques - Ined - <br><br> Support de formation réalisé avec <a href="href:https://www.rstudio.com">Rstudio</a>, thème graphique de type bootstrap disponible sur le site <a href="https://bootswatch.com/">bootswatch</a></p>
+<pre><code>sysuse auto.dta</code></pre>
+<div id="présentation" class="section level1">
+<h1><span class="header-section-number">1</span> Présentation</h1>
+<div id="historique-de-stata" class="section level2">
+<h2><span class="header-section-number">1.1</span> Historique de Stata</h2>
+<p>L’entreprise Stata Corp Lp a été fondée par W.Gould. Il est toujours à la tête de l’entreprise.</p>
+<ul>
+<li>Première version (sous MS Dos) en janvier 1985.<br />
+</li>
+<li>Première version Windows en 1995 (Stata 4).<br />
+</li>
+<li>La version la plus récente est la 16 (printemps 2019).</li>
+</ul>
+</div>
+<div id="stata-à-lined" class="section level2">
+<h2><span class="header-section-number">1.2</span> STATA à l’Ined</h2>
+<p>Version 14 Windows déployée, les maj vers la version 16 achetée.<br />
+Version 15 SE sous Linux (serveur margaux.</p>
+<p>Petit rappel pour l’Ined: Quel que soit le logiciel choisi sous environnement Windows (SAS v9.4 ou Stata) vous avez accès à une version de l’autre application sous Linux via le serveur Margaux (SAS Studio ou STATA v15 SE).</p>
+<p>A l’Ined, 2 types de versions Windows mise à disposition (selon les besoins).<br />
+<br> <strong>Version SE: Standard Edition</strong></p>
+<ul>
+<li>Nombre d’observations: 2.14 milliards</li>
+<li>Nombre de variables dans les bases: 32 767</li>
+<li>Nombre de variables RHS (limite nombre de colonnes des matrices: 10998)</li>
+</ul>
+<p><strong>Version IC: version bridée</strong></p>
+<ul>
+<li>Nombre d’observations: 2.14 milliards</li>
+<li>Nombre de variables dans les bases: 2048</li>
+<li>Nombre de variables RHS (limite nombre de colonnes des matrices): 798)</li>
+</ul>
+<p>Il existe également la version MP (Multiple Process) plus puissante: 120000 variables, 20 milliards d’observations).</p>
+</div>
+<div id="les-ressources" class="section level2">
+<h2><span class="header-section-number">1.3</span> Les ressources</h2>
+<div id="les-ressources-externes" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Les ressources externes</h3>
+<ul>
+<li><p>Les manuels édités par STATA. Certains sont disponibles au GED [<a href="http://www.stata.com/bookstore/books-on-stata" class="uri">http://www.stata.com/bookstore/books-on-stata</a>]</p></li>
+<li><p>Stata Journal, la revue trimestrielle éditée par Stata [<a href="http://www.stata-journal.com" class="uri">http://www.stata-journal.com</a> ]. Depuis 2015 accès total aux versions PDF (via portail GED)</p></li>
+<li><p>Une chaîne Youtube [<a href="http://www.youtube.com/user/statacorp/videos?view=0" class="uri">http://www.youtube.com/user/statacorp/videos?view=0</a>] qui propose des tutoriels via les manips par les boites de dialogue.</p></li>
+<li><p>Un forum particulièrement actif (<a href="https://www.statalist.org/" class="uri">https://www.statalist.org/</a>) [En anglais seulement]</p></li>
+<li><p>Site de l’UCLA: <a href="https://stats.idre.ucla.edu/stata/" class="uri">https://stats.idre.ucla.edu/stata/</a> <a href="https://stats.idre.ucla.edu/stata/modules/" class="uri">https://stats.idre.ucla.edu/stata/modules/</a></p></li>
+</ul>
+</div>
+<div id="les-ressources-internes" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Les ressources internes</h3>
+<ul>
+<li><p>Le manuel de Stata est directement intégré au logiciel. Pour y accéder à partir du menu : <code>help =&gt; PDF documentation</code></p></li>
+<li><p>Pour une instruction, on peut obtenir son aide en tapant dans la fenêtre <em>command</em> de l’environnement principal help command.</p></li>
+</ul>
+<pre><code>help summarize</code></pre>
+<p><strong>Les pages d’aides</strong></p>
+<p>En haut de la fenêtre (sous title), on peut accéder directement à la section du PDF en cliquant sur le lien (idem pour les options).<br />
+L’accès aux aides est également possible à partir des bo?tes de dialogue (voir plus bas).<br />
+L’aide comprend généralement:</p>
+<ul>
+<li>le nom de la commande</li>
+<li>le lien vers l’entrée du manuel (si commande officielle)</li>
+<li>la description de la syntaxe</li>
+<li>le détail des options</li>
+<li>des exemples avec éventuellement une exécution directe (voir avec <code>help tw</code>)</li>
+<li><p>les informations sauvegardés temporairement (jusqu’à l’exécution d’une autre commande) =&gt; <em>stored results</em>.</p></li>
+<li><p>L’instruction <code>findit nom_command</code> permet d’obtenir la liste de toutes les ressources disponibles d’une commande, internes ou externes. Exemple: <code>findit fitstat</code></p></li>
+</ul>
+</div>
+</div>
+<div id="warning-compatibilité-entre-les-versions" class="section level2">
+<h2><span class="header-section-number">1.4</span> Warning: compatibilité entre les versions</h2>
+<p>Assez régulièrement, des probl?mes de compatibilité entre les versions de Stata se sont posés. Cela affecte la lecture des bases entre les différentes versions du logiciel. C’est le cas entre la version 14 et les versions antérieures (dont la version 13 qui date de 2012).</p>
+<p>Version 14 (idem 15,16): refonte total du système d’encodage vers le standard UTF8.<br />
+Les versions inférieures ne peuvent pas ouvrir les bases, qui doivent être enregistrées avec une commande particulière (<code>saveold</code>) sous Stata14-15-16. Les accents ne sont pas lu après cette conversion, et ce qui nécessite d’exécuter un programme pour les convertir (au secours!!!!).<br />
+<br> A l’Ined, depuis le déploiement de la version 14 et le passage à la version 15 Linux, il n’y a plus de problème. Attention toutefois pour les collaborations avec l’extérieur (version 13 encore largement utilisée).</p>
+</div>
+<div id="les-users-packages" class="section level2">
+<h2><span class="header-section-number">1.5</span> Les users packages</h2>
+<p>Stata fonctionne avec un double système de commandes officielles et de commandes externes (idem R).</p>
+<p>Commandes externes (user package):</p>
+<ul>
+<li><p>Il s’agit d’instructions créees par les utilisateurs</p></li>
+<li><p>Ces instructions couvrent le data management et l’analyse statistique (descriptive, modélisation, graphiques)</p></li>
+<li><p>Même syntaxe que les instructions officielles</p></li>
+<li><p>La liste (triée par année) de ces instructions se trouve à cette adresse [<a href="http://ideas.repec.org/s/boc/bocode.html" class="uri">http://ideas.repec.org/s/boc/bocode.html</a>]. Elle n’est pas exhaustive, seulement celles sur le dépôt de Stata (autres dépôts: université, institut de recherche, et les git)</p></li>
+</ul>
+<p><strong>Installation d’une commande externe</strong><br />
+Pour télécharger un package, on peut utiliser la ligne de commande:</p>
+<pre><code>ssc install nom_commande, replace</code></pre>
+<p><strong>Exo</strong></p>
+<ul>
+<li>[1] Accéder à l’aide (pdf) de l’instruction <code>tabulate</code>. Faire un tableau croisé entre la variable <strong>foreign</strong> et <strong>rep78</strong></li>
+<li>[2] Installer le package externe <code>findname</code>, exécuter <code>findname t*</code> et chercher les variables de type chaine de caractère (string)</li>
+</ul>
+</div>
+<div id="points-forts-et-points-faible-selon-mt" class="section level2">
+<h2><span class="header-section-number">1.6</span> Points forts et points faible selon MT</h2>
+<p><strong>Points forts</strong></p>
+<ul>
+<li><p>L’interface et son interactivité</p></li>
+<li><p>La simplicit? du langage de base. Très bonne courbe d’apprentissage</p></li>
+<li><p>Accès aux instructions/packages externes. Même syntaxe que l’officielle (mais warning sur la certification des packages).</p></li>
+<li><p>Les variables systèmes de comptage.</p></li>
+<li><p>Automatisation des programmes via les macro variables et les boucles. Intuitif.</p></li>
+<li><p>Paramétrisation poussée d’une session avec l’édition d’un fichier <code>profile.do</code></p></li>
+</ul>
+<p><strong>Points faibles</strong></p>
+<ul>
+<li><p>Problèmes de compatibilités entre les versions, noms d’instructions qui peuvent changer entre les versions</p></li>
+<li><p>Une seule base en mémoire lors de la session : obligation de sauvegarder pour en ouvrir une autre (avec option clear). Mais possibilité de contourner cette faiblesse. MAJ v16: implémentation d’un système de <code>frame</code></p></li>
+</ul>
+<p>*Aspect des outputs sommaires. Des packages externes comblent en partie ce problème. Idem pour les graphiques</p>
+<ul>
+<li>Bien que l’interface soit de très bonne qualité, il n’est pas possible d’ancrer l’éditeur de programme dans l’interface principale (en la substituant à la fenêtre command par exemple)</li>
+</ul>
+<p><strong>Faux problème (du point de vue de SAS)</strong></p>
+<ul>
+<li><p>Absence de librairie temporaire: Un système de <em>trash box</em> est possible (+ création automatique d’un log de session). Voir avec MT</p></li>
+<li><p>Chargement de plusieurs répertoires (<em>libname</em>). Idem voir avec MT pour la solution avec les macro variables + <code>frame</code> à partir de la version 16</p></li>
+</ul>
+</div>
+</div>
+<div id="lenvironnement" class="section level1">
+<h1><span class="header-section-number">2</span> L’environnement</h1>
+<div id="les-principaux-types-de-fichier" class="section level2">
+<h2><span class="header-section-number">2.1</span> Les (principaux) types de fichier</h2>
+<ul>
+<li><p>Les bases de données: <strong>.dta</strong></p></li>
+<li><p>L’éditeur de programme : <strong>.do</strong> (<strong>.ado</strong> pour la programmation de commandes)</p></li>
+<li><p>Le log de session : <strong>.smcl</strong> ou <strong>.log</strong> (conversion possible en <strong>.txt</strong>, <strong>.doc</strong> ou <strong>.pdf</strong>)</p></li>
+<li><p>Les graphiques : <strong>.gph</strong> (+ enregistrement en format image: png, jpg, svf…)</p></li>
+<li><p>Les fichiers d’aides: <strong>.sthlp</strong></p></li>
+</ul>
+</div>
+<div id="où-passer-ses-instructions" class="section level2">
+<h2><span class="header-section-number">2.2</span> Où passer ses instructions ?</h2>
+<ul>
+<li><p>Dans l’éditeur de programme (.do ou .ado ou écritue d’un fichier d’aide)</p></li>
+<li><p>Dans la fenêtre “Command” de l’environnement principal</p></li>
+<li><p>Par les menus (ouverture d’une boîte de dialogue). On récupéré la syntaxe de l’instruction directement dans l’interface principale, et par copier-coller dans l’éditeur de programme. Plutôt pratique.</p></li>
+</ul>
+</div>
+<div id="linterface-principale" class="section level2">
+<h2><span class="header-section-number">2.3</span> L’interface principale</h2>
+<p><img src="g1.PNG" /></p>
+<p><strong>Boite output</strong></p>
+<p>Affiche les commandes exécutées et les résultats</p>
+<p><strong>Boite review</strong></p>
+<ul>
+<li><p>C’est un log de toutes les instructions passées par la fenêtre command</p></li>
+<li><p>En cliquant de dessus, l’instruction est de nouveau affichée dans la fenêtre command</p></li>
+<li><p>Avec un clic-droit on peut copier, supprimer les instructions. Les instructions en rouge déclarent celles avec une erreur</p></li>
+<li><p>Les instructions passée par l’éditeur de programme ne sont reportée</p></li>
+</ul>
+<p><strong>Boite variables</strong></p>
+<ul>
+<li><p>Liste les variables présentent dans la base chargée avec éventuellement leur label</p></li>
+<li><p>En cliquant dessus, là ou les variables sont affichées dans la fenêtre command</p></li>
+<li><p>Avec un cliqu-droit, une ou plusieurs variables peuvent être copiées, conservées ou supprimées</p></li>
+</ul>
+<p><strong>Boite properties</strong></p>
+<ul>
+<li><p>Pour les variables affiche leurs propriétés: nom, label, format, type….</p></li>
+<li><p>Si le cadenat est délocké, on peut modifier ces propriétés (voir variable manager). Le code qui exécute la modification est affichée dans la fenêtre command et la boîte review</p></li>
+</ul>
+</div>
+<div id="menus-et-raccourcis" class="section level2">
+<h2><span class="header-section-number">2.4</span> Menus et raccourcis</h2>
+<p><img src="g2.PNG" /></p>
+<p><strong>Menus (boîtes de dialogue)</strong></p>
+<ul>
+<li>File: gestion des fichiers =&gt; création, ouverture, import/export…</li>
+<li>Edit: utile pour la modification des préférences (couleurs interface, thèmes graphique)</li>
+<li>Data: manipulation des données</li>
+<li>Graphics: création de graphiques</li>
+<li>Statistics: instructions stat: descriptifs, modèles</li>
+<li>User: accès à vos boîtes de dialogue programmée en java</li>
+<li>Windows: activation des boîtes de l’interface principale</li>
+<li>help: infos sur le logiciel et accès à des ressources (internes et liens)<br />
+<br> On peut accéder directement à une boîte de dialogue avec la commande <code>db nom_commande</code></li>
+</ul>
+<pre><code>db logit</code></pre>
+<p><strong>Raccourcis (dans l’ordre de gauche à droite)</strong></p>
+<ul>
+<li>Ouverture d’un fichier</li>
+<li>Enregistrement de la base de données active</li>
+<li>Impression de la fenêtre output</li>
+<li>Ouverture d’un log</li>
+<li>Ouverture de la fenêtre d’aide</li>
+<li>Ouverture de l’éditeur de graphique (modification d’un graphique créé)</li>
+<li>Création ou ouverture de l’éditeur de programme (.do .ado . sthlp)</li>
+<li>Ouvre la base de données active en mode édition</li>
+<li>Ouvre la base de données active en mode lecture</li>
+<li>Ouvre le variable manager</li>
+<li>Déblocage du défilement de l’output pendant l’exécution</li>
+<li>Arrête l’exécution d’un programme</li>
+</ul>
+</div>
+<div id="léditeur-de-programme" class="section level2">
+<h2><span class="header-section-number">2.5</span> L’éditeur de programme</h2>
+<p><img src="g3.PNG" /></p>
+<div id="soumettre-un-programme-ou-un-bloc-de-programme" class="section level3">
+<h3><span class="header-section-number">2.5.1</span> Soumettre un programme ou un bloc de programme</h3>
+<ul>
+<li>On ne sélectionne aucune ligne: tout le programme est exécuté</li>
+<li>On sélectionne une partie du programme: seul le bloc est exécuté</li>
+</ul>
+<p><img src="g4.PNG" /></p>
+<ul>
+<li><code>execute (do)</code>: les commandes et les résultats sont affichés dans l’output de l’interface principale</li>
+<li><code>execute quietly (run)</code>: les commandes et les résultats ne sont pas affichés dans l’output de l’interface principale</li>
+</ul>
+</div>
+<div id="delimiter" class="section level3">
+<h3><span class="header-section-number">2.5.2</span> delimiter</h3>
+<p><BR> Par défaut une ligne = une instruction (<code>#delimit cr</code>).<br />
+Stata ne comprend pas la deuxième ligne de:</p>
+<pre><code>keep  X1 X2 
+      X3 X4</code></pre>
+<p>Peut-être contourné dans un programme pour écrire des instructions longue sur plusieurs lignes avec l’instruction <code>#delimit ;</code></p>
+<pre><code>#delimit ;
+keep  X1 X2  
+      X3 X4;
+tabulate X1;</code></pre>
+<p>S’applique tant qu’on ne repasse pas à <code>#delimit cr</code></p>
+<p>La solution la plus utilisée est <code>///</code> à la fin de la ligne.</p>
+<pre><code>keep  X1 X2 /// 
+      X3    /// 
+      X4
+tabulate X1</code></pre>
+</div>
+<div id="les-commentaires" class="section level3">
+<h3><span class="header-section-number">2.5.3</span> Les commentaires</h3>
+<p>Si le commentaire est sur une seule ligne</p>
+<pre><code>* commentaire</code></pre>
+<p>Si le commentaire est sur une ligne en suivant une instruction</p>
+<pre><code>instruction  // Commentaire </code></pre>
+<p>Si le commentaire est sur plusieurs lignes</p>
+<pre><code>/* commentaire 1
+   commentaire 2 */</code></pre>
+</div>
+<div id="interactions-entre-linterface-principale-les-boîtes-de-dialogue-et-léditeur-de-programme" class="section level3">
+<h3><span class="header-section-number">2.5.4</span> Interactions entre l’interface principale, les boîtes de dialogue et l’éditeur de programme</h3>
+<p>=&gt; <em>Démonstration pendant la formation</em></p>
+</div>
+</div>
+</div>
+<div id="le-langage-stata" class="section level1">
+<h1><span class="header-section-number">3</span> Le langage Stata</h1>
+<div id="la-syntaxe-générique" class="section level2">
+<h2><span class="header-section-number">3.1</span> La syntaxe générique</h2>
+<p><strong>Remarque sur les crochets</strong>:<br />
+A ma connaissance, à l’exception des pondérations il n’y a pas d’utilisation de crochets dans la syntaxe des commandes officielles. Dans les fichiers d’aide, et pour cette formation, ils indiquent des expressions optionnelles d’une ligne d’instruction.</p>
+<p><br> * Forme concise de la syntaxe STATA pour une instruction portant sur des variables</p>
+<pre><code>command varlist [, options ]</code></pre>
+<p>Exemple : <code>tabulate var1 var2, nofreq row</code><br />
+Ce qui ce traduit par: produire un tableau croisé entre var1 (en ligne) et var2 (en colonne) en affichant les % en ligne</p>
+<ul>
+<li>Forme générique de la syntaxe STATA</li>
+</ul>
+<pre><code>[prefix:] command varlist [type_weight=var] [ expression conditionnelle, options]</code></pre>
+<p>Expression conditionnelle (sélection): <code>if</code> (sélection de valeurs) ou <code>in</code> (sélection d’observations)</p>
+<p>Exemple : <code>bysort var3: tabulate var1 var2 if var4==1, nofreq col</code><br />
+Ce qui ce traduit par: pour chaque valeur de var3, produire un tableau croisé entre var1 et var2 si var4=1, avec les % en colonne.<br />
+<br> Si la commande implique une base, le nom de la base est généralement précédée de <code>using</code> (sauf pour les instructions officielle d’ouverture/sauvegarde):</p>
+<pre><code>command using nom_base [,options]</code></pre>
+</div>
+<div id="autres-langages-pris-en-charge" class="section level2">
+<h2><span class="header-section-number">3.2</span> Autres langages pris en charge</h2>
+<p><br> <em>interne</em></p>
+<ul>
+<li>Programmation d’une commande (création d’un .ado) avec des éléments de langage dédié</li>
+<li>Langage matriciel (MATA)</li>
+<li>Editeur de texte (SMCL) pour rédiger les aides ou paramétrer la forme des outputs (une horreur)</li>
+<li>Création de boites de dialogue (proche du Java)</li>
+</ul>
+<p><em>Externe</em></p>
+<ul>
+<li>Via une commande externe (<code>rsource</code>), on peut exécuté du R</li>
+<li>Débuit la version 16 on peut programmer en Python avec Stata. Une série de fonctions python (paquet <code>SFI</code>) permettent d’utiliser les deux langages de manière interactive<br />
+</li>
+<li>Intégration du langage markdown pour produire des rapports en html ou pdf. Egalement possibilité de générer des documents word ou excel avec des commandes dédiées. L’intégration de latex est également possible via une commande externe. Toutes ces possibilité me semble nettement en deçà de ce qui est réalisable avec <strong>RStudio</strong> (<code>Rmarkdown</code> + <code>Statamarkdown</code> + <code>knitr</code>)</li>
+</ul>
+</div>
+<div id="les-opérateurs" class="section level2">
+<h2><span class="header-section-number">3.3</span> Les opérateurs</h2>
+<p><strong>Opérateurs booléens</strong></p>
+<ul>
+<li><code>&amp;</code> Et</li>
+<li><code>|</code> [Alt Gr6] Ou</li>
+</ul>
+<p><strong>Opérateurs d’affectation</strong></p>
+<ul>
+<li><code>=</code> prend la valeur</li>
+</ul>
+<p><strong>Opérateurs pour les expressions conditionnelles</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Opérateurs</strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>==</code></td>
+<td>Egal à</td>
+</tr>
+<tr class="even">
+<td><code>!=</code></td>
+<td>Ne pas être égal à</td>
+</tr>
+<tr class="odd">
+<td><code>&gt;</code></td>
+<td>Strictement supérieur à</td>
+</tr>
+<tr class="even">
+<td><code>&gt;=</code></td>
+<td>Supérieur ou égal à</td>
+</tr>
+<tr class="odd">
+<td><code>&lt;</code></td>
+<td>Strictement inférieur à</td>
+</tr>
+<tr class="even">
+<td><code>&lt;=</code></td>
+<td>Inférieur ou égal à</td>
+</tr>
+<tr class="odd">
+<td><strong>Opérateurs arithmétique</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>+</code> , <code>-</code> , <code>/</code></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>Opérateur chaîne de caractères</strong></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><code>+</code></td>
+<td>concaténation [1]</td>
+</tr>
+</tbody>
+</table>
+<p>[1] <code>+</code> concatène des variables caractères qui n’ont pas de valeur manquante (sinon la fonction <code>concat</code> associée à l’instuction <code>egen</code>).</p>
+</div>
+<div id="les-valeurs-manquantes" class="section level2">
+<h2><span class="header-section-number">3.4</span> Les valeurs manquantes</h2>
+<p><strong>Statut des valeurs manquantes (très important)</strong><br />
+Elles prennent la plus grande valeur possible, aucune valeur d’une variable ne peut-être plus élevée.<br />
+Ceci doit être pris en compte dans les expressions conditionnelles impliquant des variables ordinales ou continues: Si une variable numérique <span class="math inline">\(x\)</span> a des valeurs manquantes, la condition <code>if X&gt;valeur</code> conservera ces informations manquantes.</p>
+<p>Si <span class="math inline">\(X=(1, 2, 3, 4, 5, 6, .)\)</span>:</p>
+<ul>
+<li><code>...if x&gt;4$</code> conserve <span class="math inline">\(x=(5,6,.)\)</span><br />
+</li>
+<li><code>...if x&gt;4 &amp; x&lt;.</code> ou <code>...if x&gt;4 &amp; x!=.</code> conserve seulement <span class="math inline">\(x=(5,6)\)</span></li>
+</ul>
+<p><strong>Les valeurs manquantes utilisateurs</strong><br />
+On peut rendre la valeur manquante informative en lui ajoutant une lettre: <strong>.a</strong> , <strong>.b</strong>, <strong>.c</strong> etc….<br />
+Exemple: .a= Ne sait pas, .b=Refus , .c=Pas de r?ponse (existe également sous Sas au passage).</p>
+</div>
+<div id="casse-et-troncature" class="section level2">
+<h2><span class="header-section-number">3.5</span> Casse et troncature</h2>
+<div id="sensibilité-à-la-casse" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Sensibilité à la casse*</h3>
+<p>Comme R ou Python Stata est intégralemeny sensible à la casse pour les instructions et l il ne comprend que les minuscules. Par exemple <code>TABULATE X</code> renvoie un message d’erreur.</p>
+</div>
+<div id="troncature-des-instructions-et-des-options" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> Troncature des instructions et des options</h3>
+<p>Dans l’aide interne, le niveau de troncature est indiqué par un soulignement dans l’instruction: par exemple <code>tabulate</code>est souligné au niveau de <strong>ta</strong> : <strong>tabulate = tabulat = tabula = tabul = tabu = tab = ta</strong>. On utilise généralement <code>tabulate</code> ou <code>tab</code>.</p>
+<p>A manier avec une certaine précaution car le programme peut devenir rapidement incompréhensible, surtout s’il est partagé:</p>
+<pre><code>tabulate var1 var2, nofreq row miss  
+* est équivalent à 
+ta       var1 var2, nof    r   m</code></pre>
+</div>
+</div>
+<div id="quietly-et-display" class="section level2">
+<h2><span class="header-section-number">3.6</span> Quietly et display</h2>
+<p><strong>En silence….</strong><br />
+On peut rendre le résultat d’une commande invisible dans la fenêtre output avec <code>quietly</code> (<code>qui</code>).<br />
+<br></p>
+<pre><code>sysuse auto.dta
+    tab rep78
+qui tab rep78
+return list</code></pre>
+<p><strong>display</strong></p>
+<p>Ce n’est pas une commande à proprement parler, mais l’instruction <code>display</code> (<code>di</code>) permet d’afficher dans l’output, entre autre, des opérations arithmétique.</p>
+<pre><code>di exp(1)/(1+exp(1))
+di &quot;SALUT&quot;
+di as result &quot;SALUT MON AMI.E &quot;</code></pre>
+</div>
+<div id="sélection-de-variables-et-répétition" class="section level2">
+<h2><span class="header-section-number">3.7</span> Sélection de variables et répétition</h2>
+<div id="sélection-de-variables" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> Sélection de variables</h3>
+<p>On peut sélectionner un ensemble de variables qui ont une racine commune, par exemple <strong>c</strong>, en écrivant : <code>*c*</code>.<br />
+Exemple:<br />
+television, telephone, table ont comme racine <strong>t</strong>. Pour supprimer ces variables, on peut exécuter <code>drop t*</code> au lieu de <code>drop television telephone table</code>.<br />
+Si on veut supprimer television et telephone seulement : <code>drop tele*</code>.</p>
+<p>Si on veut sélectionner des variables occurencées ou dans comme la base <em>auto</em> les 5 variables qui se suivent [headroom, trunk, weight, length, turn]: <code>keep headroom-turn</code> . Pour des variables occurencées de x1 à x5: <code>keep x1-x5</code>.</p>
+<p><strong>Sélection avec les macro variables</strong></p>
+<p>Vu la simplicité du langage Stata, il est conseiller de se mettre rapidement à la manipulation des expressions dites <code>macro</code>.<br />
+Une macro, dans sa version la plus simple, est une expression qui est utilisé une ou plusieurs fois dans un programme.</p>
+<p>L’instruction <code>local</code> permet de définir des macros variables temporaire (disparaissent après l’exécution du programme):</p>
+<pre><code>local nom_macro expression</code></pre>
+<p>Le nom de la macro dans l’expression sera indiqué dans la suite du programme par <code>`nom_macro'</code></p>
+<p>Exemple:</p>
+<pre><code>sysuse auto.dta
+local x mpg weight length turn headroom trunk
+
+sum `x&#39;
+
+    Variable |        Obs        Mean    Std. Dev.       Min        Max
+-------------+---------------------------------------------------------
+         mpg |         74     21.2973    5.785503         12         41
+      weight |         74    3019.459    777.1936       1760       4840
+      length |         74    187.9324    22.26634        142        233
+        turn |         74    39.64865    4.399354         31         51
+    headroom |         74    2.993243    .8459948        1.5          5
+-------------+---------------------------------------------------------
+       trunk |         74    13.75676    4.277404          5         23
+
+
+regress price `x&#39;, noheader
+
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         mpg |   -94.0634    80.3708    -1.17   0.246    -254.4842     66.3575
+      weight |     5.0793     1.1482     4.42   0.000       2.7876      7.3710
+      length |   -73.4871    43.0113    -1.71   0.092    -159.3379     12.3638
+        turn |  -327.0699   126.3111    -2.59   0.012    -579.1879    -74.9519
+    headroom |  -731.2921   427.3691    -1.71   0.092    -1.58e+03    121.7402
+       trunk |    98.2751   105.7208     0.93   0.356    -112.7446    309.2947
+       _cons |   2.04e+04  6090.0684     3.36   0.001    8291.4235    3.26e+04
+------------------------------------------------------------------------------</code></pre>
+<p>On en voit tout de suite l’utiliser: si je veux changer la liste de variable pour les instructions <code>sum</code> (troncature de <code>summarize</code>) et pour <code>regress</code>, je le fais une fois (dans la définition de la macro) au lieu de deux.</p>
+<p>Avec Stata peut définir égalementdes macros dites <em>global</em> qui sont sauvegardées et s’appliqueront à tous les programmes (on peut les supprimer). Leur utilisation est moins courante: <code>global nom_macro expression</code>, le nom de la macro dans l’expression s’écrira <code>$nom_macro</code></p>
+<pre><code>sysuse auto.dta
+global x mpg weight length turn headroom trunk
+sum $x
+reg price $x
+macro drop x</code></pre>
+<p>La liste des macro enregistrée est donnée par l’instruction: <code>macro dir</code></p>
+</div>
+<div id="répétition-sur-des-variables-occurencées" class="section level3">
+<h3><span class="header-section-number">3.7.2</span> Répétition sur des variables occurencées</h3>
+<p>Petite introduction au boucles pour des variables occurencées.</p>
+<p><strong>for num 1/n:</strong><br />
+L’expression <code>for num 1/n: command varlistX</code> permet d’effectuer simplement des instructions en boucle sur des variables à n occurences (notées X dans l’instruction).<br />
+Exemple : on veut renommer les variables var1…..var9 en q1….q9. Au lieu de répéter 9 fois l’instruction <code>rename</code>:<br />
+<code>rename var1 q1</code>, <code>rename var2 q2</code> etc…<br />
+On exécutera <code>for num 1/9: rename varX qX</code>.</p>
+<p><strong>forvalues</strong><br />
+<code>for num 1/n:</code> est de plus en plus abandonnée (aide Stata supprim?e). On lui préfère maintenant l’instruction <code>forvalues</code> pour effectuer des boucles numériques.<br />
+Avec l’exemple précédent:</p>
+<pre><code>forvalues i=1/9 {
+rename var`i&#39; q`i&#39; 
+}</code></pre>
+<p>Ici <strong>i</strong> a le rôle d’une macro variable temporaire (<code>local</code>)</p>
+</div>
+<div id="répétition-dune-instruction-avec-foreach" class="section level3">
+<h3><span class="header-section-number">3.7.3</span> Répétition d’une instruction avec foreach</h3>
+<p>Par l’exemple. On veut faire une régression linéaire entre la variable price (Y) et la variable foreign + une seule autre variable dans cette liste: mpg, headroom, trunk, weight, length, turn. Au lieu d’exécuter:</p>
+<pre><code>regress price foreign mpg      
+regress price foreign headroom 
+regress price foreign trunk    
+regress price foreign weight   
+regress price foreign length   
+regress price foreign turn     </code></pre>
+<p>On génère une macro variable locale, et on exécute une boucle avec l’instruction <code>foreach</code></p>
+<pre><code>sysuse auto.dta
+local x mpg weight length turn headroom trunk
+foreach i of local x {
+regress price foreign `i&#39;, noheader
+}
+
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  1767.2922   700.1580     2.52   0.014     371.2169   3163.3676
+         mpg |  -294.1955    55.6917    -5.28   0.000    -405.2417   -183.1494
+       _cons |   1.19e+04  1158.6345    10.28   0.000    9595.1638    1.42e+04
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  3637.0013   668.5830     5.44   0.000    2303.8848   4970.1178
+      weight |     3.3207     0.3959     8.39   0.000       2.5314      4.1101
+       _cons |  -4.94e+03  1345.5909    -3.67   0.000    -7.63e+03   -2.26e+03
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  2801.1429   766.1170     3.66   0.000    1273.5489   4328.7369
+      length |    90.2124    15.8337     5.70   0.000      58.6409    121.7839
+       _cons |  -1.16e+04  3124.4362    -3.72   0.000    -1.79e+04   -5.39e+03
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  2600.2753   879.8548     2.96   0.004     845.8946   4354.6560
+        turn |   379.2366    92.0360     4.12   0.000     195.7220    562.7512
+       _cons |  -9.64e+03  3832.2964    -2.52   0.014    -1.73e+04   -2.00e+03
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |   577.8125   787.5659     0.73   0.466    -992.5493   2148.1743
+    headroom |   491.5752   428.4054     1.15   0.255    -362.6409   1345.7913
+       _cons |  4522.0705  1412.0966     3.20   0.002    1706.4299   7337.7111
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  1190.1550   760.8049     1.56   0.122    -326.8468   2707.1568
+       trunk |   262.7717    81.8519     3.21   0.002      99.5636    425.9797
+       _cons |  2196.5410  1267.8569     1.73   0.088    -331.4939   4724.5760
+------------------------------------------------------------------------------
+
+
+</code></pre>
+<p>….et on peut aller plus loin (je me lache un peu): on ajoute une variable à chaque modèle</p>
+<pre><code>local x mpg weight length turn headroom trunk
+foreach i of local x {
+local j `j&#39; `i&#39;
+di &quot;`j&#39;&quot;  // pour afficher ce qui est lu dans la macro
+regress price foreign `j&#39;, noheader
+}
+mpg
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  1767.2922   700.1580     2.52   0.014     371.2169   3163.3676
+         mpg |  -294.1955    55.6917    -5.28   0.000    -405.2417   -183.1494
+       _cons |   1.19e+04  1158.6345    10.28   0.000    9595.1638    1.42e+04
+------------------------------------------------------------------------------
+mpg weight
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  3673.0604   683.9783     5.37   0.000    2308.9087   5037.2120
+         mpg |    21.8536    74.2211     0.29   0.769    -126.1758    169.8830
+      weight |     3.4647     0.6307     5.49   0.000       2.2067      4.7227
+       _cons |  -5.85e+03  3376.9874    -1.73   0.087    -1.26e+04    881.4934
+------------------------------------------------------------------------------
+mpg weight length
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  3550.1937   655.4564     5.42   0.000    2242.5940   4857.7934
+         mpg |   -13.4072    72.1076    -0.19   0.853    -157.2579    130.4436
+      weight |     5.7162     1.0161     5.63   0.000       3.6891      7.7432
+      length |   -92.4802    33.5912    -2.75   0.008    -159.4928    -25.4676
+       _cons |  5515.5801  5241.9413     1.05   0.296    -4.94e+03    1.60e+04
+------------------------------------------------------------------------------
+mpg weight length turn
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  3273.4076   687.0594     4.76   0.000    1902.4019   4644.4132
+         mpg |   -22.7625    72.1391    -0.32   0.753    -166.7138    121.1888
+      weight |     5.9182     1.0235     5.78   0.000       3.8758      7.9605
+      length |   -78.7834    35.0935    -2.24   0.028    -148.8113     -8.7554
+        turn |  -149.7014   116.5489    -1.28   0.203    -382.2711     82.8683
+       _cons |  8548.5680  5726.8988     1.49   0.140    -2.88e+03    2.00e+04
+------------------------------------------------------------------------------
+mpg weight length turn headroom
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  3250.9587   680.1387     4.78   0.000    1893.3962   4608.5213
+         mpg |   -24.6578    71.4068    -0.35   0.731    -167.1863    117.8706
+      weight |     5.8983     1.0130     5.82   0.000       3.8763      7.9203
+      length |   -67.2666    35.5118    -1.89   0.063    -138.1483      3.6152
+        turn |  -159.0932   115.5067    -1.38   0.173    -389.6456     71.4591
+    headroom |  -505.3365   324.7006    -1.56   0.124    -1.15e+03    142.7685
+       _cons |  8376.2453  5669.0187     1.48   0.144    -2.94e+03    1.97e+04
+------------------------------------------------------------------------------
+mpg weight length turn headroom trunk
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+     foreign |  3212.1455   685.5784     4.69   0.000    1843.3439   4580.9470
+         mpg |   -24.2206    71.7140    -0.34   0.737    -167.4021    118.9610
+      weight |     5.9276     1.0183     5.82   0.000       3.8944      7.9608
+      length |   -74.9821    37.5416    -2.00   0.050    -149.9362     -0.0279
+        turn |  -157.7407   116.0169    -1.36   0.179    -389.3759     73.8945
+    headroom |  -625.4248   373.6911    -1.67   0.099    -1.37e+03    120.6736
+       trunk |    60.9357    92.6166     0.66   0.513    -123.9792    245.8507
+       _cons |  9207.5123  5831.6742     1.58   0.119    -2.44e+03    2.09e+04
+------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
+</div>
+<div id="les-bases-de-données" class="section level1">
+<h1><span class="header-section-number">4</span> Les bases de données</h1>
+<div id="affectation-du-répertoire-de-travail" class="section level2">
+<h2><span class="header-section-number">4.1</span> Affectation du répertoire de travail</h2>
+<p>La commande <code>cd</code> (Current Directory), permet d’indiquer le chemin d’accès du répertoire où se trouve la base à ouvrir ou à enregistrer. Si aucun chemin d’accès n’est spécifié, Stata ira chercher la base dans le répertoire par défaut (normalement C: ou D:).</p>
+<p>Syntaxe</p>
+<pre><code>cd &quot;path&quot;</code></pre>
+<p><strong>Remarque</strong><br />
+Avec cette commande, un seul repertoire de travail est actif. On peut élargir les possibilités en affectant des répertoires avec des macros variables locales ou globales</p>
+</div>
+<div id="ouverture-dune-base" class="section level2">
+<h2><span class="header-section-number">4.2</span> Ouverture d’une base</h2>
+<p><strong>Commande</strong> <code>use</code><br />
+<br> Sans chargement d’un répertoire</p>
+<pre><code>use &quot;path/nom_base.dta&quot; [,clear]</code></pre>
+<p>L’option <code>clear</code> permet d’effacer une base en cours d’utilisation. Il est conseillé de mettre cette option systématiquement. On peut également utiliser <code>clear</code> comme instruction avant d’ouvrir une base. on ne supprime pas la base du répertoire (commande <code>erase</code>), elle est juste écrasée.</p>
+<p>Syntaxe avec affectation d’un répertoire:</p>
+<pre><code>cd &quot;path&quot;
+use &quot;nom_base.dta&quot;, clear </code></pre>
+<p>Remarque: pour les bases d’exemple Stata préinstallées on utilise la commande <code>sysuse</code>. Dans les fichiers d’aide, des exemples font appels a des bases localisées sur des serveurs qui s’ouvrent avec la commande <code>webuse</code>.</p>
+</div>
+<div id="sauvegarde-dune-base" class="section level2">
+<h2><span class="header-section-number">4.3</span> Sauvegarde d’une base</h2>
+<p><strong>Commandes</strong> <code>save</code> ou <code>saveold</code></p>
+<p>Syntaxe</p>
+<pre><code>save &quot;path/nom_base.dta&quot; [, replace]     </code></pre>
+<p>L’option replace permet d’écraser une version antérieure de la base. Obligatoire à partir de la 2ème sauvegarde, mais on peut l’utiliser dès la première sauvegarde (un message d’avertissement s’affiche).</p>
+<p><code>saveold</code> permet de lire des bases issues d’une version ancienne de Stata non compatibles avec la version courante.</p>
+<p>Syntaxe</p>
+<pre><code> saveold &quot;path/nom_base.dta&quot;, [replace] [version(#)] // # = numéro de la version de Stata</code></pre>
+<p>Remarques:</p>
+<ul>
+<li>Ecrire l’extension .dta n’est pas obligatoire</li>
+<li>Les doubles quotes ne sont obligatoires que si il y a un espace dans le chemin d’accès et/ou dans le nom de la base</li>
+</ul>
+<pre><code>use &quot;ma base&quot;, clear 
+save ma_base, clear </code></pre>
+</div>
+<div id="décrire-le-contenu-dune-base" class="section level2">
+<h2><span class="header-section-number">4.4</span> Décrire le contenu d’une base</h2>
+<p>Commande <code>describe</code></p>
+<p>Syntaxe</p>
+<pre><code>describe [varlist , short]</code></pre>
+<ul>
+<li>La commande est régulièrement tronquée jusqu’à <code>des</code></li>
+</ul>
+<p>Exemple</p>
+<pre><code>sysuse auto.dta
+des
+
+Contains data from C:\Program Files\Stata16\ado\base/a/auto.dta
+  obs:            74                          1978 Automobile Data
+ vars:            12                          13 Apr 2018 17:45
+                                              (_dta has notes)
+-------------------------------------------------------------------------------------------------------------
+              storage   display    value
+variable name   type    format     label      variable label
+-------------------------------------------------------------------------------------------------------------
+make            str18   %-18s                 Make and Model
+price           int     %8.0gc                Price
+mpg             int     %8.0g                 Mileage (mpg)
+rep78           int     %8.0g                 Repair Record 1978
+headroom        float   %6.1f                 Headroom (in.)
+trunk           int     %8.0g                 Trunk space (cu. ft.)
+weight          int     %8.0gc                Weight (lbs.)
+length          int     %8.0g                 Length (in.)
+turn            int     %8.0g                 Turn Circle (ft.)
+displacement    int     %8.0g                 Displacement (cu. in.)
+gear_ratio      float   %6.2f                 Gear Ratio
+foreign         byte    %8.0g      origin     Car type
+-------------------------------------------------------------------------------------------------------------
+</code></pre>
+</div>
+<div id="affichage-de-la-base-dans-loutput" class="section level2">
+<h2><span class="header-section-number">4.5</span> Affichage de la base dans l’output</h2>
+<p>Commande <code>list</code></p>
+<p>Syntaxe</p>
+<pre><code> list [varlist] [expression]</code></pre>
+<p>Exemple</p>
+<pre><code>sysuse auto.dta, clear
+. list price mpg turn foreign in 1/10
+
+     +--------------------------------+
+     |  price   mpg   turn    foreign |
+     |--------------------------------|
+  1. |  4,099    22     40   Domestic |
+  2. |  4,749    17     40   Domestic |
+  3. |  3,799    22     35   Domestic |
+  4. |  4,816    20     40   Domestic |
+  5. |  7,827    15     43   Domestic |
+     |--------------------------------|
+  6. |  5,788    18     43   Domestic |
+  7. |  4,453    26     34   Domestic |
+  8. |  5,189    20     42   Domestic |
+  9. | 10,372    16     43   Domestic |
+ 10. |  4,082    19     42   Domestic |
+     +--------------------------------+</code></pre>
+</div>
+<div id="autres-commandes" class="section level2">
+<h2><span class="header-section-number">4.6</span> Autres commandes</h2>
+<p><strong>labelbook et label list</strong></p>
+<p>Commande <code>labelbook</code>: affiche les informations sur les labels affectés aux modalités des variables. Peu utilisé.</p>
+<p>Syntaxe</p>
+<pre><code>labelbook [varlist]</code></pre>
+<p>On peut également utiliser la commande <code>label list [nom_label]</code> si on connait le nom du label. Le nom du label peut-être récupéré dans describe ou dans le fenêtre properties (voir plus loin également dans le variable manager)</p>
+<p>Exemple</p>
+<pre><code>labelbook
+
+-------------------------------------------------------------------------------------------------------------
+value label origin 
+-------------------------------------------------------------------------------------------------------------
+
+      values                                    labels
+       range:  [0,1]                     string length:  [7,8]
+           N:  2                 unique at full length:  yes
+        gaps:  no                  unique at length 12:  yes
+  missing .*:  0                           null string:  no
+                               leading/trailing blanks:  no
+                                    numeric -&gt; numeric:  no
+  definition
+           0   Domestic
+           1   Foreign
+
+   variables:  foreign
+
+
+label list origin
+origin:
+           0 Domestic
+           1 Foreign</code></pre>
+</div>
+<div id="description-statistique-des-variables" class="section level2">
+<h2><span class="header-section-number">4.7</span> Description statistique des variables</h2>
+<p>Dans les menus de l’interface principale: <strong>Statistics</strong> =&gt; <strong>Summaries, tables &amp; tests</strong></p>
+<div id="variables-continues" class="section level3">
+<h3><span class="header-section-number">4.7.1</span> Variables continues</h3>
+<p><strong>Commande summarize</strong></p>
+<p>Avec l’option <code>detail</code> (<code>d</code>) on obtient la moyenne, la variance, les quantiles, la symétrie…). La commande peut-être tronquée jusqu’? <code>sum</code> (warning: il existe également une fonction <code>sum</code> pour générer des cumuls lors d’une cr"ation de variable).</p>
+<p>Syntaxe</p>
+<pre><code>summarize varlist [, detail]</code></pre>
+<p>A voir également: les commandes <code>mean</code> ou <code>tabstat</code>. Egalement la commande <code>table</code> permet de calculer des quantités de type moyenne, médiane, variance…. pour les différentes valeurs d’une variable catégorielle (j’avoue ne jamais l’avoir utilisé).</p>
+<p>Exemples</p>
+<pre><code>sum price length, d
+                            Price
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%         3291           3291
+ 5%         3748           3299
+10%         3895           3667       Obs                  74
+25%         4195           3748       Sum of Wgt.          74
+
+50%       5006.5                      Mean           6165.257
+                        Largest       Std. Dev.      2949.496
+75%         6342          13466
+90%        11385          13594       Variance        8699526
+95%        13466          14500       Skewness       1.653434
+99%        15906          15906       Kurtosis       4.819188
+
+                        Length (in.)
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%          142            142
+ 5%          154            147
+10%          157            149       Obs                  74
+25%          170            154       Sum of Wgt.          74
+
+50%        192.5                      Mean           187.9324
+                        Largest       Std. Dev.      22.26634
+75%          204            221
+90%          218            222       Variance       495.7899
+95%          221            230       Skewness      -.0409746
+99%          233            233       Kurtosis        2.04156
+</code></pre>
+<pre><code>bysort foreign: sum price, d
+-------------------------------------------------------------------------------------------------------------
+-&gt; foreign = Domestic
+
+                            Price
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%         3291           3291
+ 5%         3667           3299
+10%         3955           3667       Obs                  52
+25%         4184           3799       Sum of Wgt.          52
+
+50%       4782.5                      Mean           6072.423
+                        Largest       Std. Dev.      3097.104
+75%         6234          13466
+90%        11385          13594       Variance        9592055
+95%        13594          14500       Skewness       1.777939
+99%        15906          15906       Kurtosis       5.090316
+
+-------------------------------------------------------------------------------------------------------------
+-&gt; foreign = Foreign
+
+                            Price
+-------------------------------------------------------------
+      Percentiles      Smallest
+ 1%         3748           3748
+ 5%         3798           3798
+10%         3895           3895       Obs                  22
+25%         4499           3995       Sum of Wgt.          22
+
+50%         5759                      Mean           6384.682
+                        Largest       Std. Dev.      2621.915
+75%         7140           9690
+90%         9735           9735       Variance        6874439
+95%        11995          11995       Skewness       1.215236
+99%        12990          12990       Kurtosis       3.555178</code></pre>
+<p><strong>Pour aller plus loin</strong><br />
+En bas de l’aide d’une commande, <strong>stored result</strong> indique les informations enregistrées temporairement.<br />
+Pour la commande <code>summarize</code>:</p>
+<pre><code>    summarize stores the following in r():
+
+    Scalars   
+      r(N)           number of observations
+      r(mean)        mean
+      r(skewness)    skewness (detail only)
+      r(min)         minimum
+      r(max)         maximum
+      r(sum_w)       sum of the weights
+      r(p1)          1st percentile (detail only)
+      r(p5)          5th percentile (detail only)
+      r(p10)         10th percentile (detail only)
+      r(p25)         25th percentile (detail only)
+      r(p50)         50th percentile (detail only)
+      r(p75)         75th percentile (detail only)
+      r(p90)         90th percentile (detail only)
+      r(p95)         95th percentile (detail only)
+      r(p99)         99th percentile (detail only)
+      r(Var)         variance
+      r(kurtosis)    kurtosis (detail only)
+      r(sum)         sum of variable
+      r(sd)          standard deviation
+</code></pre>
+<p>On peut afficher ces informations avec la commande <code>return list</code> (<code>ereturn list pour les estimations de modèles</code>)</p>
+<pre><code>qui sum price, d
+return list
+scalars:
+                  r(N) =  74
+              r(sum_w) =  74
+               r(mean) =  6165.256756756757
+                r(Var) =  8699525.97426879
+                 r(sd) =  2949.495884768919
+           r(skewness) =  1.653433511704859
+           r(kurtosis) =  4.819187528464004
+                r(sum) =  456229
+                r(min) =  3291
+                r(max) =  15906
+                 r(p1) =  3291
+                 r(p5) =  3748
+                r(p10) =  3895
+                r(p25) =  4195
+                r(p50) =  5006.5
+                r(p75) =  6342
+                r(p90) =  11385
+                r(p95) =  13466
+                r(p99) =  15906
+</code></pre>
+<p>Si l’on souhaite afficher seulement les valeurs de la médiane pour plusieurs variables de la base:</p>
+<pre><code>
+local x price mpg rep78 headroom trunk
+
+foreach i of local x {
+qui sum `i&#39;, d
+di as text &quot;la valeur de la médiane de la variable `i&#39; est:&quot; as result `r(p50)&#39;
+}
+
+La valeur de la médiane de la variable price est:5006.5
+La valeur de la médiane de la variable mpg est:20
+La valeur de la médiane de la variable rep78 est:3
+La valeur de la médiane de la variable headroom est:3
+La valeur de la médiane de la variable trunk est:14</code></pre>
+<ul>
+<li>Ici r(p50) joue le rôle d’une macro, ici de type <em>scalaire</em></li>
+<li>Ces informations sont utilisables lorsqu’on créer des variables</li>
+</ul>
+<p><strong>Graphiques</strong></p>
+<p>Commandes <strong>boxplot</strong> et <strong>histogram</strong></p>
+<p>Par les menus: <strong>Graphics</strong> =&gt; <strong>Distributional graphs</strong></p>
+<p>Syntaxe</p>
+<pre><code>* Boxplot
+graph box varlist [, over(var)...]
+* Histogramme
+histogram varname [, by(var)...]</code></pre>
+<pre><code>histogram length, by(foreign)
+graph box length, over(foreign)    </code></pre>
+<p><img src="g5.png" /></p>
+<p>Les graphiques de type <em>violin</em> qui réunie les informations issues des boxplots et histogrammes ne sont pas implémentés dans Stata (possible via Python à partir de la v16 de Stata).</p>
+<p>Bien évidemment, d’autres types de graphiques sont possibles, en particulier via des commandes externes. Pour analyses des distributions de deux variables continues, on se reportera par exemple à la commande <code>heatplot</code> de <strong>Ben Jann</strong>.</p>
+<p>Exemples <img src="g6.png" /></p>
+</div>
+<div id="variables-catégorielles" class="section level3">
+<h3><span class="header-section-number">4.7.2</span> Variables catégorielles</h3>
+<p>La principale commande est <code>tabulate</code> (<code>tab</code>)</p>
+<p>Syntaxe (tableau croisé)</p>
+<pre><code>tab var1 var2 [, mis nofreq row col chi2 ......]</code></pre>
+<pre><code>tab rep78 foreign, mis
+
+    Repair |
+    Record |    Origine voiture
+      1978 |  Domestic    Foreign |     Total
+-----------+----------------------+----------
+         1 |         2          0 |         2 
+         2 |         8          0 |         8 
+         3 |        27          3 |        30 
+         4 |         9          9 |        18 
+         5 |         2          9 |        11 
+         . |         4          1 |         5 
+-----------+----------------------+----------
+     Total |        52         22 |        74 
+
+tab rep78 foreign,  nofreq col
+
+    Repair |
+    Record |    Origine voiture
+      1978 |  Domestic    Foreign |     Total
+-----------+----------------------+----------
+         1 |      4.17       0.00 |      2.90 
+         2 |     16.67       0.00 |     11.59 
+         3 |     56.25      14.29 |     43.48 
+         4 |     18.75      42.86 |     26.09 
+         5 |      4.17      42.86 |     15.94 
+-----------+----------------------+----------
+     Total |    100.00     100.00 |    100.00 
+</code></pre>
+<ul>
+<li>On peut également utiliser la commande <code>table</code> pour afficher des effectifs croisés</li>
+<li>La commande externe <code>tab3way</code> permet d’afficher des tables pour 3 variables catégorielles</li>
+<li>Une option interessante est <code>nolabel</code>. Si une variable catégorielle a des labels sur les modalités, le tableau ne les affiche pas</li>
+</ul>
+<pre><code>tab rep78 foreign,  nofreq col nolab
+
+    Repair |
+    Record |    Origine voiture
+      1978 |         0          1 |     Total
+-----------+----------------------+----------
+         1 |      4.17       0.00 |      2.90 
+         2 |     16.67       0.00 |     11.59 
+         3 |     56.25      14.29 |     43.48 
+         4 |     18.75      42.86 |     26.09 
+         5 |      4.17      42.86 |     15.94 
+-----------+----------------------+----------
+     Total |    100.00     100.00 |    100.00 
+</code></pre>
+<p><strong>Graphiques</strong></p>
+<p>On privilégiera des commandes externes, en particulier celles de <strong>NJ.Cox</strong> <code>catplot</code> et <code>spineplot</code></p>
+<pre><code>ssc install catplot 
+
+* tableau: tab rep78 foreign,  nofreq col
+catplot rep78, by(foreign) percent(foreign)
+* tableau: tab rep78 foreign,  nofreq row
+catplot rep78, by(foreign) percent(foreign)
+spineplot foreign rep78</code></pre>
+<p><img src="g7.png" /></p>
+<pre><code>ssc install spineplot
+spineplot foreign rep78</code></pre>
+<p><img src="g8.png" /></p>
+</div>
+</div>
+<div id="la-boîte-à-outils" class="section level2">
+<h2><span class="header-section-number">4.8</span> La boîte à outils</h2>
+<div id="tri-dune-base" class="section level3">
+<h3><span class="header-section-number">4.8.1</span> Tri d’une base</h3>
+<p>Commande <code>sort</code><br />
+<br></p>
+<pre><code>sort varlist</code></pre>
+<ul>
+<li>La commande <code>sort</code> n’effectue que des tris croissants. Pour faire un tri décroissant, on peut utiliser la commande externe <code>gsort</code></li>
+<li>Le tri d’une peut (voire doit) être effectué lorsqu’on veut répéter une instruction avec le préfixe <code>bysort</code>: <code>bysort varlist: instruction</code>. Il est également obligatoire lorsqu’on veut apparié des bases</li>
+</ul>
+</div>
+<div id="repérage-et-suppression-des-doublons" class="section level3">
+<h3><span class="header-section-number">4.8.2</span> Repérage et suppression des doublons</h3>
+<p><strong>Repérage des doublons</strong></p>
+<p>Commande <code>duplicates tag</code><br />
+<br> Syntaxe</p>
+<pre><code>duplicates tag [varlist], gen(var)</code></pre>
+<p>Si varlist n’est pas renseigné, l’analyse des réplications se fait sur toutes les variables de la base. La variable créée (<code>gen(var)</code>) compte le nombre de doublons.</p>
+<p>Commande <code>duplicates drop</code></p>
+<p>Syntaxe</p>
+<pre><code>duplicates drop [varlist]</code></pre>
+</div>
+<div id="modifier-la-place-des-variables-dans-la-base" class="section level3">
+<h3><span class="header-section-number">4.8.3</span> Modifier la place des variables dans la base</h3>
+<p>Commande <code>order</code></p>
+<pre><code>order varlist, [first/last] [after/before(varname)]</code></pre>
+<p>Exemple</p>
+<pre><code>order foreign, first
+order price, last
+order foreign, after(rep78)</code></pre>
+</div>
+<div id="importationexportation" class="section level3">
+<h3><span class="header-section-number">4.8.4</span> Importation/Exportation</h3>
+<p><strong>Excel et fichiers textes (.txt, .csv)</strong><br />
+<br></p>
+<ul>
+<li>Le plus simple est passer parle menu: fichiers =&gt; <strong>Import</strong> ou <strong>Export</strong></li>
+<li>Pour excel les commandes sont <code>import excel</code> et <code>export excel</code></li>
+<li>Pour des fichiers textes type csv (R), les commandes sont <code>import delimited</code> et <code>export delimited</code></li>
+</ul>
+<p><strong>SAS</strong><br />
+<br></p>
+<ul>
+<li>Depuis la dernière version de Stata (16), il est possible d’importer directement des formats <code>sas7bdat</code>. Pas d’exportation possible.</li>
+<li>Pour les versions antérieure, la solution install?e via sasxport n’est pas terrible, la solution est d’utiliser le package externe <code>savasas</code>
+<ul>
+<li>Sas =&gt; Stata (importation): commande <code>usesas</code><br />
+</li>
+<li>Stata =&gt; Sas (exportation) : commande <code>savasas</code></li>
+<li>Il faut diter un .do file dont le lien est donn? dans l’aide si le bon chemin d’accès à SAS Windows n’est pas spécifié . Demander à MT si problème. Avec <code>savasas</code>, on peut créer un catalogue de format (en dur) avec l’option format.<br />
+</li>
+<li>A l’Ined, si on ne dispose de Stata et Sas sur son poste, la solution Linux fonctionne sur le serveur Margaux.</li>
+</ul></li>
+</ul>
+<p><strong>SPSS</strong><br />
+<br></p>
+<ul>
+<li>Depuis la dernière version de Stata (16), il est possible d’importer directement des bases en format <em>spss</em></li>
+<li>Pas de possibilité d’exportation</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="les-variables-types-créations-labels" class="section level1">
+<h1><span class="header-section-number">5</span> Les variables: types, créations, labels</h1>
+<div id="types-de-variables" class="section level2">
+<h2><span class="header-section-number">5.1</span> Types de variables</h2>
+<p>Pour accéder aux infomations sur les variables d’une base: ouvrir le <em>variables manager</em>, utiliser la boite <strong>properties</strong> si elle est ancrée à l’interface ou utiliser la commande <code>describe</code> (<code>des</code>).</p>
+<p><img src="g9.PNG" /></p>
+<p>Stata gère tous les types de variables: numérique, caractère, dates.</p>
+<ul>
+<li>Types numériques: réel (float,long,double), entier (int)…<br />
+</li>
+<li>Type caractère: la longueur maximum d’une chaîne de caractère est de 2 milliards (depuis Stata v13)</li>
+</ul>
+<div id="modification-du-format" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Modification du format</h3>
+<p>On peut modifier, sans programme, les propriétées des variables via le <strong>variable manager</strong> ou via la fenêtre <strong>properties</strong> de la variable.</p>
+<p><strong>Exemple: suppression de décimales</strong></p>
+<p>Variable <span class="math inline">\(x\)</span> est de type float avec 5 décimales (format: <strong>%6.5f</strong>).<br />
+<br> Syntaxe</p>
+<pre><code>format %6.0f x</code></pre>
+<p>Dans le mme ordre d’idée on peut modifier le format d’affichage d’une procédure statistique, par exemple la réduction du nombre de décimales des paramétres estimés.</p>
+<pre><code>logit foreign  price weight, nolog
+
+
+Logistic regression                             Number of obs     =         74
+                                                LR chi2(2)        =      54.11
+                                                Prob &gt; chi2       =     0.0000
+Log likelihood = -17.976341                     Pseudo R2         =     0.6008
+
+------------------------------------------------------------------------------
+     foreign |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       price |     0.0009     0.0003     3.10   0.002       0.0003      0.0015
+      weight |    -0.0059     0.0017    -3.46   0.001      -0.0092     -0.0025
+       _cons |     9.0005     2.6276     3.43   0.001       3.8505     14.1504
+------------------------------------------------------------------------------
+
+</code></pre>
+<ul>
+<li>Soit partir de la bo?te de dialogue de la commande (<code>db regress</code>) puis onglets <strong>reporting</strong> =&gt; <strong>set table formats</strong></li>
+<li>Soit directement avec <code>cformat</code> <code>sformat</code> et <code>pformat</code></li>
+</ul>
+<pre><code>logit foreign price  weight, cformat(%9.3f) pformat(%5.3f) sformat(%8.3f) nolog
+
+
+Logistic regression                             Number of obs     =         74
+                                                LR chi2(2)        =      54.11
+                                                Prob &gt; chi2       =     0.0000
+Log likelihood = -17.976341                     Pseudo R2         =     0.6008
+
+------------------------------------------------------------------------------
+     foreign |      Coef.   Std. Err.      z    P&gt;|z|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+       price |      0.001      0.000    3.100   0.002        0.000       0.002
+      weight |     -0.006      0.002   -3.461   0.001       -0.009      -0.003
+       _cons |      9.000      2.628    3.425   0.001        3.851      14.150
+------------------------------------------------------------------------------</code></pre>
+<p>Pensez à utiliser une macro variable pour alléger le programme.</p>
+<pre><code>local optr cformat(%9.3f) pformat(%5.3f) sformat(%8.3f) nolog
+logit foreign r price  weight, `optr&#39; </code></pre>
+<p><strong>Optimiser le format des variables</strong><br />
+La commande <code>compress [varlist]</code> réduit la taille en mémoire de la base en convertissant les formats des variables pout que leur poids en mémoire minimale.</p>
+<pre><code>compress // sur base auto
+  variable mpg was int now byte
+  variable rep78 was int now byte
+  variable trunk was int now byte
+  variable turn was int now byte
+  variable himpg was float now byte
+  variable make was str18 now str17
+  (592 bytes saved)</code></pre>
+</div>
+<div id="changement-de-type-de-variables" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Changement de type de variables</h3>
+<p><strong>De numérique à caractère</strong><br />
+<br> Si la variable numérique n’a pas de label sur les modalités, ou qu’on ne veut pas conserver l’information données par les labels, on peut utiliser la commande <code>tostring</code></p>
+<pre><code>  tostring [varlist], gen(varlist)
+  tostring [varlist], replace</code></pre>
+<p>Si la variable numérique a des labels sur les modalités et qu’on souhaite conserver l’information, on peut utiliser la commande <code>decode</code></p>
+<pre><code>  decode variable, gen(nom_var)</code></pre>
+<p><strong>De caractère à numérique</strong><br />
+<br> Si la variable caractère est de forme numerique (une suite de nombre), on utilise la commande <code>destring</code></p>
+<pre><code> destring [varlist] , gen(nom_varlist) 
+ destring [varlist] , replace</code></pre>
+<p>Si la variable caractère n’est pas de forme numérique et que l’on soihaite avoir des labels sur les modalités:</p>
+<pre><code>  encode variable, gen(nom_variable)</code></pre>
+<p>Avec <code>encode</code>, le numéro de la modalité suivra l’ordre alphabétique des chaînes de caractère de la variable: si la variable caractère à pour valeur (Homme,Femme), femme sera automatiquement codée 1 et homme 2.</p>
+<p><br></p>
+<p><strong>Application</strong>: appliquer les commandes <code>tostring</code> et <code>decode</code> à la variable <em>foreign</em>, et les commandes <code>destring</code> et <code>encode</code> à la variable <em>make</em> .</p>
+<p><strong>Warning pour les modèles</strong>: les variables caractères ne sont pas tolérées. Si on introduit une variable de type caractère dans le modèle, Stata renvoie le message <strong>no observation</strong>.</p>
+</div>
+</div>
+<div id="création-dune-variable" class="section level2">
+<h2><span class="header-section-number">5.2</span> Création d’une variable</h2>
+<div id="generate---replace" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> generate - replace</h3>
+<p>La création d’une nouvelle variable se fait avec la commande <code>generate</code> généralement tronquée jusqu’à <code>gen</code>.</p>
+<p>Syntaxe</p>
+<pre><code>gen nom_variable=valeur [expression: if in inlist inrange...]</code></pre>
+<p>Pour remplacer la valeur d’une valeur variable existante on utilise la commande <code>replace</code> qui n’est malheureusement pas tronquable.</p>
+<p>Syntaxe</p>
+<pre><code>replace nom_var=valeur [expression: if in inlist inrange...]</code></pre>
+<ul>
+<li>On peut utiliser le préfixe <code>by</code> ou <code>bysort</code></li>
+<li>Pour utiliser une fonction math?matique (log, exp, .) =&gt; <code>help math_functions</code></li>
+<li>Pour afficher la liste complète des fonctions (variables caractères, statistiques, pseudo nombre aléatoire, dates.): <code>help function</code></li>
+</ul>
+<p><strong>Rappel</strong><br />
+Attention entre l’opérateurs d’affectation et l’expression conditionnelle.</p>
+<pre><code>gen x=1 if y==a </code></pre>
+<p><strong>Création d’une indicatrice (0,1)</strong><br />
+<br> On peut rapidement générer des indicatrices (0,1) à partir d’une expression conditionnelle:</p>
+<pre><code>gen x=(condition)</code></pre>
+<pre><code>gen rep2 = rep78&gt;3
+tab rep78 rep2
+
+    Repair |
+    Record |         rep2
+      1978 |         0          1 |     Total
+-----------+----------------------+----------
+         1 |         2          0 |         2 
+         2 |         8          0 |         8 
+         3 |        30          0 |        30 
+         4 |         0         18 |        18 
+         5 |         0         11 |        11 
+-----------+----------------------+----------
+     Total |        40         29 |        69 
+</code></pre>
+<p>Remarque: peu connu mais idem pour Sas.</p>
+<p><strong>Application</strong>: créer une variable qui prend la valeur 1 si la valeur de la variable price&gt;7000, 0 sinon.</p>
+<p><br> Avec la commande <code>tabulate</code> on peut créer une série d’indicatrices à partir d’une variable catégorielle avec l’option <code>gen(nom_variable)</code></p>
+<pre><code>tab x, gen(nom_var)</code></pre>
+<p><strong>Application</strong>: Créer une serie d’indicatrices (5) à partir des valeurs prises par la variable rep78 à l’aide de la commande <code>tab</code>.</p>
+</div>
+<div id="egen" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> egen</h3>
+<p>egen: extented generate</p>
+<p>Réservé à l’utilisation de fonctions. Pour obtenir la liste <code>help egen</code>.<br />
+<br> Exemple: on veut créer la variable y qui renvoie le total de la variable x: <code>egen y=total(x)</code></p>
+<p>Nanmoins certaines fonctions ne s’utilisent qu’avec <code>generate</code>. Au final, ce n’est pas toujours évident de s’y retrouver. Exemple<br />
+Variable <span class="math inline">\(x=(1,1,1,1,1)\)</span>.</p>
+<ul>
+<li>Pour obtenir le total: <code>egen y=total(x)</code> =&gt; <span class="math inline">\(y=(5,5,5,5,5)\)</span>.</li>
+<li>Pour obtenir la somme incrémentale, on utilise la fonction <code>sum</code> (ne pas confondre avec la forme tronquée de la commande <code>summarize</code>) associée à <code>generate</code>: <code>gen z=sum(x)</code> =&gt; <span class="math inline">\(z=(1,2,3,4,5)\)</span>.</li>
+</ul>
+<p><strong>Exercice</strong><br />
+Créer deux variables: une qui renvoie le prix maximum des voitures et une autre le prix moyen ( variable <strong>price</strong>) selon leur origine (variable <strong>foreign</strong>).</p>
+</div>
+</div>
+<div id="les-variables-de-comptage" class="section level2">
+<h2><span class="header-section-number">5.3</span> Les variables de comptage</h2>
+<p>Le coup de génie de Stata! Très utile avec des données longitudinales, de durées ou toute base avec des données avec cluster.<br />
+<br></p>
+<p>Deux variables de comptage: <code>_n</code> et <code>_N</code><br />
+<br></p>
+<ul>
+<li><code>_n</code> : renvoie le rang de l’observation<br />
+</li>
+<li><code>_N</code>: renvoie le nombre total d’observations</li>
+</ul>
+<p><strong>Application</strong>: On veut créer un identifiant sur l’ensemble des observations de la base auto.</p>
+<pre><code>gen id = _n
+list make foreign id in 1/10
+
+     +-------------------------------+
+     | make             foreign   id |
+     |-------------------------------|
+  1. | AMC Concord     Domestic    1 |
+  2. | AMC Pacer       Domestic    2 |
+  3. | AMC Spirit      Domestic    3 |
+  4. | Buick Century   Domestic    4 |
+  5. | Buick Electra   Domestic    5 |
+     |-------------------------------|
+  6. | Buick LeSabre   Domestic    6 |
+  7. | Buick Opel      Domestic    7 |
+  8. | Buick Regal     Domestic    8 |
+  9. | Buick Riviera   Domestic    9 |
+ 10. | Buick Skylark   Domestic   10 |
+     +-------------------------------+</code></pre>
+<p><strong>lead &amp; lag</strong></p>
+<p>Par défaut, pour toutes les instructions le rang sélectionné est celui de la ligne de l’observation x=x[_n]</p>
+<ul>
+<li>Lag(-1): Sélection du rang inférieur d’une variable x: <strong>x=x[_n-1]</strong>. Remarque: la première observation est une valeur manquante</li>
+<li>lead(+1): Sélection du rang supérieur d’une variable x: <strong>x=x[_n+1]</strong>. Remarque: la dernière observation est une valeur manquante</li>
+</ul>
+<pre><code>gen lag_make  = make[_n-1]
+gen lead_make = make[_n+1]
+
+. list make lag_make lead_make in 1/10
+
+     +-----------------------------------------------+
+     | make                 lag_make       lead_make |
+     |-----------------------------------------------|
+  1. | AMC Concord                         AMC Pacer |
+  2. | AMC Pacer         AMC Concord      AMC Spirit |
+  3. | AMC Spirit          AMC Pacer   Buick Century |
+  4. | Buick Century      AMC Spirit   Buick Electra |
+  5. | Buick Electra   Buick Century   Buick LeSabre |
+     |-----------------------------------------------|
+  6. | Buick LeSabre   Buick Electra      Buick Opel |
+  7. | Buick Opel      Buick LeSabre     Buick Regal |
+  8. | Buick Regal        Buick Opel   Buick Riviera |
+  9. | Buick Riviera     Buick Regal   Buick Skylark |
+ 10. | Buick Skylark   Buick Riviera    Cad. Deville |
+     +-----------------------------------------------+
+
+</code></pre>
+</div>
+<div id="sélection-de-plusieurs-modalités-recodage" class="section level2">
+<h2><span class="header-section-number">5.4</span> Sélection de plusieurs modalités, recodage</h2>
+<p><strong>inlist</strong><br />
+Pour sélectionner plusieurs modalités d’une variable dans une expression conditionnelle <code>inlist(variable, valeur1, valeur2,..)</code>.<br />
+Utile si la variable n’est pas de type ordinale.<br />
+Exemple: <code>gen Y=1 if inlist(X,1,3,6,10)</code><br />
+L’expression est limitée ? 10 valeurs pour les variables caractères.<br />
+<br> <strong>inrange</strong><br />
+Pour sélectionner un intervalle dans une expression <code>inrange(variable, valeur1,valeur2)</code> avec <span class="math inline">\(valeur1&lt;valeur2\)</span>.<br />
+Exemple: <code>gen Y= inrange(X,5,10)</code> pour obtenir <span class="math inline">\(Y=1\)</span> si <span class="math inline">\(50\leq x\leq 10\)</span> 0 sinon.<br />
+<br> <strong>recode</strong><br />
+Permet de changer les valeurs d’une variable num?rique: <code>recode variable (ancienne_valeur=nouvelle_valeur) (ancienne_valeur=nouvelle_valeur).....</code><br />
+<br> <strong>Application</strong>: recoder la variable foreign 0=&gt;1 et 1=&gt;2.</p>
+</div>
+<div id="les-labels" class="section level2">
+<h2><span class="header-section-number">5.5</span> Les labels</h2>
+<p>La création et la modification peut se faire directement via le la boite de dialogue <strong>variable manager</strong>.</p>
+<p><br> <strong>Label des variables</strong><br />
+<br> Syntaxe</p>
+<pre><code>label nom_variable &quot;label&quot; </code></pre>
+<p>On peut modifier/écraser un label existant</p>
+<p>Exemple</p>
+<pre><code>des foreign
+label foreign &quot;Origine de la voiture&quot;
+des foreign</code></pre>
+<p><strong>Label sur les modalités des variables</strong><br />
+<br> Deux étapes: la création des label et leurs affectation à une ou plusieurs variables. <br> <strong>Création du label</strong>: <code>label define</code><br />
+<br> Syntaxe:</p>
+<pre><code>label define nom_label val1 &quot;label1&quot; val2 &quot;label2&quot;... [,modify]</code></pre>
+<p>Exemple variable binaire (0,1) labélisée “No-Yes” avec comme nom de label NY : <code>label define NY 0 "non" 1 "oui"</code></p>
+<p>S’il y a beaucoup de modalités à labéliser, on peut affecter ligne par ligne un label par modalité et utiliser l’option <code>modify</code></p>
+<pre><code>label define nom_label 1 &quot;nom1&quot;, modify
+label define nom_label 2 &quot;nom2&quot;, modify
+label define nom_label 3 &quot;nom3&quot;, modify
+label define nom_label 4 &quot;nom2&quot;, modify</code></pre>
+<p><strong>Affectation du label</strong>: <code>label value</code><br />
+<br> Syntaxe</p>
+<pre><code>label value nom_variable nom_label</code></pre>
+<p><strong>Application</strong>: créer une variable qui regroupe les valeurs (1,2) de la variable rep78. Affecter un label à la variable (au choix) et des labels aux modalités (au choix).</p>
+<p><br></p>
+<p><strong>Fichiers de labels et multilangue</strong></p>
+<p><strong>label save</strong><br />
+On peut générer un fichier (.do) donnant le programme qui génère les labels (existants) d’une base: commande <code>label save</code> (par le menu: data =&gt; data utilities =&gt; label utilities =&gt; save labels as do file).<br />
+<br> <strong>multilangue</strong><br />
+Pour des enquêtes internationales, on peut de créer des labels en plusieurs langues switcher d’une langue à l’autre (exemple MAFE l’Ined). La commande doit être installée, elle est externe à Stata (<code>ssc install mlanguage</code> - auteur Jeroen Weesie).</p>
+</div>
+<div id="les-types-de-variables-dans-les-modèles" class="section level2">
+<h2><span class="header-section-number">5.6</span> Les types de variables dans les modèles</h2>
+<p>On a vu que seule les variables numériques sont admises: continues ou catégorielles (“factor”).<br />
+<br></p>
+<p><strong>Variables continues</strong><br />
+Elles peuvent tre préfixée par <strong>c.</strong>: <code>c.variable</code>. Ce préfixe est utile seulement si une interaction est introduite ou pour le calcul des effets marginaux.<br />
+<br> <strong>Variables catégorielles</strong><br />
+Elles sont préfixées par <strong>i.</strong> ou <strong>ib#.</strong>, # étant la valeur de la modalité de référence: <code>i.variable</code> ou <code>ib#.variable</code>.<br />
+Exemple</p>
+<pre><code>local optr cformat(%9.2f) pformat(%5.3f) sformat(%8.3f) noheader
+
+regress price mpg length ib0.foreign, `optr&#39;
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         mpg |    -139.08      82.21   -1.692   0.095      -303.04       24.88
+      length |      59.61      23.91    2.494   0.015        11.93      107.29
+             |
+     foreign |
+    Foreign  |    2644.77     761.89    3.471   0.001      1125.23     4164.32
+       _cons |   -2861.98    6026.60   -0.475   0.636    -14881.66     9157.69
+------------------------------------------------------------------------------
+
+
+regress price mpg length ib1.foreign, `optr&#39;
+------------------------------------------------------------------------------
+       price |      Coef.   Std. Err.      t    P&gt;|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+         mpg |    -139.08      82.21   -1.692   0.095      -303.04       24.88
+      length |      59.61      23.91    2.494   0.015        11.93      107.29
+             |
+     foreign |
+   Domestic  |   -2644.77     761.89   -3.471   0.001     -4164.32    -1125.23
+             |
+       _cons |    -217.21    5750.64   -0.038   0.970    -11686.50    11252.08
+------------------------------------------------------------------------------
+</code></pre>
+<p>Dans la première régression <span class="math inline">\(foreign=0\)</span> est la modalité de référence, dans la seconde c’est <span class="math inline">\(foreign==1\)</span>.</p>
+</div>
+</div>
+<div id="fusion-des-bases" class="section level1">
+<h1><span class="header-section-number">6</span> Fusion des bases</h1>
+<p>Deux types de fusions: la fusion verticale non controlée - empilement - (<code>append</code>) et la fusion horizontale contrôlée - appariement - (<code>merge</code>).</p>
+<div id="append" class="section level2">
+<h2><span class="header-section-number">6.1</span> append</h2>
+<p>L’empilement (commande <code>append</code>) permet d’ajouter des observations entre plusieurs bases. Les variables ne sont pas contraintes à être identiques d’une base à l’autre.</p>
+<p><strong>Syntaxe</strong></p>
+<pre><code>append using nom_base1 [nom_base2 nom_base3......]</code></pre>
+<p><strong>Exemple</strong> <img src="append.PNG" /></p>
+<pre><code>use base1, clear
+append using base2
+save base3, replace</code></pre>
+</div>
+<div id="merge" class="section level2">
+<h2><span class="header-section-number">6.2</span> merge</h2>
+<ul>
+<li>Fusion contrôlée par une clé d’appariement (variable(s))</li>
+<li>Obligation de trier toutes les bases selon la clé</li>
+<li>Un merge peut réaliser un append, mais pas l’inverse.</li>
+<li>La commande traditionnelle est <code>merge</code>. Pour contrôler des niveaux d’identification différents on peut y ajouter <code>1:1</code>, <code>1:m</code>, <code>m:1</code> ou <code>m:m</code> (rarement ou jamais utiliser).</li>
+</ul>
+<p>Syntaxe</p>
+<pre><code>merge [1:1 1:m m:1 m:m] variable_id using nom_base1 [nom_base2 nom_base3......] [keep(#)]</code></pre>
+<p>On peut sélectionner les observations avec l’option <code>keep</code> (voir la variable <code>_merge</code> créée lors de l’appariement).</p>
+<p><br></p>
+<div id="niveau-didentification-identique-merge-11" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Niveau d’identification identique: merge 1:1</h3>
+<p><strong>Exemple</strong> <img src="merge11.PNG" /></p>
+<p><strong>Syntaxe</strong></p>
+<pre><code>use base1, clear
+sort id
+save base1, replace
+use base2, clear
+sort id
+merge 1:1 id using base1  / ou merge id using base1 
+tab  _merge
+save b3, replace</code></pre>
+</div>
+<div id="niveau-différent-merge-1m-ou-m1" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Niveau différent: merge 1:m ou m:1</h3>
+<ul>
+<li>La commande <code>merge 1:1</code> ne fonctionne pas</li>
+<li>La commande <code>merge</code> seule fonctionne mais avec un message d’avertissement</li>
+<li><em>m</em> signifie un enregistrement “multiple” par la clé d’identification et <em>1</em> un enregistrement unique, l’ordre est (base ouverte dite <em>master</em>):(base qui suit using)</li>
+</ul>
+<p><strong>Exemple</strong><br />
+<img src="merge1m.PNG" /></p>
+<p>Si la base active est period_act: enregistrement multiple par id =&gt; <code>merge m:1</code></p>
+<pre><code>merge m:1 id using sexe</code></pre>
+<p>Si la base active est sexe: enregistrement unique par id =&gt; <code>merge 1:m</code></p>
+<pre><code>merge 1:m id using period_act</code></pre>
+</div>
+<div id="la-variable-_merge" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> La variable _merge</h3>
+<ul>
+<li>La variable _merge donne le résultat de l’appariement des observations: observations présentes dans la base active (master) seulement (_merge=1), celles présentes dans la base using seulement (_merge=2) et les observations présentes dans les deux bases (_merge=3).</li>
+<li>Si plusieurs bases sont appelées après using, autant de variables _merge son créées (master versus using1, master versus using2….).</li>
+<li>Si on procède à un autre appariement par la suite, il faut supprimer ou renommer la variable _merge, elle n’est pas écrasée.</li>
+<li>Dans les options on peut demander à ne pas créer cette variable avec <code>nogenerate</code> (<code>nogen</code>). Pas conseillé.</li>
+<li>Dans l’instruction <code>merge</code>, on peut demander à conserver les observations selon le résultat de l’appariement: <code>merge id using base2 keep(3)</code>, ne conserve que les observations qui matchent dans les deux bases avec la clé id.</li>
+</ul>
+<pre><code>           Numeric    Equivalent
+            code      word (results)     Description
+           -------------------------------------------------------------------
+              1       master             observation appeared in master only
+              2       using              observation appeared in using only
+              3       match              observation appeared in both
+
+              4       match_update       observation appeared in both,
+                                           missing values updated
+              5       match_conflict     observation appeared in both,
+                                           conflicting nonmissing values
+           -------------------------------------------------------------------</code></pre>
+<p><strong>Exemples</strong>: <code>help merge</code></p>
+</div>
+<div id="autres-commandes-1" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Autres commandes</h3>
+<p><strong>joinby</strong><br />
+Permet de faire des appariements 1:m, mais ne conserve que les informations dont l’identifiant est dans les deux bases. Par exemple si on a une base famille et une base enfants avec comme identifiant l’id de la famille, la base d’arrivée ne conservera que les familles qui ont au moins un enfant.</p>
+<p><br></p>
+<p><strong>cross</strong> Plutôt utiliser pour la programmation de commandes. Le temps d’exécution est plutôt élevé. La commande croise toutes les informations de deux bases en matchant toutes les paires possibles (produit cartésien).</p>
+</div>
+</div>
+</div>
+<div id="graphiques" class="section level1">
+<h1><span class="header-section-number">7</span> Graphiques</h1>
+<p>Mon grand sujet de 2020. Juste une présentation rapide.</p>
+<ul>
+<li>Les graphiques sont facilement exécutables avec les boîtes de dialogues <code>db tw</code> (pensez à utiliser <strong>submit</strong> pour garder la fenêtre ouverte).</li>
+<li>Stata est très riche en options graphiques, qui ne sont pas dans le menu de l’interface principal mais dans l’interface graphique. Malheureusement la syntaxe des options ne sont pas récupérable après modification du graphique dans l’interface graphique.</li>
+<li>Les effets de transparence sont disponibles à partir de la version 15 de stata.</li>
+<li>Les graphiques sont très facilement combinables.</li>
+<li>Les thèmes graphiques par défaut étant un peu grossier, loin des normes actuelles, des thèmes externes sont disponible ainsi que des commandes permettant de récupérer un grand nombre de palettes de couleur ou d’éditer ses propres thèmes (merci Ben Jann!).</li>
+</ul>
+<div id="graphiques-twoway" class="section level2">
+<h2><span class="header-section-number">7.1</span> Graphiques twoway</h2>
+<ul>
+<li>La commande <code>twoway</code> est régulièrement tronquée jusqu’à <code>tw</code></li>
+<li>La liste des principaux graphiques sont en liste dans le menu, ou faire <code>help tw</code> (scatter, line, connected…)</li>
+</ul>
+<p><br> <strong>Syntaxe pour un objet graphique type</strong></p>
+<pre><code>twoway type_graph varY varX [expression] [,options] </code></pre>
+<ul>
+<li>varY = Ordonnée, varX = abcisse</li>
+<li>En ordonnées, on peut renseigner plusieurs variables =&gt; courbes, bornes pour des intervalles de confiances….</li>
+</ul>
+<p><br></p>
+<p><strong>Syntaxe pour plusieurs objets graphiques</strong><br />
+<br> Soit les objets graphiques sont mis entre parenth?ses soit ils sont s?par?s par <strong>||</strong>.</p>
+<pre><code>twoway (typ1 Y X [, options1]) (typ2 Y X [, options2) [, optionsG]
+
+twoway  typ1 Y X [, options1] ||  typ2 Y X [, options2] [, optionsG]</code></pre>
+<p><code>[optionsG]</code> concerne les options générales de l’objet graphique: titre, légende, définitions des axes……</p>
+<p>Stata version &lt;15: sans transparence</p>
+<pre><code>* Sans troncature des options
+tw (scatter price mpg if foreign==0, mlwidth(vthin) mlcolor(black) mcolor(blue)) ///
+   (scatter price mpg if foreign==1, mlwidth(vthin) mlcolor(black) mfcolor(red)), ///
+   title(&quot;Mon scatterplot&quot;) legend(order(1 &quot;Domestic&quot; 2 &quot;Foreign&quot;))
+* Avec troncature des options
+tw (scatter price mpg if foreign==0, mlw(vthin) mlc(black) mc(blue)) ///
+   (scatter price mpg if foreign==1, mlw(vthin) mlc(black) mfc(red)), ///
+   title(&quot;Mon scatterplot&quot;) legend(order(1 &quot;Domestic&quot; 2 &quot;Foreign&quot;))</code></pre>
+<p>Stata version &gt;=15: avec transparence à 50%</p>
+<pre><code>* Sans troncature des options
+tw (scatter price mpg if foreign==0, mlwidth(vthin) mlcolor(black) mcolor(blue%50)) ///
+   (scatter price mpg if foreign==1, mlwidth(vthin) mlcolor(black) mcolor(red%50)), ///
+   title(&quot;Mon scatterplot&quot;) legend(order(1 &quot;Domestic&quot; 2 &quot;Foreign&quot;))
+* Avec troncature des options
+tw (scatter price mpg if foreign==0, mlw(vthin) mlc(black) mc(blue%50)) ///
+   (scatter price mpg if foreign==1, mlw(vthin) mlc(black) mfc(red%50)), ///
+   title(&quot;Mon scatterplot&quot;) legend(order(1 &quot;Domestic&quot; 2 &quot;Foreign&quot;))</code></pre>
+<p><img src="g10.png" /></p>
+<p><strong>Application</strong>: changer l’option des couleurs des marqueurs avec mc(couleur*#), # compris entre 0 et 1</p>
+</div>
+<div id="léditeur-de-graphique" class="section level2">
+<h2><span class="header-section-number">7.2</span> L’éditeur de graphique</h2>
+<p>Les options graphiques étant particulièrement nombreuses, les graphiques sont facilement éditables via l’éditeur.</p>
+<p><img src="g11.PNG" /></p>
+</div>
+<div id="enregistrement-des-graphiques" class="section level2">
+<h2><span class="header-section-number">7.3</span> Enregistrement des graphiques</h2>
+<ul>
+<li>Le format natif des graphiques stata est <strong>.gph</strong>. Les graphiques peuvent être réouverts dans l’éditeur de graphique.</li>
+<li>Les graphiques peuvent-être est enregistrées sous divers formats images (.png , jpeg, .gif, .tiff , svg, .pdf …) à partir de l’éditeur de graphiques. <br></li>
+</ul>
+<p><strong>Avec les lignes de commandes</strong><br />
+Syntaxes</p>
+<pre><code>*Si .gph
+graph save &quot; D:.\nom_graph.gph&quot; 
+*Si image
+graph export &quot; D:.\nom_graph.png&quot; </code></pre>
+<p>L’enregistrement (en dur) est possible en .gph, en option du graphique:</p>
+<pre><code>tw line Y X, save(&quot; D:.\nom_graph.gph??)</code></pre>
+<p>Pour une sauvegarde temporaire name(nom_graph [,replace])</p>
+<pre><code>tw line Y X, name(nom_graph) </code></pre>
+<p>Pour supprimer un graphique en mémoire (<code>name()</code>):</p>
+<pre><code>graph drop nom_graph
+graph drop nom_graph* \\ pour supprimer tous les graphiques en mémoire temporaire</code></pre>
+<p><code>graph drop *</code> permet de supprimer tous les graphiques en sauvegarde temporaire si on a pas utilisé l’option <code>replace</code> avec name.</p>
+</div>
+<div id="combiner-des-graphiques" class="section level2">
+<h2><span class="header-section-number">7.4</span> Combiner des graphiques</h2>
+<p>Marche à suivre:</p>
+<ul>
+<li>Créer des graphiques individuels avec sauvegarde en dur (save) ou temporaire (name, replace) en option.</li>
+<li>Pour accélérer le traitement, on peut ajouter l’option <code>nodraw</code> pour ne pas afficher les graphiques individuels (quietly ne fonctionne pas pour les graphs).</li>
+</ul>
+<p>Instruction <code>graph combine</code></p>
+<pre><code>graph combine noms_graphs [, cols(#)  rows(#)]</code></pre>
+<p><strong>Exemple</strong></p>
+<pre><code>tw scatter Y X, name(g1,replace) nodraw
+tw scatter Y X, name(g2, replace) nodraw
+graph combine g1 g2, col(2)</code></pre>
+<p>Dans un graphique combiné, il est possible que les graphiques individuels partagent la même légende. Pour éviter de répliquer la légende sur tous les graphiques individuel et ne la conserver que sur le graphique combiner on peut utiliser la commande externe <code>grc1leg</code> (<code>ssc install  grc1leg</code>).</p>
+<p><strong>Application</strong> Faire au moins graphiques à partir de la base auto, et les combiner.</p>
+</div>
+<div id="lutilité-des-macros-pour-les-options" class="section level2">
+<h2><span class="header-section-number">7.5</span> L’utilité des macros pour les options</h2>
+<div id="alleger-la-syntaxe-et-gagner-du-temps" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Alleger la syntaxe et gagner du temps</h3>
+<p>Dans un programme on peut instruire plusieurs graphiques qui partagent les mêmes options. Si on souhaite (ou doit) changer une option pour tous les graphiques, il faut faire la modifications pour chaque graphique. L’utilisation des macros permet d’éviter cet ecueil.</p>
+<p>On a une serie de 4 graphiques</p>
+<pre><code>tw scatter price mpg    , mcolor(green)
+tw scatter price length , mcolor(green)
+tw scatter price turn   , mcolor(green)
+tw scatter price trunk  , mcolor(green)</code></pre>
+<p>Avec une macro, le programme peut s’écrire</p>
+<pre><code>local gopts mcolor(green)
+tw scatter price mpg    , `gopts&#39;
+tw scatter price length , `gopts&#39;
+tw scatter price turn   , `gopts&#39;
+tw scatter price trunk  , `gopts&#39;</code></pre>
+<p>Si on souhaite modifier les options, la modification peut se faire en une fois et non 4. Par exemple:</p>
+<pre><code>local gopts mcolor(blue%50) mlcolor(black) mlwidth(vthin)
+tw scatter price mpg    , `gopts&#39;
+tw scatter price length , `gopts&#39;
+tw scatter price turn   , `gopts&#39;
+tw scatter price trunk  , `gopts&#39;</code></pre>
+</div>
+</div>
+<div id="valeurs-automatisée-pour-xline-et-yline" class="section level2">
+<h2><span class="header-section-number">7.6</span> Valeurs automatisée pour xline et yline</h2>
+<p>Un exemple parmis d’autre.<br />
+On peut ajouté aux graphiques des objets comme xline(valeur) et yline(valeur). Si les valeurs des ces objets sont des indicateurs statistiques tels que la moyenne, médiane….. On peut utiliser les résultats sauvegardés lors de l’exécution de l’instruction <code>summarize</code></p>
+<p>Avec la moyenne</p>
+<p>Sans option</p>
+<pre><code>qui sum length 
+local y `r(mean)&#39; 
+qui sum weight
+local x `r(mean)&#39; 
+tw scatter length weight, xline(`x&#39;) yline(`y&#39;) </code></pre>
+<p>Avec option</p>
+<pre><code>local gopts mcolor(blue%50) mlcolor(black) mlwidth(vthin)
+local xyl  lwidth(vthin) lcolor(black) // options pour xline() et yline()
+
+qui sum length 
+local y: di %6.2f `r(mean)&#39;  // permet de conserver 2 décimales
+qui sum weight
+local x: di  %6.2f `r(mean)&#39; // permet de conserver 2 décimales
+
+tw scatter length weight, xline(`x&#39;, `xyl&#39;) yline(`y&#39;, `xyl&#39;) `gopts&#39; ///
+ note(&quot;Moyenne de length =`y&#39;&quot; &quot;Moyenne de weight = `x&#39;&quot;)</code></pre>
+<p><img src="g12.png" /></p>
+</div>
+<div id="les-thèmes-graphiques" class="section level2">
+<h2><span class="header-section-number">7.7</span> Les thèmes graphiques</h2>
+<ul>
+<li>Les thèmes graphiques prédéfinissent, par défaut, tous les éléments entrant dans un objets graphiques: couleurs, tailles, positions…</li>
+<li>Stata dispose d’un nombre limité de thèmes graphiques.</li>
+<li>On peut changer de thèmes graphique:
+<ul>
+<li>Via le menu: preferences =&gt; graph preferences</li>
+<li>En option dans un graphique: <code>tw argument_du_graph , [options] scheme(nom_theme)</code></li>
+<li>En amont du ou des graphiques: <code>set scheme nom_theme [permanently]</code></li>
+</ul></li>
+</ul>
+<p>Par exemple si on souhaite utiliser le thème de Stata Journal</p>
+<pre><code>set scheme sj
+*ou dans un graphique
+tw scatter Y X, scheme(sj)</code></pre>
+<div id="thèmes-officiels-stata" class="section level3">
+<h3><span class="header-section-number">7.7.1</span> Thèmes officiels Stata</h3>
+<p>Pour générer le graphique combiné ci-dessous avec 4 thèmes livré par Stata</p>
+<pre><code>* ssc install grc1leg // legende unique pour graphs combiné
+
+tw (line le year) (line le_male year ) (line le_female year),                   ///
+title(&quot;s1color&quot;) legend(pos(6) order(1 &quot;total&quot; 2 &quot;hommes&quot; 3 &quot;femmes&quot;)           ///
+ col(3)) scheme(s1color) nodraw name(l1, replace)
+tw (line le year) (line le_male year ) (line le_female year),                   ///
+title(&quot;s2color&quot;) legend(pos(6) order(1 &quot;total&quot; 2 &quot;hommes&quot; 3 &quot;femmes&quot;)           ///
+ col(3)) scheme(s2color) nodraw name(l2, replace)
+tw (line le year) (line le_male year ) (line le_female year),                   ///
+title(&quot;Stata Journal&quot;) legend(pos(6) order(1 &quot;total&quot; 2 &quot;hommes&quot; 3 &quot;femmes&quot;)     ///
+ col(3)) scheme(sj) nodraw name(l3, replace)
+tw (line le year) (line le_male year ) (line le_female year),                   ///
+title(&quot;Economist&quot;) legend(pos(6) order(1 &quot;total&quot; 2 &quot;hommes&quot; 3 &quot;femmes&quot;)         ///
+ col(3)) scheme(economist) nodraw name(l4,replace)
+
+grc1leg l1 l2 l3 l4, legendfrom(l1)</code></pre>
+<p><img src="g13.png" /></p>
+</div>
+<div id="thèmes-externes" class="section level3">
+<h3><span class="header-section-number">7.7.2</span> Thèmes externes</h3>
+<p>Des thèmes externes ont été proposés par des utilisateurs du logiciel, par exemples:</p>
+<pre><code>net describe scheme-burd, from(http://fmwww.bc.edu/RePEc/bocode/s)
+net describe gr0070, from(http://www.stata-journal.com/software/sj17-3)</code></pre>
+<p><img src="g14.png" /></p>
+</div>
+<div id="faire-ses-thèmes-avec-grstyle-et-palettes" class="section level3">
+<h3><span class="header-section-number">7.7.3</span> Faire ses thèmes avec grstyle et palettes</h3>
+<p>Ben Jann a programmé plusieurs instructions permettant de récupérer un nombre important de palettes de couleurs (possibilité d’en générer), et de modifier à moindre frais l’aspect des graphiques</p>
+<p>Sources:</p>
+<ul>
+<li><a href="http://repec.sowi.unibe.ch/stata/grstyle/index.html" class="uri">http://repec.sowi.unibe.ch/stata/grstyle/index.html</a></li>
+<li><a href="http://repec.sowi.unibe.ch/stata/palettes/index.html" class="uri">http://repec.sowi.unibe.ch/stata/palettes/index.html</a></li>
+</ul>
+<p>Installation des packages</p>
+<pre><code>ssc install grstyle
+ssc install palettes
+ssc install colrspace</code></pre>
+<pre><code>gen himpg = mpg &gt; 25
+label def himpg 1 &quot;mpg &gt; 25&quot; 0 &quot;mpg &lt;= 25&quot;
+label val himpg himpg
+catplot himpg rep78 foreign, title(&quot;Repair record by level of mpg&quot;) scheme(s2color) name(g1,replace) nodraw
+grstyle init montheme, replace
+grstyle set plain, horizontal grid
+grstyle set mesh,  horizontal  // imesh pour un fond gris
+grstyle set legend, nobox stack 
+grstyle set color hue, n(2) 
+
+set scheme s2color
+catplot himpg rep78 foreign, title(&quot;Repair record by level of mpg&quot;) scheme(montheme) name(g2,replace) nodraw
+
+graph combine g1 g2, scheme(s2color montheme) plotr(color(white))  graphr(color(white)) 
+
+
+</code></pre>
+<p><img src="g15.png" /></p>
+</div>
+</div>
+<div id="python-et-graphiques-animés" class="section level2">
+<h2><span class="header-section-number">7.8</span> Python et graphiques animés</h2>
+<p>Juste pour info, mais peut-être il y a t-il des utilisateurs ou utilisatrices de Python dans la salle.<br />
+Depuis la version 16 Python peut-être utilisé avec Stata de manière intéractive, ce qui peut ouvrir des possibilité aux niveau des graphiques et de la <em>data vizualisation</em>.</p>
+<p>Exemple: un graphique de type violon (librairie `plotly’) en Python</p>
+<pre><code>export delimited using &quot;D:\stata_temp\python.csv&quot;, replace
+
+python:
+import plotly.graph_objects as go
+import pandas as pd
+
+df = pd.read_csv(&quot;D:/stata_temp/python.csv&quot;)
+df.head()
+
+fig = go.Figure()
+
+fig.add_trace(go.Violin(x=df[&#39;himpg&#39;][ df[&#39;foreign&#39;] == &#39;Domestic&#39; ],
+                        y=df[&#39;length&#39;][ df[&#39;foreign&#39;] == &#39;Domestic&#39; ],
+                        legendgroup=&#39;Domestic&#39;, scalegroup=&#39;Domestic&#39;, name=&#39;Domestic&#39;,
+                        line_color=&#39;#2E91E5&#39;)
+             )
+fig.add_trace(go.Violin(x=df[&#39;himpg&#39;][ df[&#39;foreign&#39;] == &#39;Foreign&#39; ],
+                        y=df[&#39;length&#39;][ df[&#39;foreign&#39;] == &#39;Foreign&#39; ],
+                        legendgroup=&#39;Foreign&#39;, scalegroup=&#39;Foreign&#39;, name=&#39;Foreign&#39;,
+                        line_color=&#39;#E15F99&#39;)
+             )
+fig.update_traces(box_visible=True, meanline_visible=True)
+fig.update_layout(title_text=&quot;Longueur des voitures&quot;,violinmode=&#39;group&#39;)
+fig.show()
+
+end
+</code></pre>
+<iframe width="800" height="600" src="violin1.html">
+</iframe>
+<p>Warning: ce type de graphique intéractif ne peut pas être inséré dans un document type word (sauf après enregistrement en format fixe type .jpg ou .png image).</p>
+<p>Exemple: un graphique animé<br />
+<br> Il est possible de faire des graphiques animé entièrement avec Stata en produisant une serie de graphiques compilé avec un logiciel video (ffmpeg2 pour un code intégré à Stata).</p>
+<p>Avec Python, on peut générer des graphiques animés via des fonctions dédiée (toujours avec <code>plotly</code>)</p>
+<pre><code>* données générées avec Stata
+clear
+set obs 30
+gen id=_n
+expand 50
+bysort id: gen t=_n
+bysort t: gen pop=runiform(1,100)
+replace pop=round(pop)
+bysort id: gen x=rpoisson(1)  
+bysort id: gen y=rpoisson(1)   
+sort id t
+export delimited using &quot;D:\Marc\SMS\FORMATIONS\2020\doc\test.csv&quot;, replace
+
+* graph animé avec python
+python:
+import plotly.express as px
+import pandas as pd
+df = pd.read_csv(&quot;D:/Marc/SMS/FORMATIONS/2020/doc/test.csv&quot;)
+fig = px.scatter(df, x=&quot;x&quot;, y=&quot;y&quot;, animation_frame=&quot;t&quot;, animation_group=&quot;id&quot;, color=&quot;x&quot;,
+           size=&quot;pop&quot;,  hover_name=&quot;id&quot;, title=&quot;test&quot;,
+            size_max=50)
+end
+
+python: fig.show()</code></pre>
+<iframe width="800" height="600" src="pingpong.html">
+</iframe>
+<p>Source: <a href="https://plotly.com/python/animations/" class="uri">https://plotly.com/python/animations/</a></p>
+</div>
+</div>
 
 
 
+</div>
+</div>
 
 </div>
 
@@ -353,6 +2074,32 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
