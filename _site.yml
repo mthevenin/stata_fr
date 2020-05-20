@@ -4,7 +4,7 @@ navbar:
   left:
     - text: "Stata"
       href: index.html
-    - text: "tips & Utilitaires"
+    - text: "Tips & utilitaires"
       href: utils.html      
     - text: "Graphiques"
       href:  graphiques.html

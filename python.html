@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Python</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Stata</a>
+</li>
+<li>
+  <a href="utils.html">tips &amp; Utilitaires</a>
+</li>
+<li>
+  <a href="graphiques.html">Graphiques</a>
+</li>
+<li>
+  <a href="python.html">Python</a>
+</li>
+<li>
+  <a href="commandes.html">Commandes</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Python</h1>
+
+</div>
+
+
+<p><br></p>
+<p><strong>[Version très provisoire mai 2020]</strong></p>
+<ul>
+<li>Depuis la version 16 de Stata (printemps 2019) il est possible d’utiliser Python de manière intéractive avec Stata.</li>
+<li>Une librairie Python <code>SFI</code> (<a href="https://www.stata.com/python/api16/Data.html" class="uri">https://www.stata.com/python/api16/Data.html</a>) est mise à disposition pour favoriser cette interactivé, en particulier pour passer des macros Stata vers Python.</li>
+<li>En l’état, il me semble que Python peut permettre à Stata de s’étoffer sur deux domaines: le <em>machine learning</em> (<code>sklearn</code>) et la <em>data visualization</em> (<code>seaborn</code>, <code>plotly</code>).</li>
+<li>l’entrée de l’aide stata sur python: <code>help python</code></li>
+<li>Eléments de Correspondance Stata - Python pour la manipulation des données ( librairie<code>pandas</code>): <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata" class="uri">https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata</a></li>
+</ul>
+<div id="installation-de-python-et-des-librairies-windows" class="section level1">
+<h1><span class="header-section-number">1</span> Installation de Python et des librairies (Windows)</h1>
+<div id="intallation-de-python" class="section level2">
+<h2><span class="header-section-number">1.1</span> Intallation de Python</h2>
+<p><strong>WARNING</strong> Pour utiliser Python, vous devez avoir le même type de built pour les deux applications:</p>
+<ul>
+<li>Stata 64 bits =&gt; Python 64 Bits</li>
+<li>Stata 32 bits =&gt; Pyhon 32 bits</li>
+</ul>
+<p><em>Python 64</em></p>
+<ul>
+<li>Installation Standard: <a href="https://www.python.org/downloads/windows/" class="uri">https://www.python.org/downloads/windows/</a></li>
+<li>Anaconda: <a href="https://www.anaconda.com/products/individual" class="uri">https://www.anaconda.com/products/individual</a> / Miniconda: <a href="https://docs.conda.io/en/latest/miniconda.html" class="uri">https://docs.conda.io/en/latest/miniconda.html</a></li>
+</ul>
+<p><em>Python 32</em></p>
+<ul>
+<li>Installation Standard: <a href="https://www.python.org/downloads/" class="uri">https://www.python.org/downloads/</a></li>
+<li>Anaconda: <a href="https://www.anaconda.com/products/individual" class="uri">https://www.anaconda.com/products/individual</a> / Miniconda: <a href="https://docs.conda.io/en/latest/miniconda.htm" class="uri">https://docs.conda.io/en/latest/miniconda.htm</a></li>
+</ul>
+<p><br> <strong>Installation et première utilisation</strong></p>
+<ul>
+<li>Bien vérifier que la case <strong>[ADD python 3.8 to PATH]</strong> est bien cochée</li>
+<li>Ne pas modifier le répertoire d’installation normalement, sous windows: <code>C:\Users\username\AppData\Local\Programs\Python</code></li>
+<li>Une fois l’installation terminée, ouvrir l’invite de commande [taper <code>cmd</code> dans la boite de recherche du menu windows, ou sous stata exécuter <code>!</code> ou <code>shell</code>]</li>
+<li>dans le prompteur, exécuter <code>python</code> puis effectuer une operation simple <code>1+1</code> ou <code>print("Bonjour python")</code></li>
+</ul>
+</div>
+<div id="installation-des-librairies-python" class="section level2">
+<h2><span class="header-section-number">1.2</span> Installation des librairies Python</h2>
+<ul>
+<li>Normalement peu de librairies sont installées</li>
+<li>On peut obtenir leur liste avec la commande <code>help("modules")</code></li>
+<li>Pour vérifier la présence d’une librairie: <code>help("nom_librairie")</code></li>
+</ul>
+<pre><code>help(&quot;statsmodels&quot;)
+No Python documentation found for &#39;statsmodels&#39;.
+Use help() to get the interactive help utility.
+Use help(str) for help on the str class.</code></pre>
+<ul>
+<li>Pour installer une librairie, on utilise <code>pip</code> normalement installée avec Python (vérifier avec <code>help("pip")</code>)</li>
+<li>Installation de <code>statmodels</code>:
+<ul>
+<li>[1] Réouvrir le prompteur windows (<code>!</code> sous Stata)</li>
+<li>[2] Exécuter <code>pip install statsmodels</code> (ou <code>! pip install statsmodels</code> sous Stata)</li>
+</ul></li>
+</ul>
+<pre><code>help(&quot;statsmodels&quot;)
+NAME
+    statsmodels
+
+PACKAGE CONTENTS
+    _version
+    api
+    base (package)
+    compat (package)
+    conftest
+    datasets (package)
+    discrete (package)
+    distributions (package)
+    duration (package)
+    emplike (package)
+    formula (package)
+    gam (package)
+    genmod (package)
+    graphics (package)
+    imputation (package)
+    interface (package)
+    iolib (package)
+    miscmodels (package)
+    multivariate (package)
+    nonparametric (package)
+    regression (package)
+    resampling (package)
+    robust (package)
+    sandbox (package)
+    src (package)
+    stats (package)
+    tests (package)
+    tools (package)
+    tsa (package</code></pre>
+<ul>
+<li>Comme pour R, l’installation d’une librairie installe les dépendances. Par exemple la librairie <code>pandas</code> (nécessaire pour la manipulation des données) installera <code>numpy</code>.</li>
+<li>On peut installer directement des librairies Python sous Stata: <code>! pip install pandas</code> (pas conseillé car le prompteur se referme automatiquement après exécution).</li>
+</ul>
+<p>Extrait de l’aide <code>numpy</code> après l’installation de <code>pandas</code></p>
+<pre><code>help(&quot;numpy&quot;)
+NAME
+    numpy
+
+DESCRIPTION
+    NumPy
+    =====
+
+    Provides
+      1. An array object of arbitrary homogeneous items
+      2. Fast mathematical operations over arrays
+      3. Linear Algebra, Fourier Transforms, Random Number Generation
+
+    How to use the documentation
+    ----------------------------
+    Documentation is available in two forms: docstrings provided
+    with the code, and a loose standing reference guide, available from
+    `the NumPy homepage &lt;https://www.scipy.org&gt;`_.
+
+    We recommend exploring the docstrings using
+    `IPython &lt;https://ipython.org&gt;`_, an advanced Python shell with
+    TAB-completion and introspection capabilities.  See below for further
+    instructions.
+
+    The docstring examples assume that `numpy` has been imported as `np`::
+
+      &gt;&gt;&gt; import numpy as np
+      
+(...)      
+      </code></pre>
+<p><strong>Mise à jour d’une librairie</strong>: <code>pip install nom_librairie --upgrade</code></p>
+</div>
+<div id="librairies-graphiques" class="section level2">
+<h2><span class="header-section-number">1.3</span> Librairies graphiques</h2>
+<p>Une liste des principales libraires graphiques de Python:</p>
+<ul>
+<li><strong>matplotlib</strong>: <code>pip install matplotlib</code> [<a href="https://matplotlib.org/" class="uri">https://matplotlib.org/</a>]</li>
+<li><strong>seaborn</strong>: <code>pip install seaborn</code> [<a href="https://seaborn.pydata.org/" class="uri">https://seaborn.pydata.org/</a>]</li>
+<li><strong>plotly</strong>: <code>pip install plotly</code> [<a href="https://plotly.com/python/" class="uri">https://plotly.com/python/</a>]</li>
+</ul>
+</div>
+</div>
+<div id="exécuter-python-avec-stata" class="section level1">
+<h1><span class="header-section-number">2</span> Exécuter Python avec Stata</h1>
+<p>Aide Stata: <code>help python</code></p>
+<div id="lecture-de-python-par-stata" class="section level2">
+<h2><span class="header-section-number">2.1</span> Lecture de Python par Stata</h2>
+<p><strong>Rappel</strong>: s’assurer de la concordance des builts (Stata 64 =&gt; Python 64)</p>
+<ul>
+<li>Lorsque Python est installé, vous pouvez vérifier qu’il est bien reconnu avec <code>python query</code></li>
+</ul>
+<pre><code>python query
+
+    Python Settings
+      set python_exec      C:\Users\thevenin_m\AppData\Local\Continuum\anaconda3\python.exe
+      set python_userpath  
+
+    Python system information
+      initialized          no
+      version              3.7.3
+      architecture         64-bit
+      library path         C:\Users\thevenin_m\AppData\Local\Continuum\anaconda3\python37.dll
+
+</code></pre>
+<ul>
+<li>Si on a plusieurs installations de python, on peut récupérer les chemins d’accès avec <code>python search</code>:</li>
+</ul>
+<pre><code>python search 
+ Python environments found:  
+ C:\Users\thevenin_m\AppData\Local\Continuum\anaconda3\python.exe
+ C:\Users\thevenin_m\AppData\Local\Programs\Python\Python38\python.exe
+</code></pre>
+<ul>
+<li>On peut changer de version de python avec <code>python set exec path [,permanently]</code></li>
+</ul>
+<pre><code>python set exec C:\Users\thevenin_m\AppData\Local\Programs\Python\Python38\python.exe
+python query
+
+    Python Settings
+      set python_exec      C:\Users\thevenin_m\AppData\Local\Programs\Python\Python38\python.exe
+      set python_userpath  
+
+    Python system information
+      initialized          no
+      version              3.8.3
+      architecture         64-bit
+      library path         C:\Users\thevenin_m\AppData\Local\Programs\Python\Python38\python38.dll
+</code></pre>
+</div>
+<div id="utilisation-de-python-en-mode-interactif" class="section level2">
+<h2><span class="header-section-number">2.2</span> Utilisation de python en mode interactif</h2>
+<ul>
+<li>Une ligne</li>
+</ul>
+<pre><code>python: print(&quot;Bonjour Python&quot;)</code></pre>
+<ul>
+<li>Un bloc de ligne</li>
+</ul>
+<pre><code>python:
+a=2
+b=10
+a*b
+end
+
+
+&gt;&gt;&gt; a=2
+&gt;&gt;&gt; b=10
+&gt;&gt;&gt; a*b
+20
+&gt;&gt;&gt; end
+</code></pre>
+<ul>
+<li><code>python describe</code>: permet d’afficher les objets python en mémoire</li>
+</ul>
+<pre><code>python describe namelist
+a: 
+2
+
+b: 
+10</code></pre>
+<ul>
+<li><code>Python drop</code> permet d’effacer des objets python en mémoire</li>
+</ul>
+<pre><code>python drop a
+python describe namelist
+b: 
+10
+</code></pre>
+<ul>
+<li><code>Python clear</code> permet d’effacer tous les objets python en mémoire</li>
+</ul>
+<pre><code>python clear
+python describe
+</code></pre>
+</div>
+<div id="quelques-exemple-dutilisation-de-python-pour-les-graphiques" class="section level2">
+<h2><span class="header-section-number">2.3</span> Quelques exemple d’utilisation de Python pour les graphiques</h2>
+<div id="chargement-dune-base-stata-sous-python" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Chargement d’une base stata sous python</h3>
+<ul>
+<li>Une librarie est chargée avec l’instruction <code>import</code>. Un acronyme lui est associé, ici <code>pa</code> (en anglais c’est généralement <code>pd</code>….on s’en passera)</li>
+<li><code>pandas</code> a une fonction permettant de lire une base en format .dta [<code>read_dta()</code>]</li>
+<li>la fonction <code>nom_base.head(#)</code> permet d’afficher les premières lignes de la base</li>
+</ul>
+<pre><code>sysuse auto, clear
+keep price mpg displacement gear_ratio turn foreign
+save auto, replace
+
+python:
+import pandas as pa 
+df = pa.read_stata(&#39;auto.dta&#39;)
+df.head()
+end
+
+&gt;&gt;&gt; df.head()
+   price  mpg  turn  displacement  gear_ratio   foreign
+0   4099   22    40           121        3.58  Domestic
+1   4749   17    40           258        2.53  Domestic
+2   3799   22    35           121        3.08  Domestic
+3   4816   20    40           196        2.93  Domestic
+4   7827   15    43           350        2.41  Domestic
+</code></pre>
+</div>
+<div id="exemple-1" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Exemple 1</h3>
+<ul>
+<li>Création d’un graphique de type matrixplot avec la librairie <code>seaborn</code> sur un extrait de la base auto</li>
+<li>On va utiliser la fonction <code>pairplot</code> de la librairie <code>seaborn</code> (acronyme <code>sns</code>)</li>
+<li><code>seaborn</code> ne permettant pas au graphique de s’afficher avec une exécution sous Stata, il est enregistré avec la fonction <code>nom_objet.savefig(path/nom_graph)</code> puis ouvert via le prompteur windows <code>! nom_graph</code></li>
+</ul>
+<pre><code>python:
+import seaborn as sns
+g = sns.pairplot(df, hue=&quot;foreign&quot;)
+g.savefig(&quot;graph1.png&quot;)
+end
+
+! graph1.png</code></pre>
+<p>Programme en un bloc</p>
+<pre><code>sysuse auto, clear
+keep price mpg displacement gear_ratio turn foreign
+save auto, replace
+
+python:
+import pandas as pa 
+import seaborn as sns
+df = pa.read_stata(&#39;auto.dta&#39;)
+g = sns.pairplot(df, hue=&quot;foreign&quot;)
+g.savefig(&quot;graph1.png&quot;)
+end
+! graph1.png</code></pre>
+<p><img src="img/p1.png" /></p>
+</div>
+<div id="exemple-2" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Exemple 2</h3>
+<p>Création d’un graphique de type <em>violin</em> de la librairie <code>plotpy</code> avec passage d’une macro à un argument de stata vers Python</p>
+<p><strong>Etape par étape</strong><br />
+<br></p>
+<p><strong>Définition d’une variable par une macro</strong></p>
+<pre><code>local x turn</code></pre>
+<p>Les codes qui suivent sont appelés en mode python</p>
+<pre><code>python:
+&lt;py1&gt;: chargement des librairies&gt;
+&lt;py2&gt;: récupération de la macro et création d&#39;une dataframe
+&lt;py3&gt;: création du graphique et affichage
+end</code></pre>
+<p><strong>[Py1] Chargement des librairies</strong></p>
+<pre><code>import pandas as pa
+import plotly.graph_objects as go
+from sfi import *</code></pre>
+<ul>
+<li>Une des particularités de python (et ce n’est pas un point fort) est qu’il est (parfois) nécessaire de charger explicitement des fonctions d’une librairie: ici la librairie est <code>plotly</code> dans laquelle on veut utiliser la fonction <code>graph_objects</code>. On importe non pas la librairie, mais une fonctionnalité de celle-ci: <code>import plotly.graph_objects as go</code></li>
+<li>On importe également, dans son ensemble, la librairie python <code>SFI</code> de Stata: <code>from sfi import *</code> (* car on importe tous les modules)</li>
+</ul>
+<p><strong>[Py2] Récupération de la macro et création de la dataframe</strong></p>
+<pre><code>varname = Macro.getLocal(&quot;x&quot;)
+v = Data.get(var = varlist)
+df = pd.DataFrame(v,columns = [&#39;var&#39;])</code></pre>
+<ul>
+<li><code>varname = Macro.getLocal("x")</code> permet a python de récupéré le contenu de la macro x</li>
+</ul>
+<pre><code>&gt;&gt;&gt; varname = Macro.getLocal(&quot;x&quot;)
+&gt;&gt;&gt; varname
+&#39;turn&#39;</code></pre>
+<ul>
+<li><code>v = Data.get(var = varname)</code> permet de récupérer, sous forme de vecteur, les observations de la variable associée à la macro (ici <em>turn</em>)</li>
+</ul>
+<pre><code>&gt;&gt;&gt; v = Data.get(var = varname)
+&gt;&gt;&gt; v
+[40, 40, 40, 43, 43, 42, 43, 42, 44, 43, 45, 34, 43, 31, 41, 40, 43, 35, 46, 46, 46, 33, 43, 5
+&gt; 1, 48, 41, 39, 48, 44, 41, 45, 43, 43, 42, 42, 42, 43, 40, 43, 37, 37, 36, 44, 42, 42, 45, 4
+&gt; 0, 41, 37, 36, 34, 35, 32, 34, 38, 36, 36, 34, 33, 34, 36, 36, 35, 36, 36, 35, 35, 36, 37]</code></pre>
+<ul>
+<li><code>df = pd.DataFrame(v,columns = ['var'])</code> transforme le vecteur en dataframe. J’ai choisi le nom <em>var</em> pour la variable, je n’ai pas (encore) trouvé le moyen d’utiliser le contenu de la macro pour la variable sélectionné. Mais c’est sans importance pour ce graphique, on pourra récupérer le nom de la variable pour le titre.</li>
+</ul>
+<pre><code>&gt;&gt;&gt; df = pa.DataFrame(v,columns = [&#39;var&#39;])
+&gt;&gt;&gt; df.head()
+   var
+0   40
+1   40
+2   40
+3   43
+4   43</code></pre>
+<p><strong>[Py3] Création de l’objet graphique</strong></p>
+<pre><code>fig = go.Figure(data=go.Violin(y=df[&#39;var&#39;], box_visible=True, line_color=&#39;black&#39;, meanline_visible=True, 
+fillcolor=&#39;rgb(248,118,109)&#39;, opacity=0.5, x0=&#39;var&#39;))
+fig.update_layout( title=&quot; violin plot pour la variable `x&#39;&quot;, font=dict( family=&quot;Arial&quot;, size=18, color=&#39;rgb(97,156,255)&#39;))
+python: fig.show())</code></pre>
+<ul>
+<li>La variable est appelée par <code>y=df['var']</code>, le reste constitue des options</li>
+<li><code>fig.update_layout</code> permet d’ajouter des éléments de texte. On peut récupérer directement le nom de la variable dans le titre avec la macro <em>x</em>: <strong>title=“violin plot pour la variable `x’”</strong>. On pourrait faire de même avec les titres des axes, dont les champs n’ont pas été rempli.<br />
+</li>
+<li><code>fig.show()</code> permet d’afficher le graphique sous format <em>html</em> (type de graphique de <code>plotly</code>). On peut se déplacer sur le graphique pour lire les valeurs (moyenne, médiane, valeur de y et la densité via un lissage de type kernel(kde)). Le graphique peut être enregistré en format statique (.png) directement via le menu de la fenêtre.</li>
+</ul>
+<iframe width="800" height="600" src="img/p2.html">
+</iframe>
+<p><strong>Programme en un bloc</strong></p>
+<pre><code>local x turn
+
+python clear
+python:
+import plotly.graph_objects as go
+import pandas as pa
+from sfi import *
+varname = Macro.getLocal(&quot;x&quot;)
+v = Data.get(var = varname)
+df = pa.DataFrame(v,columns = [&#39;var&#39;])
+df.head()
+
+fig = go.Figure(data=go.Violin(y=df[&#39;var&#39;], box_visible=True, line_color=&#39;black&#39;, meanline_visible=True, 
+fillcolor=&#39;rgb(248,118,109)&#39;, opacity=0.5, x0=&#39;var&#39;))
+fig.update_layout( title=&quot; Violin plot pour la variable `x&#39;&quot;, font=dict( family=&quot;Arial&quot;, size=18, color=&#39;rgb(97,156,255)&#39;))
+python: fig.show()
+
+end</code></pre>
+<p><strong>Dans une routine type ado</strong><br />
+Je rencontre une difficulté pour afficher le graphique avec un programme en deux blocs, un bloc Stata puis un bloc python. Une histoire de fonction a appelé dans le bloc Stata que je n’arrive pas à définir</p>
+<pre><code>programme define violin
+syntax varlist [,options]
+&lt;programme Stata&gt;
+end
+
+python:
+&lt;code python&gt;
+end</code></pre>
+<p>En un bloc, en appelant python à chaque ligne, la routine suivante fonctionne (quelques petites différences )</p>
+<pre><code>***Programme de la commande violon***
+
+*partie Stata
+capt program drop violin
+program define violin
+syntax varlist, [title(string)] [ytitle(string)] [xtitle(string)]
+
+
+*partie python
+python: import plotly.graph_objects as go
+python: import pandas as pd
+python: from sfi import *
+
+python: varlist = Macro.getLocal(&quot;varlist&quot;)
+python: v = Data.get(var = varlist)
+python: df = pd.DataFrame(v,columns = [&#39;var&#39;])
+
+python: fig = go.Figure(data=go.Violin(y=df[&#39;var&#39;], box_visible=True, line_color=&#39;black&#39;, meanline_visible=True, fillcolor=&#39;lightseagreen&#39;, opacity=0.5, x0=&#39;var&#39;))
+python: fig.update_layout( title=&quot;`title&#39;&quot;, xaxis_title=&quot;`xtitle&#39;&quot;, yaxis_title=&quot;`ytitle&#39;&quot;, font=dict( family=&quot;Courier New, monospace&quot;, size=18, color=&quot;#7f7f7f&quot;))
+python: fig.show()
+
+end
+
+
+***Execution de la commande***
+* sysuse auto, clear
+* violin mpg
+* violin price, title(&quot;GRAPHIQUE TYPE VIOLON&quot;) xtitle(&quot;PRICE&quot;)
+</code></pre>
+</div>
+<div id="exemple-3" class="section level3">
+<h3><span class="header-section-number">2.3.4</span> Exemple 3</h3>
+<p><En cours>: Création d’un graphique avec passage d’une macro à plusieurs arguments de stata vers Python</p>
+</div>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
