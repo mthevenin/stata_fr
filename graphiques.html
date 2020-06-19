@@ -9,6 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
+<meta name="author" content="Marc Thevenin" />
 
 
 <title>Graphiques</title>
@@ -25,6 +26,96 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 
 
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css" data-origin="pandoc">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  { color: #cccccc; background-color: #303030; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffcfaf; } /* Alert */
+code span.an { color: #7f9f7f; font-weight: bold; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #dca3a3; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #f0dfaf; } /* ControlFlow */
+code span.ch { color: #dca3a3; } /* Char */
+code span.cn { color: #dca3a3; font-weight: bold; } /* Constant */
+code span.co { color: #7f9f7f; } /* Comment */
+code span.cv { color: #7f9f7f; font-weight: bold; } /* CommentVar */
+code span.do { color: #7f9f7f; } /* Documentation */
+code span.dt { color: #dfdfbf; } /* DataType */
+code span.dv { color: #dcdccc; } /* DecVal */
+code span.er { color: #c3bf9f; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #c0bed1; } /* Float */
+code span.fu { color: #efef8f; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #7f9f7f; font-weight: bold; } /* Information */
+code span.kw { color: #f0dfaf; } /* Keyword */
+code span.op { color: #f0efd0; } /* Operator */
+code span.ot { color: #efef8f; } /* Other */
+code span.pp { color: #ffcfaf; font-weight: bold; } /* Preprocessor */
+code span.sc { color: #dca3a3; } /* SpecialChar */
+code span.ss { color: #cc9393; } /* SpecialString */
+code span.st { color: #cc9393; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #cc9393; } /* VerbatimString */
+code span.wa { color: #7f9f7f; font-weight: bold; } /* Warning */
+
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
 
 
 <style type="text/css">
@@ -370,25 +461,1197 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Graphiques</h1>
+<h4 class="author">Marc Thevenin</h4>
+<h4 class="date">19/06/2020</h4>
 
 </div>
 
 
-<p><br><br></p>
-<p>Une première version d’un petit guide sur les couleurs est disponible: <a href="https://mthevenin.github.io/stata_fr/couleurs.html" class="uri">https://mthevenin.github.io/stata_fr/couleurs.html</a></p>
-<p>La section d’origine présentait rapidemment des thèmes (<code>scheme</code>) externes et l’introduction des effets de transparence depuis la version 15 de Stata.<br />
-Suite à une demande d’une unité de recheche de l’Ined, l’idée serait d’aller plus loin avec:</p>
+<style>
+hide {
+  background-color: #d6d6d6;
+  color: #d6d6d6;
+}
+hide:hover {
+  background-color: white;
+  color: black;
+}
+</style>
+<div id="plan" class="section level1">
+<h1><span class="header-section-number">1</span> Plan</h1>
 <ul>
-<li>Rappels sur les principes de production des graphiques avec Stata.</li>
-<li>Liste des principaux types d’objets graphiques disponibles sous Stata, qu’ils soient internes ou externes (<code>catplot</code>, <code>spineplot</code> (NJ Cox) <code>heatplot</code> (B Jann))….</li>
-<li>La syntaxe des options (couleurs, épaisseurs, legendes…).</li>
-<li>L’utilisation des macros (et routines) pour alleger les syntaxe et faciliter les modifications.</li>
-<li>Les palettes de couleurs (paquet de <em>Ben Jann</em> <code>palettes</code>).</li>
-<li>Les thèmes graphiques: interne, externe et paquet <code>grstyle</code> de <em>Ben Jann</em>.</li>
-<li>Peut-être la production de graphique animé avec l’encodeur <code>ffmpeg</code> et la librairie <code>plotly</code> en Python (si Stata 16).</li>
+<li><strong>Visualisation de la progression</strong>:
+<ul>
+<li><span style="color:rgb(97, 156, 255)"><strong>Bien avancée</strong></span></li>
+<li><span style="color:rgb(0, 191, 125)"><strong>Avancée</strong></span></li>
+<li><span style="color:rgb(255, 103, 164)"><strong>A faire</strong></span></li>
+</ul></li>
 </ul>
-<p>Quelques éléments sur les graphiques Stata sont décrits dans le support <strong>Introduction à Stata</strong>: <a href="https://mthevenin.github.io/formation_stata/" class="uri">https://mthevenin.github.io/formation_stata/</a></p>
-<p>En guise de <em>teaser</em>: de s2color (Thème par défaut de Stata) à un thème personnel généré avec les commandes <code>palettes</code> et <code>grstyle</code> de Ben Jann <img src="img/g1.png" /></p>
+<p><BR></p>
+<ul>
+<li><strong><span style="color:rgb(97, 156, 255)">Générer des graphiques</span></strong>
+<ul>
+<li><span style="color:rgb(97, 156, 255)">Les graphiques Stata</span></li>
+<li><span style="color:rgb(97, 156, 255)">Générer et éditer un graphique</span></li>
+<li><span style="color:rgb(97, 156, 255)">Les options graphiques</span>
+<ul>
+<li><span style="color:rgb(97, 156, 255)">Options d’un objet graphique</span></li>
+<li><span style="color:rgb(0, 191, 125)">Options générales d’un graphique</span></li>
+</ul></li>
+<li><span style="color:rgb(0, 191, 125)">Graphiques combinés</span></li>
+<li><span style="color:rgb(255, 103, 164)">Stata 16 et Python</red></li>
+</ul></li>
+<li><strong><span style="color:rgb(0, 191, 125)">Utilisation des macros</span></strong>
+<ul>
+<li><span style="color:rgb(97, 156, 255)"> Rappel sur les macro</span>
+<ul>
+<li><span style="color:rgb(97, 156, 255)"> global/local - levelsof - fonctions associées</span></li>
+<li><span style="color:rgb(97, 156, 255)"> return et ereturn</span></li>
+<li><span style="color:rgb(97, 156, 255)"> Autres: token, compteur++, tempvar, scalar</span><br />
+</li>
+</ul></li>
+<li><span style="color:rgb(97, 156, 255)">Alleger la syntaxe et automatiser les modifications</span></li>
+<li><span style="color:rgb(0, 191, 125)">Macro étendue pour générer un graphique à plusieurs composantes</span></li>
+<li><span style="color:rgb(255, 103, 164)">Programmation d’une routine</span></li>
+</ul></li>
+<li><strong><span style="color:rgb(255, 103, 164)">Les styles (scheme) et les couleurs</span></strong>
+<ul>
+<li><span style="color:rgb(255, 103, 164)">Styles interne et externe</span></li>
+<li><span style="color:rgb(255, 103, 164)">Générer un style et des couleurs avec <strong>grstyle</strong> et <strong>colorpalette</strong></span></li>
+</ul></li>
+<li><strong><span style="color:rgb(255, 103, 164)">Data visualisation avec Stata</span></strong>
+<ul>
+<li><span style="color:rgb(255, 103, 164)">Graphiques statiques</span>
+<ul>
+<li><span style="color:rgb(255, 103, 164)">Variable(s) continues: une/plusieurs</span><br />
+</li>
+<li><span style="color:rgb(255, 103, 164)">Variable(s) catégorielles: une/plusieurs</span></li>
+<li><span style="color:rgb(255, 103, 164)">Variables continues et catégorielles</span><br />
+</li>
+<li><span style="color:rgb(255, 103, 164)">Résultats d’analyses</span></li>
+</ul></li>
+</ul></li>
+<li><strong><span style="color:rgb(255, 103, 164)">Graphiques intéractifs &amp; animés: Python</span></strong>
+<ul>
+<li><span style="color:rgb(255, 103, 164)">Exemples de graphiques intéractifs</span></li>
+<li><span style="color:rgb(255, 103, 164)">Exemple de graphiques animés</span></li>
+</ul></li>
+<li><strong><span style="color:rgb(255, 103, 164)">Bibliographie &amp; sources</span></strong></li>
+</ul>
+<p><strong>La taille des graphiques a été réduite: clic droit + view image" pour les visualiser en taille réelle</strong></p>
+</div>
+<div id="générer-et-modifier-des-graphiques" class="section level1">
+<h1><span class="header-section-number">2</span> Générer et modifier des graphiques</h1>
+<div id="les-graphiques-stata" class="section level2">
+<h2><span class="header-section-number">2.1</span> Les graphiques Stata</h2>
+<ul>
+<li>Graphiques de type statique et non intéractifs</li>
+<li>Graphiques de type <strong>one way</strong> (Y)) ou <strong>two way</strong> (X Y)</li>
+<li>Une syntaxe de base plutôt simple, c’est toujours le point fort de Stata</li>
+<li>Des graphiques critiqués pour leur aspect rustre par défaut, loin des standards actuels
+<ul>
+<li><p>Mauvaise communication officielle : <a href="https://www.stata.com/stata-news/news33-4/spotlight/" class="uri">https://www.stata.com/stata-news/news33-4/spotlight/</a> <img src="https://www.stata.com/stata-news/news33-4/spotlight/i/gr1.svg" /></p></li>
+<li>Alors que…: <a href="https://graphworkflow.com/?fbclid=IwAR30KGud-TWYLlvpZ1OPNrCeKN01hqPbIIoZ-GTAaoiS90xuE8G8WHwDh3w">graphworkflow.com</a> <img src="https://graphworkflow.files.wordpress.com/2019/01/nba_1.png" style="width:75.0%" /><br />
+<br></li>
+</ul></li>
+<li><strong>Améliorations récentes</strong>:
+<ul>
+<li>Depuis Stata 15, l’opacité/transparence des couleurs peut être modifiée.</li>
+<li>Des commandes externes qui permettent de démultiplier les possibilités en termes de couleurs et de styles. J’ai un gros faible pour les deux commandes de <strong>Ben Jann</strong>: <em>colorpalette</em> et <em>grstyle</em></li>
+<li>Depuis la version 16 on peut utiliser intéractivement <strong>Python</strong> sous Stata, ce qui ouvre de nombreuses possibilités au niveau de la visualisation des données [graphiques intéractifs et dynamiques]</li>
+</ul></li>
+</ul>
+</div>
+<div id="générer-et-éditer-un-graphique" class="section level2">
+<h2><span class="header-section-number">2.2</span> Générer et éditer un graphique</h2>
+<div id="par-les-boites-de-dialogue" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Par les boites de dialogue</h3>
+<ul>
+<li><strong>Générer un graphique</strong>:
+<ul>
+<li>Ouverture d’une boite directement dans la fenêtre <em>command</em> avec la commande <em>db</em>: <code>db command</code></li>
+<li>Préférer <em>submit`</em> à <em>OK</em> pour laisser la boîte ouverte</li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1">db tw</a>
+<a class="sourceLine" id="cb1-2" title="2">db histogram</a></code></pre></div>
+<ul>
+<li><strong>Editer un graphique</strong>:
+<ul>
+<li>On peut éditer manuellement le graphique après sa création dans la boîte d’édition du graphique, ou en le chargeant après sauvegarde</li>
+<li>On peut enregistrer les modifications avec <em>record</em> - <em>play</em> pour une édition ultérieure. Un fichier au format <em>.grec</em> est enregistrée. Il peut être édité.</li>
+<li>Quelques améliorations de l’interface d’édition avec stata 16 [mettre image]</li>
+</ul></li>
+</ul>
+<p>exemple:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1">sysuse auto, clear</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="op">*</span><span class="st"> </span>sauvegarde en mémoire</a>
+<a class="sourceLine" id="cb2-3" title="3">tw scatter price mpg, <span class="kw">name</span>(g1, replace)</a>
+<a class="sourceLine" id="cb2-4" title="4">graph display g1 [, <span class="kw">scheme</span>() <span class="kw">play</span>()....]</a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="op">*</span><span class="st"> </span>sauvegarde en dur</a>
+<a class="sourceLine" id="cb2-6" title="6">tw scatter price mpg, <span class="kw">save</span>(g1, replace)</a>
+<a class="sourceLine" id="cb2-7" title="7">graph display g1 [, <span class="kw">scheme</span>() <span class="kw">play</span>()....]</a></code></pre></div>
+</div>
+<div id="syntaxe" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Syntaxe</h3>
+<p>[Rappeler quelque par qu’on peut utiliser des fonctions]</p>
+<p><strong>TROP D’OPTIONS TUE L’IDEE DE LES UTILISER</strong><br />
+<strong>C’EST FAIT EXPRESS!!!!</strong><br />
+<br> &gt;Les exemples ci-dessous sont rapidement chargées d’options. Oui c’est fait express!<br />
+L’idée est de montrer plus loin, par l’utilisation des expressions de type <strong>macro</strong> et de certaines commande comme <strong>grstyle</strong> ou <strong>colorpalette</strong>, que l’on peut obtenir des représentations graphiques propres sans se ruiner les yeux….et perdre patience.</p>
+<div id="un-bloc-déléments-graphiques" class="section level4">
+<h4><span class="header-section-number">2.2.2.1</span> Un bloc d’éléments graphiques</h4>
+<p>Syntaxe 1</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1">[tw<span class="op">/</span>graph] type_graph Y1 Y2 Y3.... [X] [Z] [, <span class="kw">option1</span>(Y1 Y2 Y3... X Z)....options_generales] </a></code></pre></div>
+<p><strong>Important</strong>: si plusieurs éléments graphiques, le contenu des options suit l’ordre Y1,Y2,Y3…..</p>
+<p><strong>Exemple</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">sysuse uslifeexp.dta , clear</a>
+<a class="sourceLine" id="cb4-2" title="2">tw line le year, <span class="kw">title</span>(<span class="st">&quot;Espérance de vie&quot;</span>) </a></code></pre></div>
+<ul>
+<li>Options:
+<ul>
+<li>Option générale: <em><code>title()</code></em> titre du graphique avec aspect par défaut</li>
+</ul></li>
+</ul>
+<p><strong>Exemple: plusieurs objets</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">tw line  le le_male le_female year,                                        <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb5-2" title="2"><span class="st">   </span><span class="kw">lc</span>(<span class="op">*</span>.<span class="dv">3</span>)                                                                 <span class="op">/</span><span class="er">//</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="st">   </span><span class="kw">title</span>(<span class="st">&quot;Espérance de vie&quot;</span>)                                               <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="st">   </span><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Ensemble&quot;</span> <span class="dv">2</span> <span class="st">&quot;Hommes&quot;</span> <span class="dv">3</span> <span class="st">&quot;Femmes&quot;</span>) <span class="kw">pos</span>(<span class="dv">4</span>) <span class="kw">col</span>(<span class="dv">1</span>) <span class="kw">ring</span>(<span class="dv">0</span>)) <span class="op">/</span><span class="er">//</span></a></code></pre></div>
+<ul>
+<li>Options:
+<ul>
+<li>Options des courbes: intensité de la couleur des courbes réduite pour la variable <em>le</em> <strong><code>lc(*.2)</code></strong> et augmentée pour <em>le_male</em> et <em>le_female</em> <strong><code>lc(1.3)</code></strong></li>
+<li>Options générales: modification de la légende
+<ul>
+<li>Labels: <strong><code>order(1 "Ensemble" 2 "Hommes" 3 "femmes")</code></strong></li>
+<li>A l’intérieur du graphique <strong><code>ring(0)</code></strong></li>
+<li>Positionnée à 4 heures <strong><code>pos(11</code>)`</strong></li>
+<li>Affichée en une seule colonne <strong><code>col(1</code>)`</strong></li>
+</ul></li>
+</ul></li>
+<li><strong>Remarque</strong>: la courbe pour l’ensemble de la population a éte mise en arrière plan (première position des Y dans la commande)</li>
+</ul>
+<p><img src="imgf/g1.png" style="width:50.0%" /></p>
+</div>
+<div id="plusieurs-blocs-déléments-graphiques" class="section level4">
+<h4><span class="header-section-number">2.2.2.2</span> Plusieurs blocs d’éléments graphiques</h4>
+<ul>
+<li>Chaque composante est séparée par <strong>()</strong> ou <strong>||</strong></li>
+<li>Elle contient ses options</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1">[tw<span class="op">/</span>graph] (type_graph1 Y1 [X] [Z] [, <span class="kw">option1</span>(Y1 ) <span class="kw">option1</span>(X) <span class="kw">option1</span>(Z)...])    <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb6-2" title="2"><span class="st">           </span>(type_graph2 Y2 [X] [Z] [, <span class="kw">option1</span>(Y2 ) <span class="kw">option1</span>(X) <span class="kw">option1</span>(Z)...])    <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="st">          </span>[(type_graph3...)] [(type_graph4...)] ...                             <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="st">          </span>[, options_generales]   </a></code></pre></div>
+<p>ou</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1">[tw<span class="op">/</span>graph]  type_graph Y1 [X] [X] [Z] [, <span class="kw">option1</span>(Y1 ) <span class="kw">option1</span>(X) <span class="kw">option1</span>(Z)...]   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb7-2" title="2"><span class="st">        </span><span class="er">||</span><span class="st">  </span>type_graph Y2 [X] [Z] [Z] [, <span class="kw">option1</span>(Y1 ) <span class="kw">option1</span>(X) <span class="kw">option1</span>(Z)...]   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="st">        </span><span class="er">||</span><span class="st"> </span>[type_graph3...] <span class="op">||</span><span class="st">  </span>[type_graph4...] ...                              <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="st">           </span>[, options_generales]   </a></code></pre></div>
+<p><strong>Exemple</strong></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" title="1">sysuse auto, clear</a>
+<a class="sourceLine" id="cb8-2" title="2"></a>
+<a class="sourceLine" id="cb8-3" title="3"><span class="op">*</span><span class="st"> </span>sans option</a>
+<a class="sourceLine" id="cb8-4" title="4">tw scatter price mpg <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">0</span>          <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb8-5" title="5"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">1</span>          <span class="op">/</span><span class="er">//</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb8-6" title="6"><span class="st"> </span>, <span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">2</span> <span class="st">&quot;Foreign&quot;</span>))  </a>
+<a class="sourceLine" id="cb8-7" title="7"></a>
+<a class="sourceLine" id="cb8-8" title="8"><span class="op">*</span><span class="st"> </span>avec option</a>
+<a class="sourceLine" id="cb8-9" title="9">tw scatter price mpg <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">0</span> , <span class="kw">msiz</span>(large) <span class="kw">mc</span>(red%<span class="dv">50</span>)  <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin)      <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb8-10" title="10"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">1</span> , <span class="kw">msiz</span>(large) <span class="kw">mc</span>(blue%<span class="dv">50</span>) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin)      <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb8-11" title="11"><span class="st"> </span>, <span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">2</span> <span class="st">&quot;Foreign&quot;</span>) <span class="kw">region</span>(<span class="kw">lcolor</span>(%<span class="dv">0</span>)))                           <span class="op">/</span><span class="er">//</span></a></code></pre></div>
+<ul>
+<li><strong>Options sur les cercles/bulles</strong>:
+<ul>
+<li>modification de la couleur de remplissage de la bulle avec l’option <strong><code>mc()</code></strong> [<strong><code>mcolor</code></strong>: marker-color). L’opacité à été réduite à 50% pour laisser apparaitre les bulles superposées en arrière plan: <strong><code>blue%50</code></strong> et <strong><code>red%50</code></strong></li>
+<li>modification du contour des bulles avec <strong><code>mlc(black)</code></strong> (marker-line-color) et <strong><code>mlw(vthin)</code></strong> (marker-line-width)</li>
+<li>augmentation de la taille des bulles avec <strong><code>msiz(large)</code></strong> (marker-size)</li>
+</ul></li>
+<li><strong>Option générale</strong>:
+<ul>
+<li>Ajout d’une légende et suppression du contour: <strong><code>legend(order(1 "Domestic" 2 "Foreign") region(lcolor(%0)))</code></strong></li>
+</ul></li>
+</ul>
+<p><img src="imgf/g2.png" style="width:50.0%" /></p>
+<p><strong>Préférez un graphique à un bloc d’éléments ??</strong><br />
+Plutôt que de multiplier les objets et les entrées d’option, il peut être judicieux de créer une variable pour chaque strate (ici foreign) et de générer un graphique à un bloc</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" title="1">gen price0 =<span class="st"> </span>price <span class="cf">if</span>  foreign<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb9-2" title="2">gen price1 =<span class="st"> </span>price <span class="cf">if</span>  foreign<span class="op">==</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb9-3" title="3"></a>
+<a class="sourceLine" id="cb9-4" title="4">tw scatter price0 price1 mpg  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb9-5" title="5"><span class="st"> </span>, <span class="kw">msiz</span>(large large) <span class="kw">mc</span>(red<span class="op">%50 blue%</span><span class="dv">50</span>) <span class="kw">mlc</span>(black black) <span class="kw">mlw</span>(vthin vthin) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb9-6" title="6"><span class="st">   </span><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">2</span> <span class="st">&quot;Foreign&quot;</span>) <span class="kw">region</span>(<span class="kw">lcolor</span>(%<span class="dv">0</span>)))             <span class="op">/</span><span class="er">//</span></a></code></pre></div>
+</div>
+</div>
+</div>
+<div id="quelques-options-graphiques" class="section level2">
+<h2><span class="header-section-number">2.3</span> [Quelques] Options graphiques</h2>
+<p>Il s’agit d’un tour d’horizon forcément imcomplet des options graphiques stata…bienvenue dans une piscine sans fond.</p>
+<p>Un très bon pense bête: <a href="https://geocenter.github.io/StataTraining/pdf/StataCheatSheet_visualization15_Syntax_2016_June-REV.pdf" class="uri">https://geocenter.github.io/StataTraining/pdf/StataCheatSheet_visualization15_Syntax_2016_June-REV.pdf</a></p>
+<div id="options-dun-objet-graphique" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Options d’un objet graphique</h3>
+<p><strong>COULEURS ET TAILLES</strong></p>
+<div id="couleurs" class="section level4">
+<h4><span class="header-section-number">2.3.1.1</span> Couleurs</h4>
+<ul>
+<li>3 Eléments dans les options couleurs
+<ul>
+<li><p><strong>Un nom ou un code numérique</strong>: la couleur <em>navy</em> (première couleur de la palette Stata <strong>s2</strong>) à pour code RGB [Red-Green-Blue] <strong><code>"26 71 11"</code></strong></p></li>
+<li><strong>Modification de l’intensité</strong>: par défaut la couleur d’une palette a une intensité de 1, on tire vers le blanc en la réduisant, vers le noir en l’augmentant
+<ul>
+<li>Valeur minimale 0 (blanc ou quasi blanc), pas de valeur maximale.</li>
+<li>Après le nom ou le code couleur, l’intensité est modifiée par <strong><code>*#</code></strong></li>
+<li>Exemples:
+<ul>
+<li><strong><code>option_couleur(*.5)</code></strong> réduit l’intensité de 50% de la couleur utilisée par défaut</li>
+<li><strong><code>option_couleur(*1.2)</code></strong> augmente l’intensité de 20% de la couleur utilisée par défaut<br />
+<br></li>
+</ul></li>
+</ul></li>
+<li><strong>Réduction de l’opacité</strong> (depuis Stata 15): par défaut le niveau d’opacité est de 100% [transparence = 0%]
+<ul>
+<li>Valeur minimale 0, valeur maximale 100</li>
+<li>Après le nom ou le code de la couleur, l’opacité est réduite par <strong><code>%#</code></strong> avec # compris entre 0 et 100-]</li>
+<li>Une transparence totale <strong>optionc(<code>%0</code>)</strong> permet de cacher des éléments d’un graphique</li>
+<li>Exemples <strong><code>option_couleurc(%50)</code></strong> donne 50% de transparence à la couleur utilisée par défaut</li>
+</ul></li>
+<li>On peut <strong>combiner les deux modifications</strong>:
+<ul>
+<li>Baisser l’intensité et réduire l’opacité n’a pas d’intérêt (voir graphique sur les barres plus bas)</li>
+<li>Augmenter l’intensité et baisser l’opacité modifiera le rendu de la couleur dans le graphique <strong><code>optionc([couleur]*1.5%50)</code></strong>: ici intensité augmenté de 1.5 avec 50% de transparence<br />
+<br> <br></li>
+</ul></li>
+</ul></li>
+</ul>
+<p><strong>Exemples de syntaxes</strong></p>
+<p><em>Objets graphiques</em></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" title="1">tw scatter Y X,  <span class="kw">mc</span>(blue%<span class="dv">30</span>)    <span class="kw">mlc</span>(black)</a>
+<a class="sourceLine" id="cb10-2" title="2">tw line    Y X,  <span class="kw">lc</span>(blue<span class="op">*</span><span class="fl">1.2</span>) </a>
+<a class="sourceLine" id="cb10-3" title="3">graph box Y1 Y2, <span class="kw">box</span>(<span class="dv">1</span>,<span class="kw">fc</span>(red<span class="op">%50)) box(2,fc(blue%</span><span class="dv">50</span>))</a></code></pre></div>
+<p><em>Options</em></p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1"><span class="kw">title</span>(<span class="st">&quot;MON TITRE&quot;</span>, <span class="kw">c</span>(red) box <span class="kw">fc</span>(blue) <span class="kw">lc</span>(black)   )  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb11-2" title="2"><span class="kw">legend</span>(<span class="kw">region</span>(<span class="kw">fc</span>(blue<span class="op">*</span>.<span class="dv">2</span>) <span class="kw">lc</span>(black)))</a></code></pre></div>
+<p><strong>EXEMPLES</strong><br />
+<br> <strong>Nuages - bulles [scatter]</strong><br />
+<img src="imgf/g4.png" style="width:50.0%" /></p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1">clear</a>
+<a class="sourceLine" id="cb12-2" title="2">set obs <span class="dv">200</span></a>
+<a class="sourceLine" id="cb12-3" title="3">gen x1=<span class="kw">runiform</span>(<span class="dv">0</span>,<span class="dv">12</span>)</a>
+<a class="sourceLine" id="cb12-4" title="4">gen y1=<span class="kw">runiform</span>(<span class="dv">0</span>,<span class="dv">8</span>)</a>
+<a class="sourceLine" id="cb12-5" title="5">gen x2=<span class="kw">runiform</span>(<span class="dv">8</span>,<span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb12-6" title="6">gen y2=<span class="kw">runiform</span>(<span class="dv">12</span>,<span class="dv">20</span>)</a>
+<a class="sourceLine" id="cb12-7" title="7"></a>
+<a class="sourceLine" id="cb12-8" title="8"><span class="op">*</span><span class="st"> </span>graph NE</a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="kw">tw</span> (scatter y2 x1, <span class="kw">mc</span>(<span class="st">&quot;248 118 109*0.5&quot;</span>) <span class="kw">mlc</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb12-10" title="10"><span class="er">||</span><span class="st"> </span>(scatter y2 x2, <span class="kw">mc</span>(<span class="st">&quot;0 191 196*0.5&quot;</span>)   <span class="kw">mlc</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb12-11" title="11"><span class="er">*</span><span class="st"> </span>graph SE</a>
+<a class="sourceLine" id="cb12-12" title="12"><span class="kw">tw</span> (scatter y2 x1, <span class="kw">mc</span>(<span class="st">&quot;248 118 109%50&quot;</span>) <span class="kw">mlc</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb12-13" title="13"><span class="er">||</span><span class="st"> </span>(scatter y2 x2, <span class="kw">mc</span>(<span class="st">&quot;0 191 196%50&quot;</span>)   <span class="kw">mlc</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb12-14" title="14"></a>
+<a class="sourceLine" id="cb12-15" title="15"><span class="er">*</span><span class="st"> </span>remarque<span class="op">:</span><span class="st"> </span>les tailles des markers ont également été modifiées dans ces graphiques</a></code></pre></div>
+<p><strong>Barres [bar - histogram - box - area - rarea]</strong><br />
+<img src="imgf/g5.png" style="width:50.0%" /></p>
+<p><img src="imgf/g6.png" style="width:50.0%" /></p>
+</div>
+<div id="taille---epaisseurs" class="section level4">
+<h4><span class="header-section-number">2.3.1.2</span> Taille - Epaisseurs</h4>
+<p><strong>Types marker</strong></p>
+<p><img src="imgf/g7.png" style="width:50.0%" /></p>
+<p><img src="imgf/g8.png" style="width:50.0%" /></p>
+<p><img src="imgf/g10.png" style="width:50.0%" /></p>
+<p><img src="imgf/g9.png" style="width:50.0%" /></p>
+<p><strong>Types line</strong></p>
+<p><img src="imgf/g11.png" style="width:50.0%" /></p>
+<p><img src="imgf/g12.png" style="width:50.0%" /></p>
+<p><img src="imgf/g12.png" style="width:50.0%" /></p>
+<p><strong>Texte</strong></p>
+<p><img src="imgf/g13.png" style="width:50.0%" /></p>
+<p><strong>Exercices</strong><br />
+<br> Avec la base <em>auto</em> [<em><code>sysuse auto.dta</code></em>] <br> * <strong>Graphique(s) I</strong></p>
+<ul>
+<li>Reproduiser l’un et/ou l’autre de ces graphiques</li>
+<li>Les densités sont estimées avec la fonction <strong><code>kdensity</code></strong> [<strong><code>help kdensity</code></strong>]</li>
+</ul>
+<p><img src="imgf/g3.png" style="width:50.0%" /></p>
+<p><strong>Programme en mode alerte spoil!!!!</strong></p>
+<p><hide> <strong><code>kdensity price if foreign==1, g(x1 d1) nograph</code></strong><br />
+<strong><code>kdensity price if foreign==0, g(x0 d0) nograph</code></strong><br />
+<code></code><br />
+<strong><code>tw histogram price0, freq fcolor(blue%50) lc(%0)                 ///</code></strong><br />
+<strong><code>|| histogram price1, freq fcolor(red%50) lc(%0)                  ///</code></strong><br />
+<strong><code>legend(order(1 "Domestic" 2 "Foreign")  region(lcolor(%0)))      ///</code></strong><br />
+<strong><code>xlabel(000(5000)20000)  graphr(color(white)) plotr(color(white))</code></strong><br />
+<code></code><br />
+<strong><code>tw area d1 d0 x0, fc(blue%50 red%50) lc(%0 %0)              ///</code></strong><br />
+<strong><code>legend(order(1 "Domestic" 2 "Foreign")  region(lcolor(%0))) ///</code></strong> <strong><code>xlabel(0000(5000)20000)  ylabel(0(0.0001)0.0004)            ///</code></strong> <strong><code>xtitle("") graphr(color(white)) plotr(color(white))</code></strong> </hide></p>
+<ul>
+<li><ul>
+<li><p><strong>Graphique(s) II</strong></p></li>
+<li>Reproduir le graphique suivant:</li>
+<li>La droite de l’OLS est générée avec le type de graphique <strong><code>lfitci</code></strong>:
+<ul>
+<li>Couleur de la droite: option <strong><code>clcolor()</code></strong></li>
+<li>Couleur de l’intervalle de confiance: option <strong><code>flcolor()</code></strong></li>
+<li>Couleur du contour de l’intervalle de confiance: option <strong><code>alcolor()</code></strong></li>
+</ul></li>
+<li><p>Légende facultative (voir section suivante)</p></li>
+</ul></li>
+</ul>
+<p><img src="imgf/g14.png" style="width:50.0%" /></p>
+<p><strong>Programme en mode alerte spoil!!!!</strong><br />
+<hide> <strong><code>tw  lfitci  price mpg  if foreign==0,  clcolor(blue*1.2) fcolor(blue%10) alcolor(%0)             ///</code></strong> <strong><code>|| lfitci  price mpg  if foreign==1,  clcolor(red*1.2)  fcolor(red%10)  alcolor(%0)             ///</code></strong> <strong><code>|| scatter price mpg  if foreign==0,  msize(medlarge)   mlc(black)      mlw(vthin) mc(blue*.5)  ///</code></strong> <strong><code>|| scatter price mpg  if foreign==1,  msize(medlarge)   mlc(black)      mlw(vthin) mc(red*.5)   ///</code></strong> <strong><code>, legend(order(5 "Domestic" 6 "Foreign"))                                                      ///</code></strong> <strong><code>ytitle("price") xtitle("mpg")</code></strong><br />
+</hide></p>
+</div>
+</div>
+<div id="axes---légendes---titres" class="section level3">
+<h3><span class="header-section-number">2.3.2</span> Axes - Légendes - Titres</h3>
+<div id="axes" class="section level4">
+<h4><span class="header-section-number">2.3.2.1</span> Axes</h4>
+<p>4 sous ensembles d’options: <em>titre</em>, <em>label</em>, <em>échelles</em> et <em>choix</em> pour les axes multiples (non traité)</p>
+<p><strong>Titres</strong></p>
+<ul>
+<li><strong><code>xtitle()</code></strong> <strong><code>ytitle()</code></strong>: <strong><code>xtitle(["titres"] [, options]</code></strong>
+<ul>
+<li>Si seulement option(s) en conservant le titre par défaut (label de la variable): <strong><code>xtitle(, options)</code></strong></li>
+<li>Principales options: taille <strong><code>size()</code></strong>, couleur <strong><code>color()</code></strong></li>
+<li>Titres sur plusieurs lignes: <strong><code>xtitle("ligne1" ligne2"....[, options]</code></strong></li>
+</ul></li>
+</ul>
+<p><strong>Label</strong></p>
+<ul>
+<li><strong><code>xlabel()</code></strong> <strong><code>ytitle()</code></strong></li>
+<li>Modification du label:
+<ul>
+<li><strong>min(delta)max</strong>: <strong><code>xlabel(#1([#2]#3))</code></strong>. Exemple <strong><code>xlabel(0(5)10)</code></strong></li>
+<li>Manuel: <strong><code>xlabel( #1 "label1" #2 "label2"... )</code></strong>. Exemple <strong><code>xlabel(0 "0" 5 "5" 10 "10"... )</code></strong>. Permet d’ajouter des éléments de texte: <strong><code>xlabel(0 "0X" 5 "5X" 10 "10X"... )</code></strong></li>
+</ul></li>
+<li>Principales options:
+<ul>
+<li>taille <strong><code>labsize()</code></strong> [<strong><code>labs</code></strong>] , couleur <strong><code>labcolor()</code></strong> [<strong><code>labc</code></strong>]</li>
+<li>Alterner les positions pour éviter les chevauchements: <strong><code>alternate</code></strong> (<strong><code>alt</code></strong>)</li>
+<li>Modifier l’angle: <strong><code>angle(#)</code></strong> avec # valeur de l’angle [0 (horizontal), 45, 90 (vertical) …]</li>
+</ul></li>
+</ul>
+<p><strong>Echelles</strong></p>
+<ul>
+<li><strong><code>xscale()</code></strong> <strong><code>yscale()</code></strong></li>
+<li>Principalement utilisé pour l’option <strong><code>log</code></strong> (voir exemple ci-dessous): utilisation d’une échelle logarithmique (voir exemple ci-dessous)</li>
+<li>Echelle en ordre décroissant: <strong><code>reverse</code></strong></li>
+<li>Modification des échelles</li>
+<li>Supprimer l’affichage des axes: <strong><code>xscale(off)</code></strong> et/ou <strong><code>yscale(off)</code></strong></li>
+</ul>
+<p><img src="imgf/g16.png" style="width:80.0%" /></p>
+<p><strong>Attention</strong> pour la dernière option, le label doit-être indiqué par des doubles quotes <strong>" label "</strong> et non par <strong>‘label’</strong>: <strong><code>xlabel(10000 "10k" 20000 "20k" 30000 "30k" 40000 "40k")</code></strong></p>
+<p><strong>Graphique options 1</strong></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">tw scatter lexp gnppc <span class="cf">if</span> region<span class="op">==</span><span class="dv">1</span>,                      <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb13-2" title="2"><span class="er">||</span><span class="st"> </span>scatter lexp gnppc <span class="cf">if</span> region<span class="op">==</span><span class="dv">2</span>,                      <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb13-3" title="3"><span class="er">||</span><span class="st"> </span>scatter lexp gnppc <span class="cf">if</span> region<span class="op">==</span><span class="dv">3</span>,                      <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb13-4" title="4">,  <span class="kw">title</span>(<span class="st">&quot;Options 2&quot;</span>)                                    <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb13-5" title="5"><span class="st">   </span><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Eur &amp; C.Asia&quot;</span> <span class="dv">2</span> <span class="st">&quot;N.A&quot;</span> <span class="dv">3</span> <span class="st">&quot;S.A&quot;</span>))       <span class="op">/</span><span class="er">//</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb13-6" title="6"><span class="st">   </span><span class="kw">xscale</span>(log) <span class="kw">xlabel</span>(,alt) <span class="kw">xtitle</span>(, <span class="kw">size</span>(small))        <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb13-7" title="7"><span class="st">   </span><span class="kw">ylabel</span>(<span class="dv">50</span>(<span class="dv">5</span>)<span class="dv">80</span>)          <span class="kw">ytitle</span>(, <span class="kw">size</span>(small))                </a></code></pre></div>
+<p><strong>AIDES</strong></p>
+<ul>
+<li><a href="https://www.stata.com/manuals/g-3axis_options.pdf#g-3axis_options" class="uri">https://www.stata.com/manuals/g-3axis_options.pdf#g-3axis_options</a></li>
+<li><strong><code>help axis_options</code></strong>:
+<ul>
+<li><strong><code>help axis_title_options</code></strong></li>
+<li><strong><code>help axis_label_options</code></strong></li>
+<li><strong><code>help axis_scale_options</code></strong></li>
+<li><strong><code>help axis_choice_options</code></strong></li>
+</ul></li>
+</ul>
+</div>
+<div id="légendes" class="section level4">
+<h4><span class="header-section-number">2.3.2.2</span> Légendes</h4>
+<p><strong>Quelques options</strong></p>
+<ul>
+<li>Ne pas afficher une légende: <strong><code>legend(off)</code></strong></li>
+<li>Position par défaut: 6 heures (Sud) - Extérieur. Modifiable avec <strong><code>pos(#)</code></strong> et <strong><code>ring(#)</code></strong> [voir Annexe plus bas]</li>
+<li>Modifier le nombre de lignes et de colonne: <strong><code>row(#)</code></strong> et <strong><code>col(#)</code></strong></li>
+<li>Modifier les labels de la légende:
+<ul>
+<li><strong>order()</strong>: <em><code>order( 1 "label1" 2 "label2" .....)</code></em></li>
+<li><strong>lab()</strong>: <em><code>lab(1 "label1") lab(2 "label2") ...)</code></em></li>
+<li>L’apparence (gras, itallique…) sont modifiables avec des balises <strong>smcl</strong></li>
+</ul></li>
+<li>Modifier l’aspect de la région: <strong><code>region(options)</code></strong> ou <strong><code>r(options)</code></strong></li>
+<li>Symbole sous le texte: <strong><code>stack</code></strong></li>
+</ul>
+<p><img src="imgf/g17.png" style="width:80.0%" /></p>
+<p><strong>Par défaut</strong></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1">tw scatter   mpg price <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">0</span>   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb14-2" title="2"><span class="er">||</span><span class="st"> </span>scatter   mpg price <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">1</span>   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb14-3" title="3"><span class="kw">title</span>(<span class="st">&quot;Legende par défaut&quot;</span>)</a></code></pre></div>
+<p><strong>Avec modification</strong></p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">tw scatter   mpg price <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">0</span>                <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="er">||</span><span class="st"> </span>scatter   mpg price <span class="cf">if</span> foreign<span class="op">==</span><span class="dv">1</span>                <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb15-3" title="3">,  <span class="kw">title</span>(<span class="st">&quot;Modification de la légende&quot;</span>)              <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb15-4" title="4"><span class="st">   </span><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;{bf:Domestic}&quot;</span> <span class="dv">2</span> <span class="st">&quot;{bf:Foreign}&quot;</span>) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb15-5" title="5"><span class="st">   </span>pos1) <span class="kw">ring</span>(<span class="dv">0</span>) <span class="kw">col</span>(<span class="dv">1</span>)                             <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb15-6" title="6"><span class="st">   </span><span class="kw">region</span>(<span class="kw">lw</span>(vvthin))                       <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb15-7" title="7"><span class="st">   </span>stack <span class="er">)</span> </a></code></pre></div>
+<ul>
+<li>Changement des labels de la légende, affichés en gras: <strong><code>order(1 "{bf:Domestic}" 2 "{bf:Foreign}")</code></strong></li>
+<li>Position à 1 heure dans le graphique et affichage sur une ligne : <strong><code>pos(1) ring(0) col(1)</code></strong></li>
+<li>Modification de la boite avec un contour très fin: <strong><code>region(lw(vvthin)</code></strong></li>
+<li>Text sous le symnol: option <strong><code>stack</code></strong></li>
+</ul>
+<p><strong>AIDES</strong></p>
+<ul>
+<li><a href="https://www.stata.com/manuals/g-3legend_options.pdf" class="uri">https://www.stata.com/manuals/g-3legend_options.pdf</a></li>
+<li><strong><code>help legend_options</code></strong></li>
+</ul>
+</div>
+<div id="titres-notes-texte-libre" class="section level4">
+<h4><span class="header-section-number">2.3.2.3</span> Titres, Notes, Texte libre</h4>
+<ul>
+<li>Modification de la position
+<ul>
+<li>Titre par défaut: à 12 heures à l’extérieur</li>
+<li>Note par défaut: à 17 heures à l’extérieur</li>
+<li>Caption par défaut: sous la note</li>
+<li>Titre(s) - Notes - Texte: Modifiable avec <strong><code>pos(#)</code></strong> et <strong><code>ring(#)</code></strong> [voir Annexe plus bas]</li>
+<li>Texte libre: sur une coordonnées des axes (x,y)</li>
+</ul></li>
+<li>L’apparence (gras, italique, polices…) sont modifiables avec des balises <strong>smcl</strong> + ajout de symboles mathématiques + lettres grecques</li>
+<li>Tailles et couleurs modifiables avec <strong><code>size</code></strong> et <strong><code>color</code></strong></li>
+<li>Plusieurs lignes: <strong><code>"ligne1" "ligne2"....</code></strong></li>
+</ul>
+<p><br> <strong>ANNEXE: POSITION ET SMCL</strong></p>
+<p><strong>Texte positionné au Nord et au Sud</strong><br />
+<img src="imgf/g15.png" style="width:50.0%" /></p>
+<p><strong>Texte positionné à l’Ouest et à l’Est</strong></p>
+<p><img src="imgf/g15b.png" style="width:50.0%" /></p>
+</div>
+</div>
+<div id="autres" class="section level3">
+<h3><span class="header-section-number">2.3.3</span> Autres</h3>
+<ul>
+<li><strong>name</strong>: sauvegarde temporaire, sur la session
+<ul>
+<li>utiliser l’option replace pour écraser le graph, sinon effectuer un graph drop</li>
+<li>Exemple: <strong><code>tw line y x, name(g1,replace)</code></strong></li>
+</ul></li>
+<li><strong>save</strong>: sauvegarde en dur sur le disqe)
+<ul>
+<li>prévoir un répertoire par défaut avec une macro (type <strong><code>global</code></strong>)</li>
+<li>Exemple: <strong><code>global g "D:/stata_graph/"</code></strong> puis <strong><code>tw line y x, save($g/g1, replace)</code></strong></li>
+<li>récupérer les infos d’un graph enregistré: <strong><code>graph describe nom_grap.gph</code></strong> (le code est affiché)</li>
+</ul></li>
+<li><strong>scale(#)</strong>: permet de réduire la taille de tous les éléments générés par le graphique, en particulier le texye. Utile, par exemple, lorsque le texte d’une légende sort du contour.</li>
+<li><strong>nodraw</strong>:</li>
+</ul>
+</div>
+</div>
+<div id="les-graphiques-combinés" class="section level2">
+<h2><span class="header-section-number">2.4</span> Les graphiques combinés</h2>
+<p><strong>[A COMPLETER]</strong></p>
+<ul>
+<li>préférer <strong><code>name()</code></strong> à <strong><code>save()</code></strong> pour les graphiques composants le graphique combiné</li>
+<li>utiliser <strong><code>nodraw</code></strong> pour raccourcir le temps d’exécution</li>
+<li><strong>graph combine</strong> et <strong>gr1leg</strong> (externe: permet d’afficher une seule légende)
+<ul>
+<li><strong>row(#)</strong> - <strong>cols(#)</strong></li>
+<li><strong>iscale(#)</strong></li>
+<li><strong>xsize(#)</strong> - <strong>ysize(#)</strong></li>
+<li><strong>xcommon</strong> - <strong>ycommon</strong></li>
+<li><strong>legendfrom</strong>: une seule légende avec l’option <strong>legendfrom(name)</strong> de la commande <strong><code>gr1leg</code></strong></li>
+<li>gestion des styles: si les graphiques utilisent des thèmes graphiques différents, le dernier sera appliqué à tous les graphiques. Pour conserver les thèmes d’origine: <strong><code>scheme(nom_style1 nom_style2....)</code></strong></li>
+</ul></li>
+</ul>
+<p>[Mettre exemples]</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1">tw graph1, <span class="kw">name</span>(g1, replace) nodraw </a>
+<a class="sourceLine" id="cb16-2" title="2">tw graph2, <span class="kw">name</span>(g2, replace) nodraw </a>
+<a class="sourceLine" id="cb16-3" title="3">graph combine g1 g2, <span class="kw">iscale</span>(.<span class="dv">9</span>) <span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">15</span>) <span class="kw">scheme</span>(style1 style2) <span class="kw">title</span>(<span class="st">&quot;graphique combiné&quot;</span>)</a></code></pre></div>
+</div>
+<div id="python" class="section level2">
+<h2><span class="header-section-number">2.5</span> Python</h2>
+<p><strong>[A FAIRE]</strong></p>
+<ul>
+<li>Implémentation Stata 16</li>
+<li>Lien tuto: <a href="https://mthevenin.github.io/stata_fr/python.html" class="uri">https://mthevenin.github.io/stata_fr/python.html</a></li>
+<li>Exemple(s) en lisant base Stata sous Python</li>
+</ul>
+</div>
+</div>
+<div id="utilisation-des-macros" class="section level1">
+<h1><span class="header-section-number">3</span> Utilisation des macros</h1>
+<div id="types-et-objets-macro" class="section level2">
+<h2><span class="header-section-number">3.1</span> Types et objets macro</h2>
+<ul>
+<li><strong>Rappel important</strong>: (toujours) tester le contenu de la macro avec <strong><code>display</code></strong> (<code>di</code>):
+<ul>
+<li><strong>di `nom_macro’</strong></li>
+<li><strong>di “`nom_macro’”</strong></li>
+</ul></li>
+<li><strong>boucles</strong>: pour générer des boucles se reporter à l’aide: <strong><code>help foreach</code></strong> - <strong><code>help forvalue</code></strong></li>
+</ul>
+<div id="local---global" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> local - global</h3>
+<ul>
+<li><strong>global</strong>: macro en dur (enregistré)
+<ul>
+<li>Appelé avec <strong>$</strong></li>
+<li>Supression: <strong>`macro drop nom_macro1 nom_macro2…``</strong><br />
+</li>
+<li>Pas de grande utilité à mon sens, sauf pour créer un répertoire de sauvegarde des graphiques</li>
+</ul></li>
+<li><strong>local</strong>: macro temporaire (à l’exécution)
+<ul>
+<li>Appelé avec des quotes simples <strong>`<code>nom_macro'</code></strong> (première quote: [alt6])</li>
+</ul></li>
+</ul>
+<p><strong>Exemple</strong></p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">sysuse auto, clear</a>
+<a class="sourceLine" id="cb17-2" title="2"></a>
+<a class="sourceLine" id="cb17-3" title="3">global varlist price mpg </a>
+<a class="sourceLine" id="cb17-4" title="4">tw scatter <span class="op">$</span>varlist</a>
+<a class="sourceLine" id="cb17-5" title="5">macro drop varlist</a>
+<a class="sourceLine" id="cb17-6" title="6"></a>
+<a class="sourceLine" id="cb17-7" title="7">local varlist price mpg </a>
+<a class="sourceLine" id="cb17-8" title="8">tw scatter <span class="st">`</span><span class="dt">varlist&#39;</span></a></code></pre></div>
+<ul>
+<li><strong>La commande magique LEVELSOF</strong>
+<ul>
+<li>Transforme les valeurs d’une variable en expression macro</li>
+<li>Syntaxe: <strong><code>levelsof nom_var [if/in], local(nom_macro)</code></strong></li>
+</ul></li>
+</ul>
+<p><strong>Exemple</strong></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">levelsof foreign, <span class="kw">local</span>(f)</a>
+<a class="sourceLine" id="cb18-2" title="2">di <span class="st">&quot;`f&#39;&quot;</span></a>
+<a class="sourceLine" id="cb18-3" title="3"></a>
+<a class="sourceLine" id="cb18-4" title="4"><span class="dv">0</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb18-5" title="5"></a>
+<a class="sourceLine" id="cb18-6" title="6">levelsof rep78, <span class="kw">local</span>(r)</a>
+<a class="sourceLine" id="cb18-7" title="7">di <span class="st">&quot;`r&#39;&quot;</span> </a>
+<a class="sourceLine" id="cb18-8" title="8"></a>
+<a class="sourceLine" id="cb18-9" title="9"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a></code></pre></div>
+<ul>
+<li><strong>Fonctions associées au macro</strong>:
+<ul>
+<li>On peut associer des fonctions aux macros, certaines peuvent s’avérer utiles pour les graphiques (<code>help macro</code> - <a href="https://www.stata.com/manuals/pmacro.pdf" class="uri">https://www.stata.com/manuals/pmacro.pdf</a>)</li>
+<li>Exemple: <strong><code>word count()</code></strong>, <strong><code>labn</code></strong>, <strong><code>lab</code></strong></li>
+</ul></li>
+</ul>
+<p><em>word count()</em><br />
+On compte le nombre d’objets contenus dans une macro (séparé par un espace). Utile pour compter le nombre de boucles a effectuer avec <code>forvalue</code></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb19-1" title="1">levelsof rep78, <span class="kw">local</span>(r)</a>
+<a class="sourceLine" id="cb19-2" title="2">local n<span class="op">:</span><span class="st"> </span>word <span class="kw">count</span>(<span class="st">`</span><span class="dt">r&#39;)</span></a>
+<a class="sourceLine" id="cb19-3" title="3"><span class="dt">di </span><span class="st">`</span>n<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb19-4" title="4"></a>
+<a class="sourceLine" id="cb19-5" title="5"><span class="st">5</span></a></code></pre></div>
+<p><em>value label nom_variable</em> Récupère le nom d’un label</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">local varname foreign</a>
+<a class="sourceLine" id="cb20-2" title="2">local labn<span class="op">:</span><span class="st"> </span>value label <span class="st">`</span><span class="dt">varname&#39;</span></a>
+<a class="sourceLine" id="cb20-3" title="3"><span class="dt">di &quot;</span><span class="st">`</span>labn<span class="st">&#39;&quot;</span></a>
+<a class="sourceLine" id="cb20-4" title="4"></a>
+<a class="sourceLine" id="cb20-5" title="5"><span class="st">origin</span></a></code></pre></div>
+<p><em>label nom_label valeur </em> Récupère le nom de la modalité associé à une valeur d’un nom de label</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1">local lab0<span class="op">:</span><span class="st"> </span>label origin  <span class="dv">0</span></a>
+<a class="sourceLine" id="cb21-2" title="2">local lab1<span class="op">:</span><span class="st"> </span>label origin  <span class="dv">1</span></a>
+<a class="sourceLine" id="cb21-3" title="3"></a>
+<a class="sourceLine" id="cb21-4" title="4">di <span class="st">&quot;`lab0&#39;&quot;</span></a>
+<a class="sourceLine" id="cb21-5" title="5">Domestic</a>
+<a class="sourceLine" id="cb21-6" title="6">di <span class="st">&quot;`lab1&#39;&quot;</span></a>
+<a class="sourceLine" id="cb21-7" title="7">Foreign</a></code></pre></div>
+<p>**Exemple dans une boucle</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb22-1" title="1">gen rep=<span class="st"> </span>rep78<span class="op">&lt;</span><span class="dv">4</span></a>
+<a class="sourceLine" id="cb22-2" title="2">label define rep <span class="dv">0</span> <span class="st">&quot;rep&lt;4&quot;</span> <span class="dv">1</span> <span class="st">&quot;rep&gt;=4&quot;</span>, modify</a>
+<a class="sourceLine" id="cb22-3" title="3">label value rep rep</a>
+<a class="sourceLine" id="cb22-4" title="4"></a>
+<a class="sourceLine" id="cb22-5" title="5">local varname rep</a>
+<a class="sourceLine" id="cb22-6" title="6">local labn<span class="op">:</span><span class="st"> </span>value label <span class="st">`</span><span class="dt">varname&#39;</span></a>
+<a class="sourceLine" id="cb22-7" title="7"><span class="dt">levelsof </span><span class="st">`</span>varname<span class="st">&#39;, local(l)</span></a>
+<a class="sourceLine" id="cb22-8" title="8"><span class="st">foreach l2 of local l {</span></a>
+<a class="sourceLine" id="cb22-9" title="9"><span class="st">local lab`l2&#39;</span><span class="op">:</span><span class="st"> </span>label <span class="st">`</span><span class="dt">labn&#39;  </span><span class="st">`</span>l2<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb22-10" title="10"><span class="st">}</span></a>
+<a class="sourceLine" id="cb22-11" title="11"></a>
+<a class="sourceLine" id="cb22-12" title="12"><span class="st">tw scatter price mpg if `varname&#39;</span><span class="op">==</span><span class="dv">0</span>, <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb22-13" title="13"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> <span class="st">`</span><span class="dt">varname&#39;==1, mc(%70) mlc(black) mlw(vthin) ///</span></a>
+<a class="sourceLine" id="cb22-14" title="14"><span class="dt">, legend(order(1 &quot;</span><span class="st">`</span>lab0<span class="st">&#39;&quot; 2 &quot;`lab1&#39;&quot;))</span></a></code></pre></div>
+<p><img src="imgf/g18.png" style="width:50.0%" /></p>
+<p>En changeant <strong><code>local varname rep</code></strong> par <strong><code>local varname foreign</code></strong></p>
+<p><img src="imgf/g19.png" style="width:50.0%" /></p>
+<ul>
+<li><strong>Mofication du format d’une valeur numérique (changement du nombre de décimale)</strong>
+<ul>
+<li>On peut utiliser les objets types <strong><code>r()</code></strong> ou <strong><code>e()</code></strong> dans un graphique (voir plus bas)</li>
+<li>Certaines valeurs en mémoire comporte un nombre élévé de decimales</li>
+<li>On peut modifier le format d’affichage de ces valeurs créant une macro: **<code>di format valeur**</code></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">local dec2<span class="op">:</span><span class="st"> </span>di %<span class="fl">6.2</span>f <span class="fl">10.64654654654</span></a>
+<a class="sourceLine" id="cb23-2" title="2">di <span class="st">`</span><span class="dt">dec2&#39;</span></a>
+<a class="sourceLine" id="cb23-3" title="3"></a>
+<a class="sourceLine" id="cb23-4" title="4"><span class="dt">10.65</span></a></code></pre></div>
+</div>
+<div id="objets-return-et-ereturn" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> Objets return et ereturn</h3>
+<p>Après l’exécution d’une commande, un certains nombre d’objets sont conservé en mémoire jusqu’à l’exécution de la commande suivante</p>
+<ul>
+<li><strong>objet return</strong> [result] : <strong><code>r()</code></strong>
+<ul>
+<li>Affichage liste: <strong><code>return list</code></strong></li>
+</ul></li>
+<li><strong>objet ereturn</strong> [estimation]: <strong><code>e()</code></strong>
+<ul>
+<li>Affichage liste: <strong><code>ereturn list</code></strong></li>
+</ul></li>
+<li><strong>Autres</strong>
+<ul>
+<li>Matrices: <strong><code>matrix list</code></strong></li>
+</ul></li>
+</ul>
+<p><strong>Exemple</strong></p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb24-1" title="1">sum price, d</a>
+<a class="sourceLine" id="cb24-2" title="2">                            Price</a>
+<a class="sourceLine" id="cb24-3" title="3"><span class="op">-------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb24-4" title="4"><span class="st">      </span>Percentiles      Smallest</a>
+<a class="sourceLine" id="cb24-5" title="5"> <span class="dv">1</span>%         <span class="dv">3291</span>           <span class="dv">3291</span></a>
+<a class="sourceLine" id="cb24-6" title="6"> <span class="dv">5</span>%         <span class="dv">3748</span>           <span class="dv">3299</span></a>
+<a class="sourceLine" id="cb24-7" title="7"><span class="dv">10</span>%         <span class="dv">3895</span>           <span class="dv">3667</span>       Obs                  <span class="dv">74</span></a>
+<a class="sourceLine" id="cb24-8" title="8"><span class="dv">25</span>%         <span class="dv">4195</span>           <span class="dv">3748</span>       Sum of Wgt.          <span class="dv">74</span></a>
+<a class="sourceLine" id="cb24-9" title="9"></a>
+<a class="sourceLine" id="cb24-10" title="10"><span class="dv">50</span>%       <span class="fl">5006.5</span>                      Mean           <span class="fl">6165.257</span></a>
+<a class="sourceLine" id="cb24-11" title="11">                        Largest       Std. Dev.      <span class="fl">2949.496</span></a>
+<a class="sourceLine" id="cb24-12" title="12"><span class="dv">75</span>%         <span class="dv">6342</span>          <span class="dv">13466</span></a>
+<a class="sourceLine" id="cb24-13" title="13"><span class="dv">90</span>%        <span class="dv">11385</span>          <span class="dv">13594</span>       Variance        <span class="dv">8699526</span></a>
+<a class="sourceLine" id="cb24-14" title="14"><span class="dv">95</span>%        <span class="dv">13466</span>          <span class="dv">14500</span>       Skewness       <span class="fl">1.653434</span></a>
+<a class="sourceLine" id="cb24-15" title="15"><span class="dv">99</span>%        <span class="dv">15906</span>          <span class="dv">15906</span>       Kurtosis       <span class="fl">4.819188</span></a>
+<a class="sourceLine" id="cb24-16" title="16"></a>
+<a class="sourceLine" id="cb24-17" title="17">return list</a>
+<a class="sourceLine" id="cb24-18" title="18">scalars<span class="op">:</span></a>
+<a class="sourceLine" id="cb24-19" title="19"><span class="st">                  </span><span class="kw">r</span>(N) =<span class="st">  </span><span class="dv">74</span></a>
+<a class="sourceLine" id="cb24-20" title="20">              <span class="kw">r</span>(sum_w) =<span class="st">  </span><span class="dv">74</span></a>
+<a class="sourceLine" id="cb24-21" title="21">               <span class="kw">r</span>(mean) =<span class="st">  </span><span class="fl">6165.256756756757</span></a>
+<a class="sourceLine" id="cb24-22" title="22">                <span class="kw">r</span>(Var) =<span class="st">  </span><span class="fl">8699525.97426879</span></a>
+<a class="sourceLine" id="cb24-23" title="23">                 <span class="kw">r</span>(sd) =<span class="st">  </span><span class="fl">2949.495884768919</span></a>
+<a class="sourceLine" id="cb24-24" title="24">           <span class="kw">r</span>(skewness) =<span class="st">  </span><span class="fl">1.653433511704859</span></a>
+<a class="sourceLine" id="cb24-25" title="25">           <span class="kw">r</span>(kurtosis) =<span class="st">  </span><span class="fl">4.819187528464004</span></a>
+<a class="sourceLine" id="cb24-26" title="26">                <span class="kw">r</span>(sum) =<span class="st">  </span><span class="dv">456229</span></a>
+<a class="sourceLine" id="cb24-27" title="27">                <span class="kw">r</span>(min) =<span class="st">  </span><span class="dv">3291</span></a>
+<a class="sourceLine" id="cb24-28" title="28">                <span class="kw">r</span>(max) =<span class="st">  </span><span class="dv">15906</span></a>
+<a class="sourceLine" id="cb24-29" title="29">                 <span class="kw">r</span>(p1) =<span class="st">  </span><span class="dv">3291</span></a>
+<a class="sourceLine" id="cb24-30" title="30">                 <span class="kw">r</span>(p5) =<span class="st">  </span><span class="dv">3748</span></a>
+<a class="sourceLine" id="cb24-31" title="31">                <span class="kw">r</span>(p10) =<span class="st">  </span><span class="dv">3895</span></a>
+<a class="sourceLine" id="cb24-32" title="32">                <span class="kw">r</span>(p25) =<span class="st">  </span><span class="dv">4195</span></a>
+<a class="sourceLine" id="cb24-33" title="33">                <span class="kw">r</span>(p50) =<span class="st">  </span><span class="fl">5006.5</span></a>
+<a class="sourceLine" id="cb24-34" title="34">                <span class="kw">r</span>(p75) =<span class="st">  </span><span class="dv">6342</span></a>
+<a class="sourceLine" id="cb24-35" title="35">                <span class="kw">r</span>(p90) =<span class="st">  </span><span class="dv">11385</span></a>
+<a class="sourceLine" id="cb24-36" title="36">                <span class="kw">r</span>(p95) =<span class="st">  </span><span class="dv">13466</span></a>
+<a class="sourceLine" id="cb24-37" title="37">                <span class="kw">r</span>(p99) =<span class="st">  </span><span class="dv">15906</span></a></code></pre></div>
+<ul>
+<li>Ces résultats peuvent être utilisés, tels quels, lors de l’exécution de la commande suivante</li>
+<li>Ces résultats peuvent être conservé en mémoire dans une macro, et être utilisés tout du long du programme</li>
+</ul>
+<p>Exemple</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">local varlist price mpg</a>
+<a class="sourceLine" id="cb25-2" title="2">foreach v of loc varlist {</a>
+<a class="sourceLine" id="cb25-3" title="3">qui sum <span class="st">`</span><span class="dt">v&#39;</span></a>
+<a class="sourceLine" id="cb25-4" title="4"><span class="dt">local m</span><span class="st">`</span>v<span class="st">&#39; : di %6.2f `r(mean)&#39;</span></a>
+<a class="sourceLine" id="cb25-5" title="5">di <span class="st">&quot;Moyenne `v&#39;= `m`v&#39;&#39;&quot;</span></a>
+<a class="sourceLine" id="cb25-6" title="6">}</a></code></pre></div>
+<ul>
+<li>Niveau graphique:
+<ul>
+<li>Permet d’afficher des valeurs dans le graphique</li>
+<li>Permet de générer automatiquement des éléments de type <strong><code>xline</code></strong> <strong><code>yline</code></strong></li>
+<li>Permet de généré des graphiques de type <strong>scatteri</strong> ou <strong>pci</strong> [on entre directement les coordonnées des axes et non des variables]</li>
+</ul></li>
+</ul>
+<p><strong>Exemple</strong></p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb26-1" title="1">xtile qprice =<span class="st"> </span>price, <span class="kw">n</span>(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb26-2" title="2"></a>
+<a class="sourceLine" id="cb26-3" title="3">local varlist price mpg</a>
+<a class="sourceLine" id="cb26-4" title="4">foreach v of loc varlist {</a>
+<a class="sourceLine" id="cb26-5" title="5">qui sum <span class="st">`</span><span class="dt">v&#39;</span></a>
+<a class="sourceLine" id="cb26-6" title="6"><span class="dt">local  m</span><span class="st">`</span>v<span class="st">&#39; : di %6.2f `r(mean)&#39;</span></a>
+<a class="sourceLine" id="cb26-7" title="7">}</a>
+<a class="sourceLine" id="cb26-8" title="8"></a>
+<a class="sourceLine" id="cb26-9" title="9">tw scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">1</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb26-10" title="10"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">2</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb26-11" title="11"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">3</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb26-12" title="12"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">4</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb26-13" title="13"><span class="kw">yline</span>(<span class="st">`</span><span class="dt">mprice&#39;, lw(vthin) lc(black)) xline(</span><span class="st">`</span>mmpg<span class="st">&#39;, lw(vthin) lc(black))      msiz(large) ///</span></a>
+<a class="sourceLine" id="cb26-14" title="14"><span class="st">note(&quot;Moyenne Price = `mprice&#39;&quot; ///</span></a>
+<a class="sourceLine" id="cb26-15" title="15"><span class="st">     &quot;</span>Moyenne <span class="dt">Mpg   =</span> <span class="st">`</span><span class="dt">mmpg&#39;&quot;  ) legend(off)</span></a></code></pre></div>
+<p><img src="imgf/g20.png" style="width:50.0%" /></p>
+</div>
+<div id="autres-1" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> Autres</h3>
+<p><strong>Token</strong></p>
+<ul>
+<li>Plutôt utilisation dans la programmation de routines (.ado) mais peut s’avérer utile pour transformer les variables appelées dans le graphique en macro.</li>
+<li><strong>Token</strong> est une macro qui prend comme nom une suite de nombre (un numéro)</li>
+<li>On transforme une expression en token avec la commande <strong><code>tokenize</code></strong></li>
+</ul>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">tokenize price mpg</a>
+<a class="sourceLine" id="cb27-2" title="2">sum <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb27-3" title="3"></a>
+<a class="sourceLine" id="cb27-4" title="4"><span class="st">    Variable |        Obs        Mean    Std. Dev.       Min        Max</span></a>
+<a class="sourceLine" id="cb27-5" title="5"><span class="st">-------------+---------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb27-6" title="6"><span class="st">       price |         74    6165.257    2949.496       3291      15906</span></a>
+<a class="sourceLine" id="cb27-7" title="7"><span class="st">         mpg |         74     21.2973    5.785503         12         41</span></a></code></pre></div>
+<p>Ou avec une expression sous forme de macro</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb28-1" title="1">local varlist price mpg</a>
+<a class="sourceLine" id="cb28-2" title="2">tokenize <span class="st">`</span><span class="dt">varlist&#39;</span></a>
+<a class="sourceLine" id="cb28-3" title="3"><span class="dt">sum </span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; `2&#39;</span></a>
+<a class="sourceLine" id="cb28-4" title="4"></a>
+<a class="sourceLine" id="cb28-5" title="5">    Variable <span class="op">|</span><span class="st">        </span>Obs        Mean    Std. Dev.       Min        Max</a>
+<a class="sourceLine" id="cb28-6" title="6"><span class="op">-------------+---------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb28-7" title="7"><span class="st">       </span>price <span class="op">|</span><span class="st">         </span><span class="dv">74</span>    <span class="fl">6165.257</span>    <span class="fl">2949.496</span>       <span class="dv">3291</span>      <span class="dv">15906</span></a>
+<a class="sourceLine" id="cb28-8" title="8">         mpg <span class="op">|</span><span class="st">         </span><span class="dv">74</span>     <span class="fl">21.2973</span>    <span class="fl">5.785503</span>         <span class="dv">12</span>         <span class="dv">41</span></a></code></pre></div>
+<p><strong>Application pour un graphique</strong></p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1">local varlist price mpg foreign </a>
+<a class="sourceLine" id="cb29-2" title="2">tokenize <span class="st">`</span><span class="dt">varlist&#39;</span></a>
+<a class="sourceLine" id="cb29-3" title="3"><span class="dt">tw scatter </span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; `2&#39;</span> <span class="cf">if</span> <span class="st">`</span><span class="dt">3&#39;==0 ||</span></a>
+<a class="sourceLine" id="cb29-4" title="4"><span class="dt">tw scatter </span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; `2&#39;</span> <span class="cf">if</span> <span class="st">`</span><span class="dt">3&#39;==1 </span></a></code></pre></div>
+<p><strong>Compteur ++</strong></p>
+<ul>
+<li>Utile dans les boucle foreach pour générer un compteur type macro qui fonctionne comme dans une boucle forvalue</li>
+<li>Dans une boucle de type forvalue Permet de générer un compteur dont les valeurs de départ et d’arrivée diffère des valeurs de la boucle<br />
+</li>
+<li>On initialise sa valeur initiale par une macro: <strong><code>local i=valeur</code></strong></li>
+</ul>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">local i =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb30-2" title="2">forvalue v=<span class="dv">10</span><span class="op">/</span><span class="dv">15</span> {</a>
+<a class="sourceLine" id="cb30-3" title="3">di <span class="st">`</span><span class="dt">i++&#39;</span></a>
+<a class="sourceLine" id="cb30-4" title="4"><span class="dt">}</span></a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="dt">1</span></a>
+<a class="sourceLine" id="cb30-6" title="6"><span class="dt">2</span></a>
+<a class="sourceLine" id="cb30-7" title="7"><span class="dt">3</span></a>
+<a class="sourceLine" id="cb30-8" title="8"><span class="dt">4</span></a>
+<a class="sourceLine" id="cb30-9" title="9"><span class="dt">5</span></a>
+<a class="sourceLine" id="cb30-10" title="10"><span class="dt">6</span></a></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">local i =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb31-2" title="2">local varlist price mpg turn length</a>
+<a class="sourceLine" id="cb31-3" title="3">foreach v of local varlist {</a>
+<a class="sourceLine" id="cb31-4" title="4">di <span class="st">&quot;var`i++&#39; = `v&#39;&quot;</span></a>
+<a class="sourceLine" id="cb31-5" title="5">}</a>
+<a class="sourceLine" id="cb31-6" title="6">var1 =<span class="st"> </span>price</a>
+<a class="sourceLine" id="cb31-7" title="7">var2 =<span class="st"> </span>mpg</a>
+<a class="sourceLine" id="cb31-8" title="8">var3 =<span class="st"> </span>turn</a>
+<a class="sourceLine" id="cb31-9" title="9">var4 =<span class="st"> </span>length</a></code></pre></div>
+<p>Application au graphique précédent: Le nom des macros qui enregistre les valeur des moyennes de price et rpg s’appelent maintenant <strong>m1</strong> et <strong>m2</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb32-2" title="2">local varlist price mpg</a>
+<a class="sourceLine" id="cb32-3" title="3">foreach v of loc varlist {</a>
+<a class="sourceLine" id="cb32-4" title="4">qui sum <span class="st">`</span><span class="dt">v&#39;</span></a>
+<a class="sourceLine" id="cb32-5" title="5"><span class="dt">local  m</span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39; : di %6.2f `r(mean)&#39;</span></a>
+<a class="sourceLine" id="cb32-6" title="6">}</a>
+<a class="sourceLine" id="cb32-7" title="7"></a>
+<a class="sourceLine" id="cb32-8" title="8">tw scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">1</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb32-9" title="9"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">2</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb32-10" title="10"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">3</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb32-11" title="11"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> qprice<span class="op">==</span><span class="dv">4</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb32-12" title="12"><span class="kw">yline</span>(<span class="st">`</span><span class="dt">m1&#39;, lw(vthin) lc(black)) xline(</span><span class="st">`</span>m2<span class="st">&#39;, lw(vthin) lc(black))               ///</span></a>
+<a class="sourceLine" id="cb32-13" title="13"><span class="st">note(&quot;Moyenne Price = `m1&#39;&quot; ///</span></a>
+<a class="sourceLine" id="cb32-14" title="14"><span class="st">     &quot;</span>Moyenne <span class="dt">Mpg   =</span> <span class="st">`</span><span class="dt">m2&#39;&quot;  ) legend(off)</span></a></code></pre></div>
+<p>On peut maintenant, avec les <strong>tokens</strong> créer un graphique qui n’appelle qu’un fois les variables du graphique. On peut donc changer les variables en ne modifiant qu’une ligne</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb33-2" title="2">local varlist price mpg qprice</a>
+<a class="sourceLine" id="cb33-3" title="3">tokenize <span class="st">`</span><span class="dt">varlist&#39;</span></a>
+<a class="sourceLine" id="cb33-4" title="4"><span class="dt">xtile q</span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; = `1&#39;</span>, <span class="kw">n</span>(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb33-5" title="5"></a>
+<a class="sourceLine" id="cb33-6" title="6">foreach v of loc varlist {</a>
+<a class="sourceLine" id="cb33-7" title="7">qui sum <span class="st">`</span><span class="dt">v&#39;</span></a>
+<a class="sourceLine" id="cb33-8" title="8"><span class="dt">local  m</span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39; : di %6.2f `r(mean)&#39;</span></a>
+<a class="sourceLine" id="cb33-9" title="9">}</a>
+<a class="sourceLine" id="cb33-10" title="10"></a>
+<a class="sourceLine" id="cb33-11" title="11">tw scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">1</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb33-12" title="12"><span class="er">||</span><span class="st"> </span>scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">2</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb33-13" title="13"><span class="er">||</span><span class="st"> </span>scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">3</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb33-14" title="14"><span class="er">||</span><span class="st"> </span>scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">4</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb33-15" title="15"><span class="kw">yline</span>(<span class="st">`</span><span class="dt">m1&#39;, lw(vthin) lc(black)) xline(</span><span class="st">`</span>m2<span class="st">&#39;, lw(vthin) lc(black))           ///</span></a>
+<a class="sourceLine" id="cb33-16" title="16"><span class="st">note(&quot;Moyenne `1&#39;</span> =<span class="st"> `</span><span class="dt">m1&#39;&quot; ///</span></a>
+<a class="sourceLine" id="cb33-17" title="17"><span class="dt">     &quot;Moyenne </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; = `m2&#39;&quot;  ) legend(off)</span></a></code></pre></div>
+<p>Avec la variable <em>displacement</em> au lieu de <em>price</em>:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb34-2" title="2">local varlist displacement mpg qdisplacement</a>
+<a class="sourceLine" id="cb34-3" title="3">tokenize <span class="st">`</span><span class="dt">varlist&#39;</span></a>
+<a class="sourceLine" id="cb34-4" title="4"><span class="dt">xtile q</span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; = `1&#39;</span>, <span class="kw">n</span>(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb34-5" title="5"></a>
+<a class="sourceLine" id="cb34-6" title="6">foreach v of loc varlist {</a>
+<a class="sourceLine" id="cb34-7" title="7">qui sum <span class="st">`</span><span class="dt">v&#39;</span></a>
+<a class="sourceLine" id="cb34-8" title="8"><span class="dt">local  m</span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39; : di %6.2f `r(mean)&#39;</span></a>
+<a class="sourceLine" id="cb34-9" title="9">}</a>
+<a class="sourceLine" id="cb34-10" title="10"></a>
+<a class="sourceLine" id="cb34-11" title="11">tw scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">1</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb34-12" title="12"><span class="er">||</span><span class="st"> </span>scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">2</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb34-13" title="13"><span class="er">||</span><span class="st"> </span>scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">3</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb34-14" title="14"><span class="er">||</span><span class="st"> </span>scatter <span class="st">`</span><span class="dt">1&#39; </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; if `3&#39;</span><span class="op">==</span><span class="dv">4</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb34-15" title="15"><span class="kw">yline</span>(<span class="st">`</span><span class="dt">m1&#39;, lw(vthin) lc(black)) xline(</span><span class="st">`</span>m2<span class="st">&#39;, lw(vthin) lc(black))           ///</span></a>
+<a class="sourceLine" id="cb34-16" title="16"><span class="st">note(&quot;Moyenne `1&#39;</span> =<span class="st"> `</span><span class="dt">m1&#39;&quot; ///</span></a>
+<a class="sourceLine" id="cb34-17" title="17"><span class="dt">     &quot;Moyenne </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; = `m2&#39;&quot;  ) legend(off)</span></a></code></pre></div>
+<p><img src="imgf/g21.png" style="width:50.0%" /></p>
+<p><em>Spoil alert</em>: il ne reste plus qu’à se débarasser de la répétition des options dans le graphique [section suivante]</p>
+<p><strong>Objet temporaire: tempvar, tempfile, tempname….</strong></p>
+<ul>
+<li><strong>tempvar</strong>: très utile.
+<ul>
+<li>évite de créer des variables qui entre en conflit avec des variables existantes dans la base</li>
+<li>La variable temporaire est conservée en mémoire, mais n’apparait pas dans la base.</li>
+<li>Une nouvelle variable est créée lorsque le programme est exécuté à nouveau</li>
+<li>syntaxe: <strong><code>tempvar nom_variable</code></strong></li>
+<li>Lecture: Stata va créer une variable dont le nom est **_0000#**</li>
+<li>Appel de la variable dans le programme: <strong><code>nom_variable</code></strong></li>
+</ul></li>
+</ul>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb35-1" title="1">describe</a>
+<a class="sourceLine" id="cb35-2" title="2"><span class="op">-----------------------------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb35-3" title="3"><span class="st">              </span>storage   display    value</a>
+<a class="sourceLine" id="cb35-4" title="4">variable name   type    format     label      variable label</a>
+<a class="sourceLine" id="cb35-5" title="5"><span class="op">-----------------------------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb35-6" title="6">make            str18   %<span class="op">-</span>18s                 Make and Model</a>
+<a class="sourceLine" id="cb35-7" title="7">price           int     %<span class="fl">8.0</span>gc                Price</a>
+<a class="sourceLine" id="cb35-8" title="8">mpg             int     %<span class="fl">8.0</span>g                 <span class="kw">Mileage</span> (mpg)</a>
+<a class="sourceLine" id="cb35-9" title="9">rep78           int     %<span class="fl">8.0</span>g                 Repair Record <span class="dv">1978</span></a>
+<a class="sourceLine" id="cb35-10" title="10">headroom        float   %<span class="fl">6.1</span>f                 <span class="kw">Headroom</span> (in.)</a>
+<a class="sourceLine" id="cb35-11" title="11">trunk           int     %<span class="fl">8.0</span>g                 Trunk <span class="kw">space</span> (cu. ft.)</a>
+<a class="sourceLine" id="cb35-12" title="12">weight          int     %<span class="fl">8.0</span>gc                <span class="kw">Weight</span> (lbs.)</a>
+<a class="sourceLine" id="cb35-13" title="13">length          int     %<span class="fl">8.0</span>g                 <span class="kw">Length</span> (in.)</a>
+<a class="sourceLine" id="cb35-14" title="14">turn            int     %<span class="fl">8.0</span>g                 Turn <span class="kw">Circle</span> (ft.)</a>
+<a class="sourceLine" id="cb35-15" title="15">displacement    int     %<span class="fl">8.0</span>g                 <span class="kw">Displacement</span> (cu. in.)</a>
+<a class="sourceLine" id="cb35-16" title="16">gear_ratio      float   %<span class="fl">6.2</span>f                 Gear Ratio</a>
+<a class="sourceLine" id="cb35-17" title="17">foreign         byte    %<span class="fl">8.0</span>g      origin     Car type</a>
+<a class="sourceLine" id="cb35-18" title="18"><span class="op">-----------------------------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb35-19" title="19"><span class="st">  </span></a>
+<a class="sourceLine" id="cb35-20" title="20">tempvar qprice</a>
+<a class="sourceLine" id="cb35-21" title="21">local varlist price mpg <span class="st">`</span><span class="dt">qprice&#39;</span></a>
+<a class="sourceLine" id="cb35-22" title="22"><span class="dt">tokenize </span><span class="st">`</span>varlist<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb35-23" title="23"><span class="st">xtile `qprice&#39;</span> =<span class="st"> `</span><span class="dt">1&#39;, n(4)</span></a>
+<a class="sourceLine" id="cb35-24" title="24"></a>
+<a class="sourceLine" id="cb35-25" title="25"><span class="dt">local i=1</span></a>
+<a class="sourceLine" id="cb35-26" title="26"><span class="dt">foreach v of loc varlist {</span></a>
+<a class="sourceLine" id="cb35-27" title="27"><span class="dt">qui sum </span><span class="st">`</span>v<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb35-28" title="28"><span class="st">local  m`i++&#39;</span> <span class="op">:</span><span class="st"> </span>di %<span class="fl">6.2</span>f <span class="st">`</span><span class="dt">r(mean)&#39;</span></a>
+<a class="sourceLine" id="cb35-29" title="29"><span class="dt">}</span></a>
+<a class="sourceLine" id="cb35-30" title="30"></a>
+<a class="sourceLine" id="cb35-31" title="31"><span class="dt">tw scatter </span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; `2&#39;</span> <span class="cf">if</span> <span class="st">`</span><span class="dt">3&#39;==1, mlc(black) mlw(vthin) mc(%70) msiz(medlarge) ///</span></a>
+<a class="sourceLine" id="cb35-32" title="32"><span class="dt">|| scatter </span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; `2&#39;</span> <span class="cf">if</span> <span class="st">`</span><span class="dt">3&#39;==2, mlc(black) mlw(vthin) mc(%70) msiz(medlarge) ///</span></a>
+<a class="sourceLine" id="cb35-33" title="33"><span class="dt">|| scatter </span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; `2&#39;</span> <span class="cf">if</span> <span class="st">`</span><span class="dt">3&#39;==3, mlc(black) mlw(vthin) mc(%70) msiz(medlarge) ///</span></a>
+<a class="sourceLine" id="cb35-34" title="34"><span class="dt">|| scatter </span><span class="st">`</span><span class="dv">1</span><span class="st">&#39; `2&#39;</span> <span class="cf">if</span> <span class="st">`</span><span class="dt">3&#39;==4, mlc(black) mlw(vthin) mc(%70) msiz(medlarge) ///</span></a>
+<a class="sourceLine" id="cb35-35" title="35"><span class="dt">yline(</span><span class="st">`</span>m1<span class="st">&#39;, lw(vthin) lc(black)) xline(`m2&#39;</span>, <span class="kw">lw</span>(vthin) <span class="kw">lc</span>(black)<span class="er">)</span>           <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb35-36" title="36"><span class="kw">note</span>(<span class="st">&quot;Moyenne `1&#39; = `m1&#39;&quot;</span> <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb35-37" title="37"><span class="st">     &quot;Moyenne `2&#39; = `m2&#39;&quot;</span>  ) <span class="kw">legend</span>(off)</a>
+<a class="sourceLine" id="cb35-38" title="38">describe</a>
+<a class="sourceLine" id="cb35-39" title="39"></a>
+<a class="sourceLine" id="cb35-40" title="40">                                              (_dta has notes)</a>
+<a class="sourceLine" id="cb35-41" title="41"><span class="op">-----------------------------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb35-42" title="42"><span class="st">              </span>storage   display    value</a>
+<a class="sourceLine" id="cb35-43" title="43">variable name   type    format     label      variable label</a>
+<a class="sourceLine" id="cb35-44" title="44"><span class="op">-----------------------------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb35-45" title="45">make            str18   %<span class="op">-</span>18s                 Make and Model</a>
+<a class="sourceLine" id="cb35-46" title="46">price           int     %<span class="fl">8.0</span>gc                Price</a>
+<a class="sourceLine" id="cb35-47" title="47">mpg             int     %<span class="fl">8.0</span>g                 <span class="kw">Mileage</span> (mpg)</a>
+<a class="sourceLine" id="cb35-48" title="48">rep78           int     %<span class="fl">8.0</span>g                 Repair Record <span class="dv">1978</span></a>
+<a class="sourceLine" id="cb35-49" title="49">headroom        float   %<span class="fl">6.1</span>f                 <span class="kw">Headroom</span> (in.)</a>
+<a class="sourceLine" id="cb35-50" title="50">trunk           int     %<span class="fl">8.0</span>g                 Trunk <span class="kw">space</span> (cu. ft.)</a>
+<a class="sourceLine" id="cb35-51" title="51">weight          int     %<span class="fl">8.0</span>gc                <span class="kw">Weight</span> (lbs.)</a>
+<a class="sourceLine" id="cb35-52" title="52">length          int     %<span class="fl">8.0</span>g                 <span class="kw">Length</span> (in.)</a>
+<a class="sourceLine" id="cb35-53" title="53">turn            int     %<span class="fl">8.0</span>g                 Turn <span class="kw">Circle</span> (ft.)</a>
+<a class="sourceLine" id="cb35-54" title="54">displacement    int     %<span class="fl">8.0</span>g                 <span class="kw">Displacement</span> (cu. in.)</a>
+<a class="sourceLine" id="cb35-55" title="55">gear_ratio      float   %<span class="fl">6.2</span>f                 Gear Ratio</a>
+<a class="sourceLine" id="cb35-56" title="56">foreign         byte    %<span class="fl">8.0</span>g      origin     Car type</a>
+<a class="sourceLine" id="cb35-57" title="57">__<span class="dv">000000</span>        byte    %<span class="fl">8.0</span>g                 <span class="dv">4</span> quantiles of price</a>
+<a class="sourceLine" id="cb35-58" title="58"><span class="op">-----------------------------------------------------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb35-59" title="59"></a>
+<a class="sourceLine" id="cb35-60" title="60">sum __<span class="dv">000000</span></a>
+<a class="sourceLine" id="cb35-61" title="61">variable __<span class="dv">000000</span> not found</a></code></pre></div>
+<p><img src="imgf/g21_b.PNG" /></p>
+<ul>
+<li><strong>tempfile</strong>: pas utile ici à mon sens</li>
+</ul>
+<p><strong>scalar</strong></p>
+<ul>
+<li>Pas vraiment une macro (doit être retransformé en macro) =&gt; permet de générer, par exemple, une valeur issu d’un calcul (éventuellement dont les arguments sont des macros).</li>
+<li>Syntaxe: <strong><code>scalar = expression</code></strong></li>
+<li>Récupération de la valeur dans une macro: <strong><code>nom_macro = scalar(nom_scalaire)</code></strong></li>
+<li>liste des scalaires en mémoire: <strong><code>scalar list</code></strong></li>
+</ul>
+<p>Exemple: calcul des limites de la moustache d’une box plot</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb36-1" title="1">qui sum price, d</a>
+<a class="sourceLine" id="cb36-2" title="2">scalar inf =<span class="st"> `</span><span class="dt">r(p25)&#39; - 1.5*(</span><span class="st">`</span><span class="kw">r</span>(p75)<span class="st">&#39; - `r(p25)&#39;</span><span class="er">)</span></a>
+<a class="sourceLine" id="cb36-3" title="3">scalar sup =<span class="st"> `</span><span class="dt">r(p75)&#39; + 1.5*(</span><span class="st">`</span><span class="kw">r</span>(p75)<span class="st">&#39; - `r(p25)&#39;</span><span class="er">)</span></a>
+<a class="sourceLine" id="cb36-4" title="4">local  inf =<span class="st">  </span><span class="kw">scalar</span>(inf)</a>
+<a class="sourceLine" id="cb36-5" title="5">local  sup =<span class="st">  </span><span class="kw">scalar</span>(sup)</a>
+<a class="sourceLine" id="cb36-6" title="6"></a>
+<a class="sourceLine" id="cb36-7" title="7">di <span class="st">`</span><span class="dt">inf&#39;</span></a>
+<a class="sourceLine" id="cb36-8" title="8"><span class="dt">974.5</span></a>
+<a class="sourceLine" id="cb36-9" title="9"></a>
+<a class="sourceLine" id="cb36-10" title="10"><span class="dt">di </span><span class="st">`</span>sup<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb36-11" title="11"><span class="st">9562.5</span></a></code></pre></div>
+<p><br> <strong>Warning</strong> : Macro et expression de type string…ça se complique [faire une sous section?]</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb37-1" title="1">local x <span class="st">&quot;A&quot;</span> <span class="st">&quot;B&quot;</span> <span class="st">&quot;C&quot;</span></a>
+<a class="sourceLine" id="cb37-2" title="2">di <span class="st">&quot;`x&#39;&quot;</span></a>
+<a class="sourceLine" id="cb37-3" title="3">ABC</a></code></pre></div>
+<p>Si on veut faire apparaître les doubles quotes</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb38-1" title="1">local x <span class="st">`</span><span class="dt">&quot; </span><span class="st">`&quot;&quot;</span>A<span class="st">&quot;&quot;&#39; `&quot;&quot;B&quot;&quot;&#39;</span>  <span class="st">`</span><span class="dt">&quot;&quot;C&quot;&quot;&#39; &quot;&#39;</span></a>
+<a class="sourceLine" id="cb38-2" title="2"><span class="dt">di </span><span class="st">`</span>x<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb38-3" title="3"><span class="st">&quot;A&quot;&quot;B&quot;&quot;C&quot;</span></a></code></pre></div>
+</div>
+</div>
+<div id="alleger-la-syntaxe-dun-graphique" class="section level2">
+<h2><span class="header-section-number">3.2</span> Alleger la syntaxe d’un graphique…</h2>
+<p>Et simplifier les changements dans les option</p>
+<p>… et surtout faciliter les changements d’option</p>
+<p>Mêmes options pour les 4 éléments du graphique</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb39-1" title="1">tw scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge)  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb39-2" title="2"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">2</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge)  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb39-3" title="3"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">3</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge)  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb39-4" title="4"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">4</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge)  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb39-5" title="5"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">5</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge),</a>
+<a class="sourceLine" id="cb39-6" title="6"><span class="kw">legend</span>(off)   </a></code></pre></div>
+<p><img src="imgf/g22.png" style="width:50.0%" /></p>
+<p>Avec les options sous forme de macro</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb40-1" title="1">local ops <span class="st">&quot;mlc(black) mlw(vthin) mc(%70) msiz(medlarge)&quot;</span></a>
+<a class="sourceLine" id="cb40-2" title="2"></a>
+<a class="sourceLine" id="cb40-3" title="3">tw scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span>, <span class="st">`</span><span class="dt">ops&#39; ///</span></a>
+<a class="sourceLine" id="cb40-4" title="4"><span class="dt">|| scatter price mpg if rep78==2, </span><span class="st">`</span>ops<span class="st">&#39; ///</span></a>
+<a class="sourceLine" id="cb40-5" title="5"><span class="st">|| scatter price mpg if rep78==3, `ops&#39;</span> <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb40-6" title="6"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">4</span>, <span class="st">`</span><span class="dt">ops&#39; ///</span></a>
+<a class="sourceLine" id="cb40-7" title="7"><span class="dt">|| scatter price mpg if rep78==5, </span><span class="st">`</span>ops<span class="st">&#39; ///</span></a>
+<a class="sourceLine" id="cb40-8" title="8"><span class="st">legend(off)</span></a></code></pre></div>
+<p>Si on change le % de transparence à 60% et qu’on perturbe légèrement les coordonnées <strong><code>jitter(2)</code></strong></p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb41-1" title="1">local ops <span class="st">&quot;mlc(black) mlw(vthin) mc(%60) msiz(medlarge) jitter(2)&quot;</span></a>
+<a class="sourceLine" id="cb41-2" title="2"></a>
+<a class="sourceLine" id="cb41-3" title="3">tw scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span>, <span class="st">`</span><span class="dt">ops&#39; ///</span></a>
+<a class="sourceLine" id="cb41-4" title="4"><span class="dt">|| scatter price mpg if rep78==2, </span><span class="st">`</span>ops<span class="st">&#39; ///</span></a>
+<a class="sourceLine" id="cb41-5" title="5"><span class="st">|| scatter price mpg if rep78==3, `ops&#39;</span> <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb41-6" title="6"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">4</span>, <span class="st">`</span><span class="dt">ops&#39; ///</span></a>
+<a class="sourceLine" id="cb41-7" title="7"><span class="dt">|| scatter price mpg if rep78==5, </span><span class="st">`</span>ops<span class="st">&#39;  </span></a></code></pre></div>
+<p><img src="imgf/g23.png" style="width:50.0%" /></p>
+</div>
+<div id="macro-élargie" class="section level2">
+<h2><span class="header-section-number">3.3</span> Macro élargie</h2>
+<p>[A compléter]</p>
+<ul>
+<li><strong>Macro simple</strong></li>
+</ul>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb42-1" title="1">local l objetA objetB objetC </a>
+<a class="sourceLine" id="cb42-2" title="2">foreach i of local l {</a>
+<a class="sourceLine" id="cb42-3" title="3">local ms <span class="st">`</span><span class="dt">i&#39;</span></a>
+<a class="sourceLine" id="cb42-4" title="4"><span class="dt"> }</span></a>
+<a class="sourceLine" id="cb42-5" title="5"></a>
+<a class="sourceLine" id="cb42-6" title="6"><span class="dt">objetA</span></a>
+<a class="sourceLine" id="cb42-7" title="7"><span class="dt">objetB</span></a>
+<a class="sourceLine" id="cb42-8" title="8"><span class="dt">objetC</span></a>
+<a class="sourceLine" id="cb42-9" title="9"></a>
+<a class="sourceLine" id="cb42-10" title="10"><span class="dt">di &quot;</span><span class="st">`</span>ms<span class="st">&#39;&quot;</span></a>
+<a class="sourceLine" id="cb42-11" title="11"><span class="st">objetC</span></a></code></pre></div>
+<ul>
+<li><strong>Macro élargie</strong></li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb43-1" title="1">local l objetA objetB objetC </a>
+<a class="sourceLine" id="cb43-2" title="2">foreach i of local l {</a>
+<a class="sourceLine" id="cb43-3" title="3">local ms <span class="st">`</span><span class="dt">ms&#39; </span><span class="st">`</span>i<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb43-4" title="4"><span class="st">di &quot;`ms&#39;&quot;</span></a>
+<a class="sourceLine" id="cb43-5" title="5"><span class="st">}</span></a>
+<a class="sourceLine" id="cb43-6" title="6"></a>
+<a class="sourceLine" id="cb43-7" title="7"><span class="st">objetA</span></a>
+<a class="sourceLine" id="cb43-8" title="8"><span class="st">objetA objetB</span></a>
+<a class="sourceLine" id="cb43-9" title="9"><span class="st">objetA objetB objetC</span></a>
+<a class="sourceLine" id="cb43-10" title="10"></a>
+<a class="sourceLine" id="cb43-11" title="11"><span class="st">di &quot;`</span><span class="dt">ms&#39;&quot;</span></a>
+<a class="sourceLine" id="cb43-12" title="12"><span class="dt">objetA objetB objetC</span></a></code></pre></div>
+<p>[explication]</p>
+<ul>
+<li>Application pour un graphique à plusieurs éléments</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb44-1" title="1">levelsof rep78, <span class="kw">local</span>(l)</a>
+<a class="sourceLine" id="cb44-2" title="2"></a>
+<a class="sourceLine" id="cb44-3" title="3">foreach i of local l {</a>
+<a class="sourceLine" id="cb44-4" title="4">  local scat <span class="st">`</span><span class="dt">scat&#39; scatter price mpg if rep78==</span><span class="st">`</span>i<span class="st">&#39; ||</span></a>
+<a class="sourceLine" id="cb44-5" title="5"><span class="st">  di &quot;`scat&#39;&quot;</span></a>
+<a class="sourceLine" id="cb44-6" title="6"><span class="st">  }</span></a></code></pre></div>
+<p>Lecture dans l’output:</p>
+<p><strong>Boucle 1: rep78=(1)</strong></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb45-1" title="1">scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span> <span class="op">||</span></a></code></pre></div>
+<p><strong>Boucle 2: rep78=(1,2)</strong></p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb46-1" title="1">scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">2</span> <span class="op">||</span></a></code></pre></div>
+<p><strong>Boucle 3: rep78=(1,2,3)</strong></p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb47-1" title="1">scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">2</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">3</span> <span class="op">||</span></a></code></pre></div>
+<p><strong>Boucle 4: rep78=(1,2,3,4)</strong></p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb48-1" title="1">scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">2</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">3</span> <span class="op">||</span></a>
+<a class="sourceLine" id="cb48-2" title="2">scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">4</span> <span class="op">||</span></a></code></pre></div>
+<p><strong>Boucle 5: rep78=(1,2,3,4,5)</strong></p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb49-1" title="1">scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">1</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">2</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">3</span> <span class="op">||</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb49-2" title="2">scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">4</span> <span class="op">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">5</span> <span class="op">||</span></a></code></pre></div>
+<p>On vient donc de générer un graphique dans une boucle. Pour l’exécuter:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb50-1" title="1">tw <span class="st">`</span><span class="dt">scat&#39;, legend(off)</span></a></code></pre></div>
+<p><strong>remettre le warning pour générer des légendes: je bloc encore pour avoir un rendu sans les doubles quotes apparentes“text”, alors que l’expression générée est correcte [mettre exemple?]. Rencontre même problème avec des couleurs</strong></p>
+</div>
+<div id="routine---commande" class="section level2">
+<h2><span class="header-section-number">3.4</span> Routine - Commande</h2>
+<p>=&gt; Application simple</p>
+</div>
+<div id="exemple" class="section level2">
+<h2><span class="header-section-number">3.5</span> Exemple</h2>
+<p><strong>La macro dans (presques) tous ses états</strong><br />
+<br> Presque car:</p>
+<ul>
+<li>Pas de variable temporaire (oblige ici à dropper des variables en fin de programme)</li>
+<li>Pas de macro avec une expression étendue (inutile ici)</li>
+</ul>
+<p><strong>Graphique généré</strong></p>
+<ul>
+<li>Graphique de type <strong>violon</strong> (variable continue)</li>
+<li>Compare la distribution d’une variable variable pour deux modalités d’une variable catégorielle)</li>
+</ul>
+<p><strong>Principales étapes</strong></p>
+<ul>
+<li>Paramètres du graphique sous forme de macro (<code>local</code>)</li>
+<li>Estimation de la densité avec création des variables associées</li>
+<li>Récupération des valeurs pour les boxplots (Q1 - Q2 - Q3)</li>
+<li>Légende</li>
+<li>Style et couleur (anticipe un peu une partie suivante)</li>
+<li>Graphique
+<ul>
+<li>type <strong><code>area</code></strong> pour les densites</li>
+<li>type <strong><code>pci</code></strong> pour les boxplot</li>
+<li>type <strong><code>scatter</code></strong> pour les outliers des boxplots</li>
+</ul></li>
+</ul>
+<p>On compare la pression sanguine des hommes et des femmes (base <em>nhanes2.dta</em>): variables <em>bpsystol</em> et <em>sex</em> <img src="imgf/g24.png" /></p>
+<p><strong>Programme en un bloc</strong></p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb51-1" title="1">webuse nhanes2, clear</a>
+<a class="sourceLine" id="cb51-2" title="2"></a>
+<a class="sourceLine" id="cb51-3" title="3"><span class="op">*</span><span class="st"> </span>définition des variables et des options pour density dans une macro</a>
+<a class="sourceLine" id="cb51-4" title="4">local y bpsystol</a>
+<a class="sourceLine" id="cb51-5" title="5">local z sex</a>
+<a class="sourceLine" id="cb51-6" title="6">local bw <span class="dv">5</span></a>
+<a class="sourceLine" id="cb51-7" title="7">local ker gau</a>
+<a class="sourceLine" id="cb51-8" title="8"></a>
+<a class="sourceLine" id="cb51-9" title="9"><span class="op">*</span><span class="st"> </span>Création des variables pour la densité et normalisation des échelles</a>
+<a class="sourceLine" id="cb51-10" title="10">levelsof <span class="st">`</span><span class="dt">z&#39;, local(l)</span></a>
+<a class="sourceLine" id="cb51-11" title="11"><span class="dt">local i=1</span></a>
+<a class="sourceLine" id="cb51-12" title="12"><span class="dt">foreach s of local l {</span></a>
+<a class="sourceLine" id="cb51-13" title="13"><span class="dt">local j </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb51-14" title="14"><span class="st">qui kdensity `y&#39;</span> <span class="cf">if</span> <span class="st">`</span><span class="dt">z&#39;==</span><span class="st">`</span>s<span class="st">&#39;, gen(x`j&#39;</span> d<span class="st">`</span><span class="dt">j&#39;) nograph  kernel(</span><span class="st">`</span>kernel<span class="st">&#39;) bw(`bw&#39;</span><span class="er">)</span></a>
+<a class="sourceLine" id="cb51-15" title="15">qui sum d<span class="st">`</span><span class="dt">j&#39;, d</span></a>
+<a class="sourceLine" id="cb51-16" title="16"><span class="dt">local min</span><span class="st">`</span>j<span class="st">&#39;  `r(min)&#39;</span></a>
+<a class="sourceLine" id="cb51-17" title="17">local max<span class="st">`</span><span class="dt">j&#39;  </span><span class="st">`</span><span class="kw">r</span>(max)<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb51-18" title="18"><span class="st">qui replace d`j&#39;</span>  =<span class="st"> </span>d<span class="st">`</span><span class="dt">j&#39;*(.3/(</span><span class="st">`</span>max<span class="st">`</span><span class="dt">j&#39;&#39;- </span><span class="st">`</span>min<span class="st">`</span><span class="dt">j&#39;&#39;))</span></a>
+<a class="sourceLine" id="cb51-19" title="19"><span class="dt">}</span></a>
+<a class="sourceLine" id="cb51-20" title="20"></a>
+<a class="sourceLine" id="cb51-21" title="21"></a>
+<a class="sourceLine" id="cb51-22" title="22"><span class="dt">* variable miroir pour la densité dans l&#39;axe négatif</span></a>
+<a class="sourceLine" id="cb51-23" title="23"><span class="dt">replace d1=-d1</span></a>
+<a class="sourceLine" id="cb51-24" title="24"></a>
+<a class="sourceLine" id="cb51-25" title="25"><span class="dt">* translation de la densité avec valeur min à 0</span></a>
+<a class="sourceLine" id="cb51-26" title="26"><span class="dt">local i=1</span></a>
+<a class="sourceLine" id="cb51-27" title="27"><span class="dt">foreach s of local l {</span></a>
+<a class="sourceLine" id="cb51-28" title="28"><span class="dt">local j </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb51-29" title="29"><span class="st">qui sum d`j&#39;</span>, d</a>
+<a class="sourceLine" id="cb51-30" title="30">local min<span class="st">`</span><span class="dt">j&#39;   </span><span class="st">`</span><span class="kw">r</span>(min)<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb51-31" title="31"><span class="st">local max`j&#39;</span>   <span class="st">`</span><span class="dt">r(max)&#39;</span></a>
+<a class="sourceLine" id="cb51-32" title="32"><span class="dt">qui replace d1 = d1 + (-1)*</span><span class="st">`</span>max1<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb51-33" title="33"><span class="st">qui replace d2 = d2 - `min2&#39;</span></a>
+<a class="sourceLine" id="cb51-34" title="34"><span class="er">}</span></a>
+<a class="sourceLine" id="cb51-35" title="35"></a>
+<a class="sourceLine" id="cb51-36" title="36"></a>
+<a class="sourceLine" id="cb51-37" title="37"><span class="op">**</span><span class="er">****</span><span class="st"> </span>valeurs pour boxplot</a>
+<a class="sourceLine" id="cb51-38" title="38"></a>
+<a class="sourceLine" id="cb51-39" title="39"><span class="op">**</span><span class="st"> </span>coordonnées<span class="op">:</span><span class="st"> </span>q25<span class="op">/</span><span class="dv">50</span><span class="op">/</span><span class="dv">75</span> et bornes inf et sup des moustaches</a>
+<a class="sourceLine" id="cb51-40" title="40">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb51-41" title="41">foreach s of local l {</a>
+<a class="sourceLine" id="cb51-42" title="42">local j <span class="st">`</span><span class="dt">i++&#39;</span></a>
+<a class="sourceLine" id="cb51-43" title="43"><span class="dt">qui sum </span><span class="st">`</span>y<span class="st">&#39; if `z&#39;</span><span class="op">==</span><span class="st">`</span><span class="dt">s&#39;, d</span></a>
+<a class="sourceLine" id="cb51-44" title="44"><span class="dt">local q2</span><span class="st">`</span>j<span class="st">&#39;: di %6.1f  `r(p50)&#39;</span></a>
+<a class="sourceLine" id="cb51-45" title="45">local q1<span class="st">`</span><span class="dt">j&#39; : di %6.1f  </span><span class="st">`</span><span class="kw">r</span>(p25)<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb51-46" title="46"><span class="st">local q3`j&#39;</span> <span class="op">:</span><span class="st"> </span>di %<span class="fl">6.1</span>f  <span class="st">`</span><span class="dt">r(p75)&#39;</span></a>
+<a class="sourceLine" id="cb51-47" title="47"><span class="dt">scalar min = </span><span class="st">`</span>q1<span class="st">`</span><span class="dt">j&#39;&#39; - 1.5*(</span><span class="st">`</span>q3<span class="st">`</span><span class="dt">j&#39;&#39; - </span><span class="st">`</span>q1<span class="st">`</span><span class="dt">j&#39;&#39;)</span></a>
+<a class="sourceLine" id="cb51-48" title="48"><span class="dt">local  inf</span><span class="st">`</span>j<span class="st">&#39; = scalar(min)</span></a>
+<a class="sourceLine" id="cb51-49" title="49"><span class="st">scalar max = `q3`j&#39;&#39; + 1.5*(`q3`j&#39;&#39; - `q1`j&#39;&#39;) </span></a>
+<a class="sourceLine" id="cb51-50" title="50"><span class="st">local  sup`j&#39;</span> =<span class="st"> </span><span class="kw">scalar</span>(max)</a>
+<a class="sourceLine" id="cb51-51" title="51">}</a>
+<a class="sourceLine" id="cb51-52" title="52"></a>
+<a class="sourceLine" id="cb51-53" title="53"><span class="op">**</span><span class="st"> </span>outliers</a>
+<a class="sourceLine" id="cb51-54" title="54">qui gen _yo1 =<span class="st"> </span><span class="fl">-.02</span></a>
+<a class="sourceLine" id="cb51-55" title="55">qui gen _yo2 =<span class="st">  </span><span class="fl">.02</span> </a>
+<a class="sourceLine" id="cb51-56" title="56"></a>
+<a class="sourceLine" id="cb51-57" title="57">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb51-58" title="58">foreach s of local l {</a>
+<a class="sourceLine" id="cb51-59" title="59">local j <span class="st">`</span><span class="dt">i++&#39;</span></a>
+<a class="sourceLine" id="cb51-60" title="60"><span class="dt">qui gen _out</span><span class="st">`</span>j<span class="st">&#39;= `y&#39;</span> <span class="cf">if</span>  (<span class="st">`</span><span class="dt">y&#39;&gt;</span><span class="st">`</span>sup<span class="st">`</span><span class="dt">j&#39;&#39; | </span><span class="st">`</span>y<span class="st">&#39;&lt;`inf`j&#39;&#39;) &amp; `z&#39;</span><span class="op">==</span><span class="st">`</span><span class="dt">s&#39;</span></a>
+<a class="sourceLine" id="cb51-61" title="61"><span class="dt">}</span></a>
+<a class="sourceLine" id="cb51-62" title="62"></a>
+<a class="sourceLine" id="cb51-63" title="63"><span class="dt">* Génération automatique de la légende (fixe à 2 labels)</span></a>
+<a class="sourceLine" id="cb51-64" title="64"><span class="dt">* legend: order(...)</span></a>
+<a class="sourceLine" id="cb51-65" title="65"><span class="dt">local labn: value label </span><span class="st">`</span>z<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb51-66" title="66"><span class="st">local i=1</span></a>
+<a class="sourceLine" id="cb51-67" title="67"><span class="st">foreach s of local l {</span></a>
+<a class="sourceLine" id="cb51-68" title="68"><span class="st">local j `i++&#39;</span></a>
+<a class="sourceLine" id="cb51-69" title="69">capture local lab<span class="st">`</span><span class="dt">j&#39;: label </span><span class="st">`</span>labn<span class="st">&#39;  `s&#39;</span></a>
+<a class="sourceLine" id="cb51-70" title="70"><span class="er">}</span></a>
+<a class="sourceLine" id="cb51-71" title="71"></a>
+<a class="sourceLine" id="cb51-72" title="72"><span class="op">*</span><span class="st"> </span>On anticipe un peu avec la section suivante pour style et couleur</a>
+<a class="sourceLine" id="cb51-73" title="73"><span class="op">*</span><span class="st"> </span>installer grstyle et colorpalette si nécessaire</a>
+<a class="sourceLine" id="cb51-74" title="74">grstyle init</a>
+<a class="sourceLine" id="cb51-75" title="75">grstyle set plain, horizontal grid compact</a>
+<a class="sourceLine" id="cb51-76" title="76">grstyle set mesh,  horizontal</a>
+<a class="sourceLine" id="cb51-77" title="77">grstyle set color hue,  <span class="kw">n</span>(<span class="dv">2</span>)  </a>
+<a class="sourceLine" id="cb51-78" title="78">colorpalette  hue ,<span class="kw">n</span>(<span class="dv">2</span>) nograph</a>
+<a class="sourceLine" id="cb51-79" title="79"></a>
+<a class="sourceLine" id="cb51-80" title="80"><span class="op">*</span><span class="st"> </span>création du graphique</a>
+<a class="sourceLine" id="cb51-81" title="81">tw area d1 x1,   horizontal        <span class="kw">fc</span>(%<span class="dv">60</span>)  <span class="kw">lc</span>(<span class="op">*</span><span class="fl">0.5</span>) <span class="kw">lw</span>(thin)                       <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb51-82" title="82"><span class="er">||</span><span class="st"> </span>area d2 x2,   horizontal        <span class="kw">fc</span>(%<span class="dv">60</span>)  <span class="kw">lc</span>(<span class="op">*</span><span class="fl">0.5</span>) <span class="kw">lw</span>(thin)                       <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb51-83" title="83"><span class="er">||</span><span class="st"> </span>pci  <span class="st">`</span><span class="dt">q11&#39;  -.04  </span><span class="st">`</span>q11<span class="st">&#39;     0,      lc(&quot;`r(p1)&#39;</span><span class="op">*</span><span class="fl">1.3</span><span class="st">&quot;) lw(vthin)                  ///</span></a>
+<a class="sourceLine" id="cb51-84" title="84"><span class="st">|| pci  `q21&#39;  -.04  `q21&#39;     0,      lc(&quot;`</span><span class="dt">r(p1)&#39;*1.3&quot;) lw(vthin)                  ///</span></a>
+<a class="sourceLine" id="cb51-85" title="85"><span class="dt">|| pci  </span><span class="st">`</span>q31<span class="st">&#39;  -.04  `q31&#39;</span>     <span class="dv">0</span>,      <span class="kw">lc</span>(<span class="st">&quot;`r(p1)&#39;*1.3&quot;</span>) <span class="kw">lw</span>(vthin)                  <span class="op">/</span><span class="er">//</span><span class="st">     </span></a>
+<a class="sourceLine" id="cb51-86" title="86"><span class="er">||</span><span class="st"> </span>pci  <span class="st">`</span><span class="dt">q11&#39;  -.04  </span><span class="st">`</span>q31<span class="st">&#39;  -.04,      lc(&quot;`r(p1)&#39;</span><span class="op">*</span><span class="fl">1.3</span><span class="st">&quot;) lw(vthin)                  ///</span></a>
+<a class="sourceLine" id="cb51-87" title="87"><span class="st">|| pci  `q11&#39;  -.0003 `q31&#39;  -.0003,   lc(&quot;`</span><span class="dt">r(p1)&#39;*1.3&quot;) lw(vthin)                  ///</span></a>
+<a class="sourceLine" id="cb51-88" title="88"><span class="dt">|| pci  </span><span class="st">`</span>inf1<span class="st">&#39; -.02  `q11&#39;</span>  <span class="fl">-.02</span>,      <span class="kw">lc</span>(<span class="st">&quot;`r(p1)&#39;*1.3&quot;</span>) <span class="kw">lw</span>(vthin)                  <span class="op">/</span><span class="er">//</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-89" title="89"><span class="er">||</span><span class="st"> </span>pci  <span class="st">`</span><span class="dt">q31&#39;  -.02  </span><span class="st">`</span>sup1<span class="st">&#39; -.02,      lc(&quot;`r(p1)&#39;</span><span class="op">*</span><span class="fl">1.3</span><span class="st">&quot;) lw(vthin)                  /// </span></a>
+<a class="sourceLine" id="cb51-90" title="90"><span class="st">|| scatter _out1 _yo1, msize(vsmall) mlc(black) mlw(vvthin) mc(&quot;`</span><span class="dt">r(p1)&#39;&quot;) jitter(1) /// </span></a>
+<a class="sourceLine" id="cb51-91" title="91"><span class="dt">|| pci  </span><span class="st">`</span>q12<span class="st">&#39;   .04  `q12&#39;</span>    <span class="dv">0</span>,      <span class="kw">lc</span>(<span class="st">&quot;`r(p2)&#39;*1.3&quot;</span>) <span class="kw">lw</span>(vthin)                   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb51-92" title="92"><span class="er">||</span><span class="st"> </span>pci  <span class="st">`</span><span class="dt">q22&#39;   .04  </span><span class="st">`</span>q22<span class="st">&#39;    0,      lc(&quot;`r(p2)&#39;</span><span class="op">*</span><span class="fl">1.3</span><span class="st">&quot;) lw(vthin)                   ///</span></a>
+<a class="sourceLine" id="cb51-93" title="93"><span class="st">|| pci  `q32&#39;   .04  `q32&#39;    0,      lc(&quot;`</span><span class="dt">r(p2)&#39;*1.3&quot;) lw(vthin)                   ///                         </span></a>
+<a class="sourceLine" id="cb51-94" title="94"><span class="dt">|| pci  </span><span class="st">`</span>q12<span class="st">&#39;   .04  `q32&#39;</span>  <span class="fl">.04</span>,      <span class="kw">lc</span>(<span class="st">&quot;`r(p2)&#39;*1.3&quot;</span>) <span class="kw">lw</span>(vthin)                   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb51-95" title="95"><span class="er">||</span><span class="st"> </span>pci  <span class="st">`</span><span class="dt">q12&#39;   .0003 </span><span class="st">`</span>q32<span class="st">&#39; .0003,    lc(&quot;`r(p2)&#39;</span><span class="op">*</span><span class="fl">1.3</span><span class="st">&quot;) lw(vthin)                   /// </span></a>
+<a class="sourceLine" id="cb51-96" title="96"><span class="st">|| pci  `inf2&#39;  .02  `q12&#39;  .02,      lc(&quot;`</span><span class="dt">r(p2)&#39;*1.3&quot;) lw(vthin)                   /// </span></a>
+<a class="sourceLine" id="cb51-97" title="97"><span class="dt">|| pci  </span><span class="st">`</span>q32<span class="st">&#39;   .02  `sup2&#39;</span> <span class="fl">.02</span>,      <span class="kw">lc</span>(<span class="st">&quot;`r(p2)&#39;*1.3&quot;</span>) <span class="kw">lw</span>(vthin)                   <span class="op">/</span><span class="er">//</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-98" title="98"><span class="er">||</span><span class="st"> </span>scatter _out2 _yo2, <span class="kw">msize</span>(vsmall) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vvthin) <span class="kw">mc</span>(<span class="st">&quot;`r(p2)&#39;&quot;</span>) <span class="kw">jitter</span>(<span class="dv">1</span>) <span class="op">/</span><span class="er">//</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb51-99" title="99">, <span class="kw">ytitle</span>(<span class="st">&quot;`y&#39;&quot;</span>) <span class="kw">xlab</span>(<span class="dv">0</span> <span class="st">&quot;0&quot;</span>)  <span class="kw">xtitle</span>(<span class="st">&quot;Densité&quot;</span>, <span class="kw">size</span>(small))                         <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb51-100" title="100"><span class="st">  </span><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;`lab1&#39;&quot;</span>  <span class="dv">2</span> <span class="st">&quot;`lab2&#39;&quot;</span>) stack <span class="kw">region</span>(<span class="kw">lw</span>(vvthin) <span class="kw">lc</span>(%<span class="dv">0</span>)))          </a>
+<a class="sourceLine" id="cb51-101" title="101"></a>
+<a class="sourceLine" id="cb51-102" title="102"><span class="op">*</span><span class="st"> </span>à défaut d<span class="st">&#39;avoir généré des variables temporaire</span></a>
+<a class="sourceLine" id="cb51-103" title="103"><span class="st">drop d1 d2 x1 x2 _y*  _out*</span></a></code></pre></div>
+<p><strong>Programme expliqué par bloc</strong><br />
+[A faire]</p>
+</div>
+</div>
+<div id="styles-et-palettes-de-couleurs" class="section level1">
+<h1><span class="header-section-number">4</span> Styles et palettes de couleurs</h1>
+<div id="palette-de-couleur" class="section level2">
+<h2><span class="header-section-number">4.1</span> Palette de couleur</h2>
+<ul>
+<li><a href="https://mthevenin.github.io/stata_fr/couleurs.html" class="uri">https://mthevenin.github.io/stata_fr/couleurs.html</a></li>
+<li>Principe</li>
+<li>color palette Ben Jann:</li>
+</ul>
+</div>
+<div id="styles" class="section level2">
+<h2><span class="header-section-number">4.2</span> Styles</h2>
+<ul>
+<li>Principe</li>
+<li>grstyle de Ben Jann</li>
+</ul>
+</div>
+</div>
+<div id="data-visualisation-avec-stata" class="section level1">
+<h1><span class="header-section-number">5</span> Data visualisation avec Stata</h1>
+<p><strong>Faire un tableau listant les commandes graphiques (interne et quelques externes)</strong></p>
+<ul>
+<li>nom de la commande</li>
+<li>son usage: description variables continue/catégorielle - post estimation….</li>
+<li>éventuellement un commentaire</li>
+</ul>
+<p>=&gt; faire un fichier excel - l’importer et utiliser kable</p>
+</div>
 
 
 
@@ -440,7 +1703,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

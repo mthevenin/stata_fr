@@ -20,9 +20,7 @@ navbar:
 output: 
   html_document: 
     theme: cerulean
-    highlight: haddock
+    highlight: zenburn
     number_sections: yes
     toc: yes
     toc_float: yes
-
-  
