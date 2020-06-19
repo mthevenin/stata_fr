@@ -12,6 +12,8 @@ navbar:
             href: graphiques.html
           - text: "Couleurs"
             href: couleurs.html
+          - text: "Programmes"
+            href: programmes.html 
     - text: "Python"
       href: python.html  
     - text: "Commandes"
