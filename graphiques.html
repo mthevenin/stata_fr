@@ -2933,6 +2933,27 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <li>Voir le dernier exemple de la section <strong>macro</strong> pour visualiser une variante, croisant 2 valeurs d’une variable catégorielle (pas possible avec vioplot) sur 2 demi violon</li>
 </ul></li>
 </ul>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">grstyle init v, replace</a>
+<a class="sourceLine" id="cb111-2" title="2">grstyle set mesh, compact </a>
+<a class="sourceLine" id="cb111-3" title="3">grstyle set legend <span class="dv">6</span>, nobox</a>
+<a class="sourceLine" id="cb111-4" title="4">grstyle set color Spectral, <span class="kw">n</span>(<span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb111-5" title="5"></a>
+<a class="sourceLine" id="cb111-6" title="6">local k=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb111-7" title="7">local varlist A B C D</a>
+<a class="sourceLine" id="cb111-8" title="8">foreach v of local varlist {</a>
+<a class="sourceLine" id="cb111-9" title="9"><span class="op">**</span>colorpalette Spectral, <span class="kw">n</span>(<span class="dv">4</span>) nograph </a>
+<a class="sourceLine" id="cb111-10" title="10">local j=<span class="st">`</span><span class="dt">k++&#39;</span></a>
+<a class="sourceLine" id="cb111-11" title="11"><span class="dt">tw scatter   </span><span class="st">`</span>v<span class="st">&#39;  y,  xlabel(200(200)800) ylabel(-10(10)40) xlabel(,nogrid labc(%0)) ///</span></a>
+<a class="sourceLine" id="cb111-12" title="12"><span class="st">   xtitle(&quot;&quot;) ytitle(&quot;&quot;) jitter(1)  mc(black)  mlw(vvthin) msiz(tiny) name(`v&#39;</span><span class="dv">4</span>, replace<span class="er">)</span> nodraw</a>
+<a class="sourceLine" id="cb111-13" title="13">}</a>
+<a class="sourceLine" id="cb111-14" title="14">graph combine A4 B4 C4 D4 , <span class="kw">col</span>(<span class="dv">4</span>) <span class="kw">name</span>(g5,replace)</a>
+<a class="sourceLine" id="cb111-15" title="15"></a>
+<a class="sourceLine" id="cb111-16" title="16">vioplot A B C D, <span class="kw">kernel</span>(gauss) <span class="kw">ygap</span>(<span class="dv">120</span>) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb111-17" title="17"><span class="kw">median</span>(<span class="kw">m</span>(pipe) <span class="kw">msa</span>(<span class="dv">90</span>) <span class="kw">mc</span>(white) <span class="kw">mlw</span>(vvthin))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb111-18" title="18"><span class="kw">density</span>(<span class="kw">lc</span>(black) <span class="kw">lw</span>(vthin))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb111-19" title="19"><span class="kw">scheme</span>(v) <span class="kw">name</span>(g6,replace)</a>
+<a class="sourceLine" id="cb111-20" title="20"></a>
+<a class="sourceLine" id="cb111-21" title="21">graph combine  g6 g5, <span class="kw">col</span>(<span class="dv">1</span>)</a></code></pre></div>
 <p><em>Graphique 63</em><br />
 <img src="imgf/g68.png" style="width:75.0%" /></p>
 <p>Ici on a ajouté le nuage en couleur noir, bien plus lisible pour les deux variables avec petit nombre d’observations</p>
@@ -2941,90 +2962,90 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <p><em>Données</em>: Question posée sur un forum de <em>Reddit</em> (N=49): quelle probabilité vous affectez à des expressions telles que “almostnochance” “unlikely” “abouteven” “probably” “almostcertainly”….En tout 17 expressions. La base comporte 17 variables (les expressions) et 46 observations.</p>
 <p>Application données par le site <strong>data to viz</strong>. Code R disponible: <a href="https://www.data-to-viz.com/caveat/multi_distribution.html" class="uri">https://www.data-to-viz.com/caveat/multi_distribution.html</a></p>
 <p><em>Préparation des données</em></p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb111-1" title="1">clear</a>
-<a class="sourceLine" id="cb111-2" title="2">import delimited <span class="st">&quot;https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv&quot;</span> </a>
-<a class="sourceLine" id="cb111-3" title="3"></a>
-<a class="sourceLine" id="cb111-4" title="4">set obs <span class="st">`</span><span class="dt">=_N+200&#39;</span></a>
-<a class="sourceLine" id="cb111-5" title="5"></a>
-<a class="sourceLine" id="cb111-6" title="6"><span class="dt">order almostnochance highlyunlikely chancesareslight improbable /// </span></a>
-<a class="sourceLine" id="cb111-7" title="7"><span class="dt">      littlechance unlikely wedoubt probablynot abouteven betterthaneven ///</span></a>
-<a class="sourceLine" id="cb111-8" title="8"><span class="dt">      likely probable webelieve probably verygoodchance highlylikely almostcertainly</span></a>
-<a class="sourceLine" id="cb111-9" title="9"></a>
-<a class="sourceLine" id="cb111-10" title="10"><span class="dt">qui ds    </span></a>
-<a class="sourceLine" id="cb111-11" title="11"><span class="dt">local varlist </span><span class="st">`</span><span class="kw">r</span>(varlist)<span class="st">&#39;</span></a>
-<a class="sourceLine" id="cb111-12" title="12"><span class="st">*local varlist almostnochance unlikely abouteven probable almostcertainly</span></a>
-<a class="sourceLine" id="cb111-13" title="13"></a>
-<a class="sourceLine" id="cb111-14" title="14"><span class="st">sum `varlist&#39;</span></a>
-<a class="sourceLine" id="cb111-15" title="15"></a>
-<a class="sourceLine" id="cb111-16" title="16">  Variable <span class="op">|</span><span class="st">        </span>Obs        Mean    Std. Dev.       Min        Max</a>
-<a class="sourceLine" id="cb111-17" title="17"><span class="op">-------------+---------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb111-18" title="18">almostnoch<span class="op">~</span>e <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">5.631522</span>    <span class="fl">13.81477</span>        <span class="fl">.05</span>         <span class="dv">95</span></a>
-<a class="sourceLine" id="cb111-19" title="19">highlyunli<span class="op">~</span>y <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">10.13043</span>      <span class="fl">13.523</span>          <span class="dv">2</span>         <span class="dv">90</span></a>
-<a class="sourceLine" id="cb111-20" title="20">chancesare<span class="op">~</span>t <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">14.08696</span>    <span class="fl">8.948808</span>          <span class="dv">5</span>         <span class="dv">40</span></a>
-<a class="sourceLine" id="cb111-21" title="21">  improbable <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">18.02176</span>    <span class="fl">14.38436</span>          <span class="dv">0</span>         <span class="dv">50</span></a>
-<a class="sourceLine" id="cb111-22" title="22">littlechance <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">15.97826</span>    <span class="fl">14.32091</span>          <span class="dv">2</span>        <span class="dv">100</span></a>
-<a class="sourceLine" id="cb111-23" title="23"><span class="op">-------------+---------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb111-24" title="24"><span class="st">    </span>unlikely <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">19.93478</span>    <span class="fl">10.04745</span>          <span class="dv">2</span>         <span class="dv">36</span></a>
-<a class="sourceLine" id="cb111-25" title="25">     wedoubt <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">27.86957</span>    <span class="fl">20.17546</span>          <span class="dv">1</span>        <span class="dv">100</span></a>
-<a class="sourceLine" id="cb111-26" title="26"> probablynot <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">29.47609</span>    <span class="fl">14.85888</span>         <span class="dv">10</span>        <span class="dv">100</span></a>
-<a class="sourceLine" id="cb111-27" title="27">   abouteven <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">49.56522</span>    <span class="fl">1.857743</span>         <span class="dv">40</span>         <span class="dv">52</span></a>
-<a class="sourceLine" id="cb111-28" title="28">betterthan<span class="op">~</span>n <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">58.39348</span>    <span class="fl">11.78821</span>          <span class="dv">5</span>         <span class="dv">98</span></a>
-<a class="sourceLine" id="cb111-29" title="29"><span class="op">-------------+---------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb111-30" title="30"><span class="st">      </span>likely <span class="op">|</span><span class="st">         </span><span class="dv">46</span>          <span class="dv">72</span>    <span class="fl">9.874771</span>         <span class="dv">40</span>         <span class="dv">90</span></a>
-<a class="sourceLine" id="cb111-31" title="31">    probable <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">71.45652</span>    <span class="fl">10.24306</span>         <span class="dv">50</span>         <span class="dv">90</span></a>
-<a class="sourceLine" id="cb111-32" title="32">   webelieve <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">68.52174</span>    <span class="fl">16.73418</span>          <span class="dv">5</span>        <span class="dv">100</span></a>
-<a class="sourceLine" id="cb111-33" title="33">    probably <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">71.52174</span>    <span class="fl">10.97419</span>         <span class="dv">45</span>         <span class="dv">90</span></a>
-<a class="sourceLine" id="cb111-34" title="34">verygoodch<span class="op">~</span>e <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">79.76087</span>    <span class="fl">6.467645</span>         <span class="dv">65</span>         <span class="dv">91</span></a>
-<a class="sourceLine" id="cb111-35" title="35"><span class="op">-------------+---------------------------------------------------------</span></a>
-<a class="sourceLine" id="cb111-36" title="36">highlylikely <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">86.21739</span>    <span class="fl">12.87877</span>         <span class="dv">15</span>         <span class="dv">99</span></a>
-<a class="sourceLine" id="cb111-37" title="37">almostcert<span class="op">~</span>y <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">92.64565</span>    <span class="fl">7.103542</span>         <span class="dv">60</span>         <span class="dv">99</span></a></code></pre></div>
-<p><em>Densités sur un même graphique: illisible</em></p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1">qui ds    </a>
-<a class="sourceLine" id="cb112-2" title="2">local varlist <span class="st">`</span><span class="dt">r(varlist)&#39;</span></a>
-<a class="sourceLine" id="cb112-3" title="3"><span class="dt">local w: word count(</span><span class="st">`</span>varlist<span class="st">&#39;)      </span></a>
-<a class="sourceLine" id="cb112-4" title="4"><span class="st">grstyle init</span></a>
-<a class="sourceLine" id="cb112-5" title="5"><span class="st">grstyle set plain, horizontal grid</span></a>
-<a class="sourceLine" id="cb112-6" title="6"><span class="st">grstyle set mesh</span></a>
-<a class="sourceLine" id="cb112-7" title="7"><span class="st">grstyle set legend, nobox</span></a>
-<a class="sourceLine" id="cb112-8" title="8"><span class="st">grstyle set color viridis, n(`w&#39;</span><span class="er">)</span> <span class="kw">opacity</span>(<span class="dv">60</span>) </a>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb112-1" title="1">clear</a>
+<a class="sourceLine" id="cb112-2" title="2">import delimited <span class="st">&quot;https://raw.githubusercontent.com/zonination/perceptions/master/probly.csv&quot;</span> </a>
+<a class="sourceLine" id="cb112-3" title="3"></a>
+<a class="sourceLine" id="cb112-4" title="4">set obs <span class="st">`</span><span class="dt">=_N+200&#39;</span></a>
+<a class="sourceLine" id="cb112-5" title="5"></a>
+<a class="sourceLine" id="cb112-6" title="6"><span class="dt">order almostnochance highlyunlikely chancesareslight improbable /// </span></a>
+<a class="sourceLine" id="cb112-7" title="7"><span class="dt">      littlechance unlikely wedoubt probablynot abouteven betterthaneven ///</span></a>
+<a class="sourceLine" id="cb112-8" title="8"><span class="dt">      likely probable webelieve probably verygoodchance highlylikely almostcertainly</span></a>
 <a class="sourceLine" id="cb112-9" title="9"></a>
-<a class="sourceLine" id="cb112-10" title="10">capt drop _x<span class="op">*</span><span class="st"> </span>_d<span class="op">*</span></a>
-<a class="sourceLine" id="cb112-11" title="11"></a>
-<a class="sourceLine" id="cb112-12" title="12">local i =<span class="st"> </span><span class="dv">1</span></a>
-<a class="sourceLine" id="cb112-13" title="13">foreach v of local varlist {</a>
-<a class="sourceLine" id="cb112-14" title="14">colorpalette viridis, <span class="kw">n</span>(<span class="st">`</span><span class="dt">w&#39;) nograph opacity(50)</span></a>
-<a class="sourceLine" id="cb112-15" title="15"><span class="dt">local j = </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></a>
-<a class="sourceLine" id="cb112-16" title="16"></a>
-<a class="sourceLine" id="cb112-17" title="17"><span class="st">local lab`j&#39;</span><span class="op">:</span><span class="st"> </span>variable label <span class="st">`</span><span class="dt">v&#39;</span></a>
-<a class="sourceLine" id="cb112-18" title="18"><span class="dt">local leg </span><span class="st">`</span>leg<span class="st">&#39; `j&#39;</span> <span class="st">&quot;`lab`j&#39;&#39;&quot;</span></a>
-<a class="sourceLine" id="cb112-19" title="19"></a>
-<a class="sourceLine" id="cb112-20" title="20">local coul<span class="st">`</span><span class="dt">j&#39; &quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p<span class="st">`</span><span class="dt">j&#39;)&#39;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb112-21" title="21"><span class="dt">qui kdensity </span><span class="st">`</span>v<span class="st">&#39;, generate(_x`j&#39;</span> _d<span class="st">`</span><span class="dt">j&#39;) nogr kernel(gauss) n(200)</span></a>
-<a class="sourceLine" id="cb112-22" title="22"><span class="dt">qui replace _x</span><span class="st">`</span>j<span class="st">&#39;=100 if _x`j&#39;</span><span class="op">&gt;</span><span class="dv">100</span></a>
-<a class="sourceLine" id="cb112-23" title="23">qui replace _x<span class="st">`</span><span class="dt">j&#39;=0 if _x</span><span class="st">`</span>j<span class="st">&#39;&lt;0</span></a>
-<a class="sourceLine" id="cb112-24" title="24"><span class="st">local area `area&#39;</span> area _d<span class="st">`</span><span class="dt">j&#39; _x</span><span class="st">`</span>j<span class="st">&#39;, xscale(r(0 100)) xlabel(0(10)100) fc(`coul`j&#39;&#39;) lc(`coul`j&#39;&#39;)   ||</span></a>
-<a class="sourceLine" id="cb112-25" title="25"><span class="st">}</span></a>
-<a class="sourceLine" id="cb112-26" title="26"><span class="st">tw `area&#39;</span>, <span class="kw">legend</span>(<span class="kw">order</span>(<span class="st">`</span><span class="dt">leg&#39;) pos(2) col(1)) xtitle(&quot;Probabilité assignée&quot;) scale(.6)</span></a></code></pre></div>
+<a class="sourceLine" id="cb112-10" title="10"><span class="dt">qui ds    </span></a>
+<a class="sourceLine" id="cb112-11" title="11"><span class="dt">local varlist </span><span class="st">`</span><span class="kw">r</span>(varlist)<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb112-12" title="12"><span class="st">*local varlist almostnochance unlikely abouteven probable almostcertainly</span></a>
+<a class="sourceLine" id="cb112-13" title="13"></a>
+<a class="sourceLine" id="cb112-14" title="14"><span class="st">sum `varlist&#39;</span></a>
+<a class="sourceLine" id="cb112-15" title="15"></a>
+<a class="sourceLine" id="cb112-16" title="16">  Variable <span class="op">|</span><span class="st">        </span>Obs        Mean    Std. Dev.       Min        Max</a>
+<a class="sourceLine" id="cb112-17" title="17"><span class="op">-------------+---------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb112-18" title="18">almostnoch<span class="op">~</span>e <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">5.631522</span>    <span class="fl">13.81477</span>        <span class="fl">.05</span>         <span class="dv">95</span></a>
+<a class="sourceLine" id="cb112-19" title="19">highlyunli<span class="op">~</span>y <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">10.13043</span>      <span class="fl">13.523</span>          <span class="dv">2</span>         <span class="dv">90</span></a>
+<a class="sourceLine" id="cb112-20" title="20">chancesare<span class="op">~</span>t <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">14.08696</span>    <span class="fl">8.948808</span>          <span class="dv">5</span>         <span class="dv">40</span></a>
+<a class="sourceLine" id="cb112-21" title="21">  improbable <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">18.02176</span>    <span class="fl">14.38436</span>          <span class="dv">0</span>         <span class="dv">50</span></a>
+<a class="sourceLine" id="cb112-22" title="22">littlechance <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">15.97826</span>    <span class="fl">14.32091</span>          <span class="dv">2</span>        <span class="dv">100</span></a>
+<a class="sourceLine" id="cb112-23" title="23"><span class="op">-------------+---------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb112-24" title="24"><span class="st">    </span>unlikely <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">19.93478</span>    <span class="fl">10.04745</span>          <span class="dv">2</span>         <span class="dv">36</span></a>
+<a class="sourceLine" id="cb112-25" title="25">     wedoubt <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">27.86957</span>    <span class="fl">20.17546</span>          <span class="dv">1</span>        <span class="dv">100</span></a>
+<a class="sourceLine" id="cb112-26" title="26"> probablynot <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">29.47609</span>    <span class="fl">14.85888</span>         <span class="dv">10</span>        <span class="dv">100</span></a>
+<a class="sourceLine" id="cb112-27" title="27">   abouteven <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">49.56522</span>    <span class="fl">1.857743</span>         <span class="dv">40</span>         <span class="dv">52</span></a>
+<a class="sourceLine" id="cb112-28" title="28">betterthan<span class="op">~</span>n <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">58.39348</span>    <span class="fl">11.78821</span>          <span class="dv">5</span>         <span class="dv">98</span></a>
+<a class="sourceLine" id="cb112-29" title="29"><span class="op">-------------+---------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb112-30" title="30"><span class="st">      </span>likely <span class="op">|</span><span class="st">         </span><span class="dv">46</span>          <span class="dv">72</span>    <span class="fl">9.874771</span>         <span class="dv">40</span>         <span class="dv">90</span></a>
+<a class="sourceLine" id="cb112-31" title="31">    probable <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">71.45652</span>    <span class="fl">10.24306</span>         <span class="dv">50</span>         <span class="dv">90</span></a>
+<a class="sourceLine" id="cb112-32" title="32">   webelieve <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">68.52174</span>    <span class="fl">16.73418</span>          <span class="dv">5</span>        <span class="dv">100</span></a>
+<a class="sourceLine" id="cb112-33" title="33">    probably <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">71.52174</span>    <span class="fl">10.97419</span>         <span class="dv">45</span>         <span class="dv">90</span></a>
+<a class="sourceLine" id="cb112-34" title="34">verygoodch<span class="op">~</span>e <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">79.76087</span>    <span class="fl">6.467645</span>         <span class="dv">65</span>         <span class="dv">91</span></a>
+<a class="sourceLine" id="cb112-35" title="35"><span class="op">-------------+---------------------------------------------------------</span></a>
+<a class="sourceLine" id="cb112-36" title="36">highlylikely <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">86.21739</span>    <span class="fl">12.87877</span>         <span class="dv">15</span>         <span class="dv">99</span></a>
+<a class="sourceLine" id="cb112-37" title="37">almostcert<span class="op">~</span>y <span class="op">|</span><span class="st">         </span><span class="dv">46</span>    <span class="fl">92.64565</span>    <span class="fl">7.103542</span>         <span class="dv">60</span>         <span class="dv">99</span></a></code></pre></div>
+<p><em>Densités sur un même graphique: illisible</em></p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">qui ds    </a>
+<a class="sourceLine" id="cb113-2" title="2">local varlist <span class="st">`</span><span class="dt">r(varlist)&#39;</span></a>
+<a class="sourceLine" id="cb113-3" title="3"><span class="dt">local w: word count(</span><span class="st">`</span>varlist<span class="st">&#39;)      </span></a>
+<a class="sourceLine" id="cb113-4" title="4"><span class="st">grstyle init</span></a>
+<a class="sourceLine" id="cb113-5" title="5"><span class="st">grstyle set plain, horizontal grid</span></a>
+<a class="sourceLine" id="cb113-6" title="6"><span class="st">grstyle set mesh</span></a>
+<a class="sourceLine" id="cb113-7" title="7"><span class="st">grstyle set legend, nobox</span></a>
+<a class="sourceLine" id="cb113-8" title="8"><span class="st">grstyle set color viridis, n(`w&#39;</span><span class="er">)</span> <span class="kw">opacity</span>(<span class="dv">60</span>) </a>
+<a class="sourceLine" id="cb113-9" title="9"></a>
+<a class="sourceLine" id="cb113-10" title="10">capt drop _x<span class="op">*</span><span class="st"> </span>_d<span class="op">*</span></a>
+<a class="sourceLine" id="cb113-11" title="11"></a>
+<a class="sourceLine" id="cb113-12" title="12">local i =<span class="st"> </span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb113-13" title="13">foreach v of local varlist {</a>
+<a class="sourceLine" id="cb113-14" title="14">colorpalette viridis, <span class="kw">n</span>(<span class="st">`</span><span class="dt">w&#39;) nograph opacity(50)</span></a>
+<a class="sourceLine" id="cb113-15" title="15"><span class="dt">local j = </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb113-16" title="16"></a>
+<a class="sourceLine" id="cb113-17" title="17"><span class="st">local lab`j&#39;</span><span class="op">:</span><span class="st"> </span>variable label <span class="st">`</span><span class="dt">v&#39;</span></a>
+<a class="sourceLine" id="cb113-18" title="18"><span class="dt">local leg </span><span class="st">`</span>leg<span class="st">&#39; `j&#39;</span> <span class="st">&quot;`lab`j&#39;&#39;&quot;</span></a>
+<a class="sourceLine" id="cb113-19" title="19"></a>
+<a class="sourceLine" id="cb113-20" title="20">local coul<span class="st">`</span><span class="dt">j&#39; &quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p<span class="st">`</span><span class="dt">j&#39;)&#39;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb113-21" title="21"><span class="dt">qui kdensity </span><span class="st">`</span>v<span class="st">&#39;, generate(_x`j&#39;</span> _d<span class="st">`</span><span class="dt">j&#39;) nogr kernel(gauss) n(200)</span></a>
+<a class="sourceLine" id="cb113-22" title="22"><span class="dt">qui replace _x</span><span class="st">`</span>j<span class="st">&#39;=100 if _x`j&#39;</span><span class="op">&gt;</span><span class="dv">100</span></a>
+<a class="sourceLine" id="cb113-23" title="23">qui replace _x<span class="st">`</span><span class="dt">j&#39;=0 if _x</span><span class="st">`</span>j<span class="st">&#39;&lt;0</span></a>
+<a class="sourceLine" id="cb113-24" title="24"><span class="st">local area `area&#39;</span> area _d<span class="st">`</span><span class="dt">j&#39; _x</span><span class="st">`</span>j<span class="st">&#39;, xscale(r(0 100)) xlabel(0(10)100) fc(`coul`j&#39;&#39;) lc(`coul`j&#39;&#39;)   ||</span></a>
+<a class="sourceLine" id="cb113-25" title="25"><span class="st">}</span></a>
+<a class="sourceLine" id="cb113-26" title="26"><span class="st">tw `area&#39;</span>, <span class="kw">legend</span>(<span class="kw">order</span>(<span class="st">`</span><span class="dt">leg&#39;) pos(2) col(1)) xtitle(&quot;Probabilité assignée&quot;) scale(.6)</span></a></code></pre></div>
 <p><em>Graphique 64</em><br />
 <img src="imgf/g60.png" style="width:75.0%" /></p>
 <p><em>Solution 1: faceting</em><br />
 <br> Densité [pas d’échelle commune pour l’axe y]</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb113-1" title="1">capt drop _x<span class="op">*</span><span class="st"> </span>_d<span class="op">*</span></a>
-<a class="sourceLine" id="cb113-2" title="2">qui ds</a>
-<a class="sourceLine" id="cb113-3" title="3">local varlist <span class="st">`</span><span class="dt">r(varlist)&#39;</span></a>
-<a class="sourceLine" id="cb113-4" title="4"></a>
-<a class="sourceLine" id="cb113-5" title="5"><span class="dt">local i = 1</span></a>
-<a class="sourceLine" id="cb113-6" title="6"><span class="dt">foreach v of local varlist {</span></a>
-<a class="sourceLine" id="cb113-7" title="7"><span class="dt">colorpalette viridis, n(17) nograph  opacity(80)</span></a>
-<a class="sourceLine" id="cb113-8" title="8"><span class="dt">local j = </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></a>
-<a class="sourceLine" id="cb113-9" title="9"><span class="st">local coul`j&#39;</span> <span class="st">&quot;&quot;`</span><span class="dt">r(p</span><span class="st">`</span>j<span class="st">&#39;)&#39;&quot;&quot;</span></a>
-<a class="sourceLine" id="cb113-10" title="10">qui kdensity <span class="st">`</span><span class="dt">v&#39;, generate(_x</span><span class="st">`</span>j<span class="st">&#39; _d`j&#39;</span><span class="er">)</span> nogr <span class="kw">kernel</span>(gauss) <span class="kw">n</span>(<span class="dv">200</span>)</a>
-<a class="sourceLine" id="cb113-11" title="11">qui replace _x<span class="st">`</span><span class="dt">j&#39;=100 if _x</span><span class="st">`</span>j<span class="st">&#39;&gt;100</span></a>
-<a class="sourceLine" id="cb113-12" title="12"><span class="st">qui replace _x`j&#39;</span>=<span class="dv">0</span> <span class="cf">if</span> _x<span class="st">`</span><span class="dt">j&#39;&lt;0</span></a>
-<a class="sourceLine" id="cb113-13" title="13"><span class="dt">tw area _d</span><span class="st">`</span>j<span class="st">&#39; _x`j&#39;</span>, <span class="kw">xscale</span>(<span class="kw">r</span>(<span class="dv">0</span> <span class="dv">100</span>)) <span class="kw">xlabel</span>(<span class="dv">0</span>(<span class="dv">25</span>)<span class="dv">100</span>) <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">fc</span>(<span class="st">`</span><span class="dt">coul</span><span class="st">`</span>j<span class="st">&#39;&#39;</span>) <span class="kw">lc</span>(<span class="st">`</span><span class="dt">coul</span><span class="st">`</span>j<span class="st">&#39;&#39;</span>) <span class="kw">name</span>(g<span class="st">`</span><span class="dt">j&#39;, replace) nodraw  </span></a>
-<a class="sourceLine" id="cb113-14" title="14"><span class="dt">local comb </span><span class="st">`</span>comb<span class="st">&#39; g`j&#39;</span></a>
-<a class="sourceLine" id="cb113-15" title="15"><span class="er">}</span></a>
-<a class="sourceLine" id="cb113-16" title="16">graph combine <span class="st">`</span><span class="dt">comb&#39; , col(5)  title(&quot;Probabilité assignée&quot;, pos(11)) // xcommon ycommon</span></a></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1">capt drop _x<span class="op">*</span><span class="st"> </span>_d<span class="op">*</span></a>
+<a class="sourceLine" id="cb114-2" title="2">qui ds</a>
+<a class="sourceLine" id="cb114-3" title="3">local varlist <span class="st">`</span><span class="dt">r(varlist)&#39;</span></a>
+<a class="sourceLine" id="cb114-4" title="4"></a>
+<a class="sourceLine" id="cb114-5" title="5"><span class="dt">local i = 1</span></a>
+<a class="sourceLine" id="cb114-6" title="6"><span class="dt">foreach v of local varlist {</span></a>
+<a class="sourceLine" id="cb114-7" title="7"><span class="dt">colorpalette viridis, n(17) nograph  opacity(80)</span></a>
+<a class="sourceLine" id="cb114-8" title="8"><span class="dt">local j = </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb114-9" title="9"><span class="st">local coul`j&#39;</span> <span class="st">&quot;&quot;`</span><span class="dt">r(p</span><span class="st">`</span>j<span class="st">&#39;)&#39;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb114-10" title="10">qui kdensity <span class="st">`</span><span class="dt">v&#39;, generate(_x</span><span class="st">`</span>j<span class="st">&#39; _d`j&#39;</span><span class="er">)</span> nogr <span class="kw">kernel</span>(gauss) <span class="kw">n</span>(<span class="dv">200</span>)</a>
+<a class="sourceLine" id="cb114-11" title="11">qui replace _x<span class="st">`</span><span class="dt">j&#39;=100 if _x</span><span class="st">`</span>j<span class="st">&#39;&gt;100</span></a>
+<a class="sourceLine" id="cb114-12" title="12"><span class="st">qui replace _x`j&#39;</span>=<span class="dv">0</span> <span class="cf">if</span> _x<span class="st">`</span><span class="dt">j&#39;&lt;0</span></a>
+<a class="sourceLine" id="cb114-13" title="13"><span class="dt">tw area _d</span><span class="st">`</span>j<span class="st">&#39; _x`j&#39;</span>, <span class="kw">xscale</span>(<span class="kw">r</span>(<span class="dv">0</span> <span class="dv">100</span>)) <span class="kw">xlabel</span>(<span class="dv">0</span>(<span class="dv">25</span>)<span class="dv">100</span>) <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">fc</span>(<span class="st">`</span><span class="dt">coul</span><span class="st">`</span>j<span class="st">&#39;&#39;</span>) <span class="kw">lc</span>(<span class="st">`</span><span class="dt">coul</span><span class="st">`</span>j<span class="st">&#39;&#39;</span>) <span class="kw">name</span>(g<span class="st">`</span><span class="dt">j&#39;, replace) nodraw  </span></a>
+<a class="sourceLine" id="cb114-14" title="14"><span class="dt">local comb </span><span class="st">`</span>comb<span class="st">&#39; g`j&#39;</span></a>
+<a class="sourceLine" id="cb114-15" title="15"><span class="er">}</span></a>
+<a class="sourceLine" id="cb114-16" title="16">graph combine <span class="st">`</span><span class="dt">comb&#39; , col(5)  title(&quot;Probabilité assignée&quot;, pos(11)) // xcommon ycommon</span></a></code></pre></div>
 <p><em>Graphique 65</em><br />
 <img src="imgf/g61.png" style="width:75.0%" /></p>
 <p><em>Graphique 66</em> Histogramme [échelle commune pour l’axe y]</p>
@@ -3076,15 +3097,15 @@ Solution dans R [<strong><code>ggridges</code></strong>] et Python. A faire avec
 <li>Variables <em>grlivarea</em> (surface d’habitation) et <em>saleprice</em> (prix)</li>
 <li>Source: <a href="https://www.data-to-viz.com/story/TwoNum.html" class="uri">https://www.data-to-viz.com/story/TwoNum.html</a></li>
 </ul>
-<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb114-1" title="1">clear</a>
-<a class="sourceLine" id="cb114-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">clear</a>
+<a class="sourceLine" id="cb115-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
 <ul>
 <li>Overplotting manifeste, graphique peu lisible</li>
 </ul>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">clear</a>
-<a class="sourceLine" id="cb115-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb116-2" title="2">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>)  <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) </span></a></code></pre></div>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">clear</a>
+<a class="sourceLine" id="cb116-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb117-2" title="2">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>)  <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) </span></a></code></pre></div>
 <p><em>Graphique 69</em></p>
 <p><img src="imgf/g69.png" style="width:50.0%" /></p>
 <ul>
@@ -3095,32 +3116,32 @@ Solution dans R [<strong><code>ggridges</code></strong>] et Python. A faire avec
 <li>Sous-échantilllon</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb117-2" title="2"></a>
-<a class="sourceLine" id="cb117-3" title="3"><span class="op">*</span>Contour</a>
-<a class="sourceLine" id="cb117-4" title="4">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vvthin) <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) ///</span></a>
-<a class="sourceLine" id="cb117-5" title="5"><span class="dt">title(&quot;contour noir vvthin&quot;, pos(1)) name(g1,replace)</span></a>
-<a class="sourceLine" id="cb117-6" title="6"></a>
-<a class="sourceLine" id="cb117-7" title="7"><span class="dt">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) mlc(white) mlw(vvthin) ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) ///</span></a>
-<a class="sourceLine" id="cb117-8" title="8"><span class="st">title(&quot;contour blanc vvthin&quot;, pos(1)) name(g2,replace) </span></a>
-<a class="sourceLine" id="cb117-9" title="9"></a>
-<a class="sourceLine" id="cb117-10" title="10"><span class="st">*Taille</span></a>
-<a class="sourceLine" id="cb117-11" title="11"><span class="st">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) msiz(tiny) mlc(black) mlw(vvthin) /// </span></a>
-<a class="sourceLine" id="cb117-12" title="12"><span class="st">ylabel(`ylab&#39;</span>)  <span class="kw">title</span>(<span class="st">&quot;size tiny + contour 1&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g3,replace)</a>
-<a class="sourceLine" id="cb117-13" title="13"></a>
-<a class="sourceLine" id="cb117-14" title="14">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">msiz</span>(vtiny) <span class="op">/</span><span class="er">//</span></a>
-<a class="sourceLine" id="cb117-15" title="15"><span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;)  title(&quot;size vtiny&quot;, pos(1)) name(g4,replace)</span></a>
-<a class="sourceLine" id="cb117-16" title="16"></a>
-<a class="sourceLine" id="cb117-17" title="17"><span class="dt">*Sample</span></a>
-<a class="sourceLine" id="cb117-18" title="18"><span class="dt">capt gen u=runiform()</span></a>
-<a class="sourceLine" id="cb117-19" title="19"><span class="dt">tw scatter saleprice grlivarea if u&lt;.2, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
-<a class="sourceLine" id="cb117-20" title="20"><span class="dt">ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) xlabel(0(2000)6000) title(&quot;Sample 1: 20%&quot;, pos(1)) name(g5,replace)</span></a>
-<a class="sourceLine" id="cb117-21" title="21"></a>
-<a class="sourceLine" id="cb117-22" title="22"><span class="st">tw scatter saleprice grlivarea if u&lt;.1, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
-<a class="sourceLine" id="cb117-23" title="23"><span class="st">ylabel(`ylab&#39;</span>) <span class="kw">xlabel</span>(<span class="dv">0</span>(<span class="dv">2000</span>)<span class="dv">6000</span>) <span class="kw">title</span>(<span class="st">&quot;Sample 2: 10%&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g6,replace)</a>
-<a class="sourceLine" id="cb117-24" title="24"></a>
-<a class="sourceLine" id="cb117-25" title="25"></a>
-<a class="sourceLine" id="cb117-26" title="26">graph combine g1 g2 g3 g4 g5 g6, <span class="kw">col</span>(<span class="dv">2</span>) <span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">20</span>) <span class="kw">scale</span>(.<span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb118-2" title="2"></a>
+<a class="sourceLine" id="cb118-3" title="3"><span class="op">*</span>Contour</a>
+<a class="sourceLine" id="cb118-4" title="4">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vvthin) <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) ///</span></a>
+<a class="sourceLine" id="cb118-5" title="5"><span class="dt">title(&quot;contour noir vvthin&quot;, pos(1)) name(g1,replace)</span></a>
+<a class="sourceLine" id="cb118-6" title="6"></a>
+<a class="sourceLine" id="cb118-7" title="7"><span class="dt">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) mlc(white) mlw(vvthin) ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) ///</span></a>
+<a class="sourceLine" id="cb118-8" title="8"><span class="st">title(&quot;contour blanc vvthin&quot;, pos(1)) name(g2,replace) </span></a>
+<a class="sourceLine" id="cb118-9" title="9"></a>
+<a class="sourceLine" id="cb118-10" title="10"><span class="st">*Taille</span></a>
+<a class="sourceLine" id="cb118-11" title="11"><span class="st">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) msiz(tiny) mlc(black) mlw(vvthin) /// </span></a>
+<a class="sourceLine" id="cb118-12" title="12"><span class="st">ylabel(`ylab&#39;</span>)  <span class="kw">title</span>(<span class="st">&quot;size tiny + contour 1&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g3,replace)</a>
+<a class="sourceLine" id="cb118-13" title="13"></a>
+<a class="sourceLine" id="cb118-14" title="14">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">msiz</span>(vtiny) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb118-15" title="15"><span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;)  title(&quot;size vtiny&quot;, pos(1)) name(g4,replace)</span></a>
+<a class="sourceLine" id="cb118-16" title="16"></a>
+<a class="sourceLine" id="cb118-17" title="17"><span class="dt">*Sample</span></a>
+<a class="sourceLine" id="cb118-18" title="18"><span class="dt">capt gen u=runiform()</span></a>
+<a class="sourceLine" id="cb118-19" title="19"><span class="dt">tw scatter saleprice grlivarea if u&lt;.2, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
+<a class="sourceLine" id="cb118-20" title="20"><span class="dt">ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) xlabel(0(2000)6000) title(&quot;Sample 1: 20%&quot;, pos(1)) name(g5,replace)</span></a>
+<a class="sourceLine" id="cb118-21" title="21"></a>
+<a class="sourceLine" id="cb118-22" title="22"><span class="st">tw scatter saleprice grlivarea if u&lt;.1, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
+<a class="sourceLine" id="cb118-23" title="23"><span class="st">ylabel(`ylab&#39;</span>) <span class="kw">xlabel</span>(<span class="dv">0</span>(<span class="dv">2000</span>)<span class="dv">6000</span>) <span class="kw">title</span>(<span class="st">&quot;Sample 2: 10%&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g6,replace)</a>
+<a class="sourceLine" id="cb118-24" title="24"></a>
+<a class="sourceLine" id="cb118-25" title="25"></a>
+<a class="sourceLine" id="cb118-26" title="26">graph combine g1 g2 g3 g4 g5 g6, <span class="kw">col</span>(<span class="dv">2</span>) <span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">20</span>) <span class="kw">scale</span>(.<span class="dv">6</span>)</a></code></pre></div>
 <p><em>Graphique 70</em></p>
 <p><img src="imgf/g70.png" /></p>
 <p><strong>Contourplot - heatplot</strong></p>
