@@ -22,7 +22,7 @@ navbar:
 output: 
   html_document: 
     theme: cerulean
-    highlight: zenburn
+    highlight: pygments
     number_sections: yes
     toc: yes
     toc_float: yes

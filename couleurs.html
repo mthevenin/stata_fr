@@ -11,7 +11,7 @@
 
 
 
-<title>Graphiques</title>
+<title>couleurs</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -349,6 +349,9 @@ div.tocify {
     <li>
       <a href="couleurs.html">Couleurs</a>
     </li>
+    <li>
+      <a href="programmes.html">Programmes</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -369,22 +372,18 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Graphiques</h1>
+<h1 class="title toc-ignore">couleurs</h1>
 
 </div>
 
 
 <p><strong>version 0</strong><br />
 <strong>[X]: A faire</strong></p>
-<div id="objectifs" class="section level1">
-<h1><span class="header-section-number">1</span> Objectifs</h1>
-<p><strong>[A faire]</strong></p>
-</div>
+<p>[Maj à prévoir]</p>
 <div id="colorpalette" class="section level1">
-<h1><span class="header-section-number">2</span> Colorpalette</h1>
-<p>[pourquoi colorpalette]</p>
+<h1><span class="header-section-number">1</span> Colorpalette</h1>
 <div id="sources-et-installation" class="section level2">
-<h2><span class="header-section-number">2.1</span> Sources et installation</h2>
+<h2><span class="header-section-number">1.1</span> Sources et installation</h2>
 <p>Sources: <a href="http://repec.sowi.unibe.ch/stata/palettes/index.html" class="uri">http://repec.sowi.unibe.ch/stata/palettes/index.html</a> <a href="https://www.stata-journal.com/article.html?article=gr0075" class="uri">https://www.stata-journal.com/article.html?article=gr0075</a> <a href="https://boris.unibe.ch/116571/1/Jann-2018-palettes.pdf" class="uri">https://boris.unibe.ch/116571/1/Jann-2018-palettes.pdf</a></p>
 <p><strong>Installation via ssc</strong></p>
 <ul>
@@ -394,28 +393,23 @@ div.tocify {
 <p><strong>Installation de grstyle pour charger et utiliser une palette</strong> * <code>ssc install grstyle, replace</code></p>
 <p><strong>Autres sources</strong></p>
 <ul>
-<li>Librairie particulièrement complète de couleurs: <a href="https://www.w3schools.com/colors/default.asp" class="uri">https://www.w3schools.com/colors/default.asp</a></li>
+<li>Librairie particulièrement complète de palettes de couleurs: <a href="https://www.w3schools.com/colors/default.asp" class="uri">https://www.w3schools.com/colors/default.asp</a></li>
 <li>Colorbrewers: <a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3" class="uri">https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3</a></li>
 </ul>
 </div>
 <div id="syntaxe-et-exemples" class="section level2">
-<h2><span class="header-section-number">2.2</span> Syntaxe et exemples</h2>
+<h2><span class="header-section-number">1.2</span> Syntaxe et exemples</h2>
 <p>Visualiser une palette</p>
 <pre><code>colorpalette nom_palette [, options] </code></pre>
 <p>La palette par défaut de Stata est la palette s2 (15 couleurs) utilisée par le thème par défaut <strong>s2color</strong>:</p>
 <pre><code>colorpalette s2</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px ">
-<p><img src="imgc/g1.png" /></p>
-</div>
-<p><br></p>
+<p><img src="imgc/g1.png" style="width:75.0%" /> <br></p>
 <ul>
 <li>Lorsqu’on fait un graphique, les couleurs utilisées pour chaque objet (courbes par exemples) suivent l’ordre d’affichage de la palette: (1) “navy”, (2) “maroon”, (3) “forest green”…….</li>
 <li>On peut forcer la commande à afficher le code <strong>RGB</strong>:</li>
 </ul>
 <pre><code>colorpalette s2, force</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g2.png" /></p>
-</div>
+<p><img src="imgc/g2.png" style="width:75.0%" /></p>
 <p><br></p>
 <ul>
 <li>On peut sélectionner une partie de la palette (très utile au final - voir plus loin)</li>
@@ -423,10 +417,7 @@ div.tocify {
 <pre><code>colorpalette nom_palette, select(numlist)</code></pre>
 <p>Exemple</p>
 <pre><code>colorpalette s2, select(1 6 14)</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g3.png" /></p>
-</div>
-<p><br></p>
+<p><img src="imgc/g3.png" style="width:75.0%" /> &gt; <br></p>
 <ul>
 <li>On peut réduire la taille de la palette [très utile]</li>
 </ul>
@@ -439,22 +430,18 @@ div.tocify {
 </ul></li>
 </ul>
 <pre><code>colorpalette s2, intensity(0.50) force  gropts(scale(0.9))</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
 <div class="figure">
-<img src="imgc/g4.png" alt="Intensité à 0.5" />
+<img src="imgc/g4.png" alt="Intensité à 0.5" style="width:75.0%" />
 <p class="caption">Intensité à 0.5</p>
-</div>
 </div>
 <p><br></p>
 <ul>
 <li>On peut visualiser l’effet au niveau des couleurs du changement d’opacité (transparence) avec l’option <code>opacity(#)</code> [# de 0+ à 100-]</li>
 </ul>
 <pre><code>colorpalette s2, opacity(50) force  gropts(scale(0.9))</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
 <div class="figure">
-<img src="imgc/g5.png" alt="50% de transparence" />
+<img src="imgc/g5.png" alt="50% de transparence" style="width:75.0%" />
 <p class="caption">50% de transparence</p>
-</div>
 </div>
 <p><br></p>
 <ul>
@@ -481,7 +468,7 @@ div.tocify {
       class(class)        set palette class</code></pre>
 </div>
 <div id="utilisation-des-macros-générées-par-colorpalette" class="section level2">
-<h2><span class="header-section-number">2.3</span> Utilisation des macros générées par colorpalette</h2>
+<h2><span class="header-section-number">1.3</span> Utilisation des macros générées par colorpalette</h2>
 <ul>
 <li>Colorpalette enregistre les noms ou codes des couleurs sous forme de macro (<code>return list</code>)</li>
 <li>Ces valeurs peuvent donc être utilisée automatiser la sélection des couleurs</li>
@@ -540,21 +527,18 @@ macros:
 <p><strong>Exemple</strong></p>
 <pre><code>sysuse uslifeexp.dta
 tw line le le_male le_female year</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g6.png" /></p>
-</div>
+<p><img src="imgc/g6.png" style="width:75.0%" /></p>
 <p><br></p>
 <p>Les couleurs des trois courbes sont bien les trois premières couleurs de la palette <code>s2</code>.<br />
 <br> Si on souhaite utiliser les couleurs (5,6,14) au lieu des couleurs (1,2,3) de la palette complète + une intensité de 1.2:</p>
 <pre><code>colorpalette s2, select(5 6 14) intensity(1.2) nograph
 tw line le le_male le_female year, lc(`r(p)&#39;)</code></pre>
 <p>Rappel: <code>lc()</code> est l’expression tronquée de <code>lcolor()</code> [line color]</p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g7.png" /></p>
-</div>
+<p><img src="imgc/g7.png" style="width:75.0%" /></p>
+<p><br></p>
 </div>
 <div id="utilisation-dune-palette-de-couleurs-avec-grstyle" class="section level2">
-<h2><span class="header-section-number">2.4</span> Utilisation d’une palette de couleurs avec grstyle</h2>
+<h2><span class="header-section-number">1.4</span> Utilisation d’une palette de couleurs avec grstyle</h2>
 <ul>
 <li>Les options et la récupération des couleurs sélectionnées sont également intégrées à la commande <code>grstyle</code> de Ben Jann [<code>grstyle set color [options]</code>]</li>
 <li>En sélectionnant cette fois-ci les couleurs (1,6,4) de la palette <em>s2</em> et en customizant légèrement le graphique:</li>
@@ -566,13 +550,11 @@ grstyle set mesh,  horizontal
 grstyle set color s2, select(1 6 4)
 
 tw line le le_male le_female year, legend(cols(3))</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g8.png" /></p>
-</div>
+<p><img src="imgc/g8.png" style="width:75.0%" /></p>
 <p><br></p>
 </div>
 <div id="cas-dun-graphique-à-plusieurs-composantes" class="section level2">
-<h2><span class="header-section-number">2.5</span> Cas d’un graphique à plusieurs composantes</h2>
+<h2><span class="header-section-number">1.5</span> Cas d’un graphique à plusieurs composantes</h2>
 <p><strong>Avec colorpalette</strong></p>
 <ul>
 <li>Pour un graphique à plusieurs composantes [<code>tw (objet1) (objet2)...</code>] ou [<code>tw objet1 || (objet2 ||...</code>] , on ne peut pas utiliser d’un bloc tous les codes couleurs avec <code>r(p)</code></li>
@@ -586,9 +568,7 @@ local opts mlc(black) mlw(vthin)
 tw (scatter price mpg if foreign==0, mc(`r(p1)&#39;) `opts&#39;)  ///
    (scatter price mpg if foreign==1, mc(`r(p2)&#39;) `opts&#39;), ///
    legend(order(1 &quot;Domestic&quot; 2 &quot;Foreign&quot;))</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g9.png" /></p>
-</div>
+<p><img src="imgc/g9.png" style="width:75.0%" /></p>
 <p><br></p>
 <p><strong>Avec grstyle</strong></p>
 <ul>
@@ -608,14 +588,12 @@ tw (scatter price mpg if foreign==0, `opts&#39;)  ///
 <p><strong>Remarque</strong>: <code>grstyle</code> permet également de paramétrer la couleur et l’épaisseur des contours des marqueurs</p>
 </div>
 <div id="la-palette-de-couleur-de-ggplot2" class="section level2">
-<h2><span class="header-section-number">2.6</span> La palette de couleur de ggplot2</h2>
+<h2><span class="header-section-number">1.6</span> La palette de couleur de ggplot2</h2>
 <ul>
 <li>Avec <code>colorpalette</code>, le nom de la palette utilisée par le standard <strong>ggplot2</strong> est <strong>hue</strong> (15 couleurs par défaut)</li>
 </ul>
 <pre><code>colorpalette hue</code></pre>
-<div style="border: 1px solid black">
 <p><img src="imgc/g10.png" /></p>
-</div>
 <p><br></p>
 <ul>
 <li>La sélection automatique des couleurs sur une palette à 15 éléments ne donne pas un résultat pertinent niveau visualisation</li>
@@ -624,9 +602,7 @@ tw (scatter price mpg if foreign==0, `opts&#39;)  ///
 *set scheme s2color
 colorpalette hue, nograph
 tw line le le_male le_female year, lc(`r(p)&#39;)</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g11.png" /></p>
-</div>
+<p><img src="imgc/g11.png" style="width:75.0%" /></p>
 <p><br></p>
 <ul>
 <li>Il convient donc:
@@ -652,9 +628,7 @@ tw line le le_male le_female year, lc(`r(p)&#39;)</code></pre>
 *set scheme s2color
 colorpalette hue, n(3) nograph
 tw line le le_male le_female year, lc(`r(p)&#39;)</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g12.png" /></p>
-</div>
+<p><img src="imgc/g12.png" style="width:75.0%" /></p>
 <p><br></p>
 <p>Avec `grstyle``</p>
 <pre><code>grstyle init
@@ -663,15 +637,12 @@ grstyle set plain, horizontal grid compact
 grstyle set mesh,  horizontal
 grstyle set color hue, n(3)
 tw line le le_male le_female year, legend(cols(3))</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g14.png" /></p>
-</div>
-<p><br></p>
+<p><img src="imgc/g14.png" style="width:75.0%" /> <br></p>
 <p><strong>Rappels sur les courbes</strong>: attention au nombre de courbes affichées dans un même graphique, cela peut devenir illisible (<em>effet spaghetti</em>)</p>
 </div>
 </div>
 <div id="exemples-de-palette" class="section level1">
-<h1><span class="header-section-number">3</span> Exemples de palette</h1>
+<h1><span class="header-section-number">2</span> Exemples de palette</h1>
 <p><strong>[A voir: mettre quelques exemples de graphiques]</strong></p>
 <ul>
 <li>Se reporter à l’aide de <code>colorpalette</code>, il est possible de visualiser directement un nombre impressionnant de palettes de couleurs</li>
@@ -683,114 +654,82 @@ tw line le le_male le_female year, legend(cols(3))</code></pre>
 </ul></li>
 </ul>
 <div id="palette-stata" class="section level2">
-<h2><span class="header-section-number">3.1</span> Palette Stata</h2>
+<h2><span class="header-section-number">2.1</span> Palette Stata</h2>
 <p>Palettes de types qualitatives</p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g15.png" /></p>
-</div>
+<p><img src="imgc/g15.png" style="width:75.0%" /></p>
 </div>
 <div id="palettes-thèmes-externe-stata" class="section level2">
-<h2><span class="header-section-number">3.2</span> Palettes thèmes externe Stata</h2>
+<h2><span class="header-section-number">2.2</span> Palettes thèmes externe Stata</h2>
 <p>Palettes de types qualitatives</p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g16.png" /></p>
-</div>
+<p><img src="imgc/g16.png" style="width:75.0%" /></p>
 </div>
 <div id="hcl" class="section level2">
-<h2><span class="header-section-number">3.3</span> HCL</h2>
+<h2><span class="header-section-number">2.3</span> HCL</h2>
 <pre><code>`coloraplette hcl, nom_sous_palette [options]`</code></pre>
 <div id="qualitatives" class="section level3">
-<h3><span class="header-section-number">3.3.1</span> Qualitatives</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g17.png" /></p>
-</div>
+<h3><span class="header-section-number">2.3.1</span> Qualitatives</h3>
+<p><img src="imgc/g17.png" style="width:75.0%" /></p>
 <p><br></p>
 <ul>
 <li>La palettes <strong>hcl intense</strong> est identique à la palette <strong>hue</strong> de la section précédente, ici avec 9 couleurs <code>n(9)</code></li>
 <li>Si on veut afficher et utiliser la palette <strong>hcl qualitative</strong> avec les valeurs RGB:</li>
 </ul>
 <pre><code>coloraplette hcl, qualitative force</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g18.png" /></p>
-</div>
+<p><img src="imgc/g18.png" style="width:75.0%" /></p>
 </div>
 <div id="séquentielles" class="section level3">
-<h3><span class="header-section-number">3.3.2</span> Séquentielles</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g19.png" /></p>
-</div>
+<h3><span class="header-section-number">2.3.2</span> Séquentielles</h3>
+<p><img src="imgc/g20.png" style="width:75.0%" /></p>
 <p><br></p>
 <p>La palette <strong>VIRIDIS</strong> est très populaire en dataviz, et peut-être utilisée comme une palette qualitative avec un nombre limité de couleurs</p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g20.png" /></p>
-</div>
-<p><br></p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
 <div class="figure">
-<img src="imgc/g21.png" alt="Palette Viridis à 4 couleurs" />
+<img src="imgc/g21.png" alt="Palette Viridis à 4 couleurs" style="width:75.0%" />
 <p class="caption">Palette Viridis à 4 couleurs</p>
 </div>
 </div>
-</div>
 <div id="divergentes" class="section level3">
-<h3><span class="header-section-number">3.3.3</span> Divergentes</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g22.png" /></p>
-</div>
+<h3><span class="header-section-number">2.3.3</span> Divergentes</h3>
+<p><img src="imgc/g22.png" style="width:75.0%" /></p>
 </div>
 </div>
 <div id="hsv" class="section level2">
-<h2><span class="header-section-number">3.4</span> HSV</h2>
+<h2><span class="header-section-number">2.4</span> HSV</h2>
 <p>Proche de la précédentes avec, me semble t-il, des intensités plus élevées</p>
 <pre><code>coloraplette hsv, nom_sous_palette [options]</code></pre>
 <div id="qualitatives-1" class="section level3">
-<h3><span class="header-section-number">3.4.1</span> Qualitatives</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
+<h3><span class="header-section-number">2.4.1</span> Qualitatives</h3>
 <p><img src="imgc/g23.png" /></p>
 </div>
-</div>
 <div id="séquentielles-1" class="section level3">
-<h3><span class="header-section-number">3.4.2</span> Séquentielles</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g24.png" /></p>
-</div>
+<h3><span class="header-section-number">2.4.2</span> Séquentielles</h3>
+<p><img src="imgc/g24.png" style="width:75.0%" /></p>
 </div>
 <div id="divergentes-1" class="section level3">
-<h3><span class="header-section-number">3.4.3</span> Divergentes</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g25.png" /></p>
-</div>
+<h3><span class="header-section-number">2.4.3</span> Divergentes</h3>
+<p><img src="imgc/g25.png" style="width:75.0%" /></p>
 </div>
 </div>
 <div id="colorbrewer" class="section level2">
-<h2><span class="header-section-number">3.5</span> Colorbrewer</h2>
+<h2><span class="header-section-number">2.5</span> Colorbrewer</h2>
 <p><a href="https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3" class="uri">https://colorbrewer2.org/#type=sequential&amp;scheme=BuGn&amp;n=3</a></p>
 <pre><code>`coloraplette nom_palette [,options]`</code></pre>
 <div id="qualitatives-2" class="section level3">
-<h3><span class="header-section-number">3.5.1</span> Qualitatives</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g26.png" /></p>
-</div>
+<h3><span class="header-section-number">2.5.1</span> Qualitatives</h3>
+<p><img src="imgc/g26.png" style="width:75.0%" /></p>
 </div>
 <div id="séquentielles-2" class="section level3">
-<h3><span class="header-section-number">3.5.2</span> Séquentielles</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g27.png" /></p>
-</div>
+<h3><span class="header-section-number">2.5.2</span> Séquentielles</h3>
+<p><img src="imgc/g27.png" style="width:75.0%" /></p>
 <p><br></p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g28.png" /></p>
-</div>
+<p><img src="imgc/g28.png" style="width:75.0%" /></p>
 </div>
 <div id="divergentes-2" class="section level3">
-<h3><span class="header-section-number">3.5.3</span> Divergentes</h3>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g29.png" /></p>
-</div>
+<h3><span class="header-section-number">2.5.3</span> Divergentes</h3>
+<p><img src="imgc/g29.png" style="width:75.0%" /></p>
 </div>
 </div>
 <div id="viridis" class="section level2">
-<h2><span class="header-section-number">3.6</span> Viridis</h2>
+<h2><span class="header-section-number">2.6</span> Viridis</h2>
 <ul>
 <li>Voir plus haut les palettes <strong>hcl</strong></li>
 <li>Les palettes <strong>viridis</strong> sont régulièrement utilisées avec Python</li>
@@ -798,62 +737,48 @@ tw line le le_male le_female year, legend(cols(3))</code></pre>
 <li>On peut les rendre qualitative en réduisant la taille de la palette <code>n(#)</code></li>
 </ul>
 <pre><code>coloraplette nom_palette [,options]</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g30.png" /></p>
-</div>
+<p><img src="imgc/g30.png" style="width:75.0%" /></p>
 <p><br></p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
 <div class="figure">
-<img src="imgc/g31.png" alt="Palettes à 4 couleurs" />
+<img src="imgc/g31.png" alt="Palettes à 4 couleurs" style="width:75.0%" />
 <p class="caption">Palettes à 4 couleurs</p>
-</div>
 </div>
 </div>
 <div id="matplotlib" class="section level2">
-<h2><span class="header-section-number">3.7</span> Matplotlib</h2>
+<h2><span class="header-section-number">2.7</span> Matplotlib</h2>
 <p>Palettes des objets graphiques de la librairie <code>matplotlib</code> de Python</p>
 <pre><code>coloraplette matplotlib, nom_sous_palette [options]</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g32.png" /></p>
-</div>
+<p><img src="imgc/g32.png" style="width:75.0%" /></p>
 <p><br></p>
-<div style="border: 1px solid black; width:519px; heigth:377px">
 <div class="figure">
-<img src="imgc/g33.png" alt="Palettes à 4 couleurs" />
+<img src="imgc/g33.png" alt="Palettes à 4 couleurs" style="width:75.0%" />
 <p class="caption">Palettes à 4 couleurs</p>
 </div>
 </div>
-</div>
 <div id="ptol" class="section level2">
-<h2><span class="header-section-number">3.8</span> Ptol</h2>
+<h2><span class="header-section-number">2.8</span> Ptol</h2>
 <p>3 types de palette: qualitative, divergente et de type arc en ciel</p>
 <pre><code>coloraplette ptol, nom_sous_palette [options]</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g34.png" /></p>
-</div>
+<p><img src="imgc/g35.png" style="width:75.0%" /></p>
 <p>La première palette (3 couleurs): <code>colorpalette ptol, qualitative n(3)</code></p>
 </div>
 <div id="d3" class="section level2">
-<h2><span class="header-section-number">3.9</span> D3</h2>
+<h2><span class="header-section-number">2.9</span> D3</h2>
 <pre><code>coloraplette d3, nom_sous_palette [options]</code></pre>
 <ul>
 <li>La première palette à 10 couleurs est qualitative</li>
 <li>La seconde palette à 20 couleurs est composée de 10 paires qualitatives, avec un élément plus foncé et un élément claire</li>
 <li>Les troisièmes et quatrième palettes ont 20 couleurs à 5 ensembles qualitatifs (bleu,orange vert, mauve, gris) avec des éléments allant du du plus foncé au plus claire</li>
 </ul>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g35.png" /></p>
-</div>
+<p><img src="imgc/g36.png" style="width:75.0%" /></p>
 <p><br></p>
 </div>
 <div id="spmap" class="section level2">
-<h2><span class="header-section-number">3.10</span> Spmap</h2>
+<h2><span class="header-section-number">2.10</span> Spmap</h2>
 <p>Comme son nom l’indique, il s’agit d’un ensemble de palettes prévues pour générer des cartes.<br />
 Ces palettes (et d’autres) sont intégrées dans la commande Stata du même nom (<code>ssc install spmap</code>[M.Pisatti] - <code>help spmap</code>)</p>
 <pre><code>coloraplette spmap, nom_sous_palette [options]</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g38.png" /></p>
-</div>
+<p><img src="imgc/g38.png" style="width:75.0%" /></p>
 <p><br></p>
 <p>Exemples (palettes <em>reds</em> et <em>rainbow</em>)</p>
 <pre><code>* help spmap
@@ -871,9 +796,7 @@ subtitle(&quot;Italy, 1994-98&quot; &quot; &quot;, size(*0.8))                  
 legstyle(3) legend(ring(1) position(3))  name(g2, replace) nodraw
 
 graph combine g1 g2, ysize(9) xsize(20)  plotr(color(white))  graphr(color(white))</code></pre>
-<div style="border: 1px solid black; width:519px; heigth:377px">
-<p><img src="imgc/g39.png" /></p>
-</div>
+<p><img src="imgc/g39.png" style="width:75.0%" /></p>
 <p><strong>Remarques</strong>:</p>
 <ul>
 <li>La commande <code>spmap</code> ne fonctionne pas avec <code>grstyle set color</code></li>
@@ -883,9 +806,9 @@ graph combine g1 g2, ysize(9) xsize(20)  plotr(color(white))  graphr(color(white
 </div>
 </div>
 <div id="exemples-de-graphiques" class="section level1">
-<h1><span class="header-section-number">4</span> Exemples de graphiques</h1>
+<h1><span class="header-section-number">3</span> Exemples de graphiques</h1>
 <div id="palettes-qualitatives" class="section level2">
-<h2><span class="header-section-number">4.1</span> Palettes qualitatives</h2>
+<h2><span class="header-section-number">3.1</span> Palettes qualitatives</h2>
 <p><strong>Pyramide des âges et évolution de l’espérance de vie</strong><br />
 <br> Le programme pour la pyramide des âges est donné dans l’aide de <code>help tw bar</code></p>
 <p>Programme</p>
@@ -894,38 +817,30 @@ graph combine g1 g2, ysize(9) xsize(20)  plotr(color(white))  graphr(color(white
 <li>La pyramide est définie et exécutée par la fonction <code>pyramide</code></li>
 </ul>
 <div id="s2" class="section level3">
-<h3><span class="header-section-number">4.1.1</span> S2</h3>
-<div style="border: 1px solid black">
-<p><img src="imgc/e1.png" /></p>
-</div>
+<h3><span class="header-section-number">3.1.1</span> S2</h3>
+<p><img src="imgc/e1.png" style="width:75.0%" /></p>
 </div>
 <div id="hue" class="section level3">
-<h3><span class="header-section-number">4.1.2</span> HUE</h3>
-<div style="border: 1px solid black">
-<p><img src="imgc/e2.png" /></p>
-</div>
+<h3><span class="header-section-number">3.1.2</span> HUE</h3>
+<p><img src="imgc/e2.png" style="width:75.0%" /></p>
 </div>
 <div id="colorbrewer---dark2" class="section level3">
-<h3><span class="header-section-number">4.1.3</span> COLORBREWER - DARK2</h3>
+<h3><span class="header-section-number">3.1.3</span> COLORBREWER - DARK2</h3>
 <ul>
 <li>Pallete de <code>colorbrewer</code></li>
 <li>L’intensité pour les courbes a été augmenté de 20%</li>
 </ul>
-<div style="border: 1px solid black">
 <p><img src="imgc/e3.png" /></p>
 </div>
-</div>
 <div id="viridis-1" class="section level3">
-<h3><span class="header-section-number">4.1.4</span> VIRIDIS</h3>
-<div style="border: 1px solid black">
-<p><img src="imgc/e4.png" /></p>
-</div>
+<h3><span class="header-section-number">3.1.4</span> VIRIDIS</h3>
+<p><img src="imgc/e4.png" style="width:75.0%" /></p>
 </div>
 </div>
 <div id="palettes-séquentielles-et-divergentes" class="section level2">
-<h2><span class="header-section-number">4.2</span> Palettes séquentielles et divergentes</h2>
+<h2><span class="header-section-number">3.2</span> Palettes séquentielles et divergentes</h2>
 <div id="barres" class="section level3">
-<h3><span class="header-section-number">4.2.1</span> Barres</h3>
+<h3><span class="header-section-number">3.2.1</span> Barres</h3>
 <p><strong>Répartition d’une variable ordinale</strong></p>
 <pre><code>use nhanes2f, clear
 
@@ -959,31 +874,25 @@ percent(race) asyvars stack legend(pos(3) cols(1)) nodraw name(g2,replace)
 
 grc1leg g1 g2, ysize(9) xsize(20) legendfrom(g1) pos(3)  plotr(color(white))  graphr(color(white))</code></pre>
 <div id="hcl---blues" class="section level4">
-<h4><span class="header-section-number">4.2.1.1</span> HCL - BLUES</h4>
+<h4><span class="header-section-number">3.2.1.1</span> HCL - BLUES</h4>
 <ul>
 <li>La taille de la palette a été fixée à 6 couleurs (la variable <em>health</em> a 5 modalité) pour éviter un bleu trop proche du blanc</li>
 <li>Si une modalité est très proche du blanc, il convient de modifié la couleur du background (avec <code>grstyle</code>: <code>grstyle set imesh,  horizontal</code> )</li>
 </ul>
-<div style="border: 1px solid black">
 <p><img src="imgc/e5.png" /></p>
 </div>
-</div>
 <div id="viridis-2" class="section level4">
-<h4><span class="header-section-number">4.2.1.2</span> VIRIDIS</h4>
-<div style="border: 1px solid black">
+<h4><span class="header-section-number">3.2.1.2</span> VIRIDIS</h4>
 <p><img src="imgc/e6.png" /></p>
 </div>
-</div>
 <div id="matplotlib--" class="section level4">
-<h4><span class="header-section-number">4.2.1.3</span> MATPLOTLIB -</h4>
+<h4><span class="header-section-number">3.2.1.3</span> MATPLOTLIB -</h4>
 <p><strong>Les 4 saisons de matplotlib</strong></p>
-<div style="border: 1px solid black">
 <p><img src="imgc/e7.png" /></p>
 </div>
 </div>
-</div>
 <div id="bulles---matplotlib" class="section level3">
-<h3><span class="header-section-number">4.2.2</span> Bulles - Matplotlib</h3>
+<h3><span class="header-section-number">3.2.2</span> Bulles - Matplotlib</h3>
 <ul>
 <li>Données issues du site <a href="https://www.gapminder.org/data/" class="uri">https://www.gapminder.org/data/</a></li>
 <li>Utilisation des palettes matplotlib “4 saisons”:
@@ -997,12 +906,10 @@ grc1leg g1 g2, ysize(9) xsize(20) legendfrom(g1) pos(3)  plotr(color(white))  gr
 <li><p>[<strong>Demetris Christodoulou</strong>] graphique généré par Stata [avec bien plus d’options]: <a href="https://graphworkflow.com/2019/09/23/tribute-to-hans-rosling/" class="uri">https://graphworkflow.com/2019/09/23/tribute-to-hans-rosling/</a></p></li>
 <li><p><strong>Avec une opacité de 80%</strong>. Comme le graphique est combiné, on ne distingue pas très bien les bulles superposées</p></li>
 </ul>
-<div style="border: 1px solid black">
 <p><img src="imgc/gm1.png" /></p>
 </div>
-</div>
 <div id="densité---matplotlib" class="section level3">
-<h3><span class="header-section-number">4.2.3</span> Densité - Matplotlib</h3>
+<h3><span class="header-section-number">3.2.3</span> Densité - Matplotlib</h3>
 <ul>
 <li>Même données et mêmes palettes que pour les bulles</li>
 <li>Les densités ont été estimées [commande <code>kdensity</code>] avec comme niveau d’observation les pays:
@@ -1017,37 +924,24 @@ grc1leg g1 g2, ysize(9) xsize(20) legendfrom(g1) pos(3)  plotr(color(white))  gr
 <ul>
 <li><strong>Avec 80% d’opacité</strong></li>
 </ul>
-<div style="border: 1px solid black">
 <p><img src="imgc/gm2.png" /></p>
-</div>
 <p><br></p>
-<div style="border: 1px solid black">
 <ul>
-<li><strong>Avec 50% d’opacité</strong></li>
+<li><strong>Avec 50% d’opacité</strong> <img src="imgc/gm2b.png" /></li>
 </ul>
-<p><img src="imgc/gm2b.png" /></p>
-</div>
 <p><br></p>
 <ul>
 <li><strong>Avec 80% d’opacité sans contour</strong></li>
 </ul>
-<div style="border: 1px solid black">
 <p><img src="imgc/gm3.png" /></p>
-</div>
 <p><br></p>
 <ul>
-<li><strong>Avec 80% d’opacité et contour</strong></li>
+<li><strong>Avec 80% d’opacité et contour</strong> <img src="imgc/gm3b.png" /></li>
 </ul>
-<div style="border: 1px solid black">
-<p><img src="imgc/gm3b.png" /></p>
-</div>
 <p><br></p>
 <ul>
-<li><strong>Avec 50% d’opacité et contour</strong></li>
+<li><strong>Avec 50% d’opacité et contour</strong> <img src="imgc/gm3c.png" /></li>
 </ul>
-<div style="border: 1px solid black">
-<p><img src="imgc/gm3c.png" /></p>
-</div>
 <p><br> <strong>Elements de programme pour le graphique à bulle [année 1957]</strong></p>
 <pre><code>use gm2, clear
 * Asie et Océanie fusionnée
@@ -1198,7 +1092,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0

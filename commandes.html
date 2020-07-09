@@ -349,6 +349,9 @@ div.tocify {
     <li>
       <a href="couleurs.html">Couleurs</a>
     </li>
+    <li>
+      <a href="programmes.html">Programmes</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -436,6 +439,7 @@ div.tocify {
   </table>
 
 <p><br> <br></p>
+<p>[maj prévue pour tous les graphiques]</p>
 <ul>
 <li><strong>Installation</strong>:<br />
 Les commandes peuvent être installées directement avec:</li>
@@ -883,7 +887,7 @@ $(document).ready(function ()  {
       theme: "bootstrap3",
       context: '.toc-content',
       hashGenerator: function (text) {
-        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_').toLowerCase();
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
       },
       ignoreSelector: ".toc-ignore",
       scrollTo: 0
