@@ -13,7 +13,7 @@
 
 <meta name="date" content="2020-10-07" />
 
-<title>Visualisation des données</title>
+<title>Formation</title>
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -465,7 +465,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Visualisation des données</h1>
+<h1 class="title toc-ignore">Formation</h1>
 <h4 class="author">Marc Thevenin</h4>
 <h4 class="date">10/07/2020</h4>
 
@@ -538,25 +538,23 @@ hide:hover {
 </ul></li>
 <li><strong><span style="color:rgb(201, 152, 0)">Visualisation des données avec Stata</span></strong>
 <ul>
-<li><span style="color:rgb(201, 152, 0)">Graphiques statiques</span>
-<ul>
-<li><span style="color:rgb(0, 191, 125)">Variable(s) continues: une/plusieurs</span>
+<li><span style="color:rgb(97, 156, 255)">Graphiques statiques</span>
 <ul>
 <li><span style="color:rgb(97, 156, 255)">Histogramme et densité</span><br />
 </li>
 <li><span style="color:rgb(97, 156, 255)">Box plot et violon</span><br />
 </li>
-<li><span style="color:rgb(0, 191, 125)">Nuages et densité 2d</span><br />
+<li><span style="color:rgb(97, 156, 255)">Nuages et densité 2d</span><br />
 </li>
-<li><span style="color:rgb(255, 103, 164)">Courbes</span><br />
+<li><span style="color:rgb(97, 156, 255)">Courbes</span><br />
 </li>
-<li><span style="color:rgb(255, 103, 164)">Barres</span><br />
+<li><span style="color:rgb(255, 103, 164)">Barres et dots</span></li>
+<li><span style="color:rgb(255, 103, 164)">Catplot et spineplot</span><br />
 </li>
-</ul></li>
-<li><span style="color:rgb(255, 103, 164)">Variable(s) catégorielles: une/plusieurs</span></li>
-<li><span style="color:rgb(255, 103, 164)">Variables continues et catégorielles</span><br />
-</li>
+<li><span style="color:rgb(255, 103, 164)">Le fromage</span></li>
 <li><span style="color:rgb(255, 103, 164)">Résultats d’analyses</span></li>
+<li><span style="color:rgb(255, 103, 164)">Carto</span><br />
+</li>
 </ul></li>
 </ul></li>
 <li><strong><span style="color:rgb(255, 103, 164)">Graphiques intéractifs &amp; animés: Python</span></strong>
@@ -762,7 +760,7 @@ Plutôt que de multiplier le nombre d’objets et d’options, il peut être jud
 <div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="kw">title</span>(<span class="st">&quot;MON TITRE&quot;</span>, <span class="kw">c</span>(red) box <span class="kw">fc</span>(blue) <span class="kw">lc</span>(black)   )  <span class="op">/</span><span class="er">//</span></a>
 <a class="sourceLine" id="cb12-2" title="2"><span class="kw">legend</span>(<span class="kw">region</span>(<span class="kw">fc</span>(blue<span class="op">*</span>.<span class="dv">2</span>) <span class="kw">lc</span>(black)))</a></code></pre></div>
 <p><strong>EXEMPLES</strong><br />
-<br> <strong>Nuages - bulles [scatter]</strong><br />
+<br> <strong>Nuages - bulles <a href="#scatter">scatter</a></strong><br />
 <em>Graphique 3</em><br />
 <img src="imgf/g4.png" style="width:75.0%" /></p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">clear</a>
@@ -1391,10 +1389,10 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <a class="sourceLine" id="cb34-13" title="13"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> <span class="st">`</span><span class="dt">varname&#39;==1, mc(%70) mlc(black) mlw(vthin) ///</span></a>
 <a class="sourceLine" id="cb34-14" title="14"><span class="dt">, legend(order(1 &quot;</span><span class="st">`</span>lab0<span class="st">&#39;&quot; 2 &quot;`lab1&#39;&quot;))</span></a></code></pre></div>
 <p><em>Graphique 26</em><br />
-<img src="imgf/g18.png" style="width:75.0%" /></p>
+<img src="imgf/g18.png" style="width:50.0%" /></p>
 <p>En changeant <strong><code>local varname rep</code></strong> par <strong><code>local varname foreign</code></strong></p>
 <p><em>Graphique 27</em><br />
-<img src="imgf/g19.png" style="width:75.0%" /></p>
+<img src="imgf/g19.png" style="width:50.0%" /></p>
 <ul>
 <li><strong>Mofication du format d’une valeur numérique (changement du nombre de décimale)</strong>
 <ul>
@@ -1510,7 +1508,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <a class="sourceLine" id="cb39-14" title="14"><span class="st">note(&quot;Moyenne Price = `mprice&#39;&quot; ///</span></a>
 <a class="sourceLine" id="cb39-15" title="15"><span class="st">     &quot;</span>Moyenne <span class="dt">Mpg   =</span> <span class="st">`</span><span class="dt">mmpg&#39;&quot;  ) legend(off)</span></a></code></pre></div>
 <p><em>Graphique 28</em><br />
-<img src="imgf/g20.png" style="width:75.0%" /></p>
+<img src="imgf/g20.png" style="width:50.0%" /></p>
 </div>
 <div id="autres-1" class="section level3">
 <h3><span class="header-section-number">3.1.3</span> Autres</h3>
@@ -1619,7 +1617,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <a class="sourceLine" id="cb47-16" title="16"><span class="st">note(&quot;Moyenne `1&#39;</span> =<span class="st"> `</span><span class="dt">m1&#39;&quot; ///</span></a>
 <a class="sourceLine" id="cb47-17" title="17"><span class="dt">     &quot;Moyenne </span><span class="st">`</span><span class="dv">2</span><span class="st">&#39; = `m2&#39;&quot;  ) legend(off)</span></a></code></pre></div>
 <p><em>Graphique 29</em><br />
-<img src="imgf/g21.png" style="width:75.0%" /></p>
+<img src="imgf/g21.png" style="width:50.0%" /></p>
 <p><em>Spoil alert</em>: il ne reste plus qu’à se débarasser de la répétition des options dans le graphique [section suivante]</p>
 <p>** Pour info: autres compteurs</p>
 <ul>
@@ -1718,7 +1716,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <a class="sourceLine" id="cb52-5" title="5"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">5</span>, <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(%<span class="dv">70</span>) <span class="kw">msiz</span>(medlarge),</a>
 <a class="sourceLine" id="cb52-6" title="6"><span class="kw">legend</span>(off)   </a></code></pre></div>
 <p><em>Graphique 30</em><br />
-<img src="imgf/g22.png" style="width:75.0%" /></p>
+<img src="imgf/g22.png" style="width:50.0%" /></p>
 <p>Avec les options sous forme de macro</p>
 <div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb53-1" title="1">local ops <span class="st">&quot;mlc(black) mlw(vthin) mc(%70) msiz(medlarge)&quot;</span></a>
 <a class="sourceLine" id="cb53-2" title="2"></a>
@@ -1737,7 +1735,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <a class="sourceLine" id="cb54-6" title="6"><span class="er">||</span><span class="st"> </span>scatter price mpg <span class="cf">if</span> rep78<span class="op">==</span><span class="dv">4</span>, <span class="st">`</span><span class="dt">ops&#39; ///</span></a>
 <a class="sourceLine" id="cb54-7" title="7"><span class="dt">|| scatter price mpg if rep78==5, </span><span class="st">`</span>ops<span class="st">&#39;  </span></a></code></pre></div>
 <p><em>Graphique 31</em><br />
-<img src="imgf/g23.png" style="width:75.0%" /></p>
+<img src="imgf/g23.png" style="width:50.0%" /></p>
 </div>
 <div id="macro-élargie" class="section level2">
 <h2><span class="header-section-number">3.3</span> Macro élargie</h2>
@@ -1952,7 +1950,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <a class="sourceLine" id="cb73-6" title="6"></a>
 <a class="sourceLine" id="cb73-7" title="7">sgraph tempjan tempjuly region</a></code></pre></div>
 <p><em>Graphique 32</em><br />
-<img src="imgf/g27.png" style="width:75.0%" /></p>
+<img src="imgf/g27.png" style="width:50.0%" /></p>
 </div>
 <div id="un-festival-de-macros" class="section level2">
 <h2><span class="header-section-number">3.5</span> Un festival de macros</h2>
@@ -1983,8 +1981,8 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 </ul>
 <p>On compare la pression sanguine des hommes et des femmes (base <em>nhanes2.dta</em>): variables <em>bpsystol</em> et <em>sex</em>:</p>
 <p><em>Graphique 33</em><br />
-<img src="imgf/g24.png" style="width:75.0%" /></p>
-<p>[Expliquer rapidement le graphique: densites en mirroire + boxplot] [Données quelques éléments d’amélioration: un échantillon pour les outliers, ici c’est trop chargé / problème rencontrés sur le rendu des axes avec des petites échantillons: base auto variable displacement par exemple]</p>
+<img src="imgf/g24.png" style="width:50.0%" /></p>
+<p>[Données quelques éléments d’amélioration: un échantillon pour les outliers, ici c’est trop chargé / problème rencontrés sur le rendu des axes avec des petits échantillons: base auto variable displacement par exemple]</p>
 <p><strong>Programme en un bloc</strong></p>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb74-1" title="1">webuse nhanes2, clear</a>
 <a class="sourceLine" id="cb74-2" title="2"></a>
@@ -2699,33 +2697,31 @@ Plus simple à programmer, car on a besoin seulement d’une couleur de départ 
 <h1><span class="header-section-number">5</span> Visualisation des données avec Stata</h1>
 <p><strong>Principe de la section</strong>:</p>
 <ul>
-<li>Reprendre les principales représentations graphiques <a href="https://www.data-to-viz.com" class="uri">https://www.data-to-viz.com</a></li>
+<li>Reprendre les principales représentations graphiques: <a href="https://www.data-to-viz.com" class="uri">https://www.data-to-viz.com</a></li>
 <li>Commande(s) Stata internes ou externes</li>
 <li>Rappel sur des points de vigilance et limites, et lorsque c’est possibles les solutions ou les moyens de les contourner</li>
 <li>Les Exemples programmés avec Stata s’appuient sur les visualisations du site <a href="https://www.data-to-viz.com" class="uri">https://www.data-to-viz.com</a>
 <ul>
 <li>Comparaison avec R [ggplot2]</li>
 </ul></li>
-<li>Une partie dédiée aux présentations des résultats de modélisation: effets marinaux, odds ratios, risk ratio</li>
+<li>Une partie dédiée aux présentations des résultats de modélisation: effets marginaux, odds ratios, risk ratio</li>
 </ul>
-<p><strong>Liens sites Stata</strong> <strong>Stata sheet</strong>:<br />
-<br> <strong>Galerie Sdas</strong> [programmes courts]: <a href="https://www.surveydesign.com.au/tipsgraphs.html" class="uri">https://www.surveydesign.com.au/tipsgraphs.html</a> <br> <strong>Galerie Maarten Buis</strong>: <a href="http://www.maartenbuis.nl/workshops/graphs_in_stata/workshop.html" class="uri">http://www.maartenbuis.nl/workshops/graphs_in_stata/workshop.html</a> <br> <strong>Site de Demetris Christodoulou</strong> [A utiliser]<br />
+<p><strong>Liens sites Stata</strong> <strong>Stata sheets</strong>: <a href="https://www.stata.com/links/resources-for-learning-stata/cheat-sheets/StataCheatSheet_visualization_2016_June-REV.pdf" class="uri">https://www.stata.com/links/resources-for-learning-stata/cheat-sheets/StataCheatSheet_visualization_2016_June-REV.pdf</a> <br> <strong>Galerie Sdas</strong> [programmes courts]: <a href="https://www.surveydesign.com.au/tipsgraphs.html" class="uri">https://www.surveydesign.com.au/tipsgraphs.html</a> <br> <strong>Galerie Maarten Buis</strong>: <a href="http://www.maartenbuis.nl/workshops/graphs_in_stata/workshop.html" class="uri">http://www.maartenbuis.nl/workshops/graphs_in_stata/workshop.html</a> <br> <strong>Site de Demetris Christodoulou</strong> [A voir absolument]<br />
 <a href="https://graphworkflow.com/" class="uri">https://graphworkflow.com/</a></p>
 <ul>
 <li>Partie dédiée à la sémiologie graphique</li>
-<li>Galerie de graphique Stata
+<li>Galerie de graphiques Stata
 <ul>
 <li>Explication des objectifs</li>
 <li>Justification des choix</li>
 <li>Mise à disposition du programme</li>
 </ul></li>
 </ul>
-<div id="variables-continuesnumériques" class="section level2">
-<h2><span class="header-section-number">5.1</span> Variables continues/numériques</h2>
-<div id="histogrammes-et-densités" class="section level3">
-<h3><span class="header-section-number">5.1.1</span> Histogrammes et densités</h3>
+<div id="histogrammes-et-densités" class="section level2">
+<h2><span class="header-section-number">5.1</span> Histogrammes et densités</h2>
+<p><span class="badge badge-info">variable(s) continues(s)</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
 <ul>
-<li>Analyse des distributions: une ou plusieurs variables numériques ou une variable numérique par niveau d’une variable catégorielle</li>
+<li>Analyse des distributions: une ou plusieurs variables numériques, croisement avec une ou plusieurs variables catégorielles</li>
 <li>Vue de face</li>
 <li>Limite: Nombre d’objets empilés sur un même graphique</li>
 <li>Combinaison possible avec les visualisation vue de dessus (nuages - contourplot - heatplot) pour faire apparaitre les distributions marginales dans le graphique</li>
@@ -2738,7 +2734,8 @@ Plus simple à programmer, car on a besoin seulement d’une couleur de départ 
 <li>N=10000</li>
 <li>Exemple avec codes R: <a href="https://www.data-to-viz.com/story/OneNum.html" class="uri">https://www.data-to-viz.com/story/OneNum.html</a></li>
 </ul>
-<p><em>Histogramme</em></p>
+<div id="histogramme" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Histogramme</h3>
 <ul>
 <li>Commande <code>histogram</code> si une variable ou <code>tw histogram</code> si plusieurs variables ou croisément dans un même graphique avec une variable catégorielle</li>
 <li><strong><code>help histogram</code></strong></li>
@@ -2764,7 +2761,9 @@ Plus simple à programmer, car on a besoin seulement d’une couleur de départ 
 Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <p><em>Graphique 57</em><br />
 <img src="imgf/g57.png" style="width:50.0%" /></p>
-<p><em>Densité</em></p>
+</div>
+<div id="densité" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Densité</h3>
 <ul>
 <li>Commande <strong><code>kdensity</code></strong> [interne] <strong><code>kdens</code></strong> [externe - Ben Jann] pour tracer une courbe seulement</li>
 <li>Pour reporter une aire on génère les coordonnées sous forme de variables avec l’option <code>gen(x d)</code> et on utilise les graphiques type <strong><code>area</code></strong> ou <strong><code>rarea</code></strong></li>
@@ -2800,9 +2799,12 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <p><em>Graphique 58</em><br />
 <img src="imgf/g58.png" style="width:75.0%" /></p>
 </div>
-<div id="boxplot-et-violin-plot" class="section level3">
-<h3><span class="header-section-number">5.1.2</span> Boxplot et violin plot</h3>
-<p><strong>Boxplot</strong></p>
+</div>
+<div id="boxplot-et-violin-plot" class="section level2">
+<h2><span class="header-section-number">5.2</span> Boxplot et violin plot</h2>
+<p><span class="badge badge-info">variable(s) continues(s)</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
+<div id="boxplot" class="section level3">
+<h3><span class="header-section-number">5.2.1</span> Boxplot</h3>
 <ul>
 <li>Commande <strong><code>graph box</code></strong>. La syntaxe peut s’avérer pénible avec, au final, de grosses limitations (voir application plus bas)
 <ul>
@@ -2916,7 +2918,9 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <p><em>Graphique 62</em><br />
 <img src="imgf/g67.png" style="width:75.0%" /></p>
 <p><strong>Avantages</strong> et <strong>limites</strong> identiques que pour le nuage de points</p>
-<p><strong>Violin plot</strong></p>
+</div>
+<div id="violin-plot" class="section level3">
+<h3><span class="header-section-number">5.2.2</span> Violin plot</h3>
 <p>Le graphique de type <em>violon</em> ajoute aux box plot un graphique de type aire représentant la densité d’une variable</p>
 <ul>
 <li>Seulement une commande externe <strong><code>vioplot</code></strong> de <strong>Nick Winter</strong> [<strong><code>ssc install vioplot</code></strong>]
@@ -3048,46 +3052,95 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <a class="sourceLine" id="cb114-16" title="16">graph combine <span class="st">`</span><span class="dt">comb&#39; , col(5)  title(&quot;Probabilité assignée&quot;, pos(11)) // xcommon ycommon</span></a></code></pre></div>
 <p><em>Graphique 65</em><br />
 <img src="imgf/g61.png" style="width:75.0%" /></p>
-<p><em>Graphique 66</em> Histogramme [échelle commune pour l’axe y]</p>
+<p><em>Graphique 66</em> Histogramme [échelle commune pour l’axe y] [LA faire]</p>
 <p><em>Solution 2: Box plot</em></p>
-<p><em>Graphique 67</em> <img src="imgf/g62.png" style="width:75.0%" /></p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">grstyle init</a>
+<a class="sourceLine" id="cb115-2" title="2">grstyle set legend, nobox</a>
+<a class="sourceLine" id="cb115-3" title="3">grstyle set mesh, compact</a>
+<a class="sourceLine" id="cb115-4" title="4">grstyle set color viridis, <span class="kw">n</span>(<span class="dv">17</span>) <span class="kw">opacity</span>(<span class="dv">100</span>) </a>
+<a class="sourceLine" id="cb115-5" title="5"></a>
+<a class="sourceLine" id="cb115-6" title="6">forvalue i=<span class="dv">1</span><span class="op">/</span><span class="dv">17</span> {</a>
+<a class="sourceLine" id="cb115-7" title="7">colorpalette viridis, <span class="kw">n</span>(<span class="dv">17</span>)  nograph</a>
+<a class="sourceLine" id="cb115-8" title="8">local coul<span class="st">`</span><span class="dt">i&#39; &quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p<span class="st">`</span><span class="dt">i&#39;)&#39;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb115-9" title="9"><span class="dt">local barc </span><span class="st">`</span>barc<span class="st">&#39; bar(`i&#39;</span>, <span class="kw">fc</span>(<span class="st">`</span><span class="dt">coul</span><span class="st">`</span>i<span class="st">&#39;&#39;</span>) <span class="kw">lc</span>(black) <span class="kw">lw</span>(vthin))</a>
+<a class="sourceLine" id="cb115-10" title="10">local marc <span class="st">`</span><span class="dt">marc&#39; m(</span><span class="st">`</span>i<span class="st">&#39;, mc(`coul`i&#39;&#39;) msiz(small) mlc(black) mlw(vthin))</span></a>
+<a class="sourceLine" id="cb115-11" title="11"><span class="st">}</span></a>
+<a class="sourceLine" id="cb115-12" title="12"></a>
+<a class="sourceLine" id="cb115-13" title="13"><span class="st">graph hbox almostnochance-almostcertainly, legend(pos(2) col(1) size(vsmall))  ///</span></a>
+<a class="sourceLine" id="cb115-14" title="14"><span class="st"> `barc&#39;</span> <span class="st">`</span><span class="dt">marc&#39; </span></a></code></pre></div>
+<p><em>Graphique 67</em></p>
+<p><img src="imgf/g62.png" style="width:75.0%" /></p>
 <p><em>Solution 3: Violin plot</em></p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">capt drop _x<span class="op">*</span><span class="st"> </span>_d<span class="op">*</span></a>
+<a class="sourceLine" id="cb116-2" title="2">capt drop _md<span class="op">*</span></a>
+<a class="sourceLine" id="cb116-3" title="3"></a>
+<a class="sourceLine" id="cb116-4" title="4">grstyle init</a>
+<a class="sourceLine" id="cb116-5" title="5">grstyle set plain</a>
+<a class="sourceLine" id="cb116-6" title="6">grstyle set legend, nobox</a>
+<a class="sourceLine" id="cb116-7" title="7">grstyle set mesh</a>
+<a class="sourceLine" id="cb116-8" title="8"></a>
+<a class="sourceLine" id="cb116-9" title="9">qui ds</a>
+<a class="sourceLine" id="cb116-10" title="10">local varlist <span class="st">`</span><span class="dt">r(varlist)&#39;</span></a>
+<a class="sourceLine" id="cb116-11" title="11"><span class="dt">local i = 1</span></a>
+<a class="sourceLine" id="cb116-12" title="12"><span class="dt">foreach v of local varlist {</span></a>
+<a class="sourceLine" id="cb116-13" title="13"><span class="dt">colorpalette viridis, n(17) nograph </span></a>
+<a class="sourceLine" id="cb116-14" title="14"><span class="dt">local j = </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb116-15" title="15"><span class="st">local k = (`j&#39;</span><span class="op">-</span><span class="dv">1</span><span class="er">)</span><span class="op">*</span>.<span class="dv">7</span></a>
+<a class="sourceLine" id="cb116-16" title="16">local coul<span class="st">`</span><span class="dt">j&#39; &quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p<span class="st">`</span><span class="dt">j&#39;)&#39;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb116-17" title="17"><span class="dt">local lab</span><span class="st">`</span>j<span class="st">&#39;: variable label `v&#39;</span></a>
+<a class="sourceLine" id="cb116-18" title="18">local ylab <span class="st">`</span><span class="dt">ylab&#39; </span><span class="st">`</span>k<span class="st">&#39; &quot;`lab`j&#39;&#39;&quot;</span></a>
+<a class="sourceLine" id="cb116-19" title="19"><span class="st">qui kdensity `v&#39;</span>, <span class="kw">generate</span>(_x<span class="st">`</span><span class="dt">j&#39; _d</span><span class="st">`</span>j<span class="st">&#39;) nogr kernel(gauss) bw(2) n(200) </span></a>
+<a class="sourceLine" id="cb116-20" title="20"><span class="st">qui replace _x`j&#39;</span>=<span class="dv">100</span> <span class="cf">if</span> _x<span class="st">`</span><span class="dt">j&#39;&gt;100</span></a>
+<a class="sourceLine" id="cb116-21" title="21"><span class="dt">qui replace _x</span><span class="st">`</span>j<span class="st">&#39;=0 if _x`j&#39;</span><span class="op">&lt;</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb116-22" title="22">qui sum _d<span class="st">`</span><span class="dt">j&#39;, d</span></a>
+<a class="sourceLine" id="cb116-23" title="23"><span class="dt">local min</span><span class="st">`</span>j<span class="st">&#39;  `r(min)&#39;</span></a>
+<a class="sourceLine" id="cb116-24" title="24">local max<span class="st">`</span><span class="dt">j&#39;  </span><span class="st">`</span><span class="kw">r</span>(max)<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb116-25" title="25"><span class="st">*qui replace _d`j&#39;</span>  =<span class="st"> </span>_d<span class="st">`</span><span class="dt">j&#39;*(.3/(</span><span class="st">`</span>max<span class="st">`</span><span class="dt">j&#39;&#39;- </span><span class="st">`</span>min<span class="st">`</span><span class="dt">j&#39;&#39;))</span></a>
+<a class="sourceLine" id="cb116-26" title="26"><span class="dt">qui gen _md</span><span class="st">`</span>j<span class="st">&#39; = `k&#39;</span> <span class="op">-</span><span class="st"> </span>_d<span class="st">`</span><span class="dt">j&#39; </span></a>
+<a class="sourceLine" id="cb116-27" title="27"><span class="dt">qui gen _d0</span><span class="st">`</span>j<span class="st">&#39;= `k&#39;</span></a>
+<a class="sourceLine" id="cb116-28" title="28">qui replace _d<span class="st">`</span><span class="dt">j&#39; = _d</span><span class="st">`</span>j<span class="st">&#39; + `k&#39;</span></a>
+<a class="sourceLine" id="cb116-29" title="29">local ops  <span class="kw">xscale</span>(<span class="kw">r</span>(<span class="dv">0</span> <span class="dv">100</span>)) <span class="kw">fc</span>(<span class="st">`</span><span class="dt">coul</span><span class="st">`</span>j<span class="st">&#39;&#39;</span>) <span class="kw">lc</span>(<span class="st">`</span><span class="dt">coul</span><span class="st">`</span>j<span class="st">&#39;&#39;</span>) <span class="kw">lw</span>(vvthin) </a>
+<a class="sourceLine" id="cb116-30" title="30">local rarea <span class="st">`</span><span class="dt">rarea&#39; rarea _d</span><span class="st">`</span>j<span class="st">&#39; _d0`j&#39;</span> _x<span class="st">`</span><span class="dt">j&#39;, </span><span class="st">`</span>ops<span class="st">&#39; || rarea _md`j&#39;</span> _d0<span class="st">`</span><span class="dt">j&#39; _x</span><span class="st">`</span>j<span class="st">&#39;, `ops&#39;</span> <span class="op">||</span></a>
+<a class="sourceLine" id="cb116-31" title="31"><span class="er">}</span></a>
+<a class="sourceLine" id="cb116-32" title="32"></a>
+<a class="sourceLine" id="cb116-33" title="33">tw <span class="st">`</span><span class="dt">rarea&#39;, legend(off)  xtitle(&quot;Probabilités assignées&quot;) ///</span></a>
+<a class="sourceLine" id="cb116-34" title="34"><span class="dt">yscale(r(0 </span><span class="st">`</span>k<span class="st">&#39;)) xtitle(&quot;Probabilités assignées&quot;) ylabel(`ylab&#39;</span>, nogrid <span class="kw">angle</span>(<span class="dv">0</span>)) <span class="kw">title</span>(<span class="st">&quot;Violin Plots&quot;</span>) </a></code></pre></div>
 <p><em>Graphique 68</em><br />
 <img src="imgf/g63.png" style="width:75.0%" /></p>
-<p>[Avec les labels c’est mieux =&gt; A faire]</p>
-<p><em>Solution 4: Ridge line</em><br />
-Appelé également <strong>Joy plot</strong>, en référence à la pochette de album de <strong>Joy Division</strong> <em>Unkown Pleasure</em>. Beaucoup plus difficile, et plus long, à programmer si on veut appliquer proprement la théorie car on ne part pas d’une estimation des densités une à une. Sinon il suffit d’empiler le graphique précédent en excluant les densités en mirroir et en reparamétrant l’offset (différence entre les minimums des axes y)<br />
-Solution dans R [<strong><code>ggridges</code></strong>] et Python. A faire avec Stata</p>
-</div>
-<div id="nuages-et-densités-2d" class="section level3">
-<h3><span class="header-section-number">5.1.3</span> Nuages et Densités 2d</h3>
+<p><em>Solution 4: Ridge line</em></p>
 <ul>
-<li>Représentation des distributions vue du dessus. La commande Stata est <strong>scatter</strong> [<strong>scatteri</strong> si on entre directement des coordonnées et non des variables]</li>
-<li>Ajout des représentations précédentes pour visualiser les distributions marginales</li>
-<li>La bulles d’un nuage peut être appréhendé comme la surface supérieure d’un histogramme positionné sur 2 axes</li>
-<li>Le principal point de vigilance sur ce type de graphique est l’<strong>overplotting</strong> qui peut rendre le graphique difficile à lire</li>
-<li>Plus il y a de bulles dans une zônz, plus la densité croisée est élevée. Plusieurs types de représentations pour faire apparaitre le niveau de la densité
+<li>Appelé également <strong>Joy plot</strong>, en référence à la pochette de album de <strong>Joy Division</strong> <em>Unkown Pleasure</em>.</li>
+<li>Beaucoup plus difficile, et plus long, à programmer si on veut appliquer proprement la théorie car on ne part pas d’une estimation des densités une à une. Sinon, on peut se contenter les densités du graphique précédent en excluant les densités en mirroir et en reparamétrant l’offset (différence entre les minimums des axes y pour chaque densité)</li>
+<li>Solution dans R [<strong><code>ggridges</code></strong>] et Python. A faire avec Stata</li>
+</ul>
+</div>
+</div>
+<div id="nuages-scatter-et-densités-2d" class="section level2">
+<h2><span class="header-section-number">5.3</span> Nuages (scatter) et Densités 2d</h2>
+<p><span class="badge badge-info">variables numériques</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
+<ul>
+<li>Représentation des distributions vues du dessus. La commande Stata est <strong>scatter</strong> [<strong>scatteri</strong> si on applique directement des coordonnées]</li>
+<li>On peut ajouter dans un graphique combiné les représentations précédentes pour visualiser simultanément les distributions marginales</li>
+<li>Le principal point de vigilance sur ce type de graphique est l’<strong>overplotting</strong> qui peut rendre le graphique difficile à lire: Solutions: ajouter des contours, réduire la taille des bulles, sélectionner un sous-échantillon, estimer et représenter les densités croisées</li>
+<li>Densités croisées: plus il y a de bulles dans une zône, plus la densité est élevée.
 <ul>
 <li>Représentation empruntée à la topologie: des courbes de niveau. Plus la densité s’élève, plus l’écart entre deux courbes se ressère
 <ul>
-<li>Commande <strong>contour</strong> et <strong>contourline</strong> après avoir estimé les densités avec la commande externe <strong>kdens2</strong> [Christopher J Baum]</li>
+<li>Commande <strong>contourline</strong> et <strong>contourline</strong> après avoir estimé les densités avec la commande externe <strong>kdens2</strong> [Christopher J Baum]</li>
 </ul></li>
-<li>Représentation plutôt empruntée à physique: plus la densité s’élève, plus la chaleur augmente. On applique une palette de couleur séquentielle sur un zonage fin du graphique: couleur froide faible densité, couleur chaude densité élevé.
+<li>Histrogrammes vue de haut. On applique une palette de couleur séquentielle à la surface supérieure de l’histogramme
 <ul>
-<li>Commande externe <strong>heatplot</strong> [Ben Jann]</li>
+<li>Commandes externe <strong>heatplot</strong> et <strong>hexplot</strong> [Ben Jann] =&gt; solution la plus simple et rendu efficace avec <strong>hexplot</strong></li>
 </ul></li>
 </ul></li>
 </ul>
-<p><strong>Scatter</strong></p>
+<div id="scatter" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Scatter</h3>
+<p><span class="badge badge-info">Au moins deux variables continues</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
 <ul>
 <li>Distribution croisée vue du haut de deux variables. Avec une variable catégorielles, les différentes valeurs sont identifiées par des couleurs différentes</li>
-<li>Limite: <strong>overplotting</strong>
-<ul>
-<li>forte concentration de points sur une zône</li>
-<li>Taille des effectifs trop élevé</li>
-<li>Plusieurs solutions pour limiter ou éliminer l’effet</li>
-</ul></li>
-<li>Combinaison possible avec les histogrammes, densités, boxplot et violin plot qui permettre de décrire les distributions marginales des deux variables continues</li>
+<li>Limite: <strong>overplotting</strong></li>
+<li>Combinaison possible avec les histogrammes, densités, boxplot et violin plot pour visualiser les distributions marginales des deux variables</li>
 <li>Extension: <strong>bubble plot</strong> avec un poids pour chaque coordonnées</li>
 </ul>
 <p><strong>Exemple</strong></p>
@@ -3097,15 +3150,15 @@ Solution dans R [<strong><code>ggridges</code></strong>] et Python. A faire avec
 <li>Variables <em>grlivarea</em> (surface d’habitation) et <em>saleprice</em> (prix)</li>
 <li>Source: <a href="https://www.data-to-viz.com/story/TwoNum.html" class="uri">https://www.data-to-viz.com/story/TwoNum.html</a></li>
 </ul>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb115-1" title="1">clear</a>
-<a class="sourceLine" id="cb115-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">clear</a>
+<a class="sourceLine" id="cb117-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
 <ul>
 <li>Overplotting manifeste, graphique peu lisible</li>
 </ul>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb116-1" title="1">clear</a>
-<a class="sourceLine" id="cb116-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb117-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb117-2" title="2">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>)  <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) </span></a></code></pre></div>
+<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">clear</a>
+<a class="sourceLine" id="cb118-2" title="2">import delimited  <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/2_TwoNum.csv&quot;</span></a></code></pre></div>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb119-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb119-2" title="2">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>)  <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) </span></a></code></pre></div>
 <p><em>Graphique 69</em></p>
 <p><img src="imgf/g69.png" style="width:50.0%" /></p>
 <ul>
@@ -3116,78 +3169,505 @@ Solution dans R [<strong><code>ggridges</code></strong>] et Python. A faire avec
 <li>Sous-échantilllon</li>
 </ul></li>
 </ul>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb118-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
-<a class="sourceLine" id="cb118-2" title="2"></a>
-<a class="sourceLine" id="cb118-3" title="3"><span class="op">*</span>Contour</a>
-<a class="sourceLine" id="cb118-4" title="4">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vvthin) <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) ///</span></a>
-<a class="sourceLine" id="cb118-5" title="5"><span class="dt">title(&quot;contour noir vvthin&quot;, pos(1)) name(g1,replace)</span></a>
-<a class="sourceLine" id="cb118-6" title="6"></a>
-<a class="sourceLine" id="cb118-7" title="7"><span class="dt">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) mlc(white) mlw(vvthin) ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) ///</span></a>
-<a class="sourceLine" id="cb118-8" title="8"><span class="st">title(&quot;contour blanc vvthin&quot;, pos(1)) name(g2,replace) </span></a>
-<a class="sourceLine" id="cb118-9" title="9"></a>
-<a class="sourceLine" id="cb118-10" title="10"><span class="st">*Taille</span></a>
-<a class="sourceLine" id="cb118-11" title="11"><span class="st">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) msiz(tiny) mlc(black) mlw(vvthin) /// </span></a>
-<a class="sourceLine" id="cb118-12" title="12"><span class="st">ylabel(`ylab&#39;</span>)  <span class="kw">title</span>(<span class="st">&quot;size tiny + contour 1&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g3,replace)</a>
-<a class="sourceLine" id="cb118-13" title="13"></a>
-<a class="sourceLine" id="cb118-14" title="14">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">msiz</span>(vtiny) <span class="op">/</span><span class="er">//</span></a>
-<a class="sourceLine" id="cb118-15" title="15"><span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;)  title(&quot;size vtiny&quot;, pos(1)) name(g4,replace)</span></a>
-<a class="sourceLine" id="cb118-16" title="16"></a>
-<a class="sourceLine" id="cb118-17" title="17"><span class="dt">*Sample</span></a>
-<a class="sourceLine" id="cb118-18" title="18"><span class="dt">capt gen u=runiform()</span></a>
-<a class="sourceLine" id="cb118-19" title="19"><span class="dt">tw scatter saleprice grlivarea if u&lt;.2, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
-<a class="sourceLine" id="cb118-20" title="20"><span class="dt">ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) xlabel(0(2000)6000) title(&quot;Sample 1: 20%&quot;, pos(1)) name(g5,replace)</span></a>
-<a class="sourceLine" id="cb118-21" title="21"></a>
-<a class="sourceLine" id="cb118-22" title="22"><span class="st">tw scatter saleprice grlivarea if u&lt;.1, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
-<a class="sourceLine" id="cb118-23" title="23"><span class="st">ylabel(`ylab&#39;</span>) <span class="kw">xlabel</span>(<span class="dv">0</span>(<span class="dv">2000</span>)<span class="dv">6000</span>) <span class="kw">title</span>(<span class="st">&quot;Sample 2: 10%&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g6,replace)</a>
-<a class="sourceLine" id="cb118-24" title="24"></a>
-<a class="sourceLine" id="cb118-25" title="25"></a>
-<a class="sourceLine" id="cb118-26" title="26">graph combine g1 g2 g3 g4 g5 g6, <span class="kw">col</span>(<span class="dv">2</span>) <span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">20</span>) <span class="kw">scale</span>(.<span class="dv">6</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb120-1" title="1">local ylab  <span class="dv">200000</span> <span class="st">&quot;20K&quot;</span> <span class="dv">400000</span> <span class="st">&quot;40k&quot;</span> <span class="dv">600000</span> <span class="st">&quot;60k&quot;</span> <span class="dv">800000</span> <span class="st">&quot;80k&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb120-2" title="2"></a>
+<a class="sourceLine" id="cb120-3" title="3"><span class="op">*</span>Contour</a>
+<a class="sourceLine" id="cb120-4" title="4">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vvthin) <span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;) ///</span></a>
+<a class="sourceLine" id="cb120-5" title="5"><span class="dt">title(&quot;contour noir vvthin&quot;, pos(1)) name(g1,replace)</span></a>
+<a class="sourceLine" id="cb120-6" title="6"></a>
+<a class="sourceLine" id="cb120-7" title="7"><span class="dt">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) mlc(white) mlw(vvthin) ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) ///</span></a>
+<a class="sourceLine" id="cb120-8" title="8"><span class="st">title(&quot;contour blanc vvthin&quot;, pos(1)) name(g2,replace) </span></a>
+<a class="sourceLine" id="cb120-9" title="9"></a>
+<a class="sourceLine" id="cb120-10" title="10"><span class="st">*Taille</span></a>
+<a class="sourceLine" id="cb120-11" title="11"><span class="st">tw scatter saleprice grlivarea, mc(&quot;105 179 162&quot;) msiz(tiny) mlc(black) mlw(vvthin) /// </span></a>
+<a class="sourceLine" id="cb120-12" title="12"><span class="st">ylabel(`ylab&#39;</span>)  <span class="kw">title</span>(<span class="st">&quot;size tiny + contour 1&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g3,replace)</a>
+<a class="sourceLine" id="cb120-13" title="13"></a>
+<a class="sourceLine" id="cb120-14" title="14">tw scatter saleprice grlivarea, <span class="kw">mc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">msiz</span>(vtiny) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb120-15" title="15"><span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;)  title(&quot;size vtiny&quot;, pos(1)) name(g4,replace)</span></a>
+<a class="sourceLine" id="cb120-16" title="16"></a>
+<a class="sourceLine" id="cb120-17" title="17"><span class="dt">*Sample</span></a>
+<a class="sourceLine" id="cb120-18" title="18"><span class="dt">capt gen u=runiform()</span></a>
+<a class="sourceLine" id="cb120-19" title="19"><span class="dt">tw scatter saleprice grlivarea if u&lt;.2, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
+<a class="sourceLine" id="cb120-20" title="20"><span class="dt">ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;) xlabel(0(2000)6000) title(&quot;Sample 1: 20%&quot;, pos(1)) name(g5,replace)</span></a>
+<a class="sourceLine" id="cb120-21" title="21"></a>
+<a class="sourceLine" id="cb120-22" title="22"><span class="st">tw scatter saleprice grlivarea if u&lt;.1, mc(&quot;105 179 162&quot;) mlc(black) mlw(vvthin) ///</span></a>
+<a class="sourceLine" id="cb120-23" title="23"><span class="st">ylabel(`ylab&#39;</span>) <span class="kw">xlabel</span>(<span class="dv">0</span>(<span class="dv">2000</span>)<span class="dv">6000</span>) <span class="kw">title</span>(<span class="st">&quot;Sample 2: 10%&quot;</span>, <span class="kw">pos</span>(<span class="dv">1</span>)) <span class="kw">name</span>(g6,replace)</a>
+<a class="sourceLine" id="cb120-24" title="24"></a>
+<a class="sourceLine" id="cb120-25" title="25"></a>
+<a class="sourceLine" id="cb120-26" title="26">graph combine g1 g2 g3 g4 g5 g6, <span class="kw">col</span>(<span class="dv">2</span>) <span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">20</span>) <span class="kw">scale</span>(.<span class="dv">6</span>)</a></code></pre></div>
 <p><em>Graphique 70</em></p>
 <p><img src="imgf/g70.png" /></p>
-<p><strong>Contourplot - heatplot</strong></p>
+</div>
+<div id="densités-2d" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Densités 2d</h3>
 <ul>
 <li>On reporte la densité croisée des deux variables</li>
 <li>Résoud le problème de l’overplotting</li>
 <li><strong>Coutour plot</strong>:
 <ul>
 <li>Si seulement les lignes sont reportées: principe des courbes de niveau, plus les courbes se resserrent et plus la densité augente</li>
-<li>On peut afecter une palette de couleur aux surfaces entre les lignes</li>
+<li>On peut afecter une palette de couleuraux surfaces entre les lignes</li>
 </ul></li>
-<li><strong>Heatplot</strong>: principe d’un histogramme vu du dessus, avec une palette de couleurs séquentielle affectée à la surface du dessus. La surface est souvent sous forme d’héxagone</li>
+<li><strong>Heatplot</strong>: principe d’un histogramme vu du dessus, avec une palette de couleurs séquentielle associée à la valeur de la densité. La surface est souvent représenté sous forme d’héxagone</li>
 </ul>
-<p><strong>Application</strong></p>
+<p><strong>Contourline et contour</strong></p>
 <ul>
-<li>Données de la base nhanes2</li>
-<li>Représentation précédentes avec correction overplotting</li>
-<li>Représentation des densités marginales (histo ou densité)</li>
+<li>On estime les densités avec la commande externe <strong><code>kdens2</code></strong> [<code>scc install kdens2</code>]</li>
+<li>Un représentation graphique est directement possible avec la commande (idem <code>kdensity</code>), cependant je vais générer les variables dans une nouvelle base</li>
+<li><strong>contour</strong> et <strong>contourline</strong>
+<ul>
+<li><strong><code>contourline</code></strong>: seulement les courbes de niveau sont reportées</li>
+<li><strong><code>contour</code></strong>: une palette de couleurs, plutôt séquentielle, est affectée entre les courbes de niveau</li>
+</ul></li>
+<li>Le nombre de courbes de niveau est généré avec l’option n(#). Ne pas en abuser avec <code>contour</code> pour eviter les effets de flou</li>
+<li>Options pour générer une palette de couleur: <code>scolor()</code> [start color] et <code>ecolor</code> [exit color], <code>cc()</code> [les n couleurs]. la palette générée par grstyle ou colorpalette est utilisable avec les macro <code>r(p(1))</code> (start color), <code>r(p(#))</code> (exit color) ou <code>r(p)</code> (palette de l’option cc())</li>
+<li>Option pour les légendes: <strong><code>clengend()</code></strong> pour <strong><code>contouline</code></strong> et <strong><code>plegend()</code></strong> pour <code>contour</code></li>
+</ul>
+<p><strong>Exemple</strong></p>
+<p>On reprend les données sur le prix de vente des appartements à New-York selon la surface d’habitation</p>
+<p><em>contourline</em></p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb121-1" title="1"><span class="op">*</span><span class="st"> </span>estimation de la densité</a>
+<a class="sourceLine" id="cb121-2" title="2">kdens2 grlivarea saleprice, <span class="kw">saving</span>(k2d, replace) <span class="kw">n</span>(<span class="dv">100</span>) nodraw</a>
+<a class="sourceLine" id="cb121-3" title="3">use k2d, clear</a>
+<a class="sourceLine" id="cb121-4" title="4"></a>
+<a class="sourceLine" id="cb121-5" title="5"><span class="op">*</span><span class="st"> </span>couleur par défaut</a>
+<a class="sourceLine" id="cb121-6" title="6">tw contourline d  _saleprice _grlivarea, <span class="kw">plegend</span>(off)  <span class="kw">levels</span>(<span class="dv">15</span>) </a>
+<a class="sourceLine" id="cb121-7" title="7"><span class="op">*</span><span class="st"> </span>couleur  <span class="st">&quot;105 179 162&quot;</span></a>
+<a class="sourceLine" id="cb121-8" title="8">grstyle init</a>
+<a class="sourceLine" id="cb121-9" title="9">grstyle set mesh,  horizontal compact</a>
+<a class="sourceLine" id="cb121-10" title="10">grstyle set color  <span class="st">&quot;105 179 162&quot;</span>, <span class="kw">n</span>(<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb121-11" title="11">tw contourline d  _saleprice _grlivarea, <span class="kw">plegend</span>(off)  <span class="kw">levels</span>(<span class="dv">15</span>) <span class="kw">cc</span>(<span class="st">`</span><span class="dt">r(p)&#39;) </span></a></code></pre></div>
+<p><em>Graphique 71</em></p>
+<p><img src="imgf/g71.png" style="width:75.0%" /></p>
+<ul>
+<li>Il semble ici préférable ici de ne sélectionner qu’une partie des observation (&lt;3000 et &lt;400000)</li>
+<li>On peut affecter une couleur par courbe (ici palette viridis avec n=15)</li>
+</ul>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb122-1" title="1">grstyle init</a>
+<a class="sourceLine" id="cb122-2" title="2">grstyle set mesh,  horizontal compact</a>
+<a class="sourceLine" id="cb122-3" title="3">grstyle set color  <span class="st">&quot;105 179 162&quot;</span>, <span class="kw">n</span>(<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb122-4" title="4">tw contourline d  _saleprice _grlivarea, <span class="kw">plegend</span>(off) <span class="kw">levels</span>(<span class="dv">15</span>) <span class="kw">cc</span>(<span class="st">`</span><span class="dt">r(p)&#39;)  ///</span></a>
+<a class="sourceLine" id="cb122-5" title="5"><span class="dt">title(&quot;Une seule couleur&quot;) </span></a>
+<a class="sourceLine" id="cb122-6" title="6"></a>
+<a class="sourceLine" id="cb122-7" title="7"><span class="dt">* Avec une couleur par courbe de niveau </span></a>
+<a class="sourceLine" id="cb122-8" title="8"><span class="dt">grstyle init</span></a>
+<a class="sourceLine" id="cb122-9" title="9"><span class="dt">grstyle set mesh,  horizontal compact</span></a>
+<a class="sourceLine" id="cb122-10" title="10"><span class="dt">grstyle set color  viridis, n(15)</span></a>
+<a class="sourceLine" id="cb122-11" title="11"><span class="dt">tw contourline d  _saleprice _grlivarea, plegend(off) levels(15) cc(</span><span class="st">`</span><span class="kw">r</span>(p)<span class="st">&#39;) ///</span></a>
+<a class="sourceLine" id="cb122-12" title="12"><span class="st">title(&quot;Une couleur par courbe&quot;)</span></a></code></pre></div>
+<p><em>Graphique 72</em></p>
+<p><img src="imgf/g72.png" style="width:75.0%" /></p>
+<p><em>contour</em></p>
+<ul>
+<li>Appliquer une palette séquentielle simple ave une couleur d’arrivée peu intense donne un effet de flou qui ne rend pas la lecture du graphique agréable</li>
+<li>Les palettes séquentielles plus comple offre un résultat plus satisfaisant (ici viridis)</li>
+</ul>
+<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb123-1" title="1"><span class="op">*</span><span class="st"> </span>Palettes simples</a>
+<a class="sourceLine" id="cb123-2" title="2">grstyle init</a>
+<a class="sourceLine" id="cb123-3" title="3">grstyle set mesh,  horizontal</a>
+<a class="sourceLine" id="cb123-4" title="4">grstyle set color white <span class="st">&quot;105 179 162&quot;</span> , <span class="kw">n</span>(<span class="dv">15</span>) </a>
+<a class="sourceLine" id="cb123-5" title="5">tw contour d  _saleprice _grlivarea , <span class="kw">levels</span>(<span class="dv">15</span>) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb123-6" title="6"><span class="kw">clegend</span>(off) <span class="kw">cc</span>(<span class="st">`</span><span class="dt">r(p)&#39;) </span></a>
+<a class="sourceLine" id="cb123-7" title="7"></a>
+<a class="sourceLine" id="cb123-8" title="8"><span class="dt">grstyle init</span></a>
+<a class="sourceLine" id="cb123-9" title="9"><span class="dt">grstyle set mesh,  horizontal</span></a>
+<a class="sourceLine" id="cb123-10" title="10"><span class="dt">grstyle set color white &quot;105 179 162&quot; , n(15) reverse</span></a>
+<a class="sourceLine" id="cb123-11" title="11"><span class="dt">tw contour d  _saleprice _grlivarea , levels(15) ///</span></a>
+<a class="sourceLine" id="cb123-12" title="12"><span class="dt">clegend(off) cc(</span><span class="st">`</span><span class="kw">r</span>(p)<span class="st">&#39;) </span></a>
+<a class="sourceLine" id="cb123-13" title="13"></a>
+<a class="sourceLine" id="cb123-14" title="14"><span class="st">grstyle init</span></a>
+<a class="sourceLine" id="cb123-15" title="15"><span class="st">grstyle set mesh,  horizontal</span></a>
+<a class="sourceLine" id="cb123-16" title="16"><span class="st">grstyle set color white green , n(15) </span></a>
+<a class="sourceLine" id="cb123-17" title="17"><span class="st">tw contour d  _saleprice _grlivarea , levels(15) ///</span></a>
+<a class="sourceLine" id="cb123-18" title="18"><span class="st">clegend(off) cc(`r(p)&#39;</span>) </a>
+<a class="sourceLine" id="cb123-19" title="19"></a>
+<a class="sourceLine" id="cb123-20" title="20">grstyle init</a>
+<a class="sourceLine" id="cb123-21" title="21">grstyle set mesh,  horizontal</a>
+<a class="sourceLine" id="cb123-22" title="22">grstyle set color white green , <span class="kw">n</span>(<span class="dv">15</span>) reverse </a>
+<a class="sourceLine" id="cb123-23" title="23">tw contour d  _saleprice _grlivarea , <span class="kw">levels</span>(<span class="dv">15</span>) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb123-24" title="24"><span class="kw">clegend</span>(off) <span class="kw">cc</span>(<span class="st">`</span><span class="dt">r(p)&#39;)</span></a>
+<a class="sourceLine" id="cb123-25" title="25"></a>
+<a class="sourceLine" id="cb123-26" title="26"><span class="dt">* Palette viridis</span></a>
+<a class="sourceLine" id="cb123-27" title="27"><span class="dt">grstyle init</span></a>
+<a class="sourceLine" id="cb123-28" title="28"><span class="dt">grstyle set mesh,  horizontal</span></a>
+<a class="sourceLine" id="cb123-29" title="29"><span class="dt">grstyle set color viridis , n(15) </span></a>
+<a class="sourceLine" id="cb123-30" title="30"><span class="dt">tw contour d  _saleprice _grlivarea , levels(15) ///</span></a>
+<a class="sourceLine" id="cb123-31" title="31"><span class="dt">clegend(off) cc(</span><span class="st">`</span><span class="kw">r</span>(p)<span class="st">&#39;) </span></a>
+<a class="sourceLine" id="cb123-32" title="32"><span class="st">grstyle init</span></a>
+<a class="sourceLine" id="cb123-33" title="33"><span class="st">grstyle set mesh,  horizontal</span></a>
+<a class="sourceLine" id="cb123-34" title="34"><span class="st">grstyle set color viridis , n(15) reverse</span></a>
+<a class="sourceLine" id="cb123-35" title="35"><span class="st">tw contour d  _saleprice _grlivarea , levels(15) ///</span></a>
+<a class="sourceLine" id="cb123-36" title="36"><span class="st">clegend(off) cc(`r(p)&#39;</span>) </a></code></pre></div>
+<p><em>Graphique 73</em></p>
+<p><img src="imgf/g73.png" style="width:75.0%" /></p>
+<p><em>Graphique 74</em></p>
+<p><img src="imgf/g74.png" style="width:75.0%" /></p>
+<ul>
+<li>L’effet images dissociées des axes, peut être corrigé avec xlab() et ylab()</li>
+</ul>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb124-1" title="1">grstyle init</a>
+<a class="sourceLine" id="cb124-2" title="2">grstyle set mesh,  horizontal</a>
+<a class="sourceLine" id="cb124-3" title="3">grstyle set color  viridis, <span class="kw">n</span>(<span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb124-4" title="4">tw contour d  _saleprice _grlivarea , <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb124-5" title="5"><span class="kw">xlabel</span>(<span class="dv">200</span> <span class="dv">1000</span> <span class="dv">2000</span> <span class="dv">2500</span> <span class="dv">3000</span>,nogrid) <span class="kw">ylabel</span>(<span class="dv">50000</span>(<span class="dv">50000</span>)<span class="dv">400000</span>, nogrid) <span class="kw">levels</span>(<span class="dv">15</span>) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb124-6" title="6"><span class="kw">clegend</span>(off)<span class="kw">xlabel</span>(,) <span class="kw">cc</span>(<span class="st">`</span><span class="dt">r(p)&#39;)  </span></a></code></pre></div>
+<p><em>Graphique 75</em></p>
+<p><img src="imgf/g75.png" style="width:50.0%" /></p>
+<p><strong>Heatplot et hexplot (Ben Jann)</strong></p>
+<ul>
+<li>Encore une commande <em>magique</em> de B.Jann (<code>ssc install heatplot</code>): <a href="https://www.stata.com/meeting/germany19/slides/germany19_Jann.pdf" class="uri">https://www.stata.com/meeting/germany19/slides/germany19_Jann.pdf</a></li>
+<li>Principe: on représente un histogramme bivarié en appliquant une palette de couleur séquentielle sur la surface du dessus.</li>
+<li>La représentation avec des hexagones est supérieure</li>
+<li>Par défaut, syntaxe très simple. A préférer donc aux représentations précédente avec Stata</li>
+</ul>
+<div class="sourceCode" id="cb125"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb125-1" title="1">heatplot saleprice  grlivarea, <span class="kw">title</span>(<span class="st">&quot;heatplot&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>)) <span class="kw">name</span>(g1,replace) <span class="kw">color</span>(plasma)</a>
+<a class="sourceLine" id="cb125-2" title="2">hexplot saleprice  grlivarea,  <span class="kw">title</span>(<span class="st">&quot;hexplot&quot;</span>,  <span class="kw">pos</span>(<span class="dv">11</span>)) <span class="kw">name</span>(g2,replace) <span class="kw">color</span>(plasma)</a></code></pre></div>
+<p><em>Graphique 76</em></p>
+<p><img src="imgf/g76.png" style="width:75.0%" /></p>
+</div>
+<div id="les-graphiques-bulles" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Les graphiques bulles</h3>
+<ul>
+<li>On ajoute un poids aux observation</li>
+<li>La surface de la bulle est relative à ce poids</li>
+<li>Utile avec des données démographiques pour tenir compte de la taille de la population</li>
+</ul>
+<p><strong>Exemple</strong></p>
+<ul>
+<li>Espérance de vie et revenu par tête (échelle log)</li>
+<li>Données regroupées par continent (cf le graphique de l’enfer)</li>
+<li>Pondération sur la population des pays</li>
+<li>Graphique populaire en version animée: <a href="https://www.gapminder.org/tools/#$state$time$value=2019" class="uri">https://www.gapminder.org/tools/#$state$time$value=2019</a>;;&amp;chart-type=bubbles</li>
+<li>Une version interactive permet d’améliorer la visualisation (nom des pays et valeurs de l’expérance de vie, du revenu et taille de la population)</li>
+<li>Version du graphique sur data-viz:
+<ul>
+<li>Pourquoi ne pas avoir utiiser une échelle log pour le revenu?</li>
+</ul></li>
+<li>Attention à l’ordre des variables et aux choix des couleurs
+<ul>
+<li>Mettre l’Asie en arrière plan en raison de la taille des population des l’Inde et de la Chine</li>
+<li>Eviter les stéréotypes comme l’Asie en jaune</li>
+</ul></li>
+<li>Limite Stata: la taille des bulles dans une légende avec la valeur correspondante de la pondération (voir second graphique pour une solution manuelle)</li>
+</ul>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb126-1" title="1">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb126-2" title="2">local y <span class="dv">1952</span> <span class="dv">2007</span></a>
+<a class="sourceLine" id="cb126-3" title="3">foreach y2 of local y {</a>
+<a class="sourceLine" id="cb126-4" title="4"></a>
+<a class="sourceLine" id="cb126-5" title="5">grstyle init </a>
+<a class="sourceLine" id="cb126-6" title="6">grstyle set legend <span class="dv">2</span>, nobox stack</a>
+<a class="sourceLine" id="cb126-7" title="7">grstyle set mesh,  horizontal compact</a>
+<a class="sourceLine" id="cb126-8" title="8">grstyle set color viridis, <span class="kw">n</span>(<span class="dv">5</span>) <span class="kw">opacity</span>(<span class="dv">60</span>) <span class="kw">select</span>(<span class="dv">2</span> <span class="dv">3</span> <span class="dv">1</span> <span class="dv">4</span> <span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb126-9" title="9"></a>
+<a class="sourceLine" id="cb126-10" title="10">local leg  <span class="st">&quot;order(1 &quot;</span>Asia<span class="st">&quot; 2 &quot;</span>Americas<span class="st">&quot; 3 &quot;</span>Africa<span class="st">&quot; 4 &quot;</span>Europe<span class="st">&quot; 5 &quot;</span>Oceania<span class="st">&quot;)&quot;</span></a>
+<a class="sourceLine" id="cb126-11" title="11">local mc  <span class="kw">mc</span>(<span class="st">`</span><span class="dt">r(p)&#39;)  </span></a>
+<a class="sourceLine" id="cb126-12" title="12"><span class="dt">local mlc  mlc(</span><span class="st">`</span><span class="kw">r</span>(p)<span class="st">&#39;)</span></a>
+<a class="sourceLine" id="cb126-13" title="13"><span class="st">local mlw  &quot;mlw(vthin vthin vthin vthin)&quot;</span></a>
+<a class="sourceLine" id="cb126-14" title="14"></a>
+<a class="sourceLine" id="cb126-15" title="15"><span class="st">tw scatter as_lf am_lf af_lf eu_lf oc_lf gdppercap [w=pop] if year==`y2&#39;</span>,   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb126-16" title="16"><span class="st">`</span><span class="dt">mlc&#39; </span><span class="st">`</span>mlw<span class="st">&#39; `mc&#39;</span>                                                            <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb126-17" title="17"><span class="kw">ylabel</span>(<span class="dv">20</span>(<span class="dv">10</span>)<span class="dv">90</span>) <span class="kw">ytitle</span>(<span class="st">&quot;Espérance de vie&quot;</span>)                                 <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb126-18" title="18"><span class="kw">xlabel</span>(<span class="dv">300</span> <span class="dv">1000</span> <span class="dv">10000</span> <span class="dv">25000</span> <span class="dv">110000</span>          )   <span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>)                  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb126-19" title="19"><span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">3</span>) <span class="kw">col</span>(<span class="dv">1</span>)<span class="st">`</span><span class="dt">leg&#39;)  ysize(10) xsize(20) xscale(log)                 ///</span></a>
+<a class="sourceLine" id="cb126-20" title="20"><span class="dt">title(&quot;</span><span class="st">`</span>y2<span class="st">&#39;&quot;, pos(11)) xtitle(&quot;Revenu par habitant&quot;)  name(g`i++&#39;</span>, replace) </a>
+<a class="sourceLine" id="cb126-21" title="21"><span class="er">}</span></a>
+<a class="sourceLine" id="cb126-22" title="22"></a>
+<a class="sourceLine" id="cb126-23" title="23">grc1leg  g1 g2, <span class="kw">col</span>(<span class="dv">1</span>) <span class="kw">leg</span>(g1) <span class="kw">pos</span>(<span class="dv">3</span>)</a></code></pre></div>
+<p><em>Remarque: les deux graphiques étant générés dans une boucle, je n’ai pas enlevé le label de x pour 1952</em></p>
+<p><em>Graphique 77</em></p>
+<p><img src="imgf/g86.png" style="width:75.0%" /></p>
+<p><em>Ajout d’une légende pour la taille des bulles</em><br />
+Il y a surement mieux à faire, et voir si on peut automatiser</p>
+<div class="sourceCode" id="cb127"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb127-1" title="1">gen     w=<span class="dv">1000000</span>  <span class="cf">in</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb127-2" title="2">replace w=<span class="dv">10000000</span> <span class="cf">in</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb127-3" title="3">replace w=<span class="dv">50000000</span> <span class="cf">in</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb127-4" title="4">replace w=<span class="dv">100000000</span> <span class="cf">in</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb127-5" title="5">replace w=<span class="dv">500000000</span> <span class="cf">in</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb127-6" title="6">replace w=<span class="dv">1000000000</span> <span class="cf">in</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb127-7" title="7"></a>
+<a class="sourceLine" id="cb127-8" title="8">gen x=.</a>
+<a class="sourceLine" id="cb127-9" title="9">gen y=.</a>
+<a class="sourceLine" id="cb127-10" title="10">forvalue i=<span class="dv">1</span><span class="op">/</span><span class="dv">6</span> {</a>
+<a class="sourceLine" id="cb127-11" title="11">replace y=<span class="dv">0</span> <span class="cf">in</span> <span class="st">`</span><span class="dt">i&#39;</span></a>
+<a class="sourceLine" id="cb127-12" title="12"><span class="dt">replace x=</span><span class="st">`</span>i<span class="st">&#39; in `i&#39;</span></a>
+<a class="sourceLine" id="cb127-13" title="13">}</a>
+<a class="sourceLine" id="cb127-14" title="14"></a>
+<a class="sourceLine" id="cb127-15" title="15">tw scatter y x [w=w], <span class="kw">xlab</span>(<span class="dv">0</span>(<span class="dv">1</span>)<span class="dv">7</span>,nogrid <span class="kw">labc</span>(<span class="op">%0)) ylab(,nogrid labc(%</span><span class="dv">0</span>)) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-16" title="16"><span class="st"> </span><span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-17" title="17"><span class="kw">mc</span>(white) <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-18" title="18"><span class="kw">text</span>(.<span class="dv">3</span> <span class="dv">1</span> <span class="st">&quot;1M&quot;</span>, <span class="kw">color</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-19" title="19"><span class="kw">text</span>(.<span class="dv">4</span> <span class="dv">2</span> <span class="st">&quot;10M&quot;</span>, <span class="kw">color</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-20" title="20"><span class="kw">text</span>(.<span class="dv">5</span> <span class="dv">3</span> <span class="st">&quot;50M&quot;</span>, <span class="kw">color</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-21" title="21"><span class="kw">text</span>(.<span class="dv">6</span> <span class="dv">4</span> <span class="st">&quot;100M&quot;</span>, <span class="kw">color</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-22" title="22"><span class="kw">text</span>(.<span class="dv">8</span> <span class="dv">5</span> <span class="st">&quot;500M&quot;</span>, <span class="kw">color</span>(black))  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-23" title="23"><span class="kw">text</span>( <span class="dv">1</span> <span class="dv">6</span> <span class="st">&quot;1000M&quot;</span>, <span class="kw">color</span>(black))  <span class="op">/</span><span class="er">//</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb127-24" title="24"><span class="kw">fxsize</span>(<span class="dv">100</span>) <span class="kw">fysize</span>(<span class="dv">20</span>) <span class="kw">name</span>(g3,replace) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb127-25" title="25"><span class="kw">title</span>(<span class="st">&quot;Population size&quot;</span>, <span class="kw">pos</span>(<span class="dv">9</span>))</a>
+<a class="sourceLine" id="cb127-26" title="26"></a>
+<a class="sourceLine" id="cb127-27" title="27">grc1leg g1 g2 g3, <span class="kw">col</span>(<span class="dv">1</span>) <span class="kw">leg</span>(g1) <span class="kw">pos</span>(<span class="dv">3</span>) <span class="kw">ring</span>(<span class="dv">1</span>) <span class="kw">graphr</span>(<span class="kw">margin</span>(vsmall))</a></code></pre></div>
+<p><em>Graphique 78</em></p>
+<p><img src="imgf/g87.png" style="width:75.0%" /></p>
+</div>
+</div>
+<div id="courbes-et-associés" class="section level2">
+<h2><span class="header-section-number">5.4</span> Courbes et associés</h2>
+<p><span class="badge badge-info">variables continues</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
+<div id="line---connected" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> line - connected</h3>
+<ul>
+<li>Commande <strong><code>line</code></strong> ou <strong><code>tsline</code></strong> en mode série chronologique (<code>help tsset</code>)</li>
+<li>Commande <strong><code>connected</code></strong> pour faire apparaitre les points d’intersection des coordonnées (si point d’observation peu nombreux)</li>
+<li>On peut utiliser l’option recast pour transformer le graphique en un graphique d’un autre type, en particulier en ajoutant une aire: <strong><code>recast(area</code>)</strong></li>
+<li>On peut générer des graphiques type <em>facet</em> avec l’option <code>by(nom_variable)</code>. Mais on ne pourra pas affecter une couleur différente pour chaque courbe</li>
+<li>Point de vigilance: si plus de 4-5 courbes, il est difficile de les suivre: <strong>effet spaghetti</strong>
+<ul>
+<li>Solutions:
+<ul>
+<li>Mettre la ou quelques courbes en highlight</li>
+<li>Un graphique par courbe (facet)</li>
+<li>Mixer les deux approches</li>
+</ul></li>
+</ul></li>
+<li>Pensez également à jouer sur la taille du graphique en particulier sur le ratio des longueurs des axes x et y avec <code>xsize(#)</code> et <code>ysize(#)</code> (max#=20)</li>
+</ul>
+<p><strong>Exemple</strong></p>
+<ul>
+<li>Exemple et codes R: <a href="https://www.data-to-viz.com/story/TwoNumOrdered.html" class="uri">https://www.data-to-viz.com/story/TwoNumOrdered.html</a></li>
+<li>Sur un graphique, Stata s’en sort mieux que R…Enjoy!…mais ça ne risque pas de se reproduire</li>
+<li>Evolution du cours du bitcoin entre avril 2013 et avril 2018</li>
+<li>Je n’ai pas utilisé la commande <em><code>tsline</code></em> bien que l’on soit clairement avec une série chronologique (observation hebdomadaires)<br />
+</li>
+<li>Je ne m’étendrai pas sur la manipulation des variables date et les modifications de leur format, dont j’admets ne pas comprendre grand chose</li>
+</ul>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb128-1" title="1">clear</a>
+<a class="sourceLine" id="cb128-2" title="2">import delimited <span class="st">&quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/3_TwoNumOrdered.csv&quot;</span>, <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb128-3" title="3"><span class="kw">delimiter</span>(space) </a>
+<a class="sourceLine" id="cb128-4" title="4"></a>
+<a class="sourceLine" id="cb128-5" title="5">gen Date =<span class="st"> </span><span class="kw">date</span>(date, <span class="st">&quot;YMD&quot;</span>)</a>
+<a class="sourceLine" id="cb128-6" title="6">format Date %td</a></code></pre></div>
+<p><em>Seulement la courbe</em></p>
+<div class="sourceCode" id="cb129"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb129-1" title="1">tw line value Date, <span class="kw">lc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">tlabel</span>(, <span class="kw">format</span>(%tdCy)) <span class="kw">xsize</span>(<span class="dv">12</span>) <span class="kw">ysize</span>(<span class="dv">7</span>) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb129-2" title="2"><span class="kw">ytitle</span>(<span class="st">&quot;bitcoin price ($)&quot;</span>) <span class="kw">title</span>(<span class="st">&quot;Evolution of Bitcoin price&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>))</a></code></pre></div>
+<p><em>Graphique 79</em></p>
+<p><img src="imgf/g77.png" style="width:50.0%" /></p>
+<p><em>Avec une aire (option recast)</em></p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb130-1" title="1">tw line value Date, <span class="kw">lc</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">tlabel</span>(, <span class="kw">format</span>(<span class="op">%tdCy)) recast(area) fcolor(&quot;105 179 162%</span><span class="dv">70</span><span class="st">&quot;) ///</span></a>
+<a class="sourceLine" id="cb130-2" title="2"><span class="st">xsize(15) ysize(7) ytitle(&quot;</span>bitcoin <span class="kw">price</span> (<span class="op">$</span>)<span class="st">&quot;) title(&quot;</span>Evolution of Bitcoin price<span class="st">&quot;, pos(11))</span></a></code></pre></div>
+<p><em>Graphique 80</em></p>
+<p><img src="imgf/g78.png" style="width:50.0%" /></p>
+<p><em>Connected</em></p>
+<ul>
+<li>On regardera seulement les 10 dernières observations</li>
+<li>On ne visiblement pas utiliser <code>connected</code> avec l’option <code>recast(area)</code> en gardant les markers.</li>
+</ul>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb131-1" title="1">local o <span class="kw">tlabel</span>(, <span class="kw">format</span>(%tddm)) <span class="kw">ylab</span>(<span class="dv">8000</span>(<span class="dv">250</span>)<span class="dv">9000</span>)</a>
+<a class="sourceLine" id="cb131-2" title="2">tw area value Date   <span class="cf">if</span> Date[_n]<span class="op">&gt;</span>Date[_N<span class="dv">-10</span>],   <span class="kw">lc</span>(<span class="op">%0)             fcolor(&quot;105 179 162%</span><span class="dv">70</span><span class="st">&quot;) `o&#39; ||   ///</span></a>
+<a class="sourceLine" id="cb131-3" title="3"><span class="st">connected value Date if Date[_n]&gt;Date[_N-10],   mc(&quot;</span><span class="dv">105</span> <span class="dv">179</span> <span class="dv">162</span><span class="st">&quot;)  lcolor(&quot;</span><span class="dv">105</span> <span class="dv">179</span> <span class="dv">162</span>%<span class="dv">70</span><span class="st">&quot;) `o&#39; || , /// </span></a>
+<a class="sourceLine" id="cb131-4" title="4"><span class="st">legend(off)   xsize(15) ysize(7)</span></a></code></pre></div>
+<p><em>Graphique 81</em></p>
+<p><img src="imgf/g79.png" style="width:50.0%" /></p>
+<p><em>2 sous-aires à partir d’une valeur de référence</em></p>
+<ul>
+<li>Visiblement ça bloc un peu du côté de ggplot2, plutôt facile avec Stata</li>
+</ul>
+<div class="sourceCode" id="cb132"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb132-1" title="1">gen x =<span class="st"> </span>value<span class="op">&gt;</span><span class="dv">7500</span></a>
+<a class="sourceLine" id="cb132-2" title="2"></a>
+<a class="sourceLine" id="cb132-3" title="3">gen val0 =<span class="st"> </span>value        <span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb132-4" title="4">replace val0 =<span class="st"> </span><span class="dv">7500</span>     <span class="cf">if</span> x<span class="op">==</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb132-5" title="5">gen val1 =<span class="st"> </span>value        <span class="cf">if</span> x<span class="op">==</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb132-6" title="6">replace val1 =<span class="st"> </span><span class="dv">7500</span>     <span class="cf">if</span> x<span class="op">==</span><span class="dv">0</span></a>
+<a class="sourceLine" id="cb132-7" title="7"></a>
+<a class="sourceLine" id="cb132-8" title="8">gen ref=<span class="dv">7500</span></a>
+<a class="sourceLine" id="cb132-9" title="9"></a>
+<a class="sourceLine" id="cb132-10" title="10">tw rarea ref val1 Date <span class="cf">if</span> Date<span class="op">&gt;</span><span class="kw">td</span>(1jul2017) ,  <span class="kw">fc</span>(<span class="st">&quot;39 21 105%60&quot;</span>)   <span class="kw">lc</span>(<span class="st">&quot;black&quot;</span>) <span class="kw">lw</span>(vthin) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb132-11" title="11"><span class="er">||</span><span class="st"> </span>rarea val0 ref Date <span class="cf">if</span> Date<span class="op">&gt;</span><span class="kw">td</span>(1jul2017) ,  <span class="kw">fc</span>(<span class="st">&quot;105 179 162%60&quot;</span>) <span class="kw">lc</span>(<span class="st">&quot;black&quot;</span>) <span class="kw">lw</span>(vthin) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb132-12" title="12">, <span class="kw">legend</span>(off)  <span class="kw">xsize</span>(<span class="dv">15</span>) <span class="kw">ysize</span>(<span class="dv">10</span>) <span class="kw">xlab</span>(,<span class="kw">format</span>(%td_my)) <span class="kw">ylab</span>(,<span class="kw">angle</span>(<span class="dv">0</span>)) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb132-13" title="13"><span class="kw">ytitle</span>(<span class="st">&quot;bitcoin price ($)&quot;</span>) <span class="kw">title</span>(<span class="st">&quot;Evolution of Bitcoin price&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>))</a></code></pre></div>
+<p><em>Graphique 82</em></p>
+<p><img src="imgf/g80.png" style="width:50.0%" /></p>
+<p><em>Spike</em></p>
+<ul>
+<li>Ajout d’un graphique, ici combiné vue les valeurs prises, qui donne la différence entre la valeur journalière du bitcoin et la moyenne des 30 jours précédents (idée récupérée chez les météorologue)</li>
+<li>Encore quelques soucis pour bien caler les axes entre les deux graphiques, même si cela ne se voit pas trop</li>
+</ul>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb133-1" title="1"><span class="op">*</span><span class="st"> </span>Calcul des moyennes entre t<span class="dv">-1</span> et t<span class="dv">-30</span></a>
+<a class="sourceLine" id="cb133-2" title="2">gen x=_n</a>
+<a class="sourceLine" id="cb133-3" title="3">gen m=.</a>
+<a class="sourceLine" id="cb133-4" title="4">local j=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb133-5" title="5">forv i=<span class="dv">31</span><span class="op">/</span><span class="dv">1822</span> {</a>
+<a class="sourceLine" id="cb133-6" title="6">local k =<span class="st"> `</span><span class="dt">j++&#39;</span></a>
+<a class="sourceLine" id="cb133-7" title="7"><span class="dt">qui gen n=_n-30 - </span><span class="st">`</span>k<span class="st">&#39;  if x&lt;=`i&#39;</span></a>
+<a class="sourceLine" id="cb133-8" title="8">qui sum value <span class="cf">if</span> n<span class="op">&gt;=-</span><span class="dv">30</span> <span class="op">&amp;</span><span class="st"> </span>n<span class="op">&lt;</span><span class="dv">1</span></a>
+<a class="sourceLine" id="cb133-9" title="9">qui replace m =<span class="st"> `</span><span class="dt">r(mean)&#39; in </span><span class="st">`</span>i<span class="st">&#39;</span></a>
+<a class="sourceLine" id="cb133-10" title="10"><span class="st">qui drop n</span></a>
+<a class="sourceLine" id="cb133-11" title="11"><span class="st">}</span></a>
+<a class="sourceLine" id="cb133-12" title="12"></a>
+<a class="sourceLine" id="cb133-13" title="13"><span class="st">gen diff =  value - m</span></a>
+<a class="sourceLine" id="cb133-14" title="14"></a>
+<a class="sourceLine" id="cb133-15" title="15"><span class="st">tw line value Date, lc(&quot;105 179 162&quot;)  yaxis(1) recast(area) fc(&quot;105 179 162&quot;)                              ///</span></a>
+<a class="sourceLine" id="cb133-16" title="16"><span class="st">tlabel(, format(%tdCy)) xsize(20)   ysize(7)  xlab(,labc(%0))  ylab(,angle(0))                              ///</span></a>
+<a class="sourceLine" id="cb133-17" title="17"><span class="st">ytitle(&quot;&quot;)  xtitle(&quot;&quot;) fxsize(200) fysize(100) title(&quot;Valeur du bitcoin ($)&quot;, pos(11)) name(g1,replace) </span></a>
+<a class="sourceLine" id="cb133-18" title="18"></a>
+<a class="sourceLine" id="cb133-19" title="19"><span class="st">tw spike diff Date, lc(&quot;39 21 105&quot;) xsize(20)  ysize(3)  xlab(,format(%td_Cy)) ylab(,angle(0))              ///</span></a>
+<a class="sourceLine" id="cb133-20" title="20"><span class="st">                                   fysize(35) fxsize(200) ytitle(&quot;&quot;) xtitle(&quot;&quot;)                             ///</span></a>
+<a class="sourceLine" id="cb133-21" title="21"><span class="st">title(&quot;Valeur journalière - Moyenne des 30 jours précédents&quot;, pos(11)) name(g2,replace) </span></a>
+<a class="sourceLine" id="cb133-22" title="22"></a>
+<a class="sourceLine" id="cb133-23" title="23"><span class="st">graph combine g1 g2, col(1) imargin(0 0 0 0)</span></a></code></pre></div>
+<p><em>Graphique 83</em></p>
+<p><img src="imgf/g81.png" style="width:75.0%" /></p>
+</div>
+<div id="effet-spaghetti" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Effet spaghetti</h3>
+<ul>
+<li>Exemple et code R: <a href="https://www.data-to-viz.com/caveat/spaghetti.html" class="uri">https://www.data-to-viz.com/caveat/spaghetti.html</a></li>
+<li>Données: popularité des prénoms données aux filles de 1880 à 2017</li>
+<li>Source: je suis passé par un base R (babynames)</li>
+<li><em>Remarque</em>: ici on est plutôt dans un croisement variables numérique*catégorielle</li>
+</ul>
+<p><em>Préparation des données</em></p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb134-1" title="1"><span class="op">*</span><span class="st"> </span>Merci les limitations de <span class="kw">inlist</span>() avec les variables caractère</a>
+<a class="sourceLine" id="cb134-2" title="2">use <span class="st">&quot;babynames.dta&quot;</span>, clear</a>
+<a class="sourceLine" id="cb134-3" title="3">keep <span class="cf">if</span> name<span class="op">==</span><span class="st">&quot;Mary&quot;</span> <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-4" title="4"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st">&quot;Emma&quot;</span>       <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-5" title="5"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st">&quot;Ida&quot;</span>        <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-6" title="6"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st">&quot;Ashley&quot;</span>     <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-7" title="7"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st">&quot;Amanda&quot;</span>     <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-8" title="8"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st"> &quot;Jessica&quot;</span>   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-9" title="9"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st"> &quot;Patricia&quot;</span>  <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-10" title="10"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st"> &quot;Linda&quot;</span>     <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-11" title="11"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st"> &quot;Deborah&quot;</span>   <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-12" title="12"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st">&quot;Betty&quot;</span>      <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-13" title="13"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st">&quot;Helen&quot;</span>      <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb134-14" title="14"><span class="er">|</span><span class="st"> </span>name<span class="op">==</span><span class="st">&quot;Dorothy&quot;</span></a>
+<a class="sourceLine" id="cb134-15" title="15"></a>
+<a class="sourceLine" id="cb134-16" title="16"><span class="op">*</span><span class="st"> </span>Quelques garçons avec des prénoms féminin</a>
+<a class="sourceLine" id="cb134-17" title="17">keep  <span class="cf">if</span> sex<span class="op">==</span><span class="st">&quot;F&quot;</span></a></code></pre></div>
+<p><strong>10 courbes = Spaghetti</strong></p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb135-1" title="1">levelsof name, <span class="kw">l</span>(name)</a>
+<a class="sourceLine" id="cb135-2" title="2">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb135-3" title="3">foreach nom of local name {</a>
+<a class="sourceLine" id="cb135-4" title="4">local lin  <span class="st">`</span><span class="dt">lin&#39; line n year if name==&quot;</span><span class="st">`</span>nom<span class="st">&#39;&quot; ||</span></a>
+<a class="sourceLine" id="cb135-5" title="5"><span class="st">local leg `leg&#39;</span> <span class="st">`</span><span class="dt">i++&#39; &quot;</span><span class="st">`</span>nom<span class="st">&#39;&quot;</span></a>
+<a class="sourceLine" id="cb135-6" title="6"><span class="st">}</span></a>
+<a class="sourceLine" id="cb135-7" title="7"></a>
+<a class="sourceLine" id="cb135-8" title="8"><span class="st">grstyle init,</span></a>
+<a class="sourceLine" id="cb135-9" title="9"><span class="st">grstyle set mesh, horizontal compact</span></a>
+<a class="sourceLine" id="cb135-10" title="10"><span class="st">grstyle set legend 2, nobox</span></a>
+<a class="sourceLine" id="cb135-11" title="11"><span class="st">grstyle set color viridis, n(12)</span></a>
+<a class="sourceLine" id="cb135-12" title="12"></a>
+<a class="sourceLine" id="cb135-13" title="13"><span class="st">tw `lin&#39;</span>, <span class="kw">xlabel</span>(<span class="dv">1880</span>(<span class="dv">40</span>)<span class="dv">2017</span>) <span class="kw">leg</span>(<span class="kw">order</span>(<span class="st">`</span><span class="dt">leg&#39;)) xsize(20) ysize(10) ///</span></a>
+<a class="sourceLine" id="cb135-14" title="14"><span class="dt">title(&quot;A spaghetti chart of baby names popularity&quot;, pos(11))</span></a></code></pre></div>
+<p><em>Graphique 84</em></p>
+<p><img src="imgf/g82.png" style="width:75.0%" /></p>
+<p><strong>Facets</strong></p>
+<ul>
+<li>Avec by(nom de variables), les sous graphiques sont générés automatiquement mais pas modifiables un à un</li>
+<li>Mise en forme des axes interessante. Voir plus bas pour une programmation laborieuse</li>
+<li>Gain de temps considérable azvec by()</li>
+</ul>
+<div class="sourceCode" id="cb136"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb136-1" title="1">tw line n year, <span class="kw">by</span>(name, <span class="kw">note</span>(<span class="st">&quot;Popularity of american names&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>))) <span class="kw">recast</span>(area) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb136-2" title="2"><span class="st">  </span><span class="kw">color</span>(<span class="st">&quot;105 179 162&quot;</span>) <span class="kw">xlabel</span>(<span class="dv">1880</span>(<span class="dv">40</span>)<span class="dv">2017</span>)</a></code></pre></div>
+<p><em>Graphique 85</em></p>
+<p><img src="imgf/g84.png" style="width:75.0%" /></p>
+<p><strong>Amanda highlight</strong></p>
+<ul>
+<li>A la différence l’exemple sur data-to-viz, j’ai mis en valeur l’année où le prénom a observé son maximum</li>
+</ul>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb137-1" title="1">qui sum n <span class="cf">if</span> name<span class="op">==</span><span class="st">&quot;Amanda&quot;</span>, d</a>
+<a class="sourceLine" id="cb137-2" title="2">local nmax =<span class="st"> `</span><span class="dt">r(max)&#39;</span></a>
+<a class="sourceLine" id="cb137-3" title="3"><span class="dt">local nmax2 = </span><span class="st">`</span>nmax<span class="st">&#39; + 5000</span></a>
+<a class="sourceLine" id="cb137-4" title="4"><span class="st">qui sum year if name==&quot;Amanda&quot; &amp; n==`nmax&#39;</span>, d</a>
+<a class="sourceLine" id="cb137-5" title="5">local ymax =<span class="st"> `</span><span class="dt">r(max)&#39;</span></a>
+<a class="sourceLine" id="cb137-6" title="6"></a>
+<a class="sourceLine" id="cb137-7" title="7"><span class="dt">levelsof name, l(name)</span></a>
+<a class="sourceLine" id="cb137-8" title="8"><span class="dt">local other: subinstr local name &quot;Amanda&quot; &quot;&quot;</span></a>
+<a class="sourceLine" id="cb137-9" title="9"><span class="dt">foreach o of local other {</span></a>
+<a class="sourceLine" id="cb137-10" title="10"><span class="dt">local lin  </span><span class="st">`</span>lin<span class="st">&#39; line n year if name==&quot;`o&#39;&quot;, lc(gray*.35) lw(vthin) ||</span></a>
+<a class="sourceLine" id="cb137-11" title="11"><span class="st">}</span></a>
+<a class="sourceLine" id="cb137-12" title="12"><span class="st">tw `lin&#39; line n year if name==&quot;</span>Amanda<span class="st">&quot;, lc(&quot;</span><span class="dv">105</span> <span class="dv">179</span> <span class="dv">162</span><span class="st">&quot;) lw(thick) legend(off) ///</span></a>
+<a class="sourceLine" id="cb137-13" title="13"><span class="st">xsize(20) ysize(10) xlabel(1880(40)2017) ///  </span></a>
+<a class="sourceLine" id="cb137-14" title="14"><span class="st">text(`nmax2&#39; `ymax&#39; &quot;</span>Amanda reached <span class="st">`</span><span class="dt">nmax&#39;&quot; &quot;babies in </span><span class="st">`</span>ymax<span class="st">&#39;&quot;, ///</span></a>
+<a class="sourceLine" id="cb137-15" title="15"><span class="st">color(&quot;105 179 162&quot;) bc(&quot;105 179 162&quot;)) ///</span></a>
+<a class="sourceLine" id="cb137-16" title="16"><span class="st">title(&quot;A spaghetti chart of baby names popularity&quot;, pos(11))</span></a></code></pre></div>
+<p><em>Graphique 86</em></p>
+<p><img src="imgf/g83.png" style="width:75.0%" /></p>
+<p><strong>Facets + highlight</strong></p>
+<ul>
+<li>4 mises en forme pour les graphiques selon leur position
+<ul>
+<li>9: labels des deux axes</li>
+<li>1 et 5: labels de y seulement</li>
+<li>10 à 12: labels de x seulement</li>
+<li>2 à 4 et 6 à 8: aucun label sur les deux axes</li>
+</ul></li>
+<li>Temps d’exécution: près d’une minute</li>
+</ul>
+<div class="sourceCode" id="cb138"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb138-1" title="1">levelsof name, <span class="kw">l</span>(name)</a>
+<a class="sourceLine" id="cb138-2" title="2">local i=<span class="dv">1</span></a>
+<a class="sourceLine" id="cb138-3" title="3">foreach nom of local name {</a>
+<a class="sourceLine" id="cb138-4" title="4">local other<span class="op">:</span><span class="st"> </span>subinstr local name <span class="st">&quot;`nom&#39;&quot;</span> <span class="st">&quot;&quot;</span></a>
+<a class="sourceLine" id="cb138-5" title="5">local j=<span class="st">`</span><span class="dt">i++&#39;</span></a>
+<a class="sourceLine" id="cb138-6" title="6"></a>
+<a class="sourceLine" id="cb138-7" title="7"><span class="dt">foreach o of local other {</span></a>
+<a class="sourceLine" id="cb138-8" title="8"><span class="dt">local olin  </span><span class="st">`</span>olin<span class="st">&#39; line n year if name==&quot;`o&#39;&quot;, lc(gray*.25) lw(vthin)  ||</span></a>
+<a class="sourceLine" id="cb138-9" title="9"><span class="st">}</span></a>
+<a class="sourceLine" id="cb138-10" title="10"><span class="st">local lin line n year if name==&quot;`</span><span class="dt">nom&#39;&quot;, lc(&quot;105 179 162&quot;) lw(thick) title(&quot;</span><span class="st">`</span>nom<span class="st">&#39;&quot;, pos(11)) ||</span></a>
+<a class="sourceLine" id="cb138-11" title="11"><span class="st">if `j&#39;</span><span class="op">==</span><span class="dv">1</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==5 {</span></a>
+<a class="sourceLine" id="cb138-12" title="12"><span class="dt">tw </span><span class="st">`</span>olin<span class="st">&#39; `lin&#39;</span>, <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb138-13" title="13"><span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">legend</span>(off) <span class="kw">xlabel</span>(,nogrid <span class="kw">labc</span>(%<span class="dv">0</span>)) <span class="kw">ylabel</span>(,nogrid) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb138-14" title="14"><span class="kw">name</span>(_<span class="st">`</span><span class="dt">j&#39;, replace) nodraw</span></a>
+<a class="sourceLine" id="cb138-15" title="15"><span class="dt">}</span></a>
+<a class="sourceLine" id="cb138-16" title="16"><span class="dt">if </span><span class="st">`</span>j<span class="st">&#39;==9 {</span></a>
+<a class="sourceLine" id="cb138-17" title="17"><span class="st">tw `olin&#39;</span> <span class="st">`</span><span class="dt">lin&#39;, ///</span></a>
+<a class="sourceLine" id="cb138-18" title="18"><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(,nogrid) ylabel(,nogrid) ///</span></a>
+<a class="sourceLine" id="cb138-19" title="19"><span class="dt">name(_</span><span class="st">`</span>j<span class="st">&#39;, replace) nodraw</span></a>
+<a class="sourceLine" id="cb138-20" title="20"><span class="st">}</span></a>
+<a class="sourceLine" id="cb138-21" title="21"><span class="st">if `j&#39;</span><span class="op">==</span><span class="dv">2</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==3 | </span><span class="st">`</span>j<span class="st">&#39;==4 | `j&#39;</span><span class="op">==</span><span class="dv">6</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==7 | </span><span class="st">`</span>j<span class="st">&#39;==8    {</span></a>
+<a class="sourceLine" id="cb138-22" title="22"><span class="st">tw `olin&#39;</span> <span class="st">`</span><span class="dt">lin&#39;, ///</span></a>
+<a class="sourceLine" id="cb138-23" title="23"><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(,nogrid labc(%0)) ylabel(,nogrid labc(%0)) ///</span></a>
+<a class="sourceLine" id="cb138-24" title="24"><span class="dt">name(_</span><span class="st">`</span>j<span class="st">&#39;, replace) nodraw</span></a>
+<a class="sourceLine" id="cb138-25" title="25"><span class="st">}</span></a>
+<a class="sourceLine" id="cb138-26" title="26"><span class="st">if `j&#39;</span><span class="op">==</span><span class="dv">10</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==11 | </span><span class="st">`</span>j<span class="st">&#39;==12 {</span></a>
+<a class="sourceLine" id="cb138-27" title="27"><span class="st">tw `olin&#39;</span> <span class="st">`</span><span class="dt">lin&#39;, ///</span></a>
+<a class="sourceLine" id="cb138-28" title="28"><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(,nogrid ) ylabel(,nogrid labc(%0)) ///</span></a>
+<a class="sourceLine" id="cb138-29" title="29"><span class="dt">name(_</span><span class="st">`</span>j<span class="st">&#39;, replace) nodraw</span></a>
+<a class="sourceLine" id="cb138-30" title="30"><span class="st">}</span></a>
+<a class="sourceLine" id="cb138-31" title="31"></a>
+<a class="sourceLine" id="cb138-32" title="32"><span class="st">*global g $g _`j&#39;</span> <span class="op">/</span><span class="er">/</span>refaire la macro pour le combine</a>
+<a class="sourceLine" id="cb138-33" title="33"><span class="er">}</span></a>
+<a class="sourceLine" id="cb138-34" title="34"></a>
+<a class="sourceLine" id="cb138-35" title="35">graph combine _<span class="dv">1</span> _<span class="dv">2</span> _<span class="dv">3</span> _<span class="dv">4</span> _<span class="dv">5</span> _<span class="dv">6</span> _<span class="dv">7</span> _<span class="dv">8</span> _<span class="dv">9</span> _<span class="dv">10</span> _<span class="dv">11</span> _<span class="dv">12</span>, <span class="kw">col</span>(<span class="dv">4</span>) <span class="kw">title</span>(<span class="st">&quot;A spaghetti chart of baby names popularity&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>)) <span class="op">/</span><span class="er">//</span></a>
+<a class="sourceLine" id="cb138-36" title="36"><span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">15</span>)</a></code></pre></div>
+<p><em>Graphique 87</em></p>
+<p><img src="imgf/g85.png" style="width:75.0%" /></p>
+<p>*Section à compléter avec d’autre représentations il me semble</p>
+</div>
+</div>
+<div id="barres-et-lollipop-dot" class="section level2">
+<h2><span class="header-section-number">5.5</span> Barres et lollipop (dot)</h2>
+<p><span class="badge badge-info">variable numérique croisées avec variables catégorielles </span> <span class="badge badge-info">Variables catégorielles</span></p>
+</div>
+<div id="catplot-et-splineplot" class="section level2">
+<h2><span class="header-section-number">5.6</span> catplot et splineplot</h2>
+<p><strong>Catplot</strong> * Wrapper de graph bar programmé par N.Cox</p>
+<p><strong>spineplot</strong> * Programmé par N.Cox * Proche du treemap, permet de représenter un tableau croisé les surfaces représentant la taille relative des cellules avec prise en compte des marges</p>
+</div>
+<div id="le-fromage-contreversé" class="section level2">
+<h2><span class="header-section-number">5.7</span> Le fromage contreversé</h2>
+<ul>
+<li>Perception des angles avec un axe</li>
+<li>A limiter à 2 catégories?</li>
 </ul>
 </div>
-<div id="courbes" class="section level3">
-<h3><span class="header-section-number">5.1.4</span> Courbes</h3>
-<p>Effet spaghetti</p>
-</div>
-<div id="lollipop" class="section level3">
-<h3><span class="header-section-number">5.1.5</span> Lollipop ???</h3>
-</div>
-</div>
-<div id="variables-catégorielles-uneplusieurs" class="section level2">
-<h2><span class="header-section-number">5.2</span> Variable(s) catégorielles: une/plusieurs</h2>
-<p>=&gt;bar =&gt; catplot () spineplot [N.Cox] =&gt; tarte au camembert et problème relatifs à ce genre de représentation</p>
-</div>
-<div id="variables-continues-et-catégorielles" class="section level2">
-<h2><span class="header-section-number">5.3</span> Variables continues et catégorielles</h2>
-<p>=&gt; reprendres graph variables continues statrifiées par les valeurs d’une variable cat</p>
-<p><strong>Faire un tableau listant les commandes graphiques (interne et quelques externes)?????</strong> * nom de la commande * son usage: description variables continue/catégorielle - post estimation…. * éventuellement un commentaire =&gt; faire un fichier excel - l’importer et utiliser kable</p>
-</div>
-<div id="résultats-de" class="section level2">
-<h2><span class="header-section-number">5.4</span> Résultats de</h2>
+<div id="résultats-de-régression" class="section level2">
+<h2><span class="header-section-number">5.8</span> Résultats de régression</h2>
 <ul>
 <li>Coef regression: type forest plot</li>
 <li>Effet marginaux: marginsplot et contour….what else</li>
 </ul>
 </div>
 <div id="graph-interactifs-et-dynamiques" class="section level2">
-<h2><span class="header-section-number">5.5</span> Graph interactifs et dynamiques</h2>
+<h2><span class="header-section-number">5.9</span> Graph interactifs et dynamiques</h2>
 <ul>
 <li><a href="https://www.francetvinfo.fr/sante/maladie/coronavirus/infographies-covid-19-morts-hospitalisations-age-malades-l-evolution-de-l-epidemie-en-france-et-dans-le-monde-en-cartes-et-graphiques.html">France Info</a></li>
 <li><a href="https://www.ined.fr/fr/tout-savoir-population/graphiques-cartes/population-cartes-interactives/">Site Ined</a></li>
