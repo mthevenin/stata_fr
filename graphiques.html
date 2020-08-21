@@ -501,12 +501,11 @@ hide:hover {
 <li>Une syntaxe de base plutôt simple</li>
 <li>Des graphiques critiqués pour leur aspect rustre par défaut, loin des standards actuels
 <ul>
-<li><p>Mauvaise communication officielle : <a href="https://www.stata.com/stata-news/news33-4/spotlight/" class="uri">https://www.stata.com/stata-news/news33-4/spotlight/</a> <img src="https://www.stata.com/stata-news/news33-4/spotlight/i/gr1.svg" /></p></li>
-<li><p>Alors que…:<br />
-<img src="https://graphworkflow.files.wordpress.com/2019/09/life_expectancy.png" alt="graphworkflow.com" /></p></li>
+<li>Mauvaise communication officielle : <a href="https://www.stata.com/stata-news/news33-4/spotlight/" class="uri">https://www.stata.com/stata-news/news33-4/spotlight/</a> <img src="https://www.stata.com/stata-news/news33-4/spotlight/i/gr1.svg" /></li>
+<li>Alors que…:<br />
+<img src="https://graphworkflow.files.wordpress.com/2019/09/life_expectancy.png" alt="graphworkflow.com" /></li>
 </ul></li>
 </ul>
-<p>Source: <a href="https://graphworkflow.com/" class="uri">https://graphworkflow.com/</a></p>
 <p><br> <strong>Améliorations récentes</strong>:</p>
 <ul>
 <li>Depuis Stata 15, l’opacité/transparence des couleurs peut être modifiée.</li>
@@ -753,14 +752,12 @@ Plutôt que de multiplier le nombre d’objets et d’options, on peut créer un
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true"></a>kdensity mpg0 , <span class="kw">g</span>(x1 d1) nograph <span class="kw">k</span>(gauss)</span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true"></a>kdensity mpg1 , <span class="kw">g</span>(x0 d0) nograph <span class="kw">k</span>(gauss)</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true"></a> </span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>tw histogram mpg0  , <span class="kw">bin</span>(<span class="dv">10</span>)   <span class="kw">fcolor</span>(<span class="st">&quot;72 27 109%60&quot;</span>)  <span class="kw">lc</span>(black) <span class="kw">lw</span>(vvthin)    <span class="op">/</span><span class="er">//</span></span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a><span class="er">||</span><span class="st"> </span>histogram mpg1  , <span class="kw">bin</span>(<span class="dv">10</span>)   <span class="kw">fcolor</span>(<span class="st">&quot;207 225 28%60&quot;</span>) <span class="kw">lc</span>(black) <span class="kw">lw</span>(vvthin)    <span class="op">/</span><span class="er">//</span></span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">2</span> <span class="st">&quot;Foreign&quot;</span>) <span class="kw">row</span>(<span class="dv">1</span>)  <span class="kw">region</span>(<span class="kw">lcolor</span>(%<span class="dv">0</span>)))             <span class="op">/</span><span class="er">//</span><span class="st"> </span></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a><span class="kw">xlabel</span>(<span class="dv">10</span>(<span class="dv">10</span>)<span class="dv">50</span>)</span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a></span>
-<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a>tw area d1 d0 x0, <span class="kw">fc</span>(<span class="st">&quot;72 27 109%60&quot;</span> <span class="st">&quot;207 225 28%60&quot;</span>) <span class="kw">lc</span>(black black) <span class="kw">lw</span>(vthin vthin)   <span class="op">/</span><span class="er">//</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">2</span> <span class="st">&quot;Foreign&quot;</span>) <span class="kw">row</span>(<span class="dv">1</span>) <span class="kw">region</span>(<span class="kw">lcolor</span>(%<span class="dv">0</span>)))  <span class="kw">xlabel</span>(<span class="dv">10</span>(<span class="dv">10</span>)<span class="dv">50</span>)    <span class="op">/</span><span class="er">//</span></span>
-<span id="cb14-15"><a href="#cb14-15" aria-hidden="true"></a><span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>)  <span class="kw">ytitle</span>(<span class="st">&quot;Density&quot;</span>) </span></code></pre></div>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true"></a>tw histogram mpg0  , <span class="kw">bin</span>(<span class="dv">10</span>)  density <span class="kw">fcolor</span>(<span class="st">&quot;34 94 168%70&quot;</span>)   <span class="kw">lc</span>(black) <span class="kw">lw</span>(vvthin)   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true"></a><span class="er">||</span><span class="st"> </span>histogram mpg1  , <span class="kw">bin</span>(<span class="dv">10</span>)  density <span class="kw">fcolor</span>(<span class="st">&quot;139 209 187%70&quot;</span>) <span class="kw">lc</span>(black) <span class="kw">lw</span>(vvthin)   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">2</span> <span class="st">&quot;Foreign&quot;</span>) <span class="kw">region</span>(<span class="kw">lcolor</span>(%<span class="dv">0</span>))) <span class="kw">xlabel</span>(<span class="dv">10</span>(<span class="dv">10</span>)<span class="dv">50</span>)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true"></a></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true"></a>tw area d1 d0 x0, <span class="kw">fc</span>(<span class="st">&quot;34 94 168%70&quot;</span> <span class="st">&quot;139 209 187%70&quot;</span>) <span class="kw">lc</span>(black black) <span class="kw">lw</span>(vthin vthin) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">1</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">2</span> <span class="st">&quot;Foreign&quot;</span>)  <span class="kw">region</span>(<span class="kw">lcolor</span>(%<span class="dv">0</span>))) <span class="kw">xlabel</span>(<span class="dv">10</span>(<span class="dv">10</span>)<span class="dv">50</span>)         </span></code></pre></div>
 </details>
 <p><img src="imgf/g3.png" style="width:75.0%" /></p>
 <ul>
@@ -781,11 +778,11 @@ Plutôt que de multiplier le nombre d’objets et d’options, on peut créer un
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>tw  lfitci  price mpg  <span class="cf">if</span> <span class="op">!</span>foreign, <span class="kw">clcolor</span>(<span class="st">&quot;72 27 109*1.2&quot;</span>) <span class="kw">fcolor</span>(<span class="st">&quot;72 27 109%10&quot;</span>)    <span class="kw">alcolor</span>(%<span class="dv">0</span>)          <span class="op">/</span><span class="er">//</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>lfitci  price mpg  <span class="cf">if</span> foreign,  <span class="kw">clcolor</span>(<span class="st">&quot;207 225 28*1.2&quot;</span>)  <span class="kw">fcolor</span>(<span class="st">&quot;207 225 28%10&quot;</span>) <span class="kw">alcolor</span>(%<span class="dv">0</span>)          <span class="op">/</span><span class="er">//</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>scatter price mpg  <span class="cf">if</span> <span class="op">!</span>foreign, <span class="kw">msize</span>(medlarge)   <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(<span class="st">&quot;72 27 109*.5&quot;</span>) <span class="kw">jitter</span>(<span class="dv">2</span>)    <span class="op">/</span><span class="er">//</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>scatter price mpg  <span class="cf">if</span> foreign,  <span class="kw">msize</span>(medlarge)   <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(<span class="st">&quot;207 225 28*.5&quot;</span>) <span class="kw">jitter</span>(<span class="dv">2</span>)   <span class="op">/</span><span class="er">//</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>, <span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">5</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">6</span> <span class="st">&quot;Foreign&quot;</span>) <span class="kw">pos</span>(<span class="dv">1</span>) <span class="kw">region</span>(<span class="kw">lc</span>(%<span class="dv">0</span>))) <span class="op">/</span><span class="er">//</span><span class="st">                                            </span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true"></a>tw  lfitci  price mpg  <span class="cf">if</span> <span class="op">!</span>foreign, <span class="kw">clcolor</span>(<span class="st">&quot;34 94 168*1.2&quot;</span>)    <span class="kw">fcolor</span>(<span class="st">&quot;34 94 168%25&quot;</span>)  <span class="kw">alcolor</span>(%<span class="dv">0</span>)        <span class="op">/</span><span class="er">//</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>lfitci  price mpg  <span class="cf">if</span> foreign,  <span class="kw">clcolor</span>(<span class="st">&quot;139 209 187*1.2&quot;</span>)  <span class="kw">fcolor</span>(<span class="st">&quot;139 209 187%25&quot;</span>) <span class="kw">alcolor</span>(%<span class="dv">0</span>)       <span class="op">/</span><span class="er">//</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>scatter price mpg  <span class="cf">if</span> <span class="op">!</span>foreign, <span class="kw">msize</span>(medlarge)   <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(<span class="st">&quot;34 94 168*.5&quot;</span>) <span class="kw">jitter</span>(<span class="dv">2</span>)   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>scatter price mpg  <span class="cf">if</span> foreign,  <span class="kw">msize</span>(medlarge)   <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin) <span class="kw">mc</span>(<span class="st">&quot;139 209 187*.5&quot;</span>) <span class="kw">jitter</span>(<span class="dv">2</span>) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true"></a><span class="st"> </span><span class="er">||</span><span class="st"> </span>, <span class="kw">legend</span>(<span class="kw">order</span>(<span class="dv">5</span> <span class="st">&quot;Domestic&quot;</span> <span class="dv">6</span> <span class="st">&quot;Foreign&quot;</span>) <span class="kw">pos</span>(<span class="dv">1</span>) <span class="kw">region</span>(<span class="kw">lc</span>(%<span class="dv">0</span>)))                                        <span class="op">/</span><span class="er">//</span><span class="st">                                            </span></span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true"></a><span class="st">     </span><span class="kw">ytitle</span>(<span class="st">&quot;price&quot;</span>) <span class="kw">xtitle</span>(<span class="st">&quot;mpg&quot;</span>)         </span></code></pre></div>
 </details>
 <p><img src="imgf/g14.png" style="width:75.0%" /></p>
@@ -3160,7 +3157,10 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <span id="cb118-13"><a href="#cb118-13" aria-hidden="true"></a><span class="st">graph hbox almostnochance-almostcertainly, legend(pos(2) col(1) size(vsmall))  ///</span></span>
 <span id="cb118-14"><a href="#cb118-14" aria-hidden="true"></a><span class="st"> `barc&#39;</span> <span class="st">`</span><span class="dt">marc&#39; </span></span></code></pre></div>
 </details>
-<p><img src="imgf/g62.png" style="width:75.0%" /> *Maudits graphiques oneway, obligé de passer par une légende</p>
+<p><img src="imgf/g62.png" style="width:75.0%" /></p>
+<ul>
+<li>Maudits graphiques oneway, obligé de passer par une légende</li>
+</ul>
 <em>Solution 3: Violin plot</em> <br> <em>Graphique 68</em><br />
 
 <details>
@@ -3207,7 +3207,7 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 <ul>
 <li>Appelé également <strong>Joy plot</strong>, en référence à la pochette de album de <strong>Joy Division</strong> <em>Unkown Pleasure</em>.</li>
 <li>Beaucoup plus difficile, et plus long, à programmer si on veut appliquer proprement la théorie car on ne part pas d’une estimation des densités une à une. Sinon, on peut se contenter les densités du graphique précédent en excluant les densités en mirroir et en reparamétrant l’offset (différence entre les minimums des axes y pour chaque densité)</li>
-<li>Solution dans R [<strong><code>ggridges</code></strong>] et Python. A faire avec Stata</li>
+<li>Solution dans R [<strong><code>ggridges</code></strong>] et Python. A programmer avec Stata</li>
 </ul>
 </div>
 </div>
@@ -3879,25 +3879,25 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <span id="cb141-14"><a href="#cb141-14" aria-hidden="true"></a><span class="st">local lin lowess n year if name==&quot;`</span><span class="dt">nom&#39;&quot;, bw(.05) lc(&quot;45 178 125&quot;) lw(thick) title(&quot;</span><span class="st">`</span>nom<span class="st">&#39;&quot;, color(&quot;45 178 125&quot;) pos(11) ) ||</span></span>
 <span id="cb141-15"><a href="#cb141-15" aria-hidden="true"></a><span class="st">if `j&#39;</span><span class="op">==</span><span class="dv">1</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==5 {</span></span>
 <span id="cb141-16"><a href="#cb141-16" aria-hidden="true"></a><span class="dt">tw </span><span class="st">`</span>olin<span class="st">&#39; `lin&#39;</span>, <span class="op">/</span><span class="er">//</span></span>
-<span id="cb141-17"><a href="#cb141-17" aria-hidden="true"></a><span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">legend</span>(off) <span class="kw">xlabel</span>(,nogrid <span class="kw">labc</span>(%<span class="dv">0</span>)) <span class="kw">ylabel</span>(,nogrid) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb141-17"><a href="#cb141-17" aria-hidden="true"></a><span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">legend</span>(off) <span class="kw">xlabel</span>(<span class="dv">1880</span> <span class="dv">1930</span> <span class="dv">1980</span> <span class="dv">2017</span>,nogrid <span class="kw">labc</span>(%<span class="dv">0</span>)) <span class="kw">ylabel</span>(,nogrid)          <span class="op">/</span><span class="er">//</span></span>
 <span id="cb141-18"><a href="#cb141-18" aria-hidden="true"></a><span class="kw">name</span>(_<span class="st">`</span><span class="dt">j&#39;, replace) nodraw</span></span>
 <span id="cb141-19"><a href="#cb141-19" aria-hidden="true"></a><span class="dt">mac drop _olin _lin</span></span>
 <span id="cb141-20"><a href="#cb141-20" aria-hidden="true"></a><span class="dt">}</span></span>
 <span id="cb141-21"><a href="#cb141-21" aria-hidden="true"></a><span class="dt">if </span><span class="st">`</span>j<span class="st">&#39;==9 {</span></span>
 <span id="cb141-22"><a href="#cb141-22" aria-hidden="true"></a><span class="st">tw `olin&#39;</span> <span class="st">`</span><span class="dt">lin&#39;, ///</span></span>
-<span id="cb141-23"><a href="#cb141-23" aria-hidden="true"></a><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(,nogrid) ylabel(,nogrid) ///</span></span>
+<span id="cb141-23"><a href="#cb141-23" aria-hidden="true"></a><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(1880 1930 1980 2017,nogrid) ylabel(,nogrid)                   ///</span></span>
 <span id="cb141-24"><a href="#cb141-24" aria-hidden="true"></a><span class="dt">name(_</span><span class="st">`</span>j<span class="st">&#39;, replace) nodraw</span></span>
 <span id="cb141-25"><a href="#cb141-25" aria-hidden="true"></a><span class="st">mac drop _olin _lin</span></span>
 <span id="cb141-26"><a href="#cb141-26" aria-hidden="true"></a><span class="st">}</span></span>
 <span id="cb141-27"><a href="#cb141-27" aria-hidden="true"></a><span class="st">if `j&#39;</span><span class="op">==</span><span class="dv">2</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==3 | </span><span class="st">`</span>j<span class="st">&#39;==4 | `j&#39;</span><span class="op">==</span><span class="dv">6</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==7 | </span><span class="st">`</span>j<span class="st">&#39;==8    {</span></span>
 <span id="cb141-28"><a href="#cb141-28" aria-hidden="true"></a><span class="st">tw `olin&#39;</span> <span class="st">`</span><span class="dt">lin&#39;, ///</span></span>
-<span id="cb141-29"><a href="#cb141-29" aria-hidden="true"></a><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(,nogrid labc(%0)) ylabel(,nogrid labc(%0)) ///</span></span>
+<span id="cb141-29"><a href="#cb141-29" aria-hidden="true"></a><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(1880 1930 1980 2017,nogrid labc(%0)) ylabel(,nogrid labc(%0)) ///</span></span>
 <span id="cb141-30"><a href="#cb141-30" aria-hidden="true"></a><span class="dt">name(_</span><span class="st">`</span>j<span class="st">&#39;, replace) nodraw</span></span>
 <span id="cb141-31"><a href="#cb141-31" aria-hidden="true"></a><span class="st">mac drop _olin _lin</span></span>
 <span id="cb141-32"><a href="#cb141-32" aria-hidden="true"></a><span class="st">}</span></span>
 <span id="cb141-33"><a href="#cb141-33" aria-hidden="true"></a><span class="st">if `j&#39;</span><span class="op">==</span><span class="dv">10</span> <span class="op">|</span><span class="st"> `</span><span class="dt">j&#39;==11 | </span><span class="st">`</span>j<span class="st">&#39;==12 {</span></span>
 <span id="cb141-34"><a href="#cb141-34" aria-hidden="true"></a><span class="st">tw `olin&#39;</span> <span class="st">`</span><span class="dt">lin&#39;, ///</span></span>
-<span id="cb141-35"><a href="#cb141-35" aria-hidden="true"></a><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(,nogrid ) ylabel(,nogrid labc(%0)) ///</span></span>
+<span id="cb141-35"><a href="#cb141-35" aria-hidden="true"></a><span class="dt">xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(1880 1930 1980 2017,nogrid ) ylabel(,nogrid labc(%0))         ///</span></span>
 <span id="cb141-36"><a href="#cb141-36" aria-hidden="true"></a><span class="dt">name(_</span><span class="st">`</span>j<span class="st">&#39;, replace) nodraw</span></span>
 <span id="cb141-37"><a href="#cb141-37" aria-hidden="true"></a><span class="st">mac drop _olin _lin</span></span>
 <span id="cb141-38"><a href="#cb141-38" aria-hidden="true"></a><span class="st">}</span></span>
@@ -3948,81 +3948,89 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
 <div class="sourceCode" id="cb142"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb142-1"><a href="#cb142-1" aria-hidden="true"></a>sysuse nlsw88, clear</span>
-<span id="cb142-2"><a href="#cb142-2" aria-hidden="true"></a>grstyle init</span>
-<span id="cb142-3"><a href="#cb142-3" aria-hidden="true"></a>grstyle set mesh, compact</span>
-<span id="cb142-4"><a href="#cb142-4" aria-hidden="true"></a>grstyle set color viridis, <span class="kw">select</span>(<span class="dv">4</span> <span class="dv">12</span>)</span>
+<span id="cb142-2"><a href="#cb142-2" aria-hidden="true"></a></span>
+<span id="cb142-3"><a href="#cb142-3" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>drop occup trop peu d<span class="st">&#39;observations</span></span>
+<span id="cb142-4"><a href="#cb142-4" aria-hidden="true"></a><span class="st">drop if inlist(occupation,9,10,12) </span></span>
 <span id="cb142-5"><a href="#cb142-5" aria-hidden="true"></a></span>
-<span id="cb142-6"><a href="#cb142-6" aria-hidden="true"></a>graph <span class="kw">hbar</span> (mean) wage, <span class="kw">over</span>(occupation, <span class="kw">sort</span>(<span class="dv">1</span>) descending) <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb142-7"><a href="#cb142-7" aria-hidden="true"></a><span class="kw">title</span>(<span class="st">&quot;{bf:Hourly wage}&quot;</span>, <span class="kw">color</span>(<span class="st">&quot;39 127 142&quot;</span>) <span class="kw">pos</span>(<span class="dv">11</span>))  <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>)  </span></code></pre></div>
+<span id="cb142-6"><a href="#cb142-6" aria-hidden="true"></a><span class="st">grstyle init</span></span>
+<span id="cb142-7"><a href="#cb142-7" aria-hidden="true"></a><span class="st">grstyle set mesh, compact</span></span>
+<span id="cb142-8"><a href="#cb142-8" aria-hidden="true"></a><span class="st">grstyle set legend 5, nobox</span></span>
+<span id="cb142-9"><a href="#cb142-9" aria-hidden="true"></a><span class="st">grstyle set color YlGnBu</span></span>
+<span id="cb142-10"><a href="#cb142-10" aria-hidden="true"></a></span>
+<span id="cb142-11"><a href="#cb142-11" aria-hidden="true"></a><span class="st">graph hbar (mean) wage, over(occupation, sort(1) descending label(labc(`r(p9)&#39;</span><span class="er">)))</span> <span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>)  <span class="kw">bar</span>(<span class="dv">1</span>,<span class="kw">color</span>(<span class="st">`</span><span class="dt">r(p7)&#39;))  ///</span></span>
+<span id="cb142-12"><a href="#cb142-12" aria-hidden="true"></a><span class="dt">title(&quot;{bf:Hourly wage}&quot;, color(</span><span class="st">`</span><span class="kw">r</span>(p9)<span class="st">&#39;) pos(11))  ytitle(&quot;&quot;) </span></span></code></pre></div>
 </details>
 <p><img src="imgf/g88.png" style="width:50.0%" /></p>
 <p><em>Lollipop</em></p>
 <ul>
 <li>Le passage vers un graphique de type two-way, laisse plus de souplesse niveau couleurs. On a appliqué ici une palette séquentielle aux salaire horaire moyen de chaque profession.</li>
 <li>Le programme qui suit est facilement automatisable pour l’exécuter dasn une routineµ.</li>
-<li>Le graphique est facilement modifiable pour faire apparaitre des barres au lieu de droites, en jouant seulement sur leur épaisseur (graphique 90)</li>
+<li>Le graphique est facilement modifiable pour faire apparaitre des barres au lieu des spike, en jouant seulement sur leur épaisseur (graphique 90)</li>
 </ul>
 <em>Graphiques 89</em>
 <details>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true"></a>sysuse nlsw88, clear</span>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="#cb143-1" aria-hidden="true"></a>preserve</span>
 <span id="cb143-2"><a href="#cb143-2" aria-hidden="true"></a></span>
-<span id="cb143-3"><a href="#cb143-3" aria-hidden="true"></a>preserve</span>
-<span id="cb143-4"><a href="#cb143-4" aria-hidden="true"></a></span>
-<span id="cb143-5"><a href="#cb143-5" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>collapse et tri des professions</span>
-<span id="cb143-6"><a href="#cb143-6" aria-hidden="true"></a>collapse wage, <span class="kw">by</span>(occ)</span>
-<span id="cb143-7"><a href="#cb143-7" aria-hidden="true"></a>drop <span class="cf">if</span> occ<span class="op">==</span>.</span>
-<span id="cb143-8"><a href="#cb143-8" aria-hidden="true"></a>decode occ, <span class="kw">gen</span>(occ2) </span>
-<span id="cb143-9"><a href="#cb143-9" aria-hidden="true"></a></span>
-<span id="cb143-10"><a href="#cb143-10" aria-hidden="true"></a>capt drop i x0</span>
-<span id="cb143-11"><a href="#cb143-11" aria-hidden="true"></a>gen x0=<span class="dv">0</span></span>
-<span id="cb143-12"><a href="#cb143-12" aria-hidden="true"></a>sort wage</span>
-<span id="cb143-13"><a href="#cb143-13" aria-hidden="true"></a>drop <span class="cf">if</span> wage<span class="op">==</span>.</span>
-<span id="cb143-14"><a href="#cb143-14" aria-hidden="true"></a>gen i=_n</span>
-<span id="cb143-15"><a href="#cb143-15" aria-hidden="true"></a>gsort <span class="op">-</span>i</span>
-<span id="cb143-16"><a href="#cb143-16" aria-hidden="true"></a></span>
-<span id="cb143-17"><a href="#cb143-17" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>ylabel [attention levelsof ordre alphabétique]</span>
-<span id="cb143-18"><a href="#cb143-18" aria-hidden="true"></a>qui des</span>
-<span id="cb143-19"><a href="#cb143-19" aria-hidden="true"></a>local i =<span class="st"> </span><span class="dv">1</span></span>
-<span id="cb143-20"><a href="#cb143-20" aria-hidden="true"></a>forvalues j =<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="st">`</span><span class="dt">r(N)&#39; {</span></span>
-<span id="cb143-21"><a href="#cb143-21" aria-hidden="true"></a><span class="dt">     local o </span><span class="st">`</span>o<span class="st">&#39; &quot;`=occ2[`j&#39;</span>]<span class="st">&#39;&quot;</span></span>
-<span id="cb143-22"><a href="#cb143-22" aria-hidden="true"></a><span class="st">}</span></span>
-<span id="cb143-23"><a href="#cb143-23" aria-hidden="true"></a></span>
-<span id="cb143-24"><a href="#cb143-24" aria-hidden="true"></a><span class="st">* graph lollipop</span></span>
+<span id="cb143-3"><a href="#cb143-3" aria-hidden="true"></a>collapse wage, <span class="kw">by</span>(occ)</span>
+<span id="cb143-4"><a href="#cb143-4" aria-hidden="true"></a>drop <span class="cf">if</span> occ<span class="op">==</span>.</span>
+<span id="cb143-5"><a href="#cb143-5" aria-hidden="true"></a>decode occ, <span class="kw">gen</span>(occ2) </span>
+<span id="cb143-6"><a href="#cb143-6" aria-hidden="true"></a></span>
+<span id="cb143-7"><a href="#cb143-7" aria-hidden="true"></a>capt drop i x0</span>
+<span id="cb143-8"><a href="#cb143-8" aria-hidden="true"></a>gen x0=<span class="dv">0</span></span>
+<span id="cb143-9"><a href="#cb143-9" aria-hidden="true"></a>sort wage</span>
+<span id="cb143-10"><a href="#cb143-10" aria-hidden="true"></a>drop <span class="cf">if</span> wage<span class="op">==</span>.</span>
+<span id="cb143-11"><a href="#cb143-11" aria-hidden="true"></a>gen i=_n</span>
+<span id="cb143-12"><a href="#cb143-12" aria-hidden="true"></a>gsort <span class="op">-</span>i</span>
+<span id="cb143-13"><a href="#cb143-13" aria-hidden="true"></a></span>
+<span id="cb143-14"><a href="#cb143-14" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>ylabel [attention levelsof ordre alphabétique]</span>
+<span id="cb143-15"><a href="#cb143-15" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>on génère une palette séquentielle sur les dix dernières couleurs à partir</span>
+<span id="cb143-16"><a href="#cb143-16" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>d<span class="st">&#39;une palette de 20 couleurs en ordre inverse</span></span>
+<span id="cb143-17"><a href="#cb143-17" aria-hidden="true"></a><span class="st">local n 20</span></span>
+<span id="cb143-18"><a href="#cb143-18" aria-hidden="true"></a><span class="st">qui des</span></span>
+<span id="cb143-19"><a href="#cb143-19" aria-hidden="true"></a><span class="st">local i = 1</span></span>
+<span id="cb143-20"><a href="#cb143-20" aria-hidden="true"></a><span class="st">forvalues j = 1/`r(N)&#39;</span> {</span>
+<span id="cb143-21"><a href="#cb143-21" aria-hidden="true"></a>     local o <span class="st">`</span><span class="dt">o&#39; &quot;</span><span class="st">`</span>=occ2[<span class="st">`</span><span class="dt">j&#39;]&#39;&quot;</span></span>
+<span id="cb143-22"><a href="#cb143-22" aria-hidden="true"></a><span class="dt">     local j2 = </span><span class="st">`</span>n<span class="st">&#39; - `j&#39;</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></span>
+<span id="cb143-23"><a href="#cb143-23" aria-hidden="true"></a>     local col <span class="st">`</span><span class="dt">col&#39; </span><span class="st">`</span>j2<span class="st">&#39;</span></span>
+<span id="cb143-24"><a href="#cb143-24" aria-hidden="true"></a><span class="st">}</span></span>
 <span id="cb143-25"><a href="#cb143-25" aria-hidden="true"></a></span>
 <span id="cb143-26"><a href="#cb143-26" aria-hidden="true"></a><span class="st">qui des</span></span>
 <span id="cb143-27"><a href="#cb143-27" aria-hidden="true"></a><span class="st">local j = `r(N)&#39;</span></span>
 <span id="cb143-28"><a href="#cb143-28" aria-hidden="true"></a>grstyle init</span>
 <span id="cb143-29"><a href="#cb143-29" aria-hidden="true"></a>grstyle set mesh, compact</span>
 <span id="cb143-30"><a href="#cb143-30" aria-hidden="true"></a>grstyle set legend <span class="dv">1</span>, nobox</span>
-<span id="cb143-31"><a href="#cb143-31" aria-hidden="true"></a>grstyle set color viridis, <span class="kw">n</span>(<span class="st">`</span><span class="dt">r(N)&#39;) </span></span>
+<span id="cb143-31"><a href="#cb143-31" aria-hidden="true"></a>grstyle set color YlGnBu, <span class="kw">n</span>(<span class="dv">20</span>)  <span class="kw">select</span>(<span class="st">`</span><span class="dt">col&#39;) </span></span>
 <span id="cb143-32"><a href="#cb143-32" aria-hidden="true"></a></span>
 <span id="cb143-33"><a href="#cb143-33" aria-hidden="true"></a><span class="dt">local lw 2pt</span></span>
-<span id="cb143-34"><a href="#cb143-34" aria-hidden="true"></a><span class="dt">local mopts msiz(6.3pt) mlw(0pt) mlc(black) mlw(vthin)</span></span>
-<span id="cb143-35"><a href="#cb143-35" aria-hidden="true"></a></span>
-<span id="cb143-36"><a href="#cb143-36" aria-hidden="true"></a><span class="dt">foreach o2 of local o {</span></span>
-<span id="cb143-37"><a href="#cb143-37" aria-hidden="true"></a><span class="dt">local k  </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></span>
-<span id="cb143-38"><a href="#cb143-38" aria-hidden="true"></a><span class="st">local ylab `ylab&#39;</span> <span class="st">`</span><span class="dt">j--&#39; &quot;</span><span class="st">`</span>o2<span class="st">&#39;&quot;</span></span>
-<span id="cb143-39"><a href="#cb143-39" aria-hidden="true"></a><span class="st">local spik `spik &#39;</span> pcspike i x0  i wage <span class="cf">in</span> <span class="st">`</span><span class="dt">k&#39;, lw(</span><span class="st">`</span>lw<span class="st">&#39;) lc(&quot;`r(p`k&#39;</span>)<span class="st">&#39;&quot;)||</span></span>
-<span id="cb143-40"><a href="#cb143-40" aria-hidden="true"></a><span class="st">local scat `scat&#39;</span>  scatter i wage       <span class="cf">in</span> <span class="st">`</span><span class="dt">k&#39;, </span><span class="st">`</span>mopts<span class="st">&#39;  mc(&quot;`r(p`k&#39;</span><span class="er">)</span><span class="st">&#39;&quot;) ||</span></span>
-<span id="cb143-41"><a href="#cb143-41" aria-hidden="true"></a><span class="st">}</span></span>
-<span id="cb143-42"><a href="#cb143-42" aria-hidden="true"></a></span>
-<span id="cb143-43"><a href="#cb143-43" aria-hidden="true"></a><span class="st">tw `spik&#39;</span>  <span class="st">`</span><span class="dt">scat&#39;   ///</span></span>
-<span id="cb143-44"><a href="#cb143-44" aria-hidden="true"></a><span class="dt">, ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;, angle(0)) ///</span></span>
-<span id="cb143-45"><a href="#cb143-45" aria-hidden="true"></a><span class="st">title(&quot;Hourly wage&quot;, pos(11))  ytitle(&quot;&quot;) ylabel(,nogrid)  legend(off)</span></span>
-<span id="cb143-46"><a href="#cb143-46" aria-hidden="true"></a><span class="st">restore</span></span></code></pre></div>
+<span id="cb143-34"><a href="#cb143-34" aria-hidden="true"></a><span class="dt">* local lw 7.1pt</span></span>
+<span id="cb143-35"><a href="#cb143-35" aria-hidden="true"></a><span class="dt">local mopts msiz(6.3pt) mlw(0pt) mlc(&quot;%0&quot;) mlw(vthin)</span></span>
+<span id="cb143-36"><a href="#cb143-36" aria-hidden="true"></a></span>
+<span id="cb143-37"><a href="#cb143-37" aria-hidden="true"></a><span class="dt">foreach o2 of local o {</span></span>
+<span id="cb143-38"><a href="#cb143-38" aria-hidden="true"></a><span class="dt">local k  </span><span class="st">`</span>i<span class="op">++</span><span class="st">&#39;</span></span>
+<span id="cb143-39"><a href="#cb143-39" aria-hidden="true"></a><span class="st">local ylab `ylab&#39;</span> <span class="st">`</span><span class="dt">j--&#39; &quot;</span><span class="st">`</span>o2<span class="st">&#39;&quot;</span></span>
+<span id="cb143-40"><a href="#cb143-40" aria-hidden="true"></a><span class="st">local spik `spik &#39;</span> pcspike i x0  i wage <span class="cf">in</span> <span class="st">`</span><span class="dt">k&#39;, lw(</span><span class="st">`</span>lw<span class="st">&#39;) lc(&quot;`r(p`k&#39;</span>)<span class="st">&#39;&quot;) ||</span></span>
+<span id="cb143-41"><a href="#cb143-41" aria-hidden="true"></a><span class="st">local scat `scat&#39;</span>  scatter i wage       <span class="cf">in</span> <span class="st">`</span><span class="dt">k&#39;, </span><span class="st">`</span>mopts<span class="st">&#39;  mc(&quot;`r(p`k&#39;</span><span class="er">)</span><span class="st">&#39;&quot;) ||</span></span>
+<span id="cb143-42"><a href="#cb143-42" aria-hidden="true"></a><span class="st">}</span></span>
+<span id="cb143-43"><a href="#cb143-43" aria-hidden="true"></a><span class="st">mac list _scat</span></span>
+<span id="cb143-44"><a href="#cb143-44" aria-hidden="true"></a></span>
+<span id="cb143-45"><a href="#cb143-45" aria-hidden="true"></a><span class="st">tw `spik&#39;</span>  <span class="st">`</span><span class="dt">scat&#39;   ///</span></span>
+<span id="cb143-46"><a href="#cb143-46" aria-hidden="true"></a><span class="dt">, ylabel(</span><span class="st">`</span>ylab<span class="st">&#39;, angle(0)) ///</span></span>
+<span id="cb143-47"><a href="#cb143-47" aria-hidden="true"></a><span class="st">title(&quot;{bf:Hourly wage}&quot; &quot; &quot;, color(&quot;`r(p1)&#39;&quot;) pos(11)) ylabel(,nogrid)   ytitle(&quot;&quot;) legend(off) </span></span>
+<span id="cb143-48"><a href="#cb143-48" aria-hidden="true"></a></span>
+<span id="cb143-49"><a href="#cb143-49" aria-hidden="true"></a><span class="st">restore</span></span></code></pre></div>
 </details>
 <p><img src="imgf/g89.png" style="width:50.0%" /></p>
-<p>En modifiant la taille des spikes, on peut obtenir un graphique barre</p>
+<p>En modifiant la taille des spikes , on peut obtenir un graphique barre</p>
 <p><em>Graphique 90</em></p>
 <p><img src="imgf/g90.png" style="width:75.0%" /></p>
 <p>Le passage vers un graphique de type two-way, laisse plus de souplesse niveau couleurs</p>
 <p><strong>Salaire moyen des professions par statut syndical</strong></p>
 <p><em>Barres</em></p>
 <p><em>Graphique 91</em></p>
-<p>Barres triées par le salaire moyen de <em>non union</em>. Rendu pas super car pas d’information pour les <em>household workers</em> non syndiqué.e.s.</p>
+<p>Barres triées par le salaire moyen de <em>non union</em>.</p>
 <details>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
@@ -4054,59 +4062,52 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 </summary>
 <div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="#cb145-1" aria-hidden="true"></a>preserve</span>
 <span id="cb145-2"><a href="#cb145-2" aria-hidden="true"></a></span>
-<span id="cb145-3"><a href="#cb145-3" aria-hidden="true"></a>graph set window fontface <span class="st">&quot;Avenir&quot;</span></span>
-<span id="cb145-4"><a href="#cb145-4" aria-hidden="true"></a>graph set window fontfaceserif <span class="st">&quot;Minion Pro&quot;</span></span>
-<span id="cb145-5"><a href="#cb145-5" aria-hidden="true"></a></span>
-<span id="cb145-6"><a href="#cb145-6" aria-hidden="true"></a>collapse wage, <span class="kw">by</span>(occ union)</span>
-<span id="cb145-7"><a href="#cb145-7" aria-hidden="true"></a>drop <span class="cf">if</span> union<span class="op">==</span>.</span>
-<span id="cb145-8"><a href="#cb145-8" aria-hidden="true"></a>drop <span class="cf">if</span> occ<span class="op">==</span>.</span>
-<span id="cb145-9"><a href="#cb145-9" aria-hidden="true"></a>reshape wide wage, <span class="kw">i</span>(occ) <span class="kw">j</span>(union)</span>
-<span id="cb145-10"><a href="#cb145-10" aria-hidden="true"></a>egen wage3=<span class="st"> </span><span class="kw">rowmean</span>(wage0 wage1)</span>
-<span id="cb145-11"><a href="#cb145-11" aria-hidden="true"></a>decode occ, <span class="kw">gen</span>(occ2) </span>
-<span id="cb145-12"><a href="#cb145-12" aria-hidden="true"></a></span>
-<span id="cb145-13"><a href="#cb145-13" aria-hidden="true"></a>capt drop i x0</span>
-<span id="cb145-14"><a href="#cb145-14" aria-hidden="true"></a>gen x0=<span class="dv">0</span></span>
-<span id="cb145-15"><a href="#cb145-15" aria-hidden="true"></a>sort wage3</span>
-<span id="cb145-16"><a href="#cb145-16" aria-hidden="true"></a>drop <span class="cf">if</span> wage3<span class="op">==</span>.</span>
-<span id="cb145-17"><a href="#cb145-17" aria-hidden="true"></a>gen i=_n</span>
-<span id="cb145-18"><a href="#cb145-18" aria-hidden="true"></a>gsort <span class="op">-</span>i</span>
-<span id="cb145-19"><a href="#cb145-19" aria-hidden="true"></a></span>
-<span id="cb145-20"><a href="#cb145-20" aria-hidden="true"></a>qui des</span>
-<span id="cb145-21"><a href="#cb145-21" aria-hidden="true"></a>forvalues j =<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="st">`</span><span class="dt">r(N)&#39; {</span></span>
-<span id="cb145-22"><a href="#cb145-22" aria-hidden="true"></a><span class="dt">     local o </span><span class="st">`</span>o<span class="st">&#39; &quot;`=occ2[`j&#39;</span>]<span class="st">&#39;&quot;</span></span>
-<span id="cb145-23"><a href="#cb145-23" aria-hidden="true"></a><span class="st">}</span></span>
-<span id="cb145-24"><a href="#cb145-24" aria-hidden="true"></a><span class="st">local j = `r(N)&#39;</span></span>
-<span id="cb145-25"><a href="#cb145-25" aria-hidden="true"></a>foreach o2 of local o {</span>
-<span id="cb145-26"><a href="#cb145-26" aria-hidden="true"></a>local ylab <span class="st">`</span><span class="dt">ylab&#39; </span><span class="st">`</span>j<span class="op">--</span><span class="st">&#39; &quot;`o2&#39;&quot;</span></span>
-<span id="cb145-27"><a href="#cb145-27" aria-hidden="true"></a><span class="st">mac list _ylab</span></span>
-<span id="cb145-28"><a href="#cb145-28" aria-hidden="true"></a><span class="st">}</span></span>
-<span id="cb145-29"><a href="#cb145-29" aria-hidden="true"></a></span>
-<span id="cb145-30"><a href="#cb145-30" aria-hidden="true"></a></span>
-<span id="cb145-31"><a href="#cb145-31" aria-hidden="true"></a><span class="st">grstyle init</span></span>
-<span id="cb145-32"><a href="#cb145-32" aria-hidden="true"></a><span class="st">grstyle set mesh, compact</span></span>
-<span id="cb145-33"><a href="#cb145-33" aria-hidden="true"></a><span class="st">grstyle set legend 5, nobox</span></span>
-<span id="cb145-34"><a href="#cb145-34" aria-hidden="true"></a><span class="st">grstyle set color plasma, select(3 13)</span></span>
-<span id="cb145-35"><a href="#cb145-35" aria-hidden="true"></a><span class="st">local col &quot;</span><span class="dv">203</span> <span class="dv">71</span> <span class="dv">120</span><span class="st">&quot;</span></span>
+<span id="cb145-3"><a href="#cb145-3" aria-hidden="true"></a>collapse wage, <span class="kw">by</span>(occ union)</span>
+<span id="cb145-4"><a href="#cb145-4" aria-hidden="true"></a>drop <span class="cf">if</span> union<span class="op">==</span>.</span>
+<span id="cb145-5"><a href="#cb145-5" aria-hidden="true"></a>drop <span class="cf">if</span> occ<span class="op">==</span>.</span>
+<span id="cb145-6"><a href="#cb145-6" aria-hidden="true"></a>reshape wide wage, <span class="kw">i</span>(occ) <span class="kw">j</span>(union)</span>
+<span id="cb145-7"><a href="#cb145-7" aria-hidden="true"></a>egen wage3=<span class="st"> </span><span class="kw">rowmean</span>(wage0 wage1)</span>
+<span id="cb145-8"><a href="#cb145-8" aria-hidden="true"></a>decode occ, <span class="kw">gen</span>(occ2) </span>
+<span id="cb145-9"><a href="#cb145-9" aria-hidden="true"></a></span>
+<span id="cb145-10"><a href="#cb145-10" aria-hidden="true"></a>capt drop i x0</span>
+<span id="cb145-11"><a href="#cb145-11" aria-hidden="true"></a>gen x0=<span class="dv">0</span></span>
+<span id="cb145-12"><a href="#cb145-12" aria-hidden="true"></a>sort wage3</span>
+<span id="cb145-13"><a href="#cb145-13" aria-hidden="true"></a>drop <span class="cf">if</span> wage3<span class="op">==</span>.</span>
+<span id="cb145-14"><a href="#cb145-14" aria-hidden="true"></a>gen i=_n</span>
+<span id="cb145-15"><a href="#cb145-15" aria-hidden="true"></a>gsort <span class="op">-</span>i</span>
+<span id="cb145-16"><a href="#cb145-16" aria-hidden="true"></a></span>
+<span id="cb145-17"><a href="#cb145-17" aria-hidden="true"></a>qui des</span>
+<span id="cb145-18"><a href="#cb145-18" aria-hidden="true"></a>forvalues j =<span class="st"> </span><span class="dv">1</span><span class="op">/</span><span class="st">`</span><span class="dt">r(N)&#39; {</span></span>
+<span id="cb145-19"><a href="#cb145-19" aria-hidden="true"></a><span class="dt">     local o </span><span class="st">`</span>o<span class="st">&#39; &quot;`=occ2[`j&#39;</span>]<span class="st">&#39;&quot;</span></span>
+<span id="cb145-20"><a href="#cb145-20" aria-hidden="true"></a><span class="st">}</span></span>
+<span id="cb145-21"><a href="#cb145-21" aria-hidden="true"></a><span class="st">local j = `r(N)&#39;</span></span>
+<span id="cb145-22"><a href="#cb145-22" aria-hidden="true"></a>foreach o2 of local o {</span>
+<span id="cb145-23"><a href="#cb145-23" aria-hidden="true"></a>local ylab <span class="st">`</span><span class="dt">ylab&#39; </span><span class="st">`</span>j<span class="op">--</span><span class="st">&#39; &quot;`o2&#39;&quot;</span></span>
+<span id="cb145-24"><a href="#cb145-24" aria-hidden="true"></a><span class="st">}</span></span>
+<span id="cb145-25"><a href="#cb145-25" aria-hidden="true"></a></span>
+<span id="cb145-26"><a href="#cb145-26" aria-hidden="true"></a><span class="st">grstyle init</span></span>
+<span id="cb145-27"><a href="#cb145-27" aria-hidden="true"></a><span class="st">grstyle set mesh, compact</span></span>
+<span id="cb145-28"><a href="#cb145-28" aria-hidden="true"></a><span class="st">grstyle set legend 5, nobox</span></span>
+<span id="cb145-29"><a href="#cb145-29" aria-hidden="true"></a><span class="st">grstyle set color YlGnBu, n(15) select(15 11 6)</span></span>
+<span id="cb145-30"><a href="#cb145-30" aria-hidden="true"></a><span class="st">local col &quot;</span><span class="dv">203</span> <span class="dv">71</span> <span class="dv">120</span><span class="st">&quot;</span></span>
+<span id="cb145-31"><a href="#cb145-31" aria-hidden="true"></a></span>
+<span id="cb145-32"><a href="#cb145-32" aria-hidden="true"></a><span class="st">local m1 msiz(6.5pt) mlw(0pt) mc(&quot;`</span><span class="dt">r(p1)&#39;&quot;)</span></span>
+<span id="cb145-33"><a href="#cb145-33" aria-hidden="true"></a><span class="dt">local m2 msiz(6.5pt) mlw(0pt) mc(&quot;</span><span class="st">`</span><span class="kw">r</span>(p3)<span class="st">&#39;&quot;)</span></span>
+<span id="cb145-34"><a href="#cb145-34" aria-hidden="true"></a><span class="st">local l lw(1.5pt) </span></span>
+<span id="cb145-35"><a href="#cb145-35" aria-hidden="true"></a><span class="st">*local l lw(7pt) </span></span>
 <span id="cb145-36"><a href="#cb145-36" aria-hidden="true"></a></span>
-<span id="cb145-37"><a href="#cb145-37" aria-hidden="true"></a><span class="st">local m1 msiz(6.5pt) mlw(0pt) mc(&quot;`</span><span class="dt">r(p1)&#39;&quot;)</span></span>
-<span id="cb145-38"><a href="#cb145-38" aria-hidden="true"></a><span class="dt">local m2 msiz(6.5pt) mlw(0pt) mc(&quot;</span><span class="st">`</span><span class="kw">r</span>(p2)<span class="st">&#39;&quot;)</span></span>
-<span id="cb145-39"><a href="#cb145-39" aria-hidden="true"></a><span class="st">local l lw(1.5pt) </span></span>
-<span id="cb145-40"><a href="#cb145-40" aria-hidden="true"></a></span>
-<span id="cb145-41"><a href="#cb145-41" aria-hidden="true"></a><span class="st">tw pcspike  i wage0  i wage1, `l&#39;</span> <span class="kw">lc</span>(<span class="st">&quot;203 71 120&quot;</span>)         <span class="op">/</span><span class="er">//</span></span>
-<span id="cb145-42"><a href="#cb145-42" aria-hidden="true"></a><span class="er">||</span><span class="st"> </span>scatter i wage0, <span class="st">`</span><span class="dt">m1&#39;                                   ///</span></span>
-<span id="cb145-43"><a href="#cb145-43" aria-hidden="true"></a><span class="dt">|| scatter i wage1, </span><span class="st">`</span>m2<span class="st">&#39;                                   ///</span></span>
-<span id="cb145-44"><a href="#cb145-44" aria-hidden="true"></a><span class="st">||  , legend(order( 2 &quot;Non Union&quot; 3 &quot;Union&quot;) color(`col&#39;</span><span class="er">))</span> <span class="op">/</span><span class="er">//</span></span>
-<span id="cb145-45"><a href="#cb145-45" aria-hidden="true"></a><span class="st">      </span><span class="kw">ylabel</span>(<span class="st">`</span><span class="dt">ylab&#39;, labc(&quot;</span><span class="st">`</span>tcol<span class="st">&#39;&quot;) angle(0))              ///</span></span>
-<span id="cb145-46"><a href="#cb145-46" aria-hidden="true"></a><span class="st">      title(&quot;{bf:Hourly wage}&quot;, color(&quot;`col&#39;&quot;) pos(11))  ytitle(&quot;&quot;) ylab(, nogrid labc(`col&#39;))</span></span>
-<span id="cb145-47"><a href="#cb145-47" aria-hidden="true"></a><span class="st">restore</span></span></code></pre></div>
+<span id="cb145-37"><a href="#cb145-37" aria-hidden="true"></a><span class="st">tw pcspike  i wage0  i wage1, `l&#39;</span> <span class="kw">lc</span>(<span class="st">&quot;`r(p2)&#39;&quot;</span>)                        <span class="op">/</span><span class="er">//</span></span>
+<span id="cb145-38"><a href="#cb145-38" aria-hidden="true"></a><span class="er">||</span><span class="st"> </span>scatter i wage0, <span class="st">`</span><span class="dt">m1&#39;                                               ///</span></span>
+<span id="cb145-39"><a href="#cb145-39" aria-hidden="true"></a><span class="dt">|| scatter i wage1, </span><span class="st">`</span>m2<span class="st">&#39;                                               ///</span></span>
+<span id="cb145-40"><a href="#cb145-40" aria-hidden="true"></a><span class="st">||  , legend(order( 2 &quot;Non Union&quot; 3 &quot;Union&quot;) color(&quot;`r(p2)&#39;&quot;) pos(11)) ///</span></span>
+<span id="cb145-41"><a href="#cb145-41" aria-hidden="true"></a><span class="st">      ylabel(`ylab&#39;, labc(&quot;`</span><span class="dt">tcol&#39;&quot;) angle(0))                          ///</span></span>
+<span id="cb145-42"><a href="#cb145-42" aria-hidden="true"></a><span class="dt">      title(&quot;{bf:Hourly wage}&quot;, color(&quot;</span><span class="st">`</span><span class="kw">r</span>(p2)<span class="st">&#39;&quot;) pos(11))              ///</span></span>
+<span id="cb145-43"><a href="#cb145-43" aria-hidden="true"></a><span class="st">      ytitle(&quot;&quot;) ylab(, nogrid labc(&quot;`r(p2)&#39;&quot;))</span></span>
+<span id="cb145-44"><a href="#cb145-44" aria-hidden="true"></a></span>
+<span id="cb145-45"><a href="#cb145-45" aria-hidden="true"></a><span class="st">restore</span></span></code></pre></div>
 </details>
 <p><img src="imgf/g92.png" style="width:75.0%" /></p>
-<p>Ce type de représentation apparait supérieur au graphique barre du dessus</p>
-<ul>
-<li>Gère bien l’absence d’information pour un des niveaux de la variable <em>union</em></li>
-<li>Les salaires moyens apparaissent clairement sur une même ligne, ainsi que les différences</li>
-<li>Le graphique de gauche est appelé <strong>graphique haltère</strong> (épaisseur de la spike au niveau de la bulle: <code>local l lw(#)</code>)</li>
-</ul>
+<p>Ce type de représentation apparait supérieure au graphique barre du dessus, les salaires moyens apparaissent clairement sur une même ligne, ainsi que les différences</p>
 </div>
 <div id="parallel-ccordinates-plot" class="section level3" number="4.5.2">
 <h3 number="4.5.2"><span class="header-section-number">4.5.2</span> Parallel ccordinates plot</h3>
@@ -4125,23 +4126,148 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <li>Les valeurs peuvent être reportées facilement</li>
 </ul>
 <p><em>Graphique 94</em></p>
+<details>
+<summary>
+<B><font color="#178ACC">PROGRAMME</B></font>
+</summary>
+<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true"></a>clear</span>
+<span id="cb146-2"><a href="#cb146-2" aria-hidden="true"></a>import delimited  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb146-3"><a href="#cb146-3" aria-hidden="true"></a><span class="st"> &quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/9_OneNumSevCatSubgroupOneObs.csv&quot;</span></span>
+<span id="cb146-4"><a href="#cb146-4" aria-hidden="true"></a></span>
+<span id="cb146-5"><a href="#cb146-5" aria-hidden="true"></a>grstyle  init</span>
+<span id="cb146-6"><a href="#cb146-6" aria-hidden="true"></a>grstyle set mesh, compact </span>
+<span id="cb146-7"><a href="#cb146-7" aria-hidden="true"></a></span>
+<span id="cb146-8"><a href="#cb146-8" aria-hidden="true"></a>bysort country<span class="op">:</span><span class="st"> </span>gen N=_N</span>
+<span id="cb146-9"><a href="#cb146-9" aria-hidden="true"></a>keep <span class="cf">if</span> N<span class="op">==</span><span class="dv">4</span></span>
+<span id="cb146-10"><a href="#cb146-10" aria-hidden="true"></a>drop <span class="cf">if</span> country<span class="op">==</span><span class="st">&quot;OECD - Average&quot;</span></span>
+<span id="cb146-11"><a href="#cb146-11" aria-hidden="true"></a>reshape wide value, <span class="kw">i</span>(country) <span class="kw">j</span>(time)</span>
+<span id="cb146-12"><a href="#cb146-12" aria-hidden="true"></a></span>
+<span id="cb146-13"><a href="#cb146-13" aria-hidden="true"></a>gsort value2000</span>
+<span id="cb146-14"><a href="#cb146-14" aria-hidden="true"></a>gen r1 =<span class="st"> </span>_n</span>
+<span id="cb146-15"><a href="#cb146-15" aria-hidden="true"></a>gsort value2005</span>
+<span id="cb146-16"><a href="#cb146-16" aria-hidden="true"></a>gen r2 =<span class="st"> </span>_n</span>
+<span id="cb146-17"><a href="#cb146-17" aria-hidden="true"></a>gsort value2010</span>
+<span id="cb146-18"><a href="#cb146-18" aria-hidden="true"></a>gen r3 =<span class="st"> </span>_n</span>
+<span id="cb146-19"><a href="#cb146-19" aria-hidden="true"></a>gsort value2015</span>
+<span id="cb146-20"><a href="#cb146-20" aria-hidden="true"></a>gen r4 =<span class="st"> </span>_n</span>
+<span id="cb146-21"><a href="#cb146-21" aria-hidden="true"></a></span>
+<span id="cb146-22"><a href="#cb146-22" aria-hidden="true"></a>gsort <span class="op">-</span>r1</span>
+<span id="cb146-23"><a href="#cb146-23" aria-hidden="true"></a></span>
+<span id="cb146-24"><a href="#cb146-24" aria-hidden="true"></a>gen x1=<span class="dv">1</span></span>
+<span id="cb146-25"><a href="#cb146-25" aria-hidden="true"></a>gen x2=<span class="dv">2</span></span>
+<span id="cb146-26"><a href="#cb146-26" aria-hidden="true"></a>gen x3=<span class="dv">3</span></span>
+<span id="cb146-27"><a href="#cb146-27" aria-hidden="true"></a>gen x4=<span class="dv">4</span></span>
+<span id="cb146-28"><a href="#cb146-28" aria-hidden="true"></a></span>
+<span id="cb146-29"><a href="#cb146-29" aria-hidden="true"></a>capt drop x0 xn</span>
+<span id="cb146-30"><a href="#cb146-30" aria-hidden="true"></a>gen x0=<span class="st"> </span><span class="fl">.05</span></span>
+<span id="cb146-31"><a href="#cb146-31" aria-hidden="true"></a>gen xn=<span class="fl">4.1</span></span>
+<span id="cb146-32"><a href="#cb146-32" aria-hidden="true"></a></span>
+<span id="cb146-33"><a href="#cb146-33" aria-hidden="true"></a>des</span>
+<span id="cb146-34"><a href="#cb146-34" aria-hidden="true"></a>local N =<span class="st"> `</span><span class="dt">r(N)&#39;</span></span>
+<span id="cb146-35"><a href="#cb146-35" aria-hidden="true"></a><span class="dt">colorpalette viridis, n(15) nograph intensity(1.02)</span></span>
+<span id="cb146-36"><a href="#cb146-36" aria-hidden="true"></a></span>
+<span id="cb146-37"><a href="#cb146-37" aria-hidden="true"></a><span class="dt">forvalue i=1/</span><span class="st">`</span>N<span class="st">&#39; {</span></span>
+<span id="cb146-38"><a href="#cb146-38" aria-hidden="true"></a><span class="st">local spik1 `spik1&#39;</span> pcspike r1 x1 r2 x2 <span class="cf">in</span> <span class="st">`</span><span class="dt">i&#39; , lc(&quot;</span><span class="st">`</span><span class="kw">r</span>(p<span class="st">`</span><span class="dt">i&#39;)&#39;&quot;) lw(.6)  ||</span></span>
+<span id="cb146-39"><a href="#cb146-39" aria-hidden="true"></a><span class="dt">local spik2 </span><span class="st">`</span>spik2<span class="st">&#39; pcspike r2 x2 r3 x3 in `i&#39;</span> , <span class="kw">lc</span>(<span class="st">&quot;`r(p`i&#39;)&#39;&quot;</span>) <span class="kw">lw</span>(.<span class="dv">6</span>)  <span class="op">||</span></span>
+<span id="cb146-40"><a href="#cb146-40" aria-hidden="true"></a>local spik3 <span class="st">`</span><span class="dt">spik3&#39; pcspike r3 x3 r4 x4 in </span><span class="st">`</span>i<span class="st">&#39; , lc(&quot;`r(p`i&#39;</span>)<span class="st">&#39;&quot;) lw(.6)  ||</span></span>
+<span id="cb146-41"><a href="#cb146-41" aria-hidden="true"></a><span class="st">local scat1 `scat1&#39;</span> scatter r1 x1              <span class="cf">in</span> <span class="st">`</span><span class="dt">i&#39; , mc(&quot;</span><span class="st">`</span><span class="kw">r</span>(p<span class="st">`</span><span class="dt">i&#39;)&#39;&quot;) msiz(.2) || </span></span>
+<span id="cb146-42"><a href="#cb146-42" aria-hidden="true"></a><span class="dt">local scat2 </span><span class="st">`</span>scat2<span class="st">&#39; scatter r4 x4              in `i&#39;</span> , <span class="kw">mc</span>(<span class="st">&quot;`r(p`i&#39;)&#39;&quot;</span>) <span class="kw">msiz</span>(.<span class="dv">2</span>) <span class="op">||</span><span class="st"> </span></span>
+<span id="cb146-43"><a href="#cb146-43" aria-hidden="true"></a>local scat0 <span class="st">`</span><span class="dt">scat0&#39; scatter r1 x0              in </span><span class="st">`</span>i<span class="st">&#39; , mc(%0) mlab(country) mlabc(&quot;`r(p`i&#39;</span>)<span class="st">&#39;&quot;)  ||</span></span>
+<span id="cb146-44"><a href="#cb146-44" aria-hidden="true"></a><span class="st">local scat5 `scat5&#39;</span> scatter r4 xn              <span class="cf">in</span> <span class="st">`</span><span class="dt">i&#39; , mc(%0) mlab(country) mlabc(&quot;</span><span class="st">`</span><span class="kw">r</span>(p<span class="st">`</span><span class="dt">i&#39;)&#39;&quot;)  ||</span></span>
+<span id="cb146-45"><a href="#cb146-45" aria-hidden="true"></a><span class="dt">}</span></span>
+<span id="cb146-46"><a href="#cb146-46" aria-hidden="true"></a></span>
+<span id="cb146-47"><a href="#cb146-47" aria-hidden="true"></a><span class="dt">tw </span><span class="st">`</span>spik1<span class="st">&#39; `spik2&#39;</span> <span class="st">`</span><span class="dt">spik3&#39; </span><span class="st">`</span>scat1<span class="st">&#39; `scat2&#39;</span> <span class="st">`</span><span class="dt">scat0&#39; </span><span class="st">`</span>scat5<span class="st">&#39; ///</span></span>
+<span id="cb146-48"><a href="#cb146-48" aria-hidden="true"></a><span class="st">, legend(off) ///</span></span>
+<span id="cb146-49"><a href="#cb146-49" aria-hidden="true"></a><span class="st">xlabel(1 &quot;2000&quot; 2 &quot;2005&quot; 3 &quot;2010&quot; 4 &quot;2015&quot;, labc(&quot;159 42 99&quot;) ) xscale(r(0 5)) ///</span></span>
+<span id="cb146-50"><a href="#cb146-50" aria-hidden="true"></a><span class="st">ylabel(1(1)15, angl(0) nogrid labc(&quot;159 42 99&quot;)) title(&quot;Gender Wage Gap [rangs]&quot;, pos(11) color(&quot;159 42 99&quot;))</span></span></code></pre></div>
+</details>
 <p><img src="imgf/g94.png" style="width:50.0%" /></p>
 <p>Parallel lines sur données individuelles</p>
 <ul>
-<li>Voir le graphique de <em>Dimitri Christodoulou</em></li>
+<li>Voir le graphique de <em>Dimitri Christodoulou</em> [<a href="https://graphworkflow.com/2019/07/30/nba-shots/" class="uri">https://graphworkflow.com/2019/07/30/nba-shots/</a>]</li>
 <li>Limiter à 4-5 variables maximum</li>
-<li>Tester l’ordre des variables, cela affecte le rendu final et donc la lecture</li>
-<li>Si on compare le <em>variables pattern</em> pour plusieurs niveaux d’une variable discrète, il est préférables que les effectifs soit relativement proches pour ces niveaux (50%-50%. Eviter si un niveau ou un évènement est rare.</li>
+<li>Tester l’ordre des variables, cela peut affecter le rendu final et donc la lecture</li>
+<li>Si on compare le <em>variables pattern</em> pour plusieurs niveaux d’une variable discrète, il est préférables que les effectifs soit relativement proches pour ces niveaux (50%-50%. Eviter si un niveau ou un évènement est rare (dans le graphique de DC, le nombre de tirs réussis et ratés est presque identique).</li>
+<li>On doit utiliser une standardisation pour reporter les coordonnées sur Y. Le rendu est modifié selon la méthode de standardisation utilisée</li>
 </ul>
-<p><em>Exemple</em> [A faire si je trouve des données sympas - sinon lien vers le site de D.C]</p>
-<ul>
-<li>Programme tiré pour ne pas dire limite copié-collé de: <a href="https://graphworkflow.com/2019/07/30/nba-shots/" class="uri">https://graphworkflow.com/2019/07/30/nba-shots/</a> [Demetris Christodoulou]</li>
-<li>Les variables doivent être sur une échelle commune (centrée réduite si variables continues unimodales, [0,1] si variables de types différentes avec des distribution peu comparables)</li>
-</ul>
+<p><em>Exemple</em> * J’ai repris les données de la base nls88, pour comparer des * Le programme est bien évidemment fortement inspiré de Demetris Christodoulou * Je suis sorti un peu des clous en prenant comme première variable le fait d’être syndiqué ou non * Les observations ont été placé de manière aléatoire sur l’axe Y dans l’intervalle des proportions [0,0.75] pour les non syndiquées et [.75,1] pour les syndiqués * Si on exécute le programme plusieurs fois, le rendu va donc être légèrement modifié pour les lignes amenant à la variable <em>hours</em> * Le choix de la méthode de standardisation qui s’impose pour les trois variables (heures, expérience et salaire): <em><code>var_obs/var_max</code></em> * J’ai reporté les valeurs moyennes des variable * Le programmes est assez simple et facilement automatisable. Il faut néanmoins jouer sur l’altération des couleurs pour obtenir un rendu satisfaisant * Quant à l’utilisation de ce genre de graphique …….</p>
+<details>
+<summary>
+<B><font color="#178ACC">PROGRAMME</B></font>
+</summary>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true"></a>sysuse nlsw88, clear</span>
+<span id="cb147-2"><a href="#cb147-2" aria-hidden="true"></a></span>
+<span id="cb147-3"><a href="#cb147-3" aria-hidden="true"></a>graph set window fontface <span class="st">&quot;Consolas&quot;</span></span>
+<span id="cb147-4"><a href="#cb147-4" aria-hidden="true"></a></span>
+<span id="cb147-5"><a href="#cb147-5" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>drop occup trop peu d<span class="st">&#39;observation</span></span>
+<span id="cb147-6"><a href="#cb147-6" aria-hidden="true"></a><span class="st">drop if inlist(occupation,9,10,12) </span></span>
+<span id="cb147-7"><a href="#cb147-7" aria-hidden="true"></a></span>
+<span id="cb147-8"><a href="#cb147-8" aria-hidden="true"></a><span class="st">gen x1=0 </span></span>
+<span id="cb147-9"><a href="#cb147-9" aria-hidden="true"></a><span class="st">gen x2=.5</span></span>
+<span id="cb147-10"><a href="#cb147-10" aria-hidden="true"></a><span class="st">gen x3=1</span></span>
+<span id="cb147-11"><a href="#cb147-11" aria-hidden="true"></a><span class="st">gen x4=1.5</span></span>
+<span id="cb147-12"><a href="#cb147-12" aria-hidden="true"></a></span>
+<span id="cb147-13"><a href="#cb147-13" aria-hidden="true"></a><span class="st">foreach var of varlist ttl_exp hours wage {</span></span>
+<span id="cb147-14"><a href="#cb147-14" aria-hidden="true"></a><span class="st">qui sum `var&#39;</span>, d</span>
+<span id="cb147-15"><a href="#cb147-15" aria-hidden="true"></a>gen _<span class="st">`</span><span class="dt">var&#39; = </span><span class="st">`</span>var<span class="st">&#39;/`r(max)&#39;</span></span>
+<span id="cb147-16"><a href="#cb147-16" aria-hidden="true"></a>qui sum _<span class="st">`</span><span class="dt">var&#39;</span></span>
+<span id="cb147-17"><a href="#cb147-17" aria-hidden="true"></a><span class="dt">gen _m</span><span class="st">`</span>var<span class="st">&#39; = `r(mean)&#39;</span></span>
+<span id="cb147-18"><a href="#cb147-18" aria-hidden="true"></a><span class="er">}</span></span>
+<span id="cb147-19"><a href="#cb147-19" aria-hidden="true"></a></span>
+<span id="cb147-20"><a href="#cb147-20" aria-hidden="true"></a></span>
+<span id="cb147-21"><a href="#cb147-21" aria-hidden="true"></a>qui sum union</span>
+<span id="cb147-22"><a href="#cb147-22" aria-hidden="true"></a>local m=<span class="st"> </span><span class="dv">1</span> <span class="op">-</span><span class="st"> `</span><span class="dt">r(mean)&#39;</span></span>
+<span id="cb147-23"><a href="#cb147-23" aria-hidden="true"></a><span class="dt">gen _munion = </span><span class="st">`</span>m<span class="st">&#39;</span></span>
+<span id="cb147-24"><a href="#cb147-24" aria-hidden="true"></a><span class="st">gen     _union = runiform(0,`m&#39;</span><span class="er">)</span>   <span class="cf">if</span> union<span class="op">==</span><span class="dv">0</span></span>
+<span id="cb147-25"><a href="#cb147-25" aria-hidden="true"></a>replace _union =<span class="st"> </span><span class="kw">runiform</span>(<span class="st">`</span><span class="dt">m&#39;,1)   if union==1</span></span>
+<span id="cb147-26"><a href="#cb147-26" aria-hidden="true"></a></span>
+<span id="cb147-27"><a href="#cb147-27" aria-hidden="true"></a><span class="dt">local pal YlGnBu</span></span>
+<span id="cb147-28"><a href="#cb147-28" aria-hidden="true"></a><span class="dt">local lw &quot;.01&quot;</span></span>
+<span id="cb147-29"><a href="#cb147-29" aria-hidden="true"></a><span class="dt">colorpalette YlGnBu, select(2)   opacity(40) nograph</span></span>
+<span id="cb147-30"><a href="#cb147-30" aria-hidden="true"></a><span class="dt">local c1 </span><span class="st">`&quot;&quot;`</span><span class="dt">r(p1)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb147-31"><a href="#cb147-31" aria-hidden="true"></a><span class="dt">colorpalette YlGnBu, select(5)   opacity(50) nograph </span></span>
+<span id="cb147-32"><a href="#cb147-32" aria-hidden="true"></a><span class="dt">local c2 </span><span class="st">`&quot;&quot;`</span><span class="dt">r(p1)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb147-33"><a href="#cb147-33" aria-hidden="true"></a><span class="dt">colorpalette YlGnBu, select(4)   nograph</span></span>
+<span id="cb147-34"><a href="#cb147-34" aria-hidden="true"></a><span class="dt">local c3 </span><span class="st">`&quot;&quot;`</span><span class="dt">r(p1)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb147-35"><a href="#cb147-35" aria-hidden="true"></a><span class="dt">colorpalette YlGnBu, select(2)   nograph</span></span>
+<span id="cb147-36"><a href="#cb147-36" aria-hidden="true"></a><span class="dt">local c4 </span><span class="st">`&quot;&quot;`</span><span class="dt">r(p1)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb147-37"><a href="#cb147-37" aria-hidden="true"></a><span class="dt">colorpalette YlGnBu, select(5)   nograph</span></span>
+<span id="cb147-38"><a href="#cb147-38" aria-hidden="true"></a><span class="dt">local c5 </span><span class="st">`&quot;&quot;`</span><span class="dt">r(p1)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb147-39"><a href="#cb147-39" aria-hidden="true"></a><span class="dt">colorpalette YlGnBu, select(9)   nograph</span></span>
+<span id="cb147-40"><a href="#cb147-40" aria-hidden="true"></a><span class="dt">local c6 </span><span class="st">`&quot;&quot;`</span><span class="dt">r(p1)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb147-41"><a href="#cb147-41" aria-hidden="true"></a></span>
+<span id="cb147-42"><a href="#cb147-42" aria-hidden="true"></a></span>
+<span id="cb147-43"><a href="#cb147-43" aria-hidden="true"></a><span class="dt">tw  pcspike _union   x1 _hours    x2  if  union==0, lw(</span><span class="st">`</span>lw<span class="st">&#39;) lc(`c1&#39;</span>)  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb147-44"><a href="#cb147-44" aria-hidden="true"></a><span class="er">||</span><span class="st">  </span>pcspike _hours   x2 _ttl_exp  x3  <span class="cf">if</span>  union<span class="op">==</span><span class="dv">0</span>, <span class="kw">lw</span>(<span class="st">`</span><span class="dt">lw&#39;) lc(</span><span class="st">`</span>c1<span class="st">&#39;)  ///</span></span>
+<span id="cb147-45"><a href="#cb147-45" aria-hidden="true"></a><span class="st">||  pcspike _ttl_exp x3 _wage     x4  if  union==0, lw(`lw&#39;</span>) <span class="kw">lc</span>(<span class="st">`</span><span class="dt">c1&#39;)  ///  </span></span>
+<span id="cb147-46"><a href="#cb147-46" aria-hidden="true"></a><span class="dt">||  pcspike _union   x1 _hours    x2  if  union==1, lw(</span><span class="st">`</span>lw<span class="st">&#39;) lc(`c2&#39;</span>)  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb147-47"><a href="#cb147-47" aria-hidden="true"></a><span class="er">||</span><span class="st">  </span>pcspike _hours   x2 _ttl_exp  x3  <span class="cf">if</span>  union<span class="op">==</span><span class="dv">1</span>, <span class="kw">lw</span>(<span class="st">`</span><span class="dt">lw&#39;) lc(</span><span class="st">`</span>c2<span class="st">&#39;)  ///</span></span>
+<span id="cb147-48"><a href="#cb147-48" aria-hidden="true"></a><span class="st">||  pcspike _ttl_exp x3 _wage     x4  if  union==1, lw(`lw&#39;</span>) <span class="kw">lc</span>(<span class="st">`</span><span class="dt">c2&#39;)  ///</span></span>
+<span id="cb147-49"><a href="#cb147-49" aria-hidden="true"></a><span class="dt">||  pci 1 0 1 1.5, lw(vvthin) lc(gs12)                                 ///</span></span>
+<span id="cb147-50"><a href="#cb147-50" aria-hidden="true"></a><span class="dt">||  pci 0 0 0 1.5, lw(vvthin) lc(gs12)                                 ///</span></span>
+<span id="cb147-51"><a href="#cb147-51" aria-hidden="true"></a><span class="dt">||  , plotr(color(</span><span class="st">`</span>c6<span class="st">&#39;)) graphr(color(`c6&#39;</span>)<span class="er">)</span> <span class="kw">legend</span>(off)                       <span class="op">/</span><span class="er">//</span></span>
+<span id="cb147-52"><a href="#cb147-52" aria-hidden="true"></a><span class="st">   </span><span class="kw">ylabel</span>(,<span class="kw">glw</span>(<span class="dv">0</span>) <span class="kw">labc</span>(%<span class="dv">0</span>))                                                                  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb147-53"><a href="#cb147-53" aria-hidden="true"></a><span class="st">   </span><span class="kw">xlabel</span>(<span class="dv">0</span> <span class="st">&quot;Union&quot;</span> <span class="fl">.5</span> <span class="st">&quot;Hours&quot;</span> <span class="dv">1</span> <span class="st">&quot;Experience&quot;</span> <span class="fl">1.5</span> <span class="st">&quot;Wage&quot;</span>, <span class="kw">labc</span>(<span class="st">`</span><span class="dt">c3&#39;) glw(vvthin) glc(gs12))  ///</span></span>
+<span id="cb147-54"><a href="#cb147-54" aria-hidden="true"></a><span class="dt">   xscale(r(-.2 1.7)) yscale(r(0 1.1))     ///</span></span>
+<span id="cb147-55"><a href="#cb147-55" aria-hidden="true"></a><span class="dt">   text(0.4 -.12 &quot;Non Union&quot;, color(</span><span class="st">`</span>c4<span class="st">&#39;)) ///</span></span>
+<span id="cb147-56"><a href="#cb147-56" aria-hidden="true"></a><span class="st">   text(0.85 -.12 &quot;Union&quot;,    color(`c5&#39;</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb147-57"><a href="#cb147-57" aria-hidden="true"></a><span class="st">   </span><span class="kw">text</span>(<span class="fl">1.1</span> <span class="fl">-.12</span>  <span class="st">&quot;Means&quot;</span>,    <span class="kw">color</span>(<span class="st">`</span><span class="dt">c3&#39;)) ///</span></span>
+<span id="cb147-58"><a href="#cb147-58" aria-hidden="true"></a><span class="dt">   text(1.02 .05   &quot;0.25&quot;,    color(</span><span class="st">`</span>c5<span class="st">&#39;)) /// </span></span>
+<span id="cb147-59"><a href="#cb147-59" aria-hidden="true"></a><span class="st">   text(1.1 .55   &quot;37.2&quot;,     color(`c3&#39;</span>)) <span class="op">/</span><span class="er">//</span><span class="st"> </span></span>
+<span id="cb147-60"><a href="#cb147-60" aria-hidden="true"></a><span class="st">   </span><span class="kw">text</span>(<span class="fl">1.1</span> <span class="fl">1.05</span>  <span class="st">&quot;12.5&quot;</span>,     <span class="kw">color</span>(<span class="st">`</span><span class="dt">c3&#39;)) ///</span></span>
+<span id="cb147-61"><a href="#cb147-61" aria-hidden="true"></a><span class="dt">   text(1.1 1.55  &quot;7.8&quot;,      color(</span><span class="st">`</span>c3<span class="st">&#39;)) ///</span></span>
+<span id="cb147-62"><a href="#cb147-62" aria-hidden="true"></a><span class="st">   text(1.06 .55  &quot;37.2&quot;,     color(`c4&#39;</span>)) <span class="op">/</span><span class="er">//</span><span class="st">   </span></span>
+<span id="cb147-63"><a href="#cb147-63" aria-hidden="true"></a><span class="st">   </span><span class="kw">text</span>(<span class="fl">1.02</span> <span class="fl">.55</span>  <span class="st">&quot;38.7&quot;</span>,     <span class="kw">color</span>(<span class="st">`</span><span class="dt">c5&#39;)) ///</span></span>
+<span id="cb147-64"><a href="#cb147-64" aria-hidden="true"></a><span class="dt">   text(1.06 1.05 &quot;12.7&quot;,     color(</span><span class="st">`</span>c4<span class="st">&#39;)) ///   </span></span>
+<span id="cb147-65"><a href="#cb147-65" aria-hidden="true"></a><span class="st">   text(1.02 1.05 &quot;12.6&quot;,     color(`c5&#39;</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb147-66"><a href="#cb147-66" aria-hidden="true"></a><span class="st">   </span><span class="kw">text</span>(<span class="fl">1.06</span> <span class="fl">1.55</span> <span class="st">&quot;7.2&quot;</span>,      <span class="kw">color</span>(<span class="st">`</span><span class="dt">c4&#39;)) ///   </span></span>
+<span id="cb147-67"><a href="#cb147-67" aria-hidden="true"></a><span class="dt">   text(1.02 1.55 &quot;8.7&quot;,      color(</span><span class="st">`</span>c5<span class="st">&#39;))      </span></span></code></pre></div>
+</details>
+<p><img src="imgf/g111.png" /></p>
 </div>
 </div>
-<div id="variables-vatégorielles-catplot---splineplot---pie" class="section level2" number="4.6">
-<h2 number="4.6"><span class="header-section-number">4.6</span> Variables vatégorielles: catplot - splineplot - pie</h2>
+<div id="variables-vatégorielles-catplot---spineplot---pie" class="section level2" number="4.6">
+<h2 number="4.6"><span class="header-section-number">4.6</span> Variables vatégorielles: catplot - spineplot - pie</h2>
 <p>Tribute à <strong>Nicolas J Cox</strong>, sauf pour les graphiques pie et sa tendance à trop paramétrer les options par défaut de ses commandes. Une autre commande de Cox <strong>tabplot</strong> n’est pas traitée.</p>
 <p><br> Monsieur Cox Svp, please, onegai!!! Laissez un maximum de paramètres par défaut dans vos cammandes, sinon on doit ajouter des options pour retirer vos paramètres imposés. C’est franchement balourd!! Ici la mystérieuse option <code>blw</code> qui était en medium, et remettre <code>stack</code> dans la légende</p>
 <div id="catplot" class="section level3" number="4.6.1">
@@ -4157,63 +4283,61 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb146"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb146-1"><a href="#cb146-1" aria-hidden="true"></a>use nhanes2f, clear</span>
-<span id="cb146-2"><a href="#cb146-2" aria-hidden="true"></a></span>
-<span id="cb146-3"><a href="#cb146-3" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>legende et label en <span class="kw">gras</span> (faire en manuel gloups)</span>
-<span id="cb146-4"><a href="#cb146-4" aria-hidden="true"></a>local lab <span class="dv">1</span> <span class="st">&quot;{bf:White}&quot;</span> <span class="dv">2</span>  <span class="st">&quot;{bf:Black}&quot;</span> <span class="dv">3</span>  <span class="st">&quot;{bf:Other}&quot;</span></span>
-<span id="cb146-5"><a href="#cb146-5" aria-hidden="true"></a>local leg  <span class="dv">1</span> <span class="st">&quot;{bf:Poor}&quot;</span> <span class="dv">2</span>  <span class="st">&quot;{bf:Fair}&quot;</span> <span class="dv">3</span>  <span class="st">&quot;{bf:Average}&quot;</span>  <span class="dv">4</span> <span class="st">&quot;{bf:Good}&quot;</span> <span class="dv">5</span>  <span class="st">&quot;{bf:Excellent}&quot;</span></span>
-<span id="cb146-6"><a href="#cb146-6" aria-hidden="true"></a></span>
-<span id="cb146-7"><a href="#cb146-7" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>barres</span>
-<span id="cb146-8"><a href="#cb146-8" aria-hidden="true"></a>local f <span class="st">&quot;230 239 239&quot;</span></span>
-<span id="cb146-9"><a href="#cb146-9" aria-hidden="true"></a>local t <span class="st">&quot;68 1 84&quot;</span></span>
-<span id="cb146-10"><a href="#cb146-10" aria-hidden="true"></a>colorpalette viridis, <span class="kw">select</span>(<span class="dv">3</span> <span class="dv">8</span> <span class="dv">13</span>)   nograph </span>
-<span id="cb146-11"><a href="#cb146-11" aria-hidden="true"></a></span>
-<span id="cb146-12"><a href="#cb146-12" aria-hidden="true"></a>local c1 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p1)<span class="st">&#39;&quot;&quot;&#39;</span></span>
-<span id="cb146-13"><a href="#cb146-13" aria-hidden="true"></a>local c2 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p2)<span class="st">&#39;&quot;&quot;&#39;</span></span>
-<span id="cb146-14"><a href="#cb146-14" aria-hidden="true"></a>local c3 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p3)<span class="st">&#39;&quot;&#39;</span></span>
-<span id="cb146-15"><a href="#cb146-15" aria-hidden="true"></a></span>
-<span id="cb146-16"><a href="#cb146-16" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>pourquoi la macro <span class="st">`</span><span class="dt">c3&#39; ne passe pas? =&gt; msg option nograph not allowed ???</span></span>
-<span id="cb146-17"><a href="#cb146-17" aria-hidden="true"></a><span class="dt">grstyle  init</span></span>
-<span id="cb146-18"><a href="#cb146-18" aria-hidden="true"></a><span class="dt">grstyle set mesh, compact horizontal</span></span>
-<span id="cb146-19"><a href="#cb146-19" aria-hidden="true"></a><span class="dt">grstyle set legend 11, nobox</span></span>
-<span id="cb146-20"><a href="#cb146-20" aria-hidden="true"></a><span class="dt">grstyle set color </span><span class="st">`</span>c1<span class="st">&#39; `c2&#39;</span>  <span class="st">&quot;159 218 58&quot;</span> , <span class="kw">ipolate</span>(<span class="dv">5</span>)  </span>
-<span id="cb146-21"><a href="#cb146-21" aria-hidden="true"></a></span>
-<span id="cb146-22"><a href="#cb146-22" aria-hidden="true"></a>catplot health, <span class="kw">over</span>(race, <span class="kw">relabel</span>(<span class="st">`</span><span class="dt">lab&#39;) label(labc(</span><span class="st">`</span>t<span class="st">&#39;)))         ///    </span></span>
-<span id="cb146-23"><a href="#cb146-23" aria-hidden="true"></a><span class="st">percent(race) asyvars legend(order(`leg&#39;</span>) <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">cols</span>(<span class="dv">5</span>) <span class="kw">color</span>(gs8))        <span class="op">/</span><span class="er">//</span></span>
-<span id="cb146-24"><a href="#cb146-24" aria-hidden="true"></a><span class="kw">ytitle</span>(<span class="st">&quot;{bf:pourcentage}&quot;</span>, <span class="kw">color</span>(<span class="st">`</span><span class="dt">t&#39;))                                     ///</span></span>
-<span id="cb146-25"><a href="#cb146-25" aria-hidden="true"></a><span class="dt">l1title(&quot;&quot;)                                                                  ///</span></span>
-<span id="cb146-26"><a href="#cb146-26" aria-hidden="true"></a><span class="dt">title(&quot;{bf:Unstacked}&quot;, color(&quot;33 144 140&quot;) pos(11))      ///</span></span>
-<span id="cb146-27"><a href="#cb146-27" aria-hidden="true"></a><span class="dt">graphr(color(</span><span class="st">`</span>f<span class="st">&#39;)) plotr(color(`f&#39;</span>)) <span class="kw">name</span>(g1, replace)</span>
-<span id="cb146-28"><a href="#cb146-28" aria-hidden="true"></a> </span>
-<span id="cb146-29"><a href="#cb146-29" aria-hidden="true"></a><span class="op">*</span>stacked barres</span>
-<span id="cb146-30"><a href="#cb146-30" aria-hidden="true"></a> </span>
-<span id="cb146-31"><a href="#cb146-31" aria-hidden="true"></a>local f <span class="st">&quot;230 239 239&quot;</span></span>
-<span id="cb146-32"><a href="#cb146-32" aria-hidden="true"></a>local t <span class="st">&quot;68 1 84&quot;</span></span>
-<span id="cb146-33"><a href="#cb146-33" aria-hidden="true"></a>colorpalette viridis, <span class="kw">select</span>(<span class="dv">3</span> <span class="dv">8</span> <span class="dv">13</span>) nograph </span>
-<span id="cb146-34"><a href="#cb146-34" aria-hidden="true"></a></span>
-<span id="cb146-35"><a href="#cb146-35" aria-hidden="true"></a>local c1 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p1)<span class="st">&#39;&quot;&quot;&#39;</span></span>
-<span id="cb146-36"><a href="#cb146-36" aria-hidden="true"></a>local c2 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p2)<span class="st">&#39;&quot;&quot;&#39;</span></span>
-<span id="cb146-37"><a href="#cb146-37" aria-hidden="true"></a>local c3 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p3)<span class="st">&#39;&quot;&#39;</span></span>
-<span id="cb146-38"><a href="#cb146-38" aria-hidden="true"></a></span>
-<span id="cb146-39"><a href="#cb146-39" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>pourquoi la macro <span class="st">`</span><span class="dt">c3&#39; ne passe pas? =&gt; msg option nograph not allowed ???</span></span>
-<span id="cb146-40"><a href="#cb146-40" aria-hidden="true"></a><span class="dt">grstyle  init</span></span>
-<span id="cb146-41"><a href="#cb146-41" aria-hidden="true"></a><span class="dt">grstyle set mesh, compact horizontal</span></span>
-<span id="cb146-42"><a href="#cb146-42" aria-hidden="true"></a><span class="dt">grstyle set legend 11, nobox</span></span>
-<span id="cb146-43"><a href="#cb146-43" aria-hidden="true"></a><span class="dt">grstyle set color </span><span class="st">`</span>c1<span class="st">&#39; `c2&#39;</span>  <span class="st">&quot;159 218 58&quot;</span> , <span class="kw">ipolate</span>(<span class="dv">5</span>) </span>
-<span id="cb146-44"><a href="#cb146-44" aria-hidden="true"></a></span>
-<span id="cb146-45"><a href="#cb146-45" aria-hidden="true"></a>catplot health, stack <span class="kw">over</span>(race, <span class="kw">relabel</span>(<span class="st">`</span><span class="dt">lab&#39;) label(labc(</span><span class="st">`</span>t<span class="st">&#39;)))    ///</span></span>
-<span id="cb146-46"><a href="#cb146-46" aria-hidden="true"></a><span class="st">percent(race) asyvars legend(order(`leg&#39;</span>) <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">cols</span>(<span class="dv">5</span>) <span class="kw">color</span>(gs8))         <span class="op">/</span><span class="er">//</span></span>
-<span id="cb146-47"><a href="#cb146-47" aria-hidden="true"></a><span class="kw">ytitle</span>(<span class="st">&quot;{bf:pourcentage}&quot;</span>, <span class="kw">angle</span>(<span class="dv">0</span>)  <span class="kw">color</span>(<span class="st">`</span><span class="dt">t&#39;))                   ///</span></span>
-<span id="cb146-48"><a href="#cb146-48" aria-hidden="true"></a><span class="dt">l1title(&quot;&quot;)                                          ///</span></span>
-<span id="cb146-49"><a href="#cb146-49" aria-hidden="true"></a><span class="dt">title(&quot;{bf:Stacked}&quot;, color(&quot;33 144 140&quot;) pos(11))        ///</span></span>
-<span id="cb146-50"><a href="#cb146-50" aria-hidden="true"></a><span class="dt">graphr(color(</span><span class="st">`</span>f<span class="st">&#39;)) plotr(color(`f&#39;</span>)) <span class="kw">name</span>(g2, replace)</span>
-<span id="cb146-51"><a href="#cb146-51" aria-hidden="true"></a></span>
-<span id="cb146-52"><a href="#cb146-52" aria-hidden="true"></a></span>
-<span id="cb146-53"><a href="#cb146-53" aria-hidden="true"></a>grc1leg g1 g2, <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">plotr</span>(<span class="kw">color</span>(<span class="st">`</span><span class="dt">f&#39;)) graphr(color(</span><span class="st">`</span>f<span class="st">&#39;)) ///</span></span>
-<span id="cb146-54"><a href="#cb146-54" aria-hidden="true"></a><span class="st">        title(&quot;{bf:Santé perçue}&quot;, pos(11) color(`t&#39;</span>))</span>
-<span id="cb146-55"><a href="#cb146-55" aria-hidden="true"></a> </span>
-<span id="cb146-56"><a href="#cb146-56" aria-hidden="true"></a></span>
-<span id="cb146-57"><a href="#cb146-57" aria-hidden="true"></a><span class="op">*</span>Horizontal<span class="op">*</span></span></code></pre></div>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true"></a>use nhanes2f, clear</span>
+<span id="cb148-2"><a href="#cb148-2" aria-hidden="true"></a></span>
+<span id="cb148-3"><a href="#cb148-3" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>legende et label en <span class="kw">gras</span> (faire en manuel gloups)</span>
+<span id="cb148-4"><a href="#cb148-4" aria-hidden="true"></a>local lab <span class="dv">1</span> <span class="st">&quot;{bf:White}&quot;</span> <span class="dv">2</span>  <span class="st">&quot;{bf:Black}&quot;</span> <span class="dv">3</span>  <span class="st">&quot;{bf:Other}&quot;</span></span>
+<span id="cb148-5"><a href="#cb148-5" aria-hidden="true"></a>local leg  <span class="dv">1</span> <span class="st">&quot;{bf:Poor}&quot;</span> <span class="dv">2</span>  <span class="st">&quot;{bf:Fair}&quot;</span> <span class="dv">3</span>  <span class="st">&quot;{bf:Average}&quot;</span>  <span class="dv">4</span> <span class="st">&quot;{bf:Good}&quot;</span> <span class="dv">5</span>  <span class="st">&quot;{bf:Excellent}&quot;</span></span>
+<span id="cb148-6"><a href="#cb148-6" aria-hidden="true"></a></span>
+<span id="cb148-7"><a href="#cb148-7" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>barres</span>
+<span id="cb148-8"><a href="#cb148-8" aria-hidden="true"></a>local f <span class="st">&quot;230 239 239&quot;</span></span>
+<span id="cb148-9"><a href="#cb148-9" aria-hidden="true"></a>local t <span class="st">&quot;68 1 84&quot;</span></span>
+<span id="cb148-10"><a href="#cb148-10" aria-hidden="true"></a>colorpalette viridis, <span class="kw">select</span>(<span class="dv">3</span> <span class="dv">8</span> <span class="dv">13</span>)   nograph </span>
+<span id="cb148-11"><a href="#cb148-11" aria-hidden="true"></a></span>
+<span id="cb148-12"><a href="#cb148-12" aria-hidden="true"></a>local c1 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p1)<span class="st">&#39;&quot;&quot;&#39;</span></span>
+<span id="cb148-13"><a href="#cb148-13" aria-hidden="true"></a>local c2 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p2)<span class="st">&#39;&quot;&quot;&#39;</span></span>
+<span id="cb148-14"><a href="#cb148-14" aria-hidden="true"></a>local c3 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p3)<span class="st">&#39;&quot;&#39;</span></span>
+<span id="cb148-15"><a href="#cb148-15" aria-hidden="true"></a></span>
+<span id="cb148-16"><a href="#cb148-16" aria-hidden="true"></a>grstyle  init</span>
+<span id="cb148-17"><a href="#cb148-17" aria-hidden="true"></a>grstyle set mesh, compact horizontal</span>
+<span id="cb148-18"><a href="#cb148-18" aria-hidden="true"></a>grstyle set legend <span class="dv">11</span>, nobox</span>
+<span id="cb148-19"><a href="#cb148-19" aria-hidden="true"></a>grstyle set color <span class="st">`</span><span class="dt">c1&#39; </span><span class="st">`</span>c2<span class="st">&#39;  &quot;159 218 58&quot; , ipolate(5)  </span></span>
+<span id="cb148-20"><a href="#cb148-20" aria-hidden="true"></a></span>
+<span id="cb148-21"><a href="#cb148-21" aria-hidden="true"></a><span class="st">catplot health, over(race, relabel(`lab&#39;</span><span class="er">)</span> <span class="kw">label</span>(<span class="kw">labc</span>(<span class="st">`</span><span class="dt">t&#39;)))         ///    </span></span>
+<span id="cb148-22"><a href="#cb148-22" aria-hidden="true"></a><span class="dt">percent(race) asyvars legend(order(</span><span class="st">`</span>leg<span class="st">&#39;) pos(11) cols(5) color(gs8))        ///</span></span>
+<span id="cb148-23"><a href="#cb148-23" aria-hidden="true"></a><span class="st">ytitle(&quot;{bf:pourcentage}&quot;, color(`t&#39;</span>))                                     <span class="op">/</span><span class="er">//</span></span>
+<span id="cb148-24"><a href="#cb148-24" aria-hidden="true"></a><span class="kw">l1title</span>(<span class="st">&quot;&quot;</span>)                                                                  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb148-25"><a href="#cb148-25" aria-hidden="true"></a><span class="kw">title</span>(<span class="st">&quot;{bf:Unstacked}&quot;</span>, <span class="kw">color</span>(<span class="st">&quot;33 144 140&quot;</span>) <span class="kw">pos</span>(<span class="dv">11</span>))      <span class="op">/</span><span class="er">//</span></span>
+<span id="cb148-26"><a href="#cb148-26" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(<span class="st">`</span><span class="dt">f&#39;)) plotr(color(</span><span class="st">`</span>f<span class="st">&#39;)) name(g1, replace)</span></span>
+<span id="cb148-27"><a href="#cb148-27" aria-hidden="true"></a><span class="st"> </span></span>
+<span id="cb148-28"><a href="#cb148-28" aria-hidden="true"></a><span class="st">*stacked barres</span></span>
+<span id="cb148-29"><a href="#cb148-29" aria-hidden="true"></a><span class="st"> </span></span>
+<span id="cb148-30"><a href="#cb148-30" aria-hidden="true"></a><span class="st">local f &quot;230 239 239&quot;</span></span>
+<span id="cb148-31"><a href="#cb148-31" aria-hidden="true"></a><span class="st">local t &quot;68 1 84&quot;</span></span>
+<span id="cb148-32"><a href="#cb148-32" aria-hidden="true"></a><span class="st">colorpalette viridis, select(3 8 13) nograph </span></span>
+<span id="cb148-33"><a href="#cb148-33" aria-hidden="true"></a></span>
+<span id="cb148-34"><a href="#cb148-34" aria-hidden="true"></a><span class="st">local c1 `&quot;&quot;`r(p1)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb148-35"><a href="#cb148-35" aria-hidden="true"></a><span class="st">local c2 `&quot;&quot;`r(p2)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb148-36"><a href="#cb148-36" aria-hidden="true"></a><span class="st">local c3 `&quot;&quot;`r(p3)&#39;&quot;&quot;&#39;</span></span>
+<span id="cb148-37"><a href="#cb148-37" aria-hidden="true"></a></span>
+<span id="cb148-38"><a href="#cb148-38" aria-hidden="true"></a><span class="st">grstyle  init</span></span>
+<span id="cb148-39"><a href="#cb148-39" aria-hidden="true"></a><span class="st">grstyle set mesh, compact horizontal</span></span>
+<span id="cb148-40"><a href="#cb148-40" aria-hidden="true"></a><span class="st">grstyle set legend 11, nobox</span></span>
+<span id="cb148-41"><a href="#cb148-41" aria-hidden="true"></a><span class="st">grstyle set color `c1&#39;</span> <span class="st">`</span><span class="dt">c2&#39;  &quot;159 218 58&quot; , ipolate(5) </span></span>
+<span id="cb148-42"><a href="#cb148-42" aria-hidden="true"></a></span>
+<span id="cb148-43"><a href="#cb148-43" aria-hidden="true"></a><span class="dt">catplot health, stack over(race, relabel(</span><span class="st">`</span>lab<span class="st">&#39;) label(labc(`t&#39;</span>))<span class="er">)</span>    <span class="op">/</span><span class="er">//</span></span>
+<span id="cb148-44"><a href="#cb148-44" aria-hidden="true"></a><span class="kw">percent</span>(race) asyvars <span class="kw">legend</span>(<span class="kw">order</span>(<span class="st">`</span><span class="dt">leg&#39;) pos(11) cols(5) color(gs8))         ///</span></span>
+<span id="cb148-45"><a href="#cb148-45" aria-hidden="true"></a><span class="dt">ytitle(&quot;{bf:pourcentage}&quot;, angle(0)  color(</span><span class="st">`</span>t<span class="st">&#39;))                   ///</span></span>
+<span id="cb148-46"><a href="#cb148-46" aria-hidden="true"></a><span class="st">l1title(&quot;&quot;)                                          ///</span></span>
+<span id="cb148-47"><a href="#cb148-47" aria-hidden="true"></a><span class="st">title(&quot;{bf:Stacked}&quot;, color(&quot;33 144 140&quot;) pos(11))        ///</span></span>
+<span id="cb148-48"><a href="#cb148-48" aria-hidden="true"></a><span class="st">graphr(color(`f&#39;</span>)) <span class="kw">plotr</span>(<span class="kw">color</span>(<span class="st">`</span><span class="dt">f&#39;)) name(g2, replace)</span></span>
+<span id="cb148-49"><a href="#cb148-49" aria-hidden="true"></a></span>
+<span id="cb148-50"><a href="#cb148-50" aria-hidden="true"></a></span>
+<span id="cb148-51"><a href="#cb148-51" aria-hidden="true"></a><span class="dt">grc1leg g1 g2, pos(11) plotr(color(</span><span class="st">`</span>f<span class="st">&#39;)) graphr(color(`f&#39;</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb148-52"><a href="#cb148-52" aria-hidden="true"></a><span class="st">        </span><span class="kw">title</span>(<span class="st">&quot;{bf:Santé perçue}&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(<span class="st">`</span><span class="dt">t&#39;))</span></span>
+<span id="cb148-53"><a href="#cb148-53" aria-hidden="true"></a><span class="dt"> </span></span>
+<span id="cb148-54"><a href="#cb148-54" aria-hidden="true"></a></span>
+<span id="cb148-55"><a href="#cb148-55" aria-hidden="true"></a><span class="dt">*Horizontal*</span></span></code></pre></div>
 </details>
 <p><img src="imgf/g95.png" style="width:50.0%" /></p>
 <p><em>Vertical</em></p>
@@ -4233,31 +4357,30 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="#cb147-1" aria-hidden="true"></a>graph set window fontface <span class="st">&quot;Avenir&quot;</span></span>
-<span id="cb147-2"><a href="#cb147-2" aria-hidden="true"></a>graph set window fontfaceserif <span class="st">&quot;Minion Pro&quot;</span></span>
-<span id="cb147-3"><a href="#cb147-3" aria-hidden="true"></a>local f <span class="st">&quot;230 239 239&quot;</span></span>
-<span id="cb147-4"><a href="#cb147-4" aria-hidden="true"></a>local t <span class="st">&quot;68 1 84&quot;</span></span>
-<span id="cb147-5"><a href="#cb147-5" aria-hidden="true"></a>colorpalette viridis, <span class="kw">select</span>(<span class="dv">3</span> <span class="dv">8</span> <span class="dv">13</span>)   nograph </span>
-<span id="cb147-6"><a href="#cb147-6" aria-hidden="true"></a></span>
-<span id="cb147-7"><a href="#cb147-7" aria-hidden="true"></a>local c1 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p1)<span class="st">&#39;&quot;&quot;&#39;</span></span>
-<span id="cb147-8"><a href="#cb147-8" aria-hidden="true"></a>local c2 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p2)<span class="st">&#39;&quot;&quot;&#39;</span></span>
-<span id="cb147-9"><a href="#cb147-9" aria-hidden="true"></a>local c3 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p3)<span class="st">&#39;&quot;&#39;</span></span>
-<span id="cb147-10"><a href="#cb147-10" aria-hidden="true"></a></span>
-<span id="cb147-11"><a href="#cb147-11" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>pourquoi la macro <span class="st">`</span><span class="dt">c3&#39; ne passe pas? =&gt; msg option nograph not allowed ???</span></span>
-<span id="cb147-12"><a href="#cb147-12" aria-hidden="true"></a><span class="dt">grstyle  init</span></span>
-<span id="cb147-13"><a href="#cb147-13" aria-hidden="true"></a><span class="dt">grstyle set mesh, compact horizontal</span></span>
-<span id="cb147-14"><a href="#cb147-14" aria-hidden="true"></a><span class="dt">grstyle set legend 11, nobox</span></span>
-<span id="cb147-15"><a href="#cb147-15" aria-hidden="true"></a><span class="dt">grstyle set color </span><span class="st">`</span>c1<span class="st">&#39; `c2&#39;</span>  <span class="st">&quot;159 218 58&quot;</span> , <span class="kw">ipolate</span>(<span class="dv">5</span>) </span>
-<span id="cb147-16"><a href="#cb147-16" aria-hidden="true"></a></span>
-<span id="cb147-17"><a href="#cb147-17" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>option blw [bar<span class="op">-</span>line<span class="op">-</span>width]<span class="op">:</span><span class="st"> </span>j<span class="st">&#39;ai du entrer dans le ado pour trouver cette mystérieuse option</span></span>
-<span id="cb147-18"><a href="#cb147-18" aria-hidden="true"></a><span class="st">spineplot health race,                    ///</span></span>
-<span id="cb147-19"><a href="#cb147-19" aria-hidden="true"></a><span class="st">ytitle(&quot;&quot;) xtitle(&quot;&quot;)                     ///</span></span>
-<span id="cb147-20"><a href="#cb147-20" aria-hidden="true"></a><span class="st">legend(pos(11) col(5) stack)              ///</span></span>
-<span id="cb147-21"><a href="#cb147-21" aria-hidden="true"></a><span class="st">xtitle(&quot;&quot;, axis(2))                       ///</span></span>
-<span id="cb147-22"><a href="#cb147-22" aria-hidden="true"></a><span class="st">ytitle(&quot;&quot;, axis(2))                       ///</span></span>
-<span id="cb147-23"><a href="#cb147-23" aria-hidden="true"></a><span class="st">barall(fi(inten100) blw(vvthin))          ///</span></span>
-<span id="cb147-24"><a href="#cb147-24" aria-hidden="true"></a><span class="st">title(&quot;Santé perçue&quot;, pos(11) color(`t&#39;</span><span class="er">))</span> <span class="op">/</span><span class="er">//</span></span>
-<span id="cb147-25"><a href="#cb147-25" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(<span class="st">`</span><span class="dt">f&#39;)) plotr(color(</span><span class="st">`</span>f<span class="st">&#39;))     </span></span></code></pre></div>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true"></a>graph set window fontface <span class="st">&quot;Avenir&quot;</span></span>
+<span id="cb149-2"><a href="#cb149-2" aria-hidden="true"></a>graph set window fontfaceserif <span class="st">&quot;Minion Pro&quot;</span></span>
+<span id="cb149-3"><a href="#cb149-3" aria-hidden="true"></a>local f <span class="st">&quot;230 239 239&quot;</span></span>
+<span id="cb149-4"><a href="#cb149-4" aria-hidden="true"></a>local t <span class="st">&quot;68 1 84&quot;</span></span>
+<span id="cb149-5"><a href="#cb149-5" aria-hidden="true"></a>colorpalette viridis, <span class="kw">select</span>(<span class="dv">3</span> <span class="dv">8</span> <span class="dv">13</span>)   nograph </span>
+<span id="cb149-6"><a href="#cb149-6" aria-hidden="true"></a></span>
+<span id="cb149-7"><a href="#cb149-7" aria-hidden="true"></a>local c1 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p1)<span class="st">&#39;&quot;&quot;&#39;</span></span>
+<span id="cb149-8"><a href="#cb149-8" aria-hidden="true"></a>local c2 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p2)<span class="st">&#39;&quot;&quot;&#39;</span></span>
+<span id="cb149-9"><a href="#cb149-9" aria-hidden="true"></a>local c3 <span class="st">`</span><span class="dt">&quot;&quot;</span><span class="st">`</span><span class="kw">r</span>(p3)<span class="st">&#39;&quot;&quot;&#39;</span></span>
+<span id="cb149-10"><a href="#cb149-10" aria-hidden="true"></a></span>
+<span id="cb149-11"><a href="#cb149-11" aria-hidden="true"></a>grstyle  init</span>
+<span id="cb149-12"><a href="#cb149-12" aria-hidden="true"></a>grstyle set mesh, compact horizontal</span>
+<span id="cb149-13"><a href="#cb149-13" aria-hidden="true"></a>grstyle set legend <span class="dv">11</span>, nobox</span>
+<span id="cb149-14"><a href="#cb149-14" aria-hidden="true"></a>grstyle set color <span class="st">`</span><span class="dt">c1&#39; </span><span class="st">`</span>c2<span class="st">&#39;  &quot;159 218 58&quot; , ipolate(5) </span></span>
+<span id="cb149-15"><a href="#cb149-15" aria-hidden="true"></a></span>
+<span id="cb149-16"><a href="#cb149-16" aria-hidden="true"></a><span class="st">* option blw [bar-line-width]: j&#39;</span>ai du entrer dans le ado pour trouver cette mystérieuse option</span>
+<span id="cb149-17"><a href="#cb149-17" aria-hidden="true"></a>spineplot health race,                    <span class="op">/</span><span class="er">//</span></span>
+<span id="cb149-18"><a href="#cb149-18" aria-hidden="true"></a><span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>) <span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>)                     <span class="op">/</span><span class="er">//</span></span>
+<span id="cb149-19"><a href="#cb149-19" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">col</span>(<span class="dv">5</span>) stack)              <span class="op">/</span><span class="er">//</span></span>
+<span id="cb149-20"><a href="#cb149-20" aria-hidden="true"></a><span class="kw">xtitle</span>(<span class="st">&quot;&quot;</span>, <span class="kw">axis</span>(<span class="dv">2</span>))                       <span class="op">/</span><span class="er">//</span></span>
+<span id="cb149-21"><a href="#cb149-21" aria-hidden="true"></a><span class="kw">ytitle</span>(<span class="st">&quot;&quot;</span>, <span class="kw">axis</span>(<span class="dv">2</span>))                       <span class="op">/</span><span class="er">//</span></span>
+<span id="cb149-22"><a href="#cb149-22" aria-hidden="true"></a><span class="kw">barall</span>(<span class="kw">fi</span>(inten100) <span class="kw">blw</span>(vvthin))          <span class="op">/</span><span class="er">//</span></span>
+<span id="cb149-23"><a href="#cb149-23" aria-hidden="true"></a><span class="kw">title</span>(<span class="st">&quot;Santé perçue&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(<span class="st">`</span><span class="dt">t&#39;)) ///</span></span>
+<span id="cb149-24"><a href="#cb149-24" aria-hidden="true"></a><span class="dt">graphr(color(</span><span class="st">`</span>f<span class="st">&#39;)) plotr(color(`f&#39;</span>))     </span></code></pre></div>
 </details>
 <p><img src="imgf/g96.png" style="width:50.0%" /></p>
 <ul>
@@ -4277,15 +4400,15 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="#cb148-1" aria-hidden="true"></a>use nhanes2f, clear</span>
-<span id="cb148-2"><a href="#cb148-2" aria-hidden="true"></a></span>
-<span id="cb148-3"><a href="#cb148-3" aria-hidden="true"></a>grstyle init</span>
-<span id="cb148-4"><a href="#cb148-4" aria-hidden="true"></a>grstyle set mesh, compact</span>
-<span id="cb148-5"><a href="#cb148-5" aria-hidden="true"></a>grstyle set legend, nobox</span>
-<span id="cb148-6"><a href="#cb148-6" aria-hidden="true"></a>grstyle set color viridis, <span class="kw">n</span>(<span class="dv">5</span>)</span>
-<span id="cb148-7"><a href="#cb148-7" aria-hidden="true"></a></span>
-<span id="cb148-8"><a href="#cb148-8" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">2</span>) <span class="kw">row</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb148-9"><a href="#cb148-9" aria-hidden="true"></a><span class="kw">title</span>(<span class="st">&quot;{bf:Santé perçue}&quot;</span>,  <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(gs3))</span></code></pre></div>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true"></a>use nhanes2f, clear</span>
+<span id="cb150-2"><a href="#cb150-2" aria-hidden="true"></a></span>
+<span id="cb150-3"><a href="#cb150-3" aria-hidden="true"></a>grstyle init</span>
+<span id="cb150-4"><a href="#cb150-4" aria-hidden="true"></a>grstyle set mesh, compact</span>
+<span id="cb150-5"><a href="#cb150-5" aria-hidden="true"></a>grstyle set legend, nobox</span>
+<span id="cb150-6"><a href="#cb150-6" aria-hidden="true"></a>grstyle set color viridis, <span class="kw">n</span>(<span class="dv">5</span>)</span>
+<span id="cb150-7"><a href="#cb150-7" aria-hidden="true"></a></span>
+<span id="cb150-8"><a href="#cb150-8" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">2</span>) <span class="kw">row</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb150-9"><a href="#cb150-9" aria-hidden="true"></a><span class="kw">title</span>(<span class="st">&quot;{bf:Santé perçue}&quot;</span>,  <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(gs3))</span></code></pre></div>
 </details>
 <p><img src="imgf/g97.png" style="width:50.0%" /></p>
 <ul>
@@ -4296,43 +4419,43 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="#cb149-1" aria-hidden="true"></a>grstyle init</span>
-<span id="cb149-2"><a href="#cb149-2" aria-hidden="true"></a>grstyle set mesh, compact</span>
-<span id="cb149-3"><a href="#cb149-3" aria-hidden="true"></a>grstyle set legend, nobox</span>
-<span id="cb149-4"><a href="#cb149-4" aria-hidden="true"></a>grstyle set color viridis, <span class="kw">n</span>(<span class="dv">5</span>)</span>
-<span id="cb149-5"><a href="#cb149-5" aria-hidden="true"></a></span>
-<span id="cb149-6"><a href="#cb149-6" aria-hidden="true"></a>gr aph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">2</span>) <span class="kw">row</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-7"><a href="#cb149-7" aria-hidden="true"></a><span class="kw">title</span>(<span class="st">&quot;{bf:Santé perçue}&quot;</span>,  <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(gs3))</span>
-<span id="cb149-8"><a href="#cb149-8" aria-hidden="true"></a></span>
-<span id="cb149-9"><a href="#cb149-9" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">7</span>) <span class="kw">row</span>(<span class="dv">1</span>)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-10"><a href="#cb149-10" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">color</span>(gs8)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-11"><a href="#cb149-11" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">1</span> percent, <span class="kw">color</span>(gs8)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">8</span>))  <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-12"><a href="#cb149-12" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">2</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-13"><a href="#cb149-13" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">3</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-14"><a href="#cb149-14" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">4</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-15"><a href="#cb149-15" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">5</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-16"><a href="#cb149-16" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs2)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-17"><a href="#cb149-17" aria-hidden="true"></a><span class="kw">name</span>(g1, replace)</span>
-<span id="cb149-18"><a href="#cb149-18" aria-hidden="true"></a></span>
-<span id="cb149-19"><a href="#cb149-19" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">7</span>) <span class="kw">row</span>(<span class="dv">1</span>)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-20"><a href="#cb149-20" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">color</span>(gs8)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-21"><a href="#cb149-21" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">1</span>  percent, <span class="kw">color</span>(gs8) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">21</span>))  <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-22"><a href="#cb149-22" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">2</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-23"><a href="#cb149-23" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">3</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-24"><a href="#cb149-24" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">4</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-25"><a href="#cb149-25" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">5</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-26"><a href="#cb149-26" aria-hidden="true"></a><span class="kw">pie</span>(<span class="dv">1</span>, explode)                                                    <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-27"><a href="#cb149-27" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs2))                               <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-28"><a href="#cb149-28" aria-hidden="true"></a><span class="kw">name</span>(g2, replace)</span>
-<span id="cb149-29"><a href="#cb149-29" aria-hidden="true"></a></span>
-<span id="cb149-30"><a href="#cb149-30" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">7</span>) <span class="kw">row</span>(<span class="dv">1</span>))                        <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-31"><a href="#cb149-31" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">color</span>(gs8))                                                   <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-32"><a href="#cb149-32" aria-hidden="true"></a><span class="kw">plabel</span>(_all percent, <span class="kw">color</span>(gs8) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">22</span>))  <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-33"><a href="#cb149-33" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs2)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-34"><a href="#cb149-34" aria-hidden="true"></a><span class="kw">pie</span>(_all, explode)  <span class="kw">name</span>(g3, replace) </span>
-<span id="cb149-35"><a href="#cb149-35" aria-hidden="true"></a></span>
-<span id="cb149-36"><a href="#cb149-36" aria-hidden="true"></a>grc1leg g1 g2 g3, <span class="kw">col</span>(<span class="dv">3</span>) <span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">pos</span>(<span class="dv">11</span>)  <span class="kw">title</span>(<span class="st">&quot;{bf:Santé perçue}&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(gs13)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb149-37"><a href="#cb149-37" aria-hidden="true"></a><span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">10</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true"></a>grstyle init</span>
+<span id="cb151-2"><a href="#cb151-2" aria-hidden="true"></a>grstyle set mesh, compact</span>
+<span id="cb151-3"><a href="#cb151-3" aria-hidden="true"></a>grstyle set legend, nobox</span>
+<span id="cb151-4"><a href="#cb151-4" aria-hidden="true"></a>grstyle set color viridis, <span class="kw">n</span>(<span class="dv">5</span>)</span>
+<span id="cb151-5"><a href="#cb151-5" aria-hidden="true"></a></span>
+<span id="cb151-6"><a href="#cb151-6" aria-hidden="true"></a>gr aph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">2</span>) <span class="kw">row</span>(<span class="dv">5</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-7"><a href="#cb151-7" aria-hidden="true"></a><span class="kw">title</span>(<span class="st">&quot;{bf:Santé perçue}&quot;</span>,  <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(gs3))</span>
+<span id="cb151-8"><a href="#cb151-8" aria-hidden="true"></a></span>
+<span id="cb151-9"><a href="#cb151-9" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">7</span>) <span class="kw">row</span>(<span class="dv">1</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-10"><a href="#cb151-10" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">color</span>(gs8)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-11"><a href="#cb151-11" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">1</span> percent, <span class="kw">color</span>(gs8)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">8</span>))  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-12"><a href="#cb151-12" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">2</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-13"><a href="#cb151-13" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">3</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-14"><a href="#cb151-14" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">4</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-15"><a href="#cb151-15" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">5</span> percent, <span class="kw">color</span>(gs2)  <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">6</span>))  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-16"><a href="#cb151-16" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs2)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-17"><a href="#cb151-17" aria-hidden="true"></a><span class="kw">name</span>(g1, replace)</span>
+<span id="cb151-18"><a href="#cb151-18" aria-hidden="true"></a></span>
+<span id="cb151-19"><a href="#cb151-19" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">7</span>) <span class="kw">row</span>(<span class="dv">1</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-20"><a href="#cb151-20" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">color</span>(gs8)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-21"><a href="#cb151-21" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">1</span>  percent, <span class="kw">color</span>(gs8) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">21</span>))  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-22"><a href="#cb151-22" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">2</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-23"><a href="#cb151-23" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">3</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-24"><a href="#cb151-24" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">4</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-25"><a href="#cb151-25" aria-hidden="true"></a><span class="kw">plabel</span>(<span class="dv">5</span>  percent, <span class="kw">color</span>(gs2) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">2</span>))   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-26"><a href="#cb151-26" aria-hidden="true"></a><span class="kw">pie</span>(<span class="dv">1</span>, explode)                                                    <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-27"><a href="#cb151-27" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs2))                               <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-28"><a href="#cb151-28" aria-hidden="true"></a><span class="kw">name</span>(g2, replace)</span>
+<span id="cb151-29"><a href="#cb151-29" aria-hidden="true"></a></span>
+<span id="cb151-30"><a href="#cb151-30" aria-hidden="true"></a>graph pie, <span class="kw">over</span>(health) <span class="kw">legend</span>(<span class="kw">pos</span>(<span class="dv">7</span>) <span class="kw">row</span>(<span class="dv">1</span>))                        <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-31"><a href="#cb151-31" aria-hidden="true"></a><span class="kw">legend</span>(<span class="kw">color</span>(gs8))                                                   <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-32"><a href="#cb151-32" aria-hidden="true"></a><span class="kw">plabel</span>(_all percent, <span class="kw">color</span>(gs8) <span class="kw">size</span>(medium) <span class="kw">format</span>(%<span class="fl">9.1</span>g) <span class="kw">gap</span>(<span class="dv">22</span>))  <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-33"><a href="#cb151-33" aria-hidden="true"></a><span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs2)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-34"><a href="#cb151-34" aria-hidden="true"></a><span class="kw">pie</span>(_all, explode)  <span class="kw">name</span>(g3, replace) </span>
+<span id="cb151-35"><a href="#cb151-35" aria-hidden="true"></a></span>
+<span id="cb151-36"><a href="#cb151-36" aria-hidden="true"></a>grc1leg g1 g2 g3, <span class="kw">col</span>(<span class="dv">3</span>) <span class="kw">graphr</span>(<span class="kw">color</span>(gs2)) <span class="kw">pos</span>(<span class="dv">11</span>)  <span class="kw">title</span>(<span class="st">&quot;{bf:Santé perçue}&quot;</span>, <span class="kw">pos</span>(<span class="dv">11</span>) <span class="kw">color</span>(gs13)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb151-37"><a href="#cb151-37" aria-hidden="true"></a><span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">10</span>) </span></code></pre></div>
 </details>
 <p><img src="imgf/g98.png" style="width:50.0%" /></p>
 <ul>
@@ -4342,71 +4465,71 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="#cb150-1" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>variables et comptage des N</span>
-<span id="cb150-2"><a href="#cb150-2" aria-hidden="true"></a>local varname health</span>
-<span id="cb150-3"><a href="#cb150-3" aria-hidden="true"></a>levelsof <span class="st">`</span><span class="dt">varname&#39;, local(var)</span></span>
-<span id="cb150-4"><a href="#cb150-4" aria-hidden="true"></a><span class="dt">local varname health</span></span>
-<span id="cb150-5"><a href="#cb150-5" aria-hidden="true"></a><span class="dt">local labn: value label </span><span class="st">`</span>varname<span class="st">&#39;</span></span>
-<span id="cb150-6"><a href="#cb150-6" aria-hidden="true"></a></span>
-<span id="cb150-7"><a href="#cb150-7" aria-hidden="true"></a><span class="st">foreach v of local var {</span></span>
-<span id="cb150-8"><a href="#cb150-8" aria-hidden="true"></a><span class="st">local lab`v&#39;</span><span class="op">:</span><span class="st"> </span>label <span class="st">`</span><span class="dt">labn&#39;  </span><span class="st">`</span>v<span class="st">&#39;</span></span>
-<span id="cb150-9"><a href="#cb150-9" aria-hidden="true"></a><span class="st">local varl `varl&#39;</span> _<span class="st">`</span><span class="dt">lab</span><span class="st">`</span>v<span class="st">&#39;&#39;</span></span>
-<span id="cb150-10"><a href="#cb150-10" aria-hidden="true"></a></span>
-<span id="cb150-11"><a href="#cb150-11" aria-hidden="true"></a>count <span class="cf">if</span> <span class="st">`</span><span class="dt">varname&#39;==</span><span class="st">`</span>v<span class="st">&#39;</span></span>
-<span id="cb150-12"><a href="#cb150-12" aria-hidden="true"></a><span class="st">local N`v&#39;</span> =<span class="st"> `</span><span class="dt">r(N)&#39;</span></span>
-<span id="cb150-13"><a href="#cb150-13" aria-hidden="true"></a><span class="dt">gen _</span><span class="st">`</span>lab<span class="st">`</span><span class="dt">v&#39;&#39; = </span><span class="st">`</span>N<span class="st">`</span><span class="dt">v&#39;&#39; in 1</span></span>
-<span id="cb150-14"><a href="#cb150-14" aria-hidden="true"></a><span class="dt">}</span></span>
-<span id="cb150-15"><a href="#cb150-15" aria-hidden="true"></a></span>
-<span id="cb150-16"><a href="#cb150-16" aria-hidden="true"></a><span class="dt">* paramètres du graphique</span></span>
-<span id="cb150-17"><a href="#cb150-17" aria-hidden="true"></a><span class="dt">grstyle init</span></span>
-<span id="cb150-18"><a href="#cb150-18" aria-hidden="true"></a><span class="dt">grstyle set mesh, compact</span></span>
-<span id="cb150-19"><a href="#cb150-19" aria-hidden="true"></a></span>
-<span id="cb150-20"><a href="#cb150-20" aria-hidden="true"></a><span class="dt">local s small</span></span>
-<span id="cb150-21"><a href="#cb150-21" aria-hidden="true"></a><span class="dt">local lc gs2</span></span>
-<span id="cb150-22"><a href="#cb150-22" aria-hidden="true"></a><span class="dt">local pal YlGnBu</span></span>
-<span id="cb150-23"><a href="#cb150-23" aria-hidden="true"></a><span class="dt">local select 9 4</span></span>
-<span id="cb150-24"><a href="#cb150-24" aria-hidden="true"></a></span>
-<span id="cb150-25"><a href="#cb150-25" aria-hidden="true"></a><span class="dt">* Choix des couleurs</span></span>
-<span id="cb150-26"><a href="#cb150-26" aria-hidden="true"></a><span class="dt">colorpalette  </span><span class="st">`</span>pal<span class="st">&#39;, select(`select&#39;</span><span class="er">)</span>  nograph</span>
-<span id="cb150-27"><a href="#cb150-27" aria-hidden="true"></a></span>
-<span id="cb150-28"><a href="#cb150-28" aria-hidden="true"></a>local c1 <span class="st">&quot;`r(p1)&#39;&quot;</span></span>
-<span id="cb150-29"><a href="#cb150-29" aria-hidden="true"></a>local c2 <span class="st">&quot;`r(p2)&#39;&quot;</span></span>
-<span id="cb150-30"><a href="#cb150-30" aria-hidden="true"></a>local varlist  <span class="st">`</span><span class="dt">varl&#39;</span></span>
-<span id="cb150-31"><a href="#cb150-31" aria-hidden="true"></a><span class="dt">di </span><span class="st">`</span>varlist<span class="st">&#39;</span></span>
-<span id="cb150-32"><a href="#cb150-32" aria-hidden="true"></a><span class="st">local wc : word count(`varlist&#39;</span><span class="er">)</span></span>
-<span id="cb150-33"><a href="#cb150-33" aria-hidden="true"></a>local wc =<span class="st"> `</span><span class="dt">wc&#39;</span></span>
-<span id="cb150-34"><a href="#cb150-34" aria-hidden="true"></a><span class="dt">forvalue i=1/</span><span class="st">`</span>wc<span class="st">&#39; {</span></span>
-<span id="cb150-35"><a href="#cb150-35" aria-hidden="true"></a><span class="st">local v `v&#39;</span> <span class="st">`</span><span class="dt">i&#39;</span></span>
-<span id="cb150-36"><a href="#cb150-36" aria-hidden="true"></a><span class="dt">}</span></span>
-<span id="cb150-37"><a href="#cb150-37" aria-hidden="true"></a><span class="dt">local k=1</span></span>
-<span id="cb150-38"><a href="#cb150-38" aria-hidden="true"></a><span class="dt">foreach var of local varlist {</span></span>
-<span id="cb150-39"><a href="#cb150-39" aria-hidden="true"></a><span class="dt">local j=</span><span class="st">`</span>k<span class="op">++</span><span class="st">&#39;</span></span>
-<span id="cb150-40"><a href="#cb150-40" aria-hidden="true"></a><span class="st">local p1c`j&#39;</span>  <span class="kw">pie</span>(<span class="st">`</span><span class="dt">j&#39;, color(</span><span class="st">`</span>c1<span class="st">&#39;) explode)</span></span>
-<span id="cb150-41"><a href="#cb150-41" aria-hidden="true"></a><span class="st">local p1 `p1c`j&#39;&#39;</span></span>
-<span id="cb150-42"><a href="#cb150-42" aria-hidden="true"></a><span class="st">local plab plabel(`j&#39;</span> percent, <span class="kw">color</span>(<span class="st">`</span><span class="dt">c2&#39;) size(</span><span class="st">`</span>s<span class="st">&#39;) format(%9.1g) gap(4))</span></span>
-<span id="cb150-43"><a href="#cb150-43" aria-hidden="true"></a></span>
-<span id="cb150-44"><a href="#cb150-44" aria-hidden="true"></a></span>
-<span id="cb150-45"><a href="#cb150-45" aria-hidden="true"></a><span class="st">local x`j&#39;</span><span class="op">:</span><span class="st"> </span>subinstr local v <span class="st">&quot;`j&#39;&quot;</span> <span class="st">&quot;&quot;</span></span>
-<span id="cb150-46"><a href="#cb150-46" aria-hidden="true"></a>foreach i of local x<span class="st">`</span><span class="dt">j&#39; {</span></span>
-<span id="cb150-47"><a href="#cb150-47" aria-hidden="true"></a><span class="dt">local p2c</span><span class="st">`</span>i<span class="st">&#39;  pie(`i&#39;</span>, <span class="kw">color</span>(<span class="st">`</span><span class="dt">c2&#39;) explode) </span></span>
-<span id="cb150-48"><a href="#cb150-48" aria-hidden="true"></a><span class="dt">local p2 </span><span class="st">`</span>p2<span class="st">&#39; `p2c`i&#39;&#39;  </span></span>
-<span id="cb150-49"><a href="#cb150-49" aria-hidden="true"></a><span class="st">}</span></span>
-<span id="cb150-50"><a href="#cb150-50" aria-hidden="true"></a></span>
-<span id="cb150-51"><a href="#cb150-51" aria-hidden="true"></a><span class="st">local var2: subinstr local var &quot;_&quot; &quot; &quot;, all</span></span>
-<span id="cb150-52"><a href="#cb150-52" aria-hidden="true"></a></span>
-<span id="cb150-53"><a href="#cb150-53" aria-hidden="true"></a></span>
-<span id="cb150-54"><a href="#cb150-54" aria-hidden="true"></a><span class="st">* graphique</span></span>
-<span id="cb150-55"><a href="#cb150-55" aria-hidden="true"></a><span class="st">graph pie `varlist&#39;</span>, <span class="st">`</span><span class="dt">p1&#39; </span><span class="st">`</span>p2<span class="st">&#39; `plab&#39;</span>                                      <span class="op">/</span><span class="er">//</span></span>
-<span id="cb150-56"><a href="#cb150-56" aria-hidden="true"></a><span class="kw">line</span>(<span class="kw">lc</span>(<span class="st">`</span><span class="dt">lc&#39;) lw(.01pt))                                                   ///</span></span>
-<span id="cb150-57"><a href="#cb150-57" aria-hidden="true"></a><span class="dt">title(&quot;{bf:</span><span class="st">`</span>var2<span class="st">&#39;}&quot;, pos(11) ring(0)  color(`c1&#39;</span>) <span class="kw">size</span>(large)) <span class="kw">legend</span>(off) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb150-58"><a href="#cb150-58" aria-hidden="true"></a><span class="kw">name</span>(<span class="st">`</span><span class="dt">var&#39;, replace) nodraw                                                ///</span></span>
-<span id="cb150-59"><a href="#cb150-59" aria-hidden="true"></a><span class="dt">plotr(color(gs12)) graphr(color(gs12))</span></span>
-<span id="cb150-60"><a href="#cb150-60" aria-hidden="true"></a></span>
-<span id="cb150-61"><a href="#cb150-61" aria-hidden="true"></a><span class="dt">mac drop _p2</span></span>
-<span id="cb150-62"><a href="#cb150-62" aria-hidden="true"></a><span class="dt">}</span></span>
-<span id="cb150-63"><a href="#cb150-63" aria-hidden="true"></a></span>
-<span id="cb150-64"><a href="#cb150-64" aria-hidden="true"></a><span class="dt">graph combine </span><span class="st">`</span>varlist<span class="st">&#39;, col(3) title(&quot;{bf: Santé perçu}&quot;, pos(11) col(`c1&#39;</span>)) <span class="op">/</span><span class="er">//</span></span>
-<span id="cb150-65"><a href="#cb150-65" aria-hidden="true"></a><span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">20</span>) <span class="kw">graphr</span>(<span class="kw">color</span>(gs12)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs12)) <span class="kw">iscale</span>(.<span class="dv">75</span>) <span class="kw">imargin</span>(tiny)</span></code></pre></div>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true"></a><span class="op">*</span><span class="st"> </span>variables et comptage des N</span>
+<span id="cb152-2"><a href="#cb152-2" aria-hidden="true"></a>local varname health</span>
+<span id="cb152-3"><a href="#cb152-3" aria-hidden="true"></a>levelsof <span class="st">`</span><span class="dt">varname&#39;, local(var)</span></span>
+<span id="cb152-4"><a href="#cb152-4" aria-hidden="true"></a><span class="dt">local varname health</span></span>
+<span id="cb152-5"><a href="#cb152-5" aria-hidden="true"></a><span class="dt">local labn: value label </span><span class="st">`</span>varname<span class="st">&#39;</span></span>
+<span id="cb152-6"><a href="#cb152-6" aria-hidden="true"></a></span>
+<span id="cb152-7"><a href="#cb152-7" aria-hidden="true"></a><span class="st">foreach v of local var {</span></span>
+<span id="cb152-8"><a href="#cb152-8" aria-hidden="true"></a><span class="st">local lab`v&#39;</span><span class="op">:</span><span class="st"> </span>label <span class="st">`</span><span class="dt">labn&#39;  </span><span class="st">`</span>v<span class="st">&#39;</span></span>
+<span id="cb152-9"><a href="#cb152-9" aria-hidden="true"></a><span class="st">local varl `varl&#39;</span> _<span class="st">`</span><span class="dt">lab</span><span class="st">`</span>v<span class="st">&#39;&#39;</span></span>
+<span id="cb152-10"><a href="#cb152-10" aria-hidden="true"></a></span>
+<span id="cb152-11"><a href="#cb152-11" aria-hidden="true"></a>count <span class="cf">if</span> <span class="st">`</span><span class="dt">varname&#39;==</span><span class="st">`</span>v<span class="st">&#39;</span></span>
+<span id="cb152-12"><a href="#cb152-12" aria-hidden="true"></a><span class="st">local N`v&#39;</span> =<span class="st"> `</span><span class="dt">r(N)&#39;</span></span>
+<span id="cb152-13"><a href="#cb152-13" aria-hidden="true"></a><span class="dt">gen _</span><span class="st">`</span>lab<span class="st">`</span><span class="dt">v&#39;&#39; = </span><span class="st">`</span>N<span class="st">`</span><span class="dt">v&#39;&#39; in 1</span></span>
+<span id="cb152-14"><a href="#cb152-14" aria-hidden="true"></a><span class="dt">}</span></span>
+<span id="cb152-15"><a href="#cb152-15" aria-hidden="true"></a></span>
+<span id="cb152-16"><a href="#cb152-16" aria-hidden="true"></a><span class="dt">* paramètres du graphique</span></span>
+<span id="cb152-17"><a href="#cb152-17" aria-hidden="true"></a><span class="dt">grstyle init</span></span>
+<span id="cb152-18"><a href="#cb152-18" aria-hidden="true"></a><span class="dt">grstyle set mesh, compact</span></span>
+<span id="cb152-19"><a href="#cb152-19" aria-hidden="true"></a></span>
+<span id="cb152-20"><a href="#cb152-20" aria-hidden="true"></a><span class="dt">local s small</span></span>
+<span id="cb152-21"><a href="#cb152-21" aria-hidden="true"></a><span class="dt">local lc gs2</span></span>
+<span id="cb152-22"><a href="#cb152-22" aria-hidden="true"></a><span class="dt">local pal YlGnBu</span></span>
+<span id="cb152-23"><a href="#cb152-23" aria-hidden="true"></a><span class="dt">local select 9 4</span></span>
+<span id="cb152-24"><a href="#cb152-24" aria-hidden="true"></a></span>
+<span id="cb152-25"><a href="#cb152-25" aria-hidden="true"></a><span class="dt">* Choix des couleurs</span></span>
+<span id="cb152-26"><a href="#cb152-26" aria-hidden="true"></a><span class="dt">colorpalette  </span><span class="st">`</span>pal<span class="st">&#39;, select(`select&#39;</span><span class="er">)</span>  nograph</span>
+<span id="cb152-27"><a href="#cb152-27" aria-hidden="true"></a></span>
+<span id="cb152-28"><a href="#cb152-28" aria-hidden="true"></a>local c1 <span class="st">&quot;`r(p1)&#39;&quot;</span></span>
+<span id="cb152-29"><a href="#cb152-29" aria-hidden="true"></a>local c2 <span class="st">&quot;`r(p2)&#39;&quot;</span></span>
+<span id="cb152-30"><a href="#cb152-30" aria-hidden="true"></a>local varlist  <span class="st">`</span><span class="dt">varl&#39;</span></span>
+<span id="cb152-31"><a href="#cb152-31" aria-hidden="true"></a><span class="dt">di </span><span class="st">`</span>varlist<span class="st">&#39;</span></span>
+<span id="cb152-32"><a href="#cb152-32" aria-hidden="true"></a><span class="st">local wc : word count(`varlist&#39;</span><span class="er">)</span></span>
+<span id="cb152-33"><a href="#cb152-33" aria-hidden="true"></a>local wc =<span class="st"> `</span><span class="dt">wc&#39;</span></span>
+<span id="cb152-34"><a href="#cb152-34" aria-hidden="true"></a><span class="dt">forvalue i=1/</span><span class="st">`</span>wc<span class="st">&#39; {</span></span>
+<span id="cb152-35"><a href="#cb152-35" aria-hidden="true"></a><span class="st">local v `v&#39;</span> <span class="st">`</span><span class="dt">i&#39;</span></span>
+<span id="cb152-36"><a href="#cb152-36" aria-hidden="true"></a><span class="dt">}</span></span>
+<span id="cb152-37"><a href="#cb152-37" aria-hidden="true"></a><span class="dt">local k=1</span></span>
+<span id="cb152-38"><a href="#cb152-38" aria-hidden="true"></a><span class="dt">foreach var of local varlist {</span></span>
+<span id="cb152-39"><a href="#cb152-39" aria-hidden="true"></a><span class="dt">local j=</span><span class="st">`</span>k<span class="op">++</span><span class="st">&#39;</span></span>
+<span id="cb152-40"><a href="#cb152-40" aria-hidden="true"></a><span class="st">local p1c`j&#39;</span>  <span class="kw">pie</span>(<span class="st">`</span><span class="dt">j&#39;, color(</span><span class="st">`</span>c1<span class="st">&#39;) explode)</span></span>
+<span id="cb152-41"><a href="#cb152-41" aria-hidden="true"></a><span class="st">local p1 `p1c`j&#39;&#39;</span></span>
+<span id="cb152-42"><a href="#cb152-42" aria-hidden="true"></a><span class="st">local plab plabel(`j&#39;</span> percent, <span class="kw">color</span>(<span class="st">`</span><span class="dt">c2&#39;) size(</span><span class="st">`</span>s<span class="st">&#39;) format(%9.1g) gap(4))</span></span>
+<span id="cb152-43"><a href="#cb152-43" aria-hidden="true"></a></span>
+<span id="cb152-44"><a href="#cb152-44" aria-hidden="true"></a></span>
+<span id="cb152-45"><a href="#cb152-45" aria-hidden="true"></a><span class="st">local x`j&#39;</span><span class="op">:</span><span class="st"> </span>subinstr local v <span class="st">&quot;`j&#39;&quot;</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb152-46"><a href="#cb152-46" aria-hidden="true"></a>foreach i of local x<span class="st">`</span><span class="dt">j&#39; {</span></span>
+<span id="cb152-47"><a href="#cb152-47" aria-hidden="true"></a><span class="dt">local p2c</span><span class="st">`</span>i<span class="st">&#39;  pie(`i&#39;</span>, <span class="kw">color</span>(<span class="st">`</span><span class="dt">c2&#39;) explode) </span></span>
+<span id="cb152-48"><a href="#cb152-48" aria-hidden="true"></a><span class="dt">local p2 </span><span class="st">`</span>p2<span class="st">&#39; `p2c`i&#39;&#39;  </span></span>
+<span id="cb152-49"><a href="#cb152-49" aria-hidden="true"></a><span class="st">}</span></span>
+<span id="cb152-50"><a href="#cb152-50" aria-hidden="true"></a></span>
+<span id="cb152-51"><a href="#cb152-51" aria-hidden="true"></a><span class="st">local var2: subinstr local var &quot;_&quot; &quot; &quot;, all</span></span>
+<span id="cb152-52"><a href="#cb152-52" aria-hidden="true"></a></span>
+<span id="cb152-53"><a href="#cb152-53" aria-hidden="true"></a></span>
+<span id="cb152-54"><a href="#cb152-54" aria-hidden="true"></a><span class="st">* graphique</span></span>
+<span id="cb152-55"><a href="#cb152-55" aria-hidden="true"></a><span class="st">graph pie `varlist&#39;</span>, <span class="st">`</span><span class="dt">p1&#39; </span><span class="st">`</span>p2<span class="st">&#39; `plab&#39;</span>                                      <span class="op">/</span><span class="er">//</span></span>
+<span id="cb152-56"><a href="#cb152-56" aria-hidden="true"></a><span class="kw">line</span>(<span class="kw">lc</span>(<span class="st">`</span><span class="dt">lc&#39;) lw(.01pt))                                                   ///</span></span>
+<span id="cb152-57"><a href="#cb152-57" aria-hidden="true"></a><span class="dt">title(&quot;{bf:</span><span class="st">`</span>var2<span class="st">&#39;}&quot;, pos(11) ring(0)  color(`c1&#39;</span>) <span class="kw">size</span>(large)) <span class="kw">legend</span>(off) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb152-58"><a href="#cb152-58" aria-hidden="true"></a><span class="kw">name</span>(<span class="st">`</span><span class="dt">var&#39;, replace) nodraw                                                ///</span></span>
+<span id="cb152-59"><a href="#cb152-59" aria-hidden="true"></a><span class="dt">plotr(color(gs12)) graphr(color(gs12))</span></span>
+<span id="cb152-60"><a href="#cb152-60" aria-hidden="true"></a></span>
+<span id="cb152-61"><a href="#cb152-61" aria-hidden="true"></a><span class="dt">mac drop _p2</span></span>
+<span id="cb152-62"><a href="#cb152-62" aria-hidden="true"></a><span class="dt">}</span></span>
+<span id="cb152-63"><a href="#cb152-63" aria-hidden="true"></a></span>
+<span id="cb152-64"><a href="#cb152-64" aria-hidden="true"></a><span class="dt">graph combine </span><span class="st">`</span>varlist<span class="st">&#39;, col(3) title(&quot;{bf: Santé perçu}&quot;, pos(11) col(`c1&#39;</span>)) <span class="op">/</span><span class="er">//</span></span>
+<span id="cb152-65"><a href="#cb152-65" aria-hidden="true"></a><span class="kw">xsize</span>(<span class="dv">20</span>) <span class="kw">ysize</span>(<span class="dv">20</span>) <span class="kw">graphr</span>(<span class="kw">color</span>(gs12)) <span class="kw">plotr</span>(<span class="kw">color</span>(gs12)) <span class="kw">iscale</span>(.<span class="dv">75</span>) <span class="kw">imargin</span>(tiny)</span></code></pre></div>
 </details>
 <p>Graphique particulièrement pénible à programmer</p>
 <p><img src="imgf/g99.png" style="width:50.0%" /></p>
@@ -4450,51 +4573,48 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <li>Y: pression sanguine élevée</li>
 <li>X: bmi (ordinal), groupes d’âge (ordinal), sexe, région (cat), black (Non/oui), rural (Non/oui)</li>
 </ul>
-<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="#cb151-1" aria-hidden="true"></a>logit highbp ib2.bmigr i.sex i.black i.agegrp i.region i.rural</span>
-<span id="cb151-2"><a href="#cb151-2" aria-hidden="true"></a></span>
-<span id="cb151-3"><a href="#cb151-3" aria-hidden="true"></a></span>
-<span id="cb151-4"><a href="#cb151-4" aria-hidden="true"></a>Logistic regression                             Number of obs     =<span class="st">     </span><span class="dv">10</span>,<span class="dv">351</span></span>
-<span id="cb151-5"><a href="#cb151-5" aria-hidden="true"></a>                                                LR <span class="kw">chi2</span>(<span class="dv">14</span>)       =<span class="st">    </span><span class="fl">2298.21</span></span>
-<span id="cb151-6"><a href="#cb151-6" aria-hidden="true"></a>                                                Prob <span class="op">&gt;</span><span class="st"> </span>chi2       =<span class="st">     </span><span class="fl">0.0000</span></span>
-<span id="cb151-7"><a href="#cb151-7" aria-hidden="true"></a>Log likelihood =<span class="st"> </span><span class="fl">-5901.6623</span>                     Pseudo R2         =<span class="st">     </span><span class="fl">0.1630</span></span>
-<span id="cb151-8"><a href="#cb151-8" aria-hidden="true"></a></span>
-<span id="cb151-9"><a href="#cb151-9" aria-hidden="true"></a><span class="op">------------------------------------------------------------------------------</span></span>
-<span id="cb151-10"><a href="#cb151-10" aria-hidden="true"></a><span class="st">      </span>highbp <span class="op">|</span><span class="st">      </span>Coef.   Std. Err.      z    P<span class="op">&gt;</span><span class="er">|</span>z<span class="op">|</span><span class="st">     </span>[<span class="dv">95</span>% Conf. Interval]</span>
-<span id="cb151-11"><a href="#cb151-11" aria-hidden="true"></a><span class="op">-------------+----------------------------------------------------------------</span></span>
-<span id="cb151-12"><a href="#cb151-12" aria-hidden="true"></a><span class="st">       </span>bmigr <span class="op">|</span></span>
-<span id="cb151-13"><a href="#cb151-13" aria-hidden="true"></a><span class="st">         </span>Q1  <span class="op">|</span><span class="st">    </span><span class="fl">-0.2794</span>     <span class="fl">0.0671</span>    <span class="fl">-4.17</span>   <span class="fl">0.000</span>      <span class="fl">-0.4109</span>     <span class="fl">-0.1480</span></span>
-<span id="cb151-14"><a href="#cb151-14" aria-hidden="true"></a>      Q3<span class="op">-</span>Q4  <span class="op">|</span><span class="st">     </span><span class="fl">0.5039</span>     <span class="fl">0.0613</span>     <span class="fl">8.23</span>   <span class="fl">0.000</span>       <span class="fl">0.3839</span>      <span class="fl">0.6240</span></span>
-<span id="cb151-15"><a href="#cb151-15" aria-hidden="true"></a>         Q4  <span class="op">|</span><span class="st">     </span><span class="fl">1.2660</span>     <span class="fl">0.0629</span>    <span class="fl">20.13</span>   <span class="fl">0.000</span>       <span class="fl">1.1427</span>      <span class="fl">1.3893</span></span>
-<span id="cb151-16"><a href="#cb151-16" aria-hidden="true"></a>             <span class="op">|</span></span>
-<span id="cb151-17"><a href="#cb151-17" aria-hidden="true"></a><span class="st">         </span>sex <span class="op">|</span></span>
-<span id="cb151-18"><a href="#cb151-18" aria-hidden="true"></a><span class="st">     </span>Female  <span class="op">|</span><span class="st">    </span><span class="fl">-0.4416</span>     <span class="fl">0.0453</span>    <span class="fl">-9.74</span>   <span class="fl">0.000</span>      <span class="fl">-0.5304</span>     <span class="fl">-0.3527</span></span>
-<span id="cb151-19"><a href="#cb151-19" aria-hidden="true"></a>             <span class="op">|</span></span>
-<span id="cb151-20"><a href="#cb151-20" aria-hidden="true"></a><span class="st">       </span>black <span class="op">|</span></span>
-<span id="cb151-21"><a href="#cb151-21" aria-hidden="true"></a><span class="st">        </span>Yes  <span class="op">|</span><span class="st">     </span><span class="fl">0.4160</span>     <span class="fl">0.0760</span>     <span class="fl">5.47</span>   <span class="fl">0.000</span>       <span class="fl">0.2670</span>      <span class="fl">0.5650</span></span>
-<span id="cb151-22"><a href="#cb151-22" aria-hidden="true"></a>             <span class="op">|</span></span>
-<span id="cb151-23"><a href="#cb151-23" aria-hidden="true"></a><span class="st">      </span>agegrp <span class="op">|</span></span>
-<span id="cb151-24"><a href="#cb151-24" aria-hidden="true"></a><span class="st">      </span><span class="dv">30-39</span>  <span class="op">|</span><span class="st">     </span><span class="fl">0.5083</span>     <span class="fl">0.0818</span>     <span class="fl">6.22</span>   <span class="fl">0.000</span>       <span class="fl">0.3480</span>      <span class="fl">0.6686</span></span>
-<span id="cb151-25"><a href="#cb151-25" aria-hidden="true"></a>      <span class="dv">40-49</span>  <span class="op">|</span><span class="st">     </span><span class="fl">0.9892</span>     <span class="fl">0.0838</span>    <span class="fl">11.81</span>   <span class="fl">0.000</span>       <span class="fl">0.8250</span>      <span class="fl">1.1534</span></span>
-<span id="cb151-26"><a href="#cb151-26" aria-hidden="true"></a>      <span class="dv">50-59</span>  <span class="op">|</span><span class="st">     </span><span class="fl">1.5958</span>     <span class="fl">0.0826</span>    <span class="fl">19.32</span>   <span class="fl">0.000</span>       <span class="fl">1.4339</span>      <span class="fl">1.7577</span></span>
-<span id="cb151-27"><a href="#cb151-27" aria-hidden="true"></a>      <span class="dv">60-69</span>  <span class="op">|</span><span class="st">     </span><span class="fl">1.7895</span>     <span class="fl">0.0703</span>    <span class="fl">25.44</span>   <span class="fl">0.000</span>       <span class="fl">1.6517</span>      <span class="fl">1.9274</span></span>
-<span id="cb151-28"><a href="#cb151-28" aria-hidden="true"></a>        <span class="dv">70</span><span class="op">+</span><span class="st">  </span><span class="er">|</span><span class="st">     </span><span class="fl">2.2126</span>     <span class="fl">0.0912</span>    <span class="fl">24.26</span>   <span class="fl">0.000</span>       <span class="fl">2.0339</span>      <span class="fl">2.3914</span></span>
-<span id="cb151-29"><a href="#cb151-29" aria-hidden="true"></a>             <span class="op">|</span></span>
-<span id="cb151-30"><a href="#cb151-30" aria-hidden="true"></a><span class="st">      </span>region <span class="op">|</span></span>
-<span id="cb151-31"><a href="#cb151-31" aria-hidden="true"></a><span class="st">         </span>MW  <span class="op">|</span><span class="st">    </span><span class="fl">-0.1281</span>     <span class="fl">0.0662</span>    <span class="fl">-1.93</span>   <span class="fl">0.053</span>      <span class="fl">-0.2579</span>      <span class="fl">0.0017</span></span>
-<span id="cb151-32"><a href="#cb151-32" aria-hidden="true"></a>          S  <span class="op">|</span><span class="st">    </span><span class="fl">-0.1194</span>     <span class="fl">0.0670</span>    <span class="fl">-1.78</span>   <span class="fl">0.075</span>      <span class="fl">-0.2508</span>      <span class="fl">0.0119</span></span>
-<span id="cb151-33"><a href="#cb151-33" aria-hidden="true"></a>          W  <span class="op">|</span><span class="st">    </span><span class="fl">-0.0111</span>     <span class="fl">0.0666</span>    <span class="fl">-0.17</span>   <span class="fl">0.868</span>      <span class="fl">-0.1416</span>      <span class="fl">0.1194</span></span>
-<span id="cb151-34"><a href="#cb151-34" aria-hidden="true"></a>             <span class="op">|</span></span>
-<span id="cb151-35"><a href="#cb151-35" aria-hidden="true"></a><span class="st">       </span>rural <span class="op">|</span></span>
-<span id="cb151-36"><a href="#cb151-36" aria-hidden="true"></a><span class="st">        </span>Yes  <span class="op">|</span><span class="st">    </span><span class="fl">-0.0511</span>     <span class="fl">0.0480</span>    <span class="fl">-1.07</span>   <span class="fl">0.286</span>      <span class="fl">-0.1451</span>      <span class="fl">0.0429</span></span>
-<span id="cb151-37"><a href="#cb151-37" aria-hidden="true"></a>       _cons <span class="op">|</span><span class="st">    </span><span class="fl">-1.6065</span>     <span class="fl">0.0853</span>   <span class="fl">-18.83</span>   <span class="fl">0.000</span>      <span class="fl">-1.7738</span>     <span class="fl">-1.4393</span></span>
-<span id="cb151-38"><a href="#cb151-38" aria-hidden="true"></a><span class="op">------------------------------------------------------------------------------</span></span></code></pre></div>
+<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true"></a>logit highbp ib2.bmigr i.sex i.black i.agegrp i.region i.rural</span>
+<span id="cb153-2"><a href="#cb153-2" aria-hidden="true"></a></span>
+<span id="cb153-3"><a href="#cb153-3" aria-hidden="true"></a></span>
+<span id="cb153-4"><a href="#cb153-4" aria-hidden="true"></a>Logistic regression                             Number of obs     =<span class="st">     </span><span class="dv">10</span>,<span class="dv">351</span></span>
+<span id="cb153-5"><a href="#cb153-5" aria-hidden="true"></a>                                                LR <span class="kw">chi2</span>(<span class="dv">14</span>)       =<span class="st">    </span><span class="fl">2298.21</span></span>
+<span id="cb153-6"><a href="#cb153-6" aria-hidden="true"></a>                                                Prob <span class="op">&gt;</span><span class="st"> </span>chi2       =<span class="st">     </span><span class="fl">0.0000</span></span>
+<span id="cb153-7"><a href="#cb153-7" aria-hidden="true"></a>Log likelihood =<span class="st"> </span><span class="fl">-5901.6623</span>                     Pseudo R2         =<span class="st">     </span><span class="fl">0.1630</span></span>
+<span id="cb153-8"><a href="#cb153-8" aria-hidden="true"></a></span>
+<span id="cb153-9"><a href="#cb153-9" aria-hidden="true"></a><span class="op">------------------------------------------------------------------------------</span></span>
+<span id="cb153-10"><a href="#cb153-10" aria-hidden="true"></a><span class="st">      </span>highbp <span class="op">|</span><span class="st">      </span>Coef.   Std. Err.      z    P<span class="op">&gt;</span><span class="er">|</span>z<span class="op">|</span><span class="st">     </span>[<span class="dv">95</span>% Conf. Interval]</span>
+<span id="cb153-11"><a href="#cb153-11" aria-hidden="true"></a><span class="op">-------------+----------------------------------------------------------------</span></span>
+<span id="cb153-12"><a href="#cb153-12" aria-hidden="true"></a><span class="st">       </span>bmigr <span class="op">|</span></span>
+<span id="cb153-13"><a href="#cb153-13" aria-hidden="true"></a><span class="st">         </span>Q1  <span class="op">|</span><span class="st">    </span><span class="fl">-0.2794</span>     <span class="fl">0.0671</span>    <span class="fl">-4.17</span>   <span class="fl">0.000</span>      <span class="fl">-0.4109</span>     <span class="fl">-0.1480</span></span>
+<span id="cb153-14"><a href="#cb153-14" aria-hidden="true"></a>      Q3<span class="op">-</span>Q4  <span class="op">|</span><span class="st">     </span><span class="fl">0.5039</span>     <span class="fl">0.0613</span>     <span class="fl">8.23</span>   <span class="fl">0.000</span>       <span class="fl">0.3839</span>      <span class="fl">0.6240</span></span>
+<span id="cb153-15"><a href="#cb153-15" aria-hidden="true"></a>         Q4  <span class="op">|</span><span class="st">     </span><span class="fl">1.2660</span>     <span class="fl">0.0629</span>    <span class="fl">20.13</span>   <span class="fl">0.000</span>       <span class="fl">1.1427</span>      <span class="fl">1.3893</span></span>
+<span id="cb153-16"><a href="#cb153-16" aria-hidden="true"></a>             <span class="op">|</span></span>
+<span id="cb153-17"><a href="#cb153-17" aria-hidden="true"></a><span class="st">         </span>sex <span class="op">|</span></span>
+<span id="cb153-18"><a href="#cb153-18" aria-hidden="true"></a><span class="st">     </span>Female  <span class="op">|</span><span class="st">    </span><span class="fl">-0.4416</span>     <span class="fl">0.0453</span>    <span class="fl">-9.74</span>   <span class="fl">0.000</span>      <span class="fl">-0.5304</span>     <span class="fl">-0.3527</span></span>
+<span id="cb153-19"><a href="#cb153-19" aria-hidden="true"></a>             <span class="op">|</span></span>
+<span id="cb153-20"><a href="#cb153-20" aria-hidden="true"></a><span class="st">       </span>black <span class="op">|</span></span>
+<span id="cb153-21"><a href="#cb153-21" aria-hidden="true"></a><span class="st">        </span>Yes  <span class="op">|</span><span class="st">     </span><span class="fl">0.4160</span>     <span class="fl">0.0760</span>     <span class="fl">5.47</span>   <span class="fl">0.000</span>       <span class="fl">0.2670</span>      <span class="fl">0.5650</span></span>
+<span id="cb153-22"><a href="#cb153-22" aria-hidden="true"></a>             <span class="op">|</span></span>
+<span id="cb153-23"><a href="#cb153-23" aria-hidden="true"></a><span class="st">      </span>agegrp <span class="op">|</span></span>
+<span id="cb153-24"><a href="#cb153-24" aria-hidden="true"></a><span class="st">      </span><span class="dv">30-39</span>  <span class="op">|</span><span class="st">     </span><span class="fl">0.5083</span>     <span class="fl">0.0818</span>     <span class="fl">6.22</span>   <span class="fl">0.000</span>       <span class="fl">0.3480</span>      <span class="fl">0.6686</span></span>
+<span id="cb153-25"><a href="#cb153-25" aria-hidden="true"></a>      <span class="dv">40-49</span>  <span class="op">|</span><span class="st">     </span><span class="fl">0.9892</span>     <span class="fl">0.0838</span>    <span class="fl">11.81</span>   <span class="fl">0.000</span>       <span class="fl">0.8250</span>      <span class="fl">1.1534</span></span>
+<span id="cb153-26"><a href="#cb153-26" aria-hidden="true"></a>      <span class="dv">50-59</span>  <span class="op">|</span><span class="st">     </span><span class="fl">1.5958</span>     <span class="fl">0.0826</span>    <span class="fl">19.32</span>   <span class="fl">0.000</span>       <span class="fl">1.4339</span>      <span class="fl">1.7577</span></span>
+<span id="cb153-27"><a href="#cb153-27" aria-hidden="true"></a>      <span class="dv">60-69</span>  <span class="op">|</span><span class="st">     </span><span class="fl">1.7895</span>     <span class="fl">0.0703</span>    <span class="fl">25.44</span>   <span class="fl">0.000</span>       <span class="fl">1.6517</span>      <span class="fl">1.9274</span></span>
+<span id="cb153-28"><a href="#cb153-28" aria-hidden="true"></a>        <span class="dv">70</span><span class="op">+</span><span class="st">  </span><span class="er">|</span><span class="st">     </span><span class="fl">2.2126</span>     <span class="fl">0.0912</span>    <span class="fl">24.26</span>   <span class="fl">0.000</span>       <span class="fl">2.0339</span>      <span class="fl">2.3914</span></span>
+<span id="cb153-29"><a href="#cb153-29" aria-hidden="true"></a>             <span class="op">|</span></span>
+<span id="cb153-30"><a href="#cb153-30" aria-hidden="true"></a><span class="st">      </span>region <span class="op">|</span></span>
+<span id="cb153-31"><a href="#cb153-31" aria-hidden="true"></a><span class="st">         </span>MW  <span class="op">|</span><span class="st">    </span><span class="fl">-0.1281</span>     <span class="fl">0.0662</span>    <span class="fl">-1.93</span>   <span class="fl">0.053</span>      <span class="fl">-0.2579</span>      <span class="fl">0.0017</span></span>
+<span id="cb153-32"><a href="#cb153-32" aria-hidden="true"></a>          S  <span class="op">|</span><span class="st">    </span><span class="fl">-0.1194</span>     <span class="fl">0.0670</span>    <span class="fl">-1.78</span>   <span class="fl">0.075</span>      <span class="fl">-0.2508</span>      <span class="fl">0.0119</span></span>
+<span id="cb153-33"><a href="#cb153-33" aria-hidden="true"></a>          W  <span class="op">|</span><span class="st">    </span><span class="fl">-0.0111</span>     <span class="fl">0.0666</span>    <span class="fl">-0.17</span>   <span class="fl">0.868</span>      <span class="fl">-0.1416</span>      <span class="fl">0.1194</span></span>
+<span id="cb153-34"><a href="#cb153-34" aria-hidden="true"></a>             <span class="op">|</span></span>
+<span id="cb153-35"><a href="#cb153-35" aria-hidden="true"></a><span class="st">       </span>rural <span class="op">|</span></span>
+<span id="cb153-36"><a href="#cb153-36" aria-hidden="true"></a><span class="st">        </span>Yes  <span class="op">|</span><span class="st">    </span><span class="fl">-0.0511</span>     <span class="fl">0.0480</span>    <span class="fl">-1.07</span>   <span class="fl">0.286</span>      <span class="fl">-0.1451</span>      <span class="fl">0.0429</span></span>
+<span id="cb153-37"><a href="#cb153-37" aria-hidden="true"></a>       _cons <span class="op">|</span><span class="st">    </span><span class="fl">-1.6065</span>     <span class="fl">0.0853</span>   <span class="fl">-18.83</span>   <span class="fl">0.000</span>      <span class="fl">-1.7738</span>     <span class="fl">-1.4393</span></span>
+<span id="cb153-38"><a href="#cb153-38" aria-hidden="true"></a><span class="op">------------------------------------------------------------------------------</span></span></code></pre></div>
 <p><strong>Forest plot + report des p-value</strong></p>
 <p>[Mettre programme lorsque automatisation des valeurs des axes et des coordonnées du text OK ]</p>
 <p><em>Graphique 101</em></p>
 <p><img src="imgf/g101.png" style="width:75.0%" /></p>
-<ul>
-<li>bmi: le trait pour l’IC est plus petit que le diametre de la bulle? Effet d’échelle. Faut-il le reporter sur ce graphique?</li>
-</ul>
 <p><strong>Report des p-value avec affichage séquentiel des couleurs</strong></p>
 <p><em>Graphique 102</em></p>
 <p><img src="imgf/g103.png" style="width:75.0%" /></p>
@@ -4513,38 +4633,38 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true"></a>use nhanes2, clear</span>
-<span id="cb152-2"><a href="#cb152-2" aria-hidden="true"></a></span>
-<span id="cb152-3"><a href="#cb152-3" aria-hidden="true"></a>logistic highbp age bmi c.age<span class="co">#c.bmi</span></span>
-<span id="cb152-4"><a href="#cb152-4" aria-hidden="true"></a></span>
-<span id="cb152-5"><a href="#cb152-5" aria-hidden="true"></a>quietly margins, <span class="kw">at</span>(<span class="dt">age=</span>(<span class="dv">20</span>(<span class="dv">5</span>)<span class="dv">80</span>) <span class="dt">bmi=</span>(<span class="dv">10</span>(<span class="dv">5</span>)<span class="dv">65</span>)) <span class="kw">saving</span>(p, replace)</span>
-<span id="cb152-6"><a href="#cb152-6" aria-hidden="true"></a></span>
-<span id="cb152-7"><a href="#cb152-7" aria-hidden="true"></a>use p, clear</span>
-<span id="cb152-8"><a href="#cb152-8" aria-hidden="true"></a></span>
-<span id="cb152-9"><a href="#cb152-9" aria-hidden="true"></a>rename _at1 age</span>
-<span id="cb152-10"><a href="#cb152-10" aria-hidden="true"></a>rename _at2 bmi</span>
-<span id="cb152-11"><a href="#cb152-11" aria-hidden="true"></a>rename _margin phighbp</span>
-<span id="cb152-12"><a href="#cb152-12" aria-hidden="true"></a></span>
-<span id="cb152-13"><a href="#cb152-13" aria-hidden="true"></a>grstyle  init test, replace</span>
-<span id="cb152-14"><a href="#cb152-14" aria-hidden="true"></a>grstyle set mesh, compact</span>
-<span id="cb152-15"><a href="#cb152-15" aria-hidden="true"></a></span>
-<span id="cb152-16"><a href="#cb152-16" aria-hidden="true"></a></span>
-<span id="cb152-17"><a href="#cb152-17" aria-hidden="true"></a>colorpalette plasma, <span class="kw">n</span>(<span class="dv">10</span>)  nograph </span>
-<span id="cb152-18"><a href="#cb152-18" aria-hidden="true"></a> tw contour phighbp bmi age, <span class="kw">level</span>(<span class="dv">10</span>) <span class="kw">cc</span>(<span class="st">`</span><span class="dt">r(p)&#39;)                ///</span></span>
-<span id="cb152-19"><a href="#cb152-19" aria-hidden="true"></a><span class="dt"> ||   pci 10 30 65 30  ,  lw(vthin)  lc(gs8)  ///</span></span>
-<span id="cb152-20"><a href="#cb152-20" aria-hidden="true"></a><span class="dt"> ||   pci 10 40 65 40  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-21"><a href="#cb152-21" aria-hidden="true"></a><span class="dt"> ||   pci 10 50 65 50  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-22"><a href="#cb152-22" aria-hidden="true"></a><span class="dt"> ||   pci 10 60 65 60  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-23"><a href="#cb152-23" aria-hidden="true"></a><span class="dt"> ||   pci 10 70 65 70  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-24"><a href="#cb152-24" aria-hidden="true"></a><span class="dt"> ||   pci 20 20 20 80  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-25"><a href="#cb152-25" aria-hidden="true"></a><span class="dt"> ||   pci 30 20 30 80  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-26"><a href="#cb152-26" aria-hidden="true"></a><span class="dt"> ||   pci 40 20 40 80  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-27"><a href="#cb152-27" aria-hidden="true"></a><span class="dt"> ||   pci 50 20 50 80  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-28"><a href="#cb152-28" aria-hidden="true"></a><span class="dt"> ||   pci 60 20 60 80  ,  lw(vthin)  lc(gs8) ///</span></span>
-<span id="cb152-29"><a href="#cb152-29" aria-hidden="true"></a><span class="dt">    ylab(10(10)65, nogrid)  xlab(20(10)80, nogrid) zlab(, format(%9.2g) nogrid)             ///</span></span>
-<span id="cb152-30"><a href="#cb152-30" aria-hidden="true"></a><span class="dt">    ztitle(&quot;&quot;) xtitle(&quot;Age&quot;, color(gs10))  ytitle(&quot;Bmi&quot;, color(gs10))                           ///</span></span>
-<span id="cb152-31"><a href="#cb152-31" aria-hidden="true"></a><span class="dt">    plotr(color(gs3)) graphr(color(gs3))                                                      ///</span></span>
-<span id="cb152-32"><a href="#cb152-32" aria-hidden="true"></a><span class="dt">    title(&quot;Predicted probability of hypertension by age and weight&quot;, color(gs10) pos(11))  legend(off)</span></span></code></pre></div>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true"></a>use nhanes2, clear</span>
+<span id="cb154-2"><a href="#cb154-2" aria-hidden="true"></a></span>
+<span id="cb154-3"><a href="#cb154-3" aria-hidden="true"></a>logistic highbp age bmi c.age<span class="co">#c.bmi</span></span>
+<span id="cb154-4"><a href="#cb154-4" aria-hidden="true"></a></span>
+<span id="cb154-5"><a href="#cb154-5" aria-hidden="true"></a>quietly margins, <span class="kw">at</span>(<span class="dt">age=</span>(<span class="dv">20</span>(<span class="dv">5</span>)<span class="dv">80</span>) <span class="dt">bmi=</span>(<span class="dv">10</span>(<span class="dv">5</span>)<span class="dv">65</span>)) <span class="kw">saving</span>(p, replace)</span>
+<span id="cb154-6"><a href="#cb154-6" aria-hidden="true"></a></span>
+<span id="cb154-7"><a href="#cb154-7" aria-hidden="true"></a>use p, clear</span>
+<span id="cb154-8"><a href="#cb154-8" aria-hidden="true"></a></span>
+<span id="cb154-9"><a href="#cb154-9" aria-hidden="true"></a>rename _at1 age</span>
+<span id="cb154-10"><a href="#cb154-10" aria-hidden="true"></a>rename _at2 bmi</span>
+<span id="cb154-11"><a href="#cb154-11" aria-hidden="true"></a>rename _margin phighbp</span>
+<span id="cb154-12"><a href="#cb154-12" aria-hidden="true"></a></span>
+<span id="cb154-13"><a href="#cb154-13" aria-hidden="true"></a>grstyle  init test, replace</span>
+<span id="cb154-14"><a href="#cb154-14" aria-hidden="true"></a>grstyle set mesh, compact</span>
+<span id="cb154-15"><a href="#cb154-15" aria-hidden="true"></a></span>
+<span id="cb154-16"><a href="#cb154-16" aria-hidden="true"></a></span>
+<span id="cb154-17"><a href="#cb154-17" aria-hidden="true"></a>colorpalette plasma, <span class="kw">n</span>(<span class="dv">10</span>)  nograph </span>
+<span id="cb154-18"><a href="#cb154-18" aria-hidden="true"></a> tw contour phighbp bmi age, <span class="kw">level</span>(<span class="dv">10</span>) <span class="kw">cc</span>(<span class="st">`</span><span class="dt">r(p)&#39;)                ///</span></span>
+<span id="cb154-19"><a href="#cb154-19" aria-hidden="true"></a><span class="dt"> ||   pci 10 30 65 30  ,  lw(vthin)  lc(gs8)  ///</span></span>
+<span id="cb154-20"><a href="#cb154-20" aria-hidden="true"></a><span class="dt"> ||   pci 10 40 65 40  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-21"><a href="#cb154-21" aria-hidden="true"></a><span class="dt"> ||   pci 10 50 65 50  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-22"><a href="#cb154-22" aria-hidden="true"></a><span class="dt"> ||   pci 10 60 65 60  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-23"><a href="#cb154-23" aria-hidden="true"></a><span class="dt"> ||   pci 10 70 65 70  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-24"><a href="#cb154-24" aria-hidden="true"></a><span class="dt"> ||   pci 20 20 20 80  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-25"><a href="#cb154-25" aria-hidden="true"></a><span class="dt"> ||   pci 30 20 30 80  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-26"><a href="#cb154-26" aria-hidden="true"></a><span class="dt"> ||   pci 40 20 40 80  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-27"><a href="#cb154-27" aria-hidden="true"></a><span class="dt"> ||   pci 50 20 50 80  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-28"><a href="#cb154-28" aria-hidden="true"></a><span class="dt"> ||   pci 60 20 60 80  ,  lw(vthin)  lc(gs8) ///</span></span>
+<span id="cb154-29"><a href="#cb154-29" aria-hidden="true"></a><span class="dt">    ylab(10(10)65, nogrid)  xlab(20(10)80, nogrid) zlab(, format(%9.2g) nogrid)             ///</span></span>
+<span id="cb154-30"><a href="#cb154-30" aria-hidden="true"></a><span class="dt">    ztitle(&quot;&quot;) xtitle(&quot;Age&quot;, color(gs10))  ytitle(&quot;Bmi&quot;, color(gs10))                           ///</span></span>
+<span id="cb154-31"><a href="#cb154-31" aria-hidden="true"></a><span class="dt">    plotr(color(gs3)) graphr(color(gs3))                                                      ///</span></span>
+<span id="cb154-32"><a href="#cb154-32" aria-hidden="true"></a><span class="dt">    title(&quot;Predicted probability of hypertension by age and weight&quot;, color(gs10) pos(11))  legend(off)</span></span></code></pre></div>
 </details>
 <p><img src="imgf/g110.png" style="width:50.0%" /></p>
 </div>
@@ -4559,36 +4679,36 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="#cb153-1" aria-hidden="true"></a>use nhanes2, clear</span>
-<span id="cb153-2"><a href="#cb153-2" aria-hidden="true"></a>regress bpsystol agegrp<span class="co">##sex##c.bmi i.region</span></span>
-<span id="cb153-3"><a href="#cb153-3" aria-hidden="true"></a></span>
-<span id="cb153-4"><a href="#cb153-4" aria-hidden="true"></a>colorpalette YlGnBu, <span class="kw">select</span>(<span class="dv">4</span>)  <span class="kw">opacity</span>(<span class="dv">10</span>)  nograph</span>
-<span id="cb153-5"><a href="#cb153-5" aria-hidden="true"></a>local ci2 <span class="kw">fc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>)  <span class="kw">lw</span>(vvthin) </span>
-<span id="cb153-6"><a href="#cb153-6" aria-hidden="true"></a>colorpalette YlGnBu, <span class="kw">select</span>(<span class="dv">4</span>) nograph</span>
-<span id="cb153-7"><a href="#cb153-7" aria-hidden="true"></a>local pl2  <span class="kw">mc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">msize</span>(small) <span class="kw">lc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">lw</span>(medthin)</span>
-<span id="cb153-8"><a href="#cb153-8" aria-hidden="true"></a></span>
-<span id="cb153-9"><a href="#cb153-9" aria-hidden="true"></a>colorpalette PuRd, <span class="kw">select</span>(<span class="dv">4</span>)  <span class="kw">opacity</span>(<span class="dv">20</span>)  nograph</span>
-<span id="cb153-10"><a href="#cb153-10" aria-hidden="true"></a>local ci1 <span class="kw">fc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>)  <span class="kw">lw</span>(vvthin) </span>
-<span id="cb153-11"><a href="#cb153-11" aria-hidden="true"></a>colorpalette PuRd, <span class="kw">select</span>(<span class="dv">4</span>) nograph</span>
-<span id="cb153-12"><a href="#cb153-12" aria-hidden="true"></a>local pl1  <span class="kw">mc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">msize</span>(small) <span class="kw">lc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">lw</span>(medthin)</span>
-<span id="cb153-13"><a href="#cb153-13" aria-hidden="true"></a></span>
-<span id="cb153-14"><a href="#cb153-14" aria-hidden="true"></a>qui margins agegrp, <span class="kw">over</span>(sex) <span class="kw">at</span>(<span class="dt">bmi=</span>(<span class="dv">10</span>(<span class="dv">10</span>)<span class="dv">60</span>))</span>
-<span id="cb153-15"><a href="#cb153-15" aria-hidden="true"></a></span>
-<span id="cb153-16"><a href="#cb153-16" aria-hidden="true"></a>marginsplot, <span class="kw">xdimension</span>(agegrp) <span class="kw">bydimension</span>(bmi) <span class="kw">xlabel</span>(, <span class="kw">angle</span>(<span class="dv">45</span>)) <span class="kw">recastci</span>(rarea)        <span class="op">/</span><span class="er">//</span></span>
-<span id="cb153-17"><a href="#cb153-17" aria-hidden="true"></a><span class="kw">plot1opts</span>(<span class="st">`</span><span class="dt">pl1&#39;)  ci1opts(</span><span class="st">`</span>ci1<span class="st">&#39;)                                                            ///                   </span></span>
-<span id="cb153-18"><a href="#cb153-18" aria-hidden="true"></a><span class="st">plot2opts(`pl2&#39;</span>)  <span class="kw">ci2opts</span>(<span class="st">`</span><span class="dt">ci2&#39;)                                                            ///</span></span>
-<span id="cb153-19"><a href="#cb153-19" aria-hidden="true"></a><span class="dt">graphr(color(gs2)) plotr(color(gs2))                                                        ///</span></span>
-<span id="cb153-20"><a href="#cb153-20" aria-hidden="true"></a><span class="dt">xlab(, glw(vvthin) labc(gs10)) ylab(, glw(vvthin))                                          ///</span></span>
-<span id="cb153-21"><a href="#cb153-21" aria-hidden="true"></a><span class="dt">ytitle(&quot;&quot;)                                                                                  ///        </span></span>
-<span id="cb153-22"><a href="#cb153-22" aria-hidden="true"></a><span class="dt">xtitle(, color(gs10)) ytitle(, color(gs10))                                                 ///</span></span>
-<span id="cb153-23"><a href="#cb153-23" aria-hidden="true"></a><span class="dt">legend(color(gs10) region(color(gs2)))                                                      ///</span></span>
-<span id="cb153-24"><a href="#cb153-24" aria-hidden="true"></a><span class="dt">byopts(graphr(color(gs2)) plotr(color(gs2)) title(&quot;&quot;, color(gs10) lc(%0)) legend(pos(11)) ) ///</span></span>
-<span id="cb153-25"><a href="#cb153-25" aria-hidden="true"></a><span class="dt">subtitle(, color(gs10) nobox) name(g2,replace)</span></span>
-<span id="cb153-26"><a href="#cb153-26" aria-hidden="true"></a></span>
-<span id="cb153-27"><a href="#cb153-27" aria-hidden="true"></a><span class="dt">graph combine g1 g2 , graphr(color(gs2)) plotr(color(gs2)) ///</span></span>
-<span id="cb153-28"><a href="#cb153-28" aria-hidden="true"></a><span class="dt">title(&quot;Pression sanguine&quot;, pos(11) color(gs12))  iscale(.7) xsize(20) ysize(15)</span></span></code></pre></div>
+<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true"></a>use nhanes2, clear</span>
+<span id="cb155-2"><a href="#cb155-2" aria-hidden="true"></a>regress bpsystol agegrp<span class="co">##sex##c.bmi i.region</span></span>
+<span id="cb155-3"><a href="#cb155-3" aria-hidden="true"></a></span>
+<span id="cb155-4"><a href="#cb155-4" aria-hidden="true"></a>colorpalette YlGnBu, <span class="kw">select</span>(<span class="dv">4</span>)  <span class="kw">opacity</span>(<span class="dv">10</span>)  nograph</span>
+<span id="cb155-5"><a href="#cb155-5" aria-hidden="true"></a>local ci2 <span class="kw">fc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>)  <span class="kw">lw</span>(vvthin) </span>
+<span id="cb155-6"><a href="#cb155-6" aria-hidden="true"></a>colorpalette YlGnBu, <span class="kw">select</span>(<span class="dv">4</span>) nograph</span>
+<span id="cb155-7"><a href="#cb155-7" aria-hidden="true"></a>local pl2  <span class="kw">mc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">msize</span>(small) <span class="kw">lc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">lw</span>(medthin)</span>
+<span id="cb155-8"><a href="#cb155-8" aria-hidden="true"></a></span>
+<span id="cb155-9"><a href="#cb155-9" aria-hidden="true"></a>colorpalette PuRd, <span class="kw">select</span>(<span class="dv">4</span>)  <span class="kw">opacity</span>(<span class="dv">20</span>)  nograph</span>
+<span id="cb155-10"><a href="#cb155-10" aria-hidden="true"></a>local ci1 <span class="kw">fc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>)  <span class="kw">lw</span>(vvthin) </span>
+<span id="cb155-11"><a href="#cb155-11" aria-hidden="true"></a>colorpalette PuRd, <span class="kw">select</span>(<span class="dv">4</span>) nograph</span>
+<span id="cb155-12"><a href="#cb155-12" aria-hidden="true"></a>local pl1  <span class="kw">mc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">msize</span>(small) <span class="kw">lc</span>(<span class="st">&quot;`r(p1)&#39;&quot;</span>) <span class="kw">lw</span>(medthin)</span>
+<span id="cb155-13"><a href="#cb155-13" aria-hidden="true"></a></span>
+<span id="cb155-14"><a href="#cb155-14" aria-hidden="true"></a>qui margins agegrp, <span class="kw">over</span>(sex) <span class="kw">at</span>(<span class="dt">bmi=</span>(<span class="dv">10</span>(<span class="dv">10</span>)<span class="dv">60</span>))</span>
+<span id="cb155-15"><a href="#cb155-15" aria-hidden="true"></a></span>
+<span id="cb155-16"><a href="#cb155-16" aria-hidden="true"></a>marginsplot, <span class="kw">xdimension</span>(agegrp) <span class="kw">bydimension</span>(bmi) <span class="kw">xlabel</span>(, <span class="kw">angle</span>(<span class="dv">45</span>)) <span class="kw">recastci</span>(rarea)        <span class="op">/</span><span class="er">//</span></span>
+<span id="cb155-17"><a href="#cb155-17" aria-hidden="true"></a><span class="kw">plot1opts</span>(<span class="st">`</span><span class="dt">pl1&#39;)  ci1opts(</span><span class="st">`</span>ci1<span class="st">&#39;)                                                            ///                   </span></span>
+<span id="cb155-18"><a href="#cb155-18" aria-hidden="true"></a><span class="st">plot2opts(`pl2&#39;</span>)  <span class="kw">ci2opts</span>(<span class="st">`</span><span class="dt">ci2&#39;)                                                            ///</span></span>
+<span id="cb155-19"><a href="#cb155-19" aria-hidden="true"></a><span class="dt">graphr(color(gs2)) plotr(color(gs2))                                                        ///</span></span>
+<span id="cb155-20"><a href="#cb155-20" aria-hidden="true"></a><span class="dt">xlab(, glw(vvthin) labc(gs10)) ylab(, glw(vvthin))                                          ///</span></span>
+<span id="cb155-21"><a href="#cb155-21" aria-hidden="true"></a><span class="dt">ytitle(&quot;&quot;)                                                                                  ///        </span></span>
+<span id="cb155-22"><a href="#cb155-22" aria-hidden="true"></a><span class="dt">xtitle(, color(gs10)) ytitle(, color(gs10))                                                 ///</span></span>
+<span id="cb155-23"><a href="#cb155-23" aria-hidden="true"></a><span class="dt">legend(color(gs10) region(color(gs2)))                                                      ///</span></span>
+<span id="cb155-24"><a href="#cb155-24" aria-hidden="true"></a><span class="dt">byopts(graphr(color(gs2)) plotr(color(gs2)) title(&quot;&quot;, color(gs10) lc(%0)) legend(pos(11)) ) ///</span></span>
+<span id="cb155-25"><a href="#cb155-25" aria-hidden="true"></a><span class="dt">subtitle(, color(gs10) nobox) name(g2,replace)</span></span>
+<span id="cb155-26"><a href="#cb155-26" aria-hidden="true"></a></span>
+<span id="cb155-27"><a href="#cb155-27" aria-hidden="true"></a><span class="dt">graph combine g1 g2 , graphr(color(gs2)) plotr(color(gs2)) ///</span></span>
+<span id="cb155-28"><a href="#cb155-28" aria-hidden="true"></a><span class="dt">title(&quot;Pression sanguine&quot;, pos(11) color(gs12))  iscale(.7) xsize(20) ysize(15)</span></span></code></pre></div>
 </details>
-<p><img src="imgf/g108.png" style="width:50.0%" /></p>
+<p><img src="imgf/g108.png" style="width:75.0%" /></p>
 </div>
 <div id="diagnostiques" class="section level3" number="4.7.4">
 <h3 number="4.7.4"><span class="header-section-number">4.7.4</span> Diagnostiques</h3>
@@ -4599,31 +4719,59 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
 </summary>
-<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="#cb154-1" aria-hidden="true"></a>logit highbp ib2.bmigr i.sex<span class="co">##i.agegrp  i.region i.rural i.black</span></span>
-<span id="cb154-2"><a href="#cb154-2" aria-hidden="true"></a>[output omitted]</span>
-<span id="cb154-3"><a href="#cb154-3" aria-hidden="true"></a></span>
-<span id="cb154-4"><a href="#cb154-4" aria-hidden="true"></a>ggof highbp, <span class="kw">msiz</span>(.<span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true"></a>logit highbp ib2.bmigr i.sex<span class="co">##i.agegrp  i.region i.rural i.black</span></span>
+<span id="cb156-2"><a href="#cb156-2" aria-hidden="true"></a>[output omitted]</span>
+<span id="cb156-3"><a href="#cb156-3" aria-hidden="true"></a></span>
+<span id="cb156-4"><a href="#cb156-4" aria-hidden="true"></a>ggof highbp, <span class="kw">msiz</span>(.<span class="dv">1</span>)</span></code></pre></div>
 </details>
 <p><img src="imgf/g109.png" style="width:50.0%" /></p>
 </div>
 </div>
-<div id="graph-interactifs-et-dynamiques" class="section level2" number="4.8">
-<h2 number="4.8"><span class="header-section-number">4.8</span> Graph interactifs et dynamiques</h2>
+</div>
+<div id="graph-interactifs-et-dynamiques" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Graph interactifs et dynamiques</h1>
 <ul>
 <li><p><a href="https://www.francetvinfo.fr/sante/maladie/coronavirus/infographies-covid-19-morts-hospitalisations-age-malades-l-evolution-de-l-epidemie-en-france-et-dans-le-monde-en-cartes-et-graphiques.html">France Info</a></p></li>
 <li><p><a href="https://www.ined.fr/fr/tout-savoir-population/graphiques-cartes/population-cartes-interactives/">Site Ined</a></p></li>
-<li><p>Graphiques intéractif: Python</p></li>
-<li><p>Graphique animés: création des images avec Stata et conversion video avec une application dédiée (ici <em>ffmpeg</em>)</p></li>
+<li><p>Graphiques intéractif &amp; animés: avec Python (Stata 16)</p></li>
+<li><p>Graphique animés avec Stata: création des images avec Stata et conversion video avec une application dédiée (ici <em>ffmpeg</em>)</p></li>
 </ul>
 <p><strong>Avec ffmpeg</strong></p>
 <ul>
-<li>On génère toutes les images dans une boucle, en les enregistrant dans un format différent que le format natif de Stata (png par exemple) • On utilise un logiciel de conversion, ici ffmpeg. Il doit être installé [<a href="https://fr.wikihow.com/installer-FFmpeg-sur-Windows" class="uri">https://fr.wikihow.com/installer-FFmpeg-sur-Windows</a>]</li>
-<li>Je ne suis pas arrivé à exécuter ffmpeg directement dans stata avec une shell, mais dans l’invite de commande windows</li>
+<li>On génère toutes les images dans une boucle, en les enregistrant dans un format différent que le format natif de Stata (png par exemple)</li>
+<li>On utilise un logiciel de conversion, ici ffmpeg. Il doit être installé [<a href="https://fr.wikihow.com/installer-FFmpeg-sur-Windows" class="uri">https://fr.wikihow.com/installer-FFmpeg-sur-Windows</a>]</li>
+<li>Je ne suis pas arrivé à exécuter ffmpeg directement dans stata avec une shell, je suis donc directement passé par l’invite de commande windows</li>
 </ul>
 <p><strong>Programme Stata</strong></p>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="#cb155-1" aria-hidden="true"></a>[Mettre programme </span></code></pre></div>
-<p><strong>ffmpeg</strong></p>
-<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true"></a>C<span class="op">:</span>\Users\thevenin_m\Desktop\graph\images<span class="op">&gt;</span>ffmpeg <span class="op">-</span>framerate <span class="dv">3</span> <span class="op">-</span>i g%01d.png video_name.mp4</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true"></a>use lf_gdp1y, clear</span>
+<span id="cb157-2"><a href="#cb157-2" aria-hidden="true"></a></span>
+<span id="cb157-3"><a href="#cb157-3" aria-hidden="true"></a>local i=<span class="dv">1</span></span>
+<span id="cb157-4"><a href="#cb157-4" aria-hidden="true"></a>qui levelsof year <span class="cf">if</span> year<span class="op">&gt;</span><span class="dv">1951</span> <span class="op">&amp;</span><span class="st"> </span>year<span class="op">&lt;</span><span class="dv">2008</span>, <span class="kw">local</span>(l)</span>
+<span id="cb157-5"><a href="#cb157-5" aria-hidden="true"></a></span>
+<span id="cb157-6"><a href="#cb157-6" aria-hidden="true"></a>foreach y of local l {</span>
+<span id="cb157-7"><a href="#cb157-7" aria-hidden="true"></a>  local j =<span class="st"> `</span><span class="dt">i++&#39;</span></span>
+<span id="cb157-8"><a href="#cb157-8" aria-hidden="true"></a><span class="dt"> </span></span>
+<span id="cb157-9"><a href="#cb157-9" aria-hidden="true"></a><span class="dt"> grstyle init </span></span>
+<span id="cb157-10"><a href="#cb157-10" aria-hidden="true"></a><span class="dt">  grstyle set legend 2, nobox stack</span></span>
+<span id="cb157-11"><a href="#cb157-11" aria-hidden="true"></a><span class="dt">  grstyle set mesh,  horizontal compact</span></span>
+<span id="cb157-12"><a href="#cb157-12" aria-hidden="true"></a><span class="dt">  grstyle set color viridis, n(5) opacity(60) select(2 3 1 4 5)</span></span>
+<span id="cb157-13"><a href="#cb157-13" aria-hidden="true"></a><span class="dt">  </span></span>
+<span id="cb157-14"><a href="#cb157-14" aria-hidden="true"></a><span class="dt">local leg  &quot;order(1 &quot;Asia&quot; 2 &quot;Americas&quot; 3 &quot;Africa&quot; 4 &quot;Europe&quot; 5 &quot;Oceania&quot;)&quot;</span></span>
+<span id="cb157-15"><a href="#cb157-15" aria-hidden="true"></a><span class="dt">local mc  mc(</span><span class="st">`</span><span class="kw">r</span>(p)<span class="st">&#39;)  </span></span>
+<span id="cb157-16"><a href="#cb157-16" aria-hidden="true"></a><span class="st">local mlc  mlc(`r(p)&#39;</span><span class="er">)</span></span>
+<span id="cb157-17"><a href="#cb157-17" aria-hidden="true"></a>local mlw  <span class="st">&quot;mlw(vthin vthin vthin vthin)&quot;</span></span>
+<span id="cb157-18"><a href="#cb157-18" aria-hidden="true"></a></span>
+<span id="cb157-19"><a href="#cb157-19" aria-hidden="true"></a>tw scatter as_lf am_lf af_lf eu_lf oc_lf gdppercap [w=pop] <span class="cf">if</span> year<span class="op">==</span><span class="st">`</span><span class="dt">y&#39;,    ///</span></span>
+<span id="cb157-20"><a href="#cb157-20" aria-hidden="true"></a><span class="dt">   </span><span class="st">`</span>mlc<span class="st">&#39; `mlw&#39;</span> <span class="st">`</span><span class="dt">mc&#39;    ///</span></span>
+<span id="cb157-21"><a href="#cb157-21" aria-hidden="true"></a><span class="dt">   ylabel(20(10)90) ytitle(&quot;Espérance de vie&quot;)                              ///</span></span>
+<span id="cb157-22"><a href="#cb157-22" aria-hidden="true"></a><span class="dt">   xlabel(300 1000 10000 25000 110000)   xtitle(&quot;&quot;)                          ///</span></span>
+<span id="cb157-23"><a href="#cb157-23" aria-hidden="true"></a><span class="dt">   legend(pos(3) col(1)</span><span class="st">`</span>leg<span class="st">&#39;)  ysize(10) xsize(20) xscale(log)                ///</span></span>
+<span id="cb157-24"><a href="#cb157-24" aria-hidden="true"></a><span class="st">   title(&quot;`y&#39;&quot;, pos(11))   ///</span></span>
+<span id="cb157-25"><a href="#cb157-25" aria-hidden="true"></a><span class="st">   xtitle(&quot;</span>Revenu par habitant<span class="st">&quot;)  name(g`j&#39;, replace)</span></span>
+<span id="cb157-26"><a href="#cb157-26" aria-hidden="true"></a><span class="st">graph export &quot;</span>C<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>thevenin_m<span class="op">/</span>Desktop<span class="op">/</span>images<span class="op">/</span>g<span class="st">`</span><span class="dt">j&#39;.png&quot;, replace name(g</span><span class="st">`</span>j<span class="st">&#39;)</span></span>
+<span id="cb157-27"><a href="#cb157-27" aria-hidden="true"></a><span class="st">   }</span></span></code></pre></div>
+<p><strong>Code ffmpeg</strong></p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true"></a>C<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>thevenin_m<span class="op">/</span>Desktop<span class="op">/</span>images<span class="op">/</span><span class="er">&gt;</span>ffmpeg <span class="op">-</span>framerate <span class="dv">3</span> <span class="op">-</span>i g%01d.png video_name.mp4</span></code></pre></div>
 <video width="740" height="480" controls>
 <source src="imgf/video1.mp4" type="video/mp4">
 </video>
@@ -4631,13 +4779,11 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <ul>
 <li>Voir la court section sur Python (Stata 16 requis)</li>
 </ul>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="#cb157-1" aria-hidden="true"></a>C<span class="op">:</span>\Users\thevenin_m\Desktop\graph\images<span class="op">&gt;</span>ffmpeg <span class="op">-</span>framerate <span class="dv">3</span> <span class="op">-</span>i g%01d.png video_name.mp4</span></code></pre></div>
 </div>
-</div>
-<div id="bibliographie-références" class="section level1" number="5">
-<h1 number="5"><span class="header-section-number">5</span> Bibliographie &amp; références</h1>
-<div id="ouvrages-stata" class="section level2" number="5.1">
-<h2 number="5.1"><span class="header-section-number">5.1</span> Ouvrages Stata</h2>
+<div id="bibliographie-références" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> Bibliographie &amp; références</h1>
+<div id="ouvrages-stata" class="section level2" number="6.1">
+<h2 number="6.1"><span class="header-section-number">6.1</span> Ouvrages Stata</h2>
 <ul>
 <li>A Visual Guide to Stata Graphics, Third Edition - Michael N. Mitchell
 <ul>
@@ -4649,8 +4795,8 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 </ul></li>
 </ul>
 </div>
-<div id="articles-stata-journal" class="section level2" number="5.2">
-<h2 number="5.2"><span class="header-section-number">5.2</span> Articles Stata Journal</h2>
+<div id="articles-stata-journal" class="section level2" number="6.2">
+<h2 number="6.2"><span class="header-section-number">6.2</span> Articles Stata Journal</h2>
 <p><strong>2019</strong></p>
 <ul>
 <li>Some simple devices to ease the spaghetti problem - Nicholas J. Cox
@@ -4806,11 +4952,15 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <li><a href="https://journals.sagepub.com/doi/pdf/10.1177/1536867X0400400209" class="uri">https://journals.sagepub.com/doi/pdf/10.1177/1536867X0400400209</a></li>
 </ul>
 </div>
-<div id="liens-stata" class="section level2" number="5.3">
-<h2 number="5.3"><span class="header-section-number">5.3</span> Liens Stata</h2>
+<div id="liens-stata" class="section level2" number="6.3">
+<h2 number="6.3"><span class="header-section-number">6.3</span> Liens Stata</h2>
+<ul>
+<li><a href="http://www.maartenbuis.nl/workshops/graphs_in_stata/workshop.html" class="uri">http://www.maartenbuis.nl/workshops/graphs_in_stata/workshop.html</a> [Maarten Buis]</li>
+<li><a href="https://drive.google.com/drive/folders/18kSU0ilL9v4ffVfG3myqJ6CpjlfF6_sL" class="uri">https://drive.google.com/drive/folders/18kSU0ilL9v4ffVfG3myqJ6CpjlfF6_sL</a> [Trenton D.Mize]</li>
+</ul>
 </div>
-<div id="data-visualization" class="section level2" number="5.4">
-<h2 number="5.4"><span class="header-section-number">5.4</span> Data visualization</h2>
+<div id="data-visualization" class="section level2" number="6.4">
+<h2 number="6.4"><span class="header-section-number">6.4</span> Data visualization</h2>
 <ul>
 <li>Fundamentals of Data Visualization - ebook [Claus O. Wilke]
 <ul>
@@ -4830,6 +4980,11 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <li>Site de Cedric Scherer
 <ul>
 <li><a href="https://cedricscherer.netlify.app/" class="uri">https://cedricscherer.netlify.app/</a></li>
+</ul></li>
+<li>Dataviz Society
+<ul>
+<li><a href="https://www.datavisualizationsociety.com/" class="uri">https://www.datavisualizationsociety.com/</a></li>
+<li><a href="https://medium.com/nightingale" class="uri">https://medium.com/nightingale</a></li>
 </ul></li>
 </ul>
 </div>
