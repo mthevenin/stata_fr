@@ -4190,7 +4190,20 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <li>Si on compare le <em>variables pattern</em> pour plusieurs niveaux d’une variable discrète, il est préférables que les effectifs soit relativement proches pour ces niveaux (50%-50%. Eviter si un niveau ou un évènement est rare (dans le graphique de DC, le nombre de tirs réussis et ratés est presque identique).</li>
 <li>On doit utiliser une standardisation pour reporter les coordonnées sur Y. Le rendu est modifié selon la méthode de standardisation utilisée</li>
 </ul>
-<p><em>Exemple</em> * J’ai repris les données de la base nls88, pour comparer des * Le programme est bien évidemment fortement inspiré de Demetris Christodoulou * Je suis sorti un peu des clous en prenant comme première variable le fait d’être syndiqué ou non * Les observations ont été placé de manière aléatoire sur l’axe Y dans l’intervalle des proportions [0,0.75] pour les non syndiquées et [.75,1] pour les syndiqués * Si on exécute le programme plusieurs fois, le rendu va donc être légèrement modifié pour les lignes amenant à la variable <em>hours</em> * Le choix de la méthode de standardisation qui s’impose pour les trois variables (heures, expérience et salaire): <em><code>var_obs/var_max</code></em> * J’ai reporté les valeurs moyennes des variable * Le programmes est assez simple et facilement automatisable. Il faut néanmoins jouer sur l’altération des couleurs pour obtenir un rendu satisfaisant * Quant à l’utilisation de ce genre de graphique …….</p>
+<p><em>Exemple</em></p>
+<ul>
+<li>J’ai repris les données de la base nls88</li>
+<li>Le programme est bien évidemment fortement inspiré de celui de Demetris Christodoulou</li>
+<li>Je suis sorti un peu des clous en prenant comme première variable le fait d’être syndiqué ou non
+<ul>
+<li>Les observations ont été placé de manière aléatoire sur l’axe Y dans l’intervalle des proportions [0,0.75] pour les non syndiquées et [.75,1] pour les syndiqués</li>
+<li>Si on exécute le programme plusieurs fois, le rendu va donc être légèrement modifié pour les lignes amenant à la variable <em>hours</em></li>
+</ul></li>
+<li>Le choix de la méthode de standardisation qui s’impose pour les trois variables (heures, expérience et salaire): <em><code>var_obs/var_max</code></em></li>
+<li>J’ai reporté les valeurs moyennes des variable</li>
+<li>Le programmes est assez simple et facilement automatisable. Il faut néanmoins jouer sur l’altération des couleurs pour obtenir un rendu satisfaisant</li>
+<li>Quant à l’utilisation de ce genre de graphique …….</li>
+</ul>
 <details>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
