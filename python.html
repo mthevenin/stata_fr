@@ -13,6 +13,7 @@
 
 <title>Python</title>
 
+<script src="site_libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -334,7 +335,7 @@ div.tocify {
   <a href="index.html">Stata</a>
 </li>
 <li>
-  <a href="utils.html">Tips &amp; utilitaires</a>
+  <a href="utils.html">Astuces &amp; utilitaires</a>
 </li>
 <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -347,18 +348,12 @@ div.tocify {
       <a href="graphiques.html">Graphiques</a>
     </li>
     <li>
-      <a href="couleurs.html">Couleurs</a>
-    </li>
-    <li>
       <a href="programmes.html">Programmes</a>
     </li>
   </ul>
 </li>
 <li>
   <a href="python.html">Python</a>
-</li>
-<li>
-  <a href="commandes.html">Commandes</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
@@ -377,7 +372,7 @@ div.tocify {
 </div>
 
 
-<p><strong>[Version très provisoire mai 2020]</strong></p>
+<p><strong>[Version très provisoire mai 2020]</strong> <strong>Mises à jour prévue à partir de la mi-septembre 2020</strong></p>
 <ul>
 <li>Depuis la version 16 de Stata (printemps 2019) il est possible d’utiliser Python de manière intéractive avec Stata.</li>
 <li>Une librairie Python <code>SFI</code> (<a href="https://www.stata.com/python/api16/Data.html" class="uri">https://www.stata.com/python/api16/Data.html</a>) est mise à disposition pour favoriser cette interactivé, en particulier pour passer des macros Stata vers Python.</li>
@@ -385,10 +380,10 @@ div.tocify {
 <li>l’entrée de l’aide stata sur python: <code>help python</code></li>
 <li>Eléments de Correspondance Stata - Python pour la manipulation des données ( librairie<code>pandas</code>): <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata" class="uri">https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata</a></li>
 </ul>
-<div id="installation-de-python-et-des-librairies-windows" class="section level1">
-<h1><span class="header-section-number">1</span> Installation de Python et des librairies (Windows)</h1>
-<div id="intallation-de-python" class="section level2">
-<h2><span class="header-section-number">1.1</span> Intallation de Python</h2>
+<div id="installation-de-python-et-des-librairies-windows" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Installation de Python et des librairies (Windows)</h1>
+<div id="intallation-de-python" class="section level2" number="1.1">
+<h2 number="1.1"><span class="header-section-number">1.1</span> Intallation de Python</h2>
 <p><strong>WARNING</strong> Pour utiliser Python, vous devez avoir le même type de built pour les deux applications:</p>
 <ul>
 <li>Stata 64 bits =&gt; Python 64 Bits</li>
@@ -412,8 +407,8 @@ div.tocify {
 <li>dans le prompteur, exécuter <code>python</code> puis effectuer une operation simple <code>1+1</code> ou <code>print("Bonjour python")</code></li>
 </ul>
 </div>
-<div id="installation-des-librairies-python" class="section level2">
-<h2><span class="header-section-number">1.2</span> Installation des librairies Python</h2>
+<div id="installation-des-librairies-python" class="section level2" number="1.2">
+<h2 number="1.2"><span class="header-section-number">1.2</span> Installation des librairies Python</h2>
 <ul>
 <li>Normalement peu de librairies sont installées</li>
 <li>On peut obtenir leur liste avec la commande <code>help("modules")</code></li>
@@ -502,8 +497,8 @@ DESCRIPTION
       </code></pre>
 <p><strong>Mise à jour d’une librairie</strong>: <code>pip install nom_librairie --upgrade</code></p>
 </div>
-<div id="librairies-graphiques" class="section level2">
-<h2><span class="header-section-number">1.3</span> Librairies graphiques</h2>
+<div id="librairies-graphiques" class="section level2" number="1.3">
+<h2 number="1.3"><span class="header-section-number">1.3</span> Librairies graphiques</h2>
 <p>Une liste des principales libraires graphiques de Python:</p>
 <ul>
 <li><strong>matplotlib</strong>: <code>pip install matplotlib</code> [<a href="https://matplotlib.org/" class="uri">https://matplotlib.org/</a>]</li>
@@ -512,11 +507,11 @@ DESCRIPTION
 </ul>
 </div>
 </div>
-<div id="exécuter-python-avec-stata" class="section level1">
-<h1><span class="header-section-number">2</span> Exécuter Python avec Stata</h1>
+<div id="exécuter-python-avec-stata" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Exécuter Python avec Stata</h1>
 <p>Aide Stata: <code>help python</code></p>
-<div id="lecture-de-python-par-stata" class="section level2">
-<h2><span class="header-section-number">2.1</span> Lecture de Python par Stata</h2>
+<div id="lecture-de-python-par-stata" class="section level2" number="2.1">
+<h2 number="2.1"><span class="header-section-number">2.1</span> Lecture de Python par Stata</h2>
 <p><strong>Rappel</strong>: s’assurer de la concordance des builts (Stata 64 =&gt; Python 64)</p>
 <ul>
 <li>Lorsque Python est installé, vous pouvez vérifier qu’il est bien reconnu avec <code>python query</code></li>
@@ -559,8 +554,8 @@ python query
       library path         C:\Users\thevenin_m\AppData\Local\Programs\Python\Python38\python38.dll
 </code></pre>
 </div>
-<div id="utilisation-de-python-en-mode-interactif" class="section level2">
-<h2><span class="header-section-number">2.2</span> Utilisation de python en mode interactif</h2>
+<div id="utilisation-de-python-en-mode-interactif" class="section level2" number="2.2">
+<h2 number="2.2"><span class="header-section-number">2.2</span> Utilisation de python en mode interactif</h2>
 <ul>
 <li>Une ligne</li>
 </ul>
@@ -605,10 +600,10 @@ b:
 python describe
 </code></pre>
 </div>
-<div id="quelques-exemple-dutilisation-de-python-pour-les-graphiques" class="section level2">
-<h2><span class="header-section-number">2.3</span> Quelques exemple d’utilisation de Python pour les graphiques</h2>
-<div id="chargement-dune-base-stata-sous-python" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Chargement d’une base stata sous python</h3>
+<div id="quelques-exemple-dutilisation-de-python-pour-les-graphiques" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Quelques exemple d’utilisation de Python pour les graphiques</h2>
+<div id="chargement-dune-base-stata-sous-python" class="section level3" number="2.3.1">
+<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Chargement d’une base stata sous python</h3>
 <ul>
 <li>Une librarie est chargée avec l’instruction <code>import</code>. Un acronyme lui est associé, ici <code>pa</code> (en anglais c’est généralement <code>pd</code>….on s’en passera)</li>
 <li><code>pandas</code> a une fonction permettant de lire une base en format .dta [<code>read_dta()</code>]</li>
@@ -633,8 +628,8 @@ end
 4   7827   15    43           350        2.41  Domestic
 </code></pre>
 </div>
-<div id="exemple-1" class="section level3">
-<h3><span class="header-section-number">2.3.2</span> Exemple 1</h3>
+<div id="exemple-1" class="section level3" number="2.3.2">
+<h3 number="2.3.2"><span class="header-section-number">2.3.2</span> Exemple 1</h3>
 <ul>
 <li>Création d’un graphique de type matrixplot avec la librairie <code>seaborn</code> sur un extrait de la base auto</li>
 <li>On va utiliser la fonction <code>pairplot</code> de la librairie <code>seaborn</code> (acronyme <code>sns</code>)</li>
@@ -662,8 +657,8 @@ end
 ! graph1.png</code></pre>
 <p><img src="img/p1.png" /></p>
 </div>
-<div id="exemple-2" class="section level3">
-<h3><span class="header-section-number">2.3.3</span> Exemple 2</h3>
+<div id="exemple-2" class="section level3" number="2.3.3">
+<h3 number="2.3.3"><span class="header-section-number">2.3.3</span> Exemple 2</h3>
 <p>Création d’un graphique de type <em>violin</em> de la librairie <code>plotpy</code> avec passage d’une macro à un argument de stata vers Python</p>
 <p><strong>Etape par étape</strong><br />
 <br></p>
@@ -785,8 +780,8 @@ end
 * violin price, title(&quot;GRAPHIQUE TYPE VIOLON&quot;) xtitle(&quot;PRICE&quot;)
 </code></pre>
 </div>
-<div id="exemple-3" class="section level3">
-<h3><span class="header-section-number">2.3.4</span> Exemple 3</h3>
+<div id="exemple-3" class="section level3" number="2.3.4">
+<h3 number="2.3.4"><span class="header-section-number">2.3.4</span> Exemple 3</h3>
 <p><En cours>: Création d’un graphique avec passage d’une macro à plusieurs arguments de stata vers Python</p>
 </div>
 </div>
