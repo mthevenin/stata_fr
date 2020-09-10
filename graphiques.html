@@ -1818,10 +1818,10 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <p><em>Graphique 31</em><br />
 <img src="imgf/g23.png" style="width:50.0%" /></p>
 </div>
-<div id="macro-élargie" class="section level2" number="2.3">
-<h2 number="2.3"><span class="header-section-number">2.3</span> Macro élargie</h2>
-<div id="définition-dune-macro-élargie" class="section level3" number="2.3.1">
-<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Définition d’une macro élargie</h3>
+<div id="macro-empilée" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Macro empilée</h2>
+<div id="définition-dune-macro-empilée" class="section level3" number="2.3.1">
+<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Définition d’une macro empilée</h3>
 <ul>
 <li><strong>Macro simple</strong></li>
 </ul>
@@ -1838,7 +1838,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <span id="cb56-11"><a href="#cb56-11" aria-hidden="true"></a><span class="dt">mac list _ms</span></span>
 <span id="cb56-12"><a href="#cb56-12" aria-hidden="true"></a><span class="dt">objetC</span></span></code></pre></div>
 <ul>
-<li><p><strong>Macro élargie</strong></p></li>
+<li><p><strong>Macro empilée</strong></p></li>
 <li><p>Conserve l’expression de la macro de la boucle précédente</p></li>
 <li><p>Syntaxe:</p></li>
 </ul>
@@ -1861,8 +1861,8 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <li>etc….</li>
 </ul>
 </div>
-<div id="créer-un-graphique-avec-une-macro-élargie" class="section level3" number="2.3.2">
-<h3 number="2.3.2"><span class="header-section-number">2.3.2</span> Créer un graphique avec une macro élargie</h3>
+<div id="créer-un-graphique-avec-une-macro-empilée" class="section level3" number="2.3.2">
+<h3 number="2.3.2"><span class="header-section-number">2.3.2</span> Créer un graphique avec une macro empilée</h3>
 <div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true"></a>levelsof rep78, <span class="kw">local</span>(l)</span>
 <span id="cb59-2"><a href="#cb59-2" aria-hidden="true"></a></span>
 <span id="cb59-3"><a href="#cb59-3" aria-hidden="true"></a>foreach i of local l {</span>
@@ -1892,7 +1892,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <li>on n’utilise pas les fonctions pour générer les labels (cf Application 2)</li>
 <li>On génère également le graphique avec une macro élargie comme ci-dessus.</li>
 </ul>
-<p><strong>On génère la légende avec une macro élargie</strong></p>
+<p><strong>On génère la légende avec une macro empilée</strong></p>
 <div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true"></a>sysuse auto</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true"></a></span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true"></a>local l1 <span class="st">`</span><span class="dt">&quot;&quot;Domestic&quot;&quot;&#39;</span></span>
@@ -1904,7 +1904,7 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <span id="cb66-9"><a href="#cb66-9" aria-hidden="true"></a><span class="dt">macro list _ord</span></span>
 <span id="cb66-10"><a href="#cb66-10" aria-hidden="true"></a></span>
 <span id="cb66-11"><a href="#cb66-11" aria-hidden="true"></a><span class="dt">_ord:  1 &quot;Domestic&quot; 2 &quot;Foreign&quot;</span></span></code></pre></div>
-<p><strong>On génère les éléments du graphique avec une macro élargie</strong></p>
+<p><strong>On génère les éléments du graphique avec une macro empilée</strong></p>
 <div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true"></a>levelsof foreign, <span class="kw">local</span>(l)</span>
 <span id="cb67-2"><a href="#cb67-2" aria-hidden="true"></a></span>
 <span id="cb67-3"><a href="#cb67-3" aria-hidden="true"></a>local ops <span class="kw">mlc</span>(black) <span class="kw">mlw</span>(vthin)</span>
