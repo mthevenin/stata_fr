@@ -4826,35 +4826,34 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <li>Je ne suis pas arrivé à exécuter ffmpeg directement dans stata avec une shell, je suis donc directement passé par l’invite de commande windows</li>
 </ul>
 <p><strong>Programme Stata</strong></p>
-<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true"></a>use lf_gdp1y, clear</span>
-<span id="cb158-2"><a href="#cb158-2" aria-hidden="true"></a></span>
-<span id="cb158-3"><a href="#cb158-3" aria-hidden="true"></a>local i=<span class="dv">1</span></span>
-<span id="cb158-4"><a href="#cb158-4" aria-hidden="true"></a>qui levelsof year <span class="cf">if</span> year<span class="op">&gt;</span><span class="dv">1951</span> <span class="op">&amp;</span><span class="st"> </span>year<span class="op">&lt;</span><span class="dv">2008</span>, <span class="kw">local</span>(l)</span>
-<span id="cb158-5"><a href="#cb158-5" aria-hidden="true"></a></span>
-<span id="cb158-6"><a href="#cb158-6" aria-hidden="true"></a>foreach y of local l {</span>
-<span id="cb158-7"><a href="#cb158-7" aria-hidden="true"></a>  local j =<span class="st"> `</span><span class="dt">i++&#39;</span></span>
-<span id="cb158-8"><a href="#cb158-8" aria-hidden="true"></a><span class="dt"> </span></span>
-<span id="cb158-9"><a href="#cb158-9" aria-hidden="true"></a><span class="dt"> grstyle init </span></span>
-<span id="cb158-10"><a href="#cb158-10" aria-hidden="true"></a><span class="dt">  grstyle set legend 2, nobox stack</span></span>
-<span id="cb158-11"><a href="#cb158-11" aria-hidden="true"></a><span class="dt">  grstyle set mesh,  horizontal compact</span></span>
-<span id="cb158-12"><a href="#cb158-12" aria-hidden="true"></a><span class="dt">  grstyle set color viridis, n(5) opacity(60) select(2 3 1 4 5)</span></span>
-<span id="cb158-13"><a href="#cb158-13" aria-hidden="true"></a><span class="dt">  </span></span>
-<span id="cb158-14"><a href="#cb158-14" aria-hidden="true"></a><span class="dt">local leg  &quot;order(1 &quot;Asia&quot; 2 &quot;Americas&quot; 3 &quot;Africa&quot; 4 &quot;Europe&quot; 5 &quot;Oceania&quot;)&quot;</span></span>
-<span id="cb158-15"><a href="#cb158-15" aria-hidden="true"></a><span class="dt">local mc  mc(</span><span class="st">`</span><span class="kw">r</span>(p)<span class="st">&#39;)  </span></span>
-<span id="cb158-16"><a href="#cb158-16" aria-hidden="true"></a><span class="st">local mlc  mlc(`r(p)&#39;</span><span class="er">)</span></span>
-<span id="cb158-17"><a href="#cb158-17" aria-hidden="true"></a>local mlw  <span class="st">&quot;mlw(vthin vthin vthin vthin)&quot;</span></span>
-<span id="cb158-18"><a href="#cb158-18" aria-hidden="true"></a></span>
-<span id="cb158-19"><a href="#cb158-19" aria-hidden="true"></a>tw scatter as_lf am_lf af_lf eu_lf oc_lf gdppercap [w=pop] <span class="cf">if</span> year<span class="op">==</span><span class="st">`</span><span class="dt">y&#39;,    ///</span></span>
-<span id="cb158-20"><a href="#cb158-20" aria-hidden="true"></a><span class="dt">   </span><span class="st">`</span>mlc<span class="st">&#39; `mlw&#39;</span> <span class="st">`</span><span class="dt">mc&#39;    ///</span></span>
-<span id="cb158-21"><a href="#cb158-21" aria-hidden="true"></a><span class="dt">   ylabel(20(10)90) ytitle(&quot;Espérance de vie&quot;)                              ///</span></span>
-<span id="cb158-22"><a href="#cb158-22" aria-hidden="true"></a><span class="dt">   xlabel(300 1000 10000 25000 110000)   xtitle(&quot;&quot;)                          ///</span></span>
-<span id="cb158-23"><a href="#cb158-23" aria-hidden="true"></a><span class="dt">   legend(pos(3) col(1)</span><span class="st">`</span>leg<span class="st">&#39;)  ysize(10) xsize(20) xscale(log)                ///</span></span>
-<span id="cb158-24"><a href="#cb158-24" aria-hidden="true"></a><span class="st">   title(&quot;`y&#39;&quot;, pos(11))   ///</span></span>
-<span id="cb158-25"><a href="#cb158-25" aria-hidden="true"></a><span class="st">   xtitle(&quot;</span>Revenu par habitant<span class="st">&quot;)  name(g`j&#39;, replace)</span></span>
-<span id="cb158-26"><a href="#cb158-26" aria-hidden="true"></a><span class="st">graph export &quot;</span>C<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>thevenin_m<span class="op">/</span>Desktop<span class="op">/</span>images<span class="op">/</span>g<span class="st">`</span><span class="dt">j&#39;.png&quot;, replace name(g</span><span class="st">`</span>j<span class="st">&#39;)</span></span>
-<span id="cb158-27"><a href="#cb158-27" aria-hidden="true"></a><span class="st">   }</span></span></code></pre></div>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true"></a>local i=<span class="dv">1</span></span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true"></a>qui levelsof year <span class="cf">if</span> year<span class="op">&gt;</span><span class="dv">1951</span> <span class="op">&amp;</span><span class="st"> </span>year<span class="op">&lt;</span><span class="dv">2008</span>, <span class="kw">local</span>(l)</span>
+<span id="cb158-3"><a href="#cb158-3" aria-hidden="true"></a></span>
+<span id="cb158-4"><a href="#cb158-4" aria-hidden="true"></a>foreach y of local l {</span>
+<span id="cb158-5"><a href="#cb158-5" aria-hidden="true"></a>  local j =<span class="st"> `</span><span class="dt">i++&#39;</span></span>
+<span id="cb158-6"><a href="#cb158-6" aria-hidden="true"></a><span class="dt"> </span></span>
+<span id="cb158-7"><a href="#cb158-7" aria-hidden="true"></a><span class="dt"> grstyle init </span></span>
+<span id="cb158-8"><a href="#cb158-8" aria-hidden="true"></a><span class="dt">  grstyle set legend 2, nobox stack</span></span>
+<span id="cb158-9"><a href="#cb158-9" aria-hidden="true"></a><span class="dt">  grstyle set mesh,  horizontal compact</span></span>
+<span id="cb158-10"><a href="#cb158-10" aria-hidden="true"></a><span class="dt">  grstyle set color viridis, n(5) opacity(60) select(2 3 1 4 5)</span></span>
+<span id="cb158-11"><a href="#cb158-11" aria-hidden="true"></a><span class="dt">  </span></span>
+<span id="cb158-12"><a href="#cb158-12" aria-hidden="true"></a><span class="dt">local leg  &quot;order(1 &quot;Asia&quot; 2 &quot;Americas&quot; 3 &quot;Africa&quot; 4 &quot;Europe&quot; 5 &quot;Oceania&quot;)&quot;</span></span>
+<span id="cb158-13"><a href="#cb158-13" aria-hidden="true"></a><span class="dt">local mc  mc(</span><span class="st">`</span><span class="kw">r</span>(p)<span class="st">&#39;)  </span></span>
+<span id="cb158-14"><a href="#cb158-14" aria-hidden="true"></a><span class="st">local mlc  mlc(`r(p)&#39;</span><span class="er">)</span></span>
+<span id="cb158-15"><a href="#cb158-15" aria-hidden="true"></a>local mlw  <span class="st">&quot;mlw(vthin vthin vthin vthin)&quot;</span></span>
+<span id="cb158-16"><a href="#cb158-16" aria-hidden="true"></a></span>
+<span id="cb158-17"><a href="#cb158-17" aria-hidden="true"></a>tw scatter as_lf am_lf af_lf eu_lf oc_lf gdppercap [w=pop] <span class="cf">if</span> year<span class="op">==</span><span class="st">`</span><span class="dt">y&#39;,    ///</span></span>
+<span id="cb158-18"><a href="#cb158-18" aria-hidden="true"></a><span class="dt">   </span><span class="st">`</span>mlc<span class="st">&#39; `mlw&#39;</span> <span class="st">`</span><span class="dt">mc&#39;    ///</span></span>
+<span id="cb158-19"><a href="#cb158-19" aria-hidden="true"></a><span class="dt">   ylabel(20(10)90) ytitle(&quot;Espérance de vie&quot;)                              ///</span></span>
+<span id="cb158-20"><a href="#cb158-20" aria-hidden="true"></a><span class="dt">   xlabel(300 1000 10000 25000 110000)   xtitle(&quot;&quot;)                          ///</span></span>
+<span id="cb158-21"><a href="#cb158-21" aria-hidden="true"></a><span class="dt">   legend(pos(3) col(1)</span><span class="st">`</span>leg<span class="st">&#39;)  ysize(10) xsize(20) xscale(log)                ///</span></span>
+<span id="cb158-22"><a href="#cb158-22" aria-hidden="true"></a><span class="st">   title(&quot;`y&#39;&quot;, pos(11))   ///</span></span>
+<span id="cb158-23"><a href="#cb158-23" aria-hidden="true"></a><span class="st">   xtitle(&quot;</span>Revenu par habitant<span class="st">&quot;)  name(g`j&#39;, replace)</span></span>
+<span id="cb158-24"><a href="#cb158-24" aria-hidden="true"></a><span class="st">graph export &quot;</span>C<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>thevenin_m<span class="op">/</span>Desktop<span class="op">/</span>images<span class="op">/</span>g<span class="st">`</span><span class="dt">j&#39;.png&quot;, replace name(g</span><span class="st">`</span>j<span class="st">&#39;)</span></span>
+<span id="cb158-25"><a href="#cb158-25" aria-hidden="true"></a><span class="st">   }</span></span></code></pre></div>
 <p><strong>Code ffmpeg</strong></p>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true"></a>C<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>thevenin_m<span class="op">/</span>Desktop<span class="op">/</span>images<span class="op">/</span><span class="er">&gt;</span>ffmpeg <span class="op">-</span>framerate <span class="dv">3</span> <span class="op">-</span>i g%01d.png video_name.mp4</span></code></pre></div>
+<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="#cb159-1" aria-hidden="true"></a>cd C<span class="op">:</span><span class="er">/</span>Users<span class="op">/</span>thevenin_m<span class="op">/</span>Desktop<span class="op">/</span>images<span class="op">/</span></span>
+<span id="cb159-2"><a href="#cb159-2" aria-hidden="true"></a>ffmpeg <span class="op">-</span>framerate <span class="dv">3</span> <span class="op">-</span>i g%01d.png video_name.mp4</span></code></pre></div>
 <p><strong>Exemple 1: bubble plot</strong></p>
 <video width="740" height="480" controls>
 <source src="imgf/video1.mp4" type="video/mp4">
