@@ -1113,7 +1113,6 @@ Plutôt que de multiplier le nombre d’objets et d’options, on peut créer un
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true"></a><span class="op">!</span><span class="st"> </span>graph2.png </span></code></pre></div>
 <p><em>Graphique 21</em><br />
 <img src="imgf/g26.png" style="width:50.0%" /></p>
-<p><strong>Lecture/Remarques</strong>: [A FAIRE]</p>
 <p><strong>Densité</strong>: en remplaçant l’option <strong><code>kind="hex"</code></strong> par <strong><code>kind="kde"</code></strong><br />
 <em>Graphique 22</em><br />
 <img src="imgf/g26b.png" style="width:50.0%" /></p>
@@ -2110,9 +2109,9 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 <ul>
 <li>Trois types de palettes:
 <ul>
-<li>Palettes qualitatives</li>
-<li>Palettes séquentielles</li>
-<li>Palettes divergentes</li>
+<li>Palettes qualitatives (variables non ordonnées)</li>
+<li>Palettes séquentielles (variables ordonnées)</li>
+<li>Palettes divergentes (variables ordonnées dans plusieurs sens)</li>
 </ul></li>
 </ul></li>
 <li>Des commandes externes permettent d’augmenter le nombre de palettes, de les modifier ou d’en créer
@@ -2124,7 +2123,6 @@ On compte le nombre d’objets contenus dans une macro (séparé par un espace).
 </ul>
 <div id="les-palettes-de-couleurs-stata" class="section level2" number="3.1">
 <h2 number="3.1"><span class="header-section-number">3.1</span> Les Palettes de couleurs Stata</h2>
-<p>Résumé de la page: <a href="https://mthevenin.github.io/stata_fr/couleurs.html" class="uri">https://mthevenin.github.io/stata_fr/couleurs.html</a></p>
 <div id="les-palettes-stata" class="section level3" number="3.1.1">
 <h3 number="3.1.1"><span class="header-section-number">3.1.1</span> Les palettes Stata</h3>
 <p>Stata dispose de 5 palettes de couleurs qui sont associées à des thèmes graphiques: la palette <strong>s2</strong> est associée au thème <strong>s2color</strong> par exemple</p>
@@ -2802,7 +2800,6 @@ Plus simple à programmer, car on a besoin seulement d’une couleur de départ 
 </ul>
 <div id="histogrammes-et-densités" class="section level2" number="4.1">
 <h2 number="4.1"><span class="header-section-number">4.1</span> Histogrammes et densités</h2>
-<p><span class="badge badge-info">variable(s) continues(s)</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
 <ul>
 <li>Analyse des distributions: une ou plusieurs variables numériques, croisement avec une ou plusieurs variables catégorielles</li>
 <li>Vue de face</li>
@@ -2898,7 +2895,6 @@ Pour obtenir le même histogramme: <code>gen price2 = price - 1</code></p>
 </div>
 <div id="boxplot-et-violin-plot" class="section level2" number="4.2">
 <h2 number="4.2"><span class="header-section-number">4.2</span> Boxplot et violin plot</h2>
-<p><span class="badge badge-info">variable(s) continues(s)</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
 <div id="boxplot" class="section level3" number="4.2.1">
 <h3 number="4.2.1"><span class="header-section-number">4.2.1</span> Boxplot</h3>
 <ul>
@@ -3292,7 +3288,6 @@ Histogramme [échelle commune pour l’axe y]</p>
 </div>
 <div id="nuages-scatter-et-densités-2d" class="section level2" number="4.3">
 <h2 number="4.3"><span class="header-section-number">4.3</span> Nuages (scatter) et Densités 2d</h2>
-<p><span class="badge badge-info">variables numériques</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
 <ul>
 <li>Représentation des distributions vues du dessus. La commande Stata est <strong>scatter</strong> [<strong>scatteri</strong> si on applique directement des coordonnées]</li>
 <li>On peut ajouter dans un graphique combiné les représentations précédentes pour visualiser simultanément les distributions marginales</li>
@@ -3664,7 +3659,6 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 </div>
 <div id="courbes-et-associés" class="section level2" number="4.4">
 <h2 number="4.4"><span class="header-section-number">4.4</span> Courbes et associés</h2>
-<p><span class="badge badge-info">variables continues</span> <span class="badge badge-info">Croisement avec variables catégorielles</span></p>
 <div id="line---connected" class="section level3" number="4.4.1">
 <h3 number="4.4.1"><span class="header-section-number">4.4.1</span> line - connected</h3>
 <ul>
@@ -3990,7 +3984,6 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 </div>
 <div id="barres-lollipop-et-parallel-lines" class="section level2" number="4.5">
 <h2 number="4.5"><span class="header-section-number">4.5</span> Barres, lollipop et parallel lines</h2>
-<p><span class="badge badge-info">variable numérique croisées avec variables catégorielles </span> <span class="badge badge-info">Variables catégorielles</span></p>
 <div id="barres-et-lollipop" class="section level3" number="4.5.1">
 <h3 number="4.5.1"><span class="header-section-number">4.5.1</span> Barres et lollipop</h3>
 <ul>
@@ -4443,7 +4436,7 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <ul>
 <li>NJ Cox paramètre beaucoup d’options dans ses commandes. Ici une option mystérieuse, <strong><code>blw</code></strong> pour <em>bar-line-with</em>, documentée nulle part dans les aides. J’ai du rentrer dans le <em>ado</em> de la commande pour la trouver et modifier l’éapisseur du contour.</li>
 </ul></li>
-<li>Proche du <em>mosaic chart</em>, également appelé <em>marimekko chart</em>, c’est une version <em>améliorée</em> du <em>stacked bar</em> qui tient compte du poids de chaque catégorie sur l’axe discret. La largeur des barres est donc proportionnelle à la taille relative de chaque catégorie</li>
+<li>Proche du <em>mosaic chart</em>, également appelé <em>merimekko chart</em>, c’est une version <em>améliorée</em> du <em>stacked bar</em> qui tient compte du poids de chaque catégorie sur l’axe discret. La largeur des barres est donc proportionnelle à la taille relative de chaque catégorie</li>
 </ul>
 <p><em>Graphique 96</em></p>
 <details>
@@ -4476,19 +4469,17 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <span id="cb150-24"><a href="#cb150-24" aria-hidden="true"></a><span class="dt">graphr(color(</span><span class="st">`</span>f<span class="st">&#39;)) plotr(color(`f&#39;</span>))     </span></code></pre></div>
 </details>
 <p><img src="imgf/g96.png" style="width:50.0%" /></p>
-<ul>
-<li>Comparaison des 4 graphiques</li>
-</ul>
-<p><img src="imgf/g96b.png" style="width:50.0%" /></p>
 </div>
 <div id="pie" class="section level3" number="4.6.3">
 <h3 number="4.6.3"><span class="header-section-number">4.6.3</span> Pie</h3>
 <ul>
 <li>Graphique de la contreverse</li>
 <li>Limite: perception des angles sur un axe rotatif difficile lorsque les % sont proches. Un graphique de type barre est alors supérieur.</li>
-<li>Solutions: faceting <strong>“part of all”</strong></li>
+<li>Solutions: faceting<br />
+</li>
 <li>Plusieurs déclinaisons possibles comme les graphiques <em>donuts</em> [stacked bar circulaire]</li>
 </ul>
+<p><a href="https://www.darkhorseanalytics.com/blog/salvaging-the-pie" class="uri">https://www.darkhorseanalytics.com/blog/salvaging-the-pie</a></p>
 <em>Graphique 97</em>
 <summary>
 <B><font color="#178ACC">PROGRAMME</B></font>
@@ -4625,7 +4616,7 @@ Il y a surement mieux à faire, et voir si on peut automatiser</p>
 <p><img src="imgf/g99.png" style="width:50.0%" /></p>
 <p>Le graphique suivant, combine le précédent pour les differentes valeurs de la variable <em>race</em> en modifiant quelques paramètres, positions des titres, nombre de colonnes….</p>
 <p><img src="imgf/g100.png" style="width:50.0%" /></p>
-<p>Je ne suis pas trop convaincu de l’intérêt de reporter les %</p>
+<p>Vraiment plus clair que le graphique 95 ??????</p>
 </div>
 </div>
 <div id="résultats-de-régression" class="section level2" number="4.7">
