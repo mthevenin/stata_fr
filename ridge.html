@@ -11,7 +11,7 @@
 
 
 
-<title>Accueil</title>
+<title>Ridge</title>
 
 <script src="site_libs/header-attrs-2.2/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -373,34 +373,194 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Accueil</h1>
+<h1 class="title toc-ignore">Ridge</h1>
 
 </div>
 
 
-<p><br><br></p>
-<p>Formation <strong>Introduction à Stata</strong> [2018 + quelques maj] : <a href="https://mthevenin.github.io/formation_stata/" class="uri">https://mthevenin.github.io/formation_stata/</a></p>
-<p><br> <strong>Recentrage du site sur la visualisation et Python</strong>:</p>
 <ul>
-<li><strong>08 octobre 2020</strong>
-<ul>
-<li>Ajout de pages sur les <strong>densités de ridge</strong> et les graphiques type <strong>lollipop</strong> (simplification du support)</li>
-<li>La page graphique est renommée formation</li>
-</ul></li>
-<li><strong>04 Septembre 2020</strong>
-<ul>
-<li>Version presque finale de la page sur les graphiques qui sera scindée ultérieurement en plusieurs pages par tête de chapitre. Une version PDF sera téléchargeable</li>
-<li>Corrections (en cours) et conseils apportés par Bénédicte Garnier.</li>
-<li>Des modifications seront ajoutées suite à la formation du 15 septembre.</li>
-</ul></li>
+<li>Permet de comparer plusieurs distributions en maîtrisant la superposition des densités</li>
+<li>Point de vigilance : les densités peuvent estimer des valeurs au-delà des bornes acceptables contrairement aux histogrammes</li>
+<li>Ne contrôle pas le sample size</li>
+<li>Programmation d’une commande enviseagable</li>
 </ul>
-<p><br><br> <em>Liens Ined</em><br />
-<strong>Site de l’Ined</strong>: <a href="https://www.ined.fr" class="uri">https://www.ined.fr</a><br />
-<strong>Site du service des méthodes statistiques</strong>: <a href="https://sms.site.ined.fr" class="uri">https://sms.site.ined.fr</a><br />
-<strong>Site des Rencontres de Statistique Appliquée</strong>: <a href="https://statapp.site.ined.fr/fr/" class="uri">https://statapp.site.ined.fr/fr/</a><br />
-<strong>Site du séminaire R à l’Usage des Sciences Sociales (RUSS)</strong>: <a href="https://russ.site.ined.fr" class="uri">https://russ.site.ined.fr</a></p>
-<p><br><br> Marc Thevenin: (<a href="mailto:marc.thevenin@ined.fr" class="uri">mailto:marc.thevenin@ined.fr</a>)<br />
-Service des Méthodes Statistiques - Ined - <br><br> Support réalisé avec <a href="href:https://www.rstudio.com">Rstudio</a></p>
+<p><strong>Scaling des densités</strong></p>
+<ul>
+<li><strong><span class="math inline">\(x\)</span></strong> : variable continue</li>
+<li><strong><span class="math inline">\(d\)</span></strong> : densité de <span class="math inline">\(x\)</span> sur l’ensemble des effectifs</li>
+<li><strong><span class="math inline">\(y\)</span></strong> : variable continue ou discrete</li>
+<li><strong><span class="math inline">\(n\)</span></strong> : nombre de valeur de <span class="math inline">\(y\)</span></li>
+</ul>
+<p><span class="math inline">\(iscale = \frac{(y_{max} - y_{min})}{(n-1)\times d_{max}}\)</span></p>
+<p>Lorsquee <span class="math inline">\(y\)</span> n’est pas continue, ce facteur se réduit à : <span class="math inline">\(\frac{1}{d_{max}}\)</span></p>
+<p><strong>Exemple</strong></p>
+<pre><code>clear
+set obs 399
+gen x= rnormal(0,2) in 1/99
+replace x= rnormal(1,2) in 100/199
+replace x= rnormal(2,3) in 200/299
+replace x= rnormal(3,4) in 300/399
+
+gen y=1 in 1/99
+replace y=2 in 100/199
+replace y=3 in 200/299
+replace y=4 in 300/399
+
+grstyle init
+grstyle set mesh, compact horizontal
+grstyle set legend, nobox</code></pre>
+<p><em>Densitées superposées</em></p>
+<pre><code>forv i=1/4 {
+kdensity x if y==`i&#39;, kernel(gauss) gen(x_`i&#39; d_`i&#39;)  nograph n(200)
+local graph `graph&#39; area d_`i&#39; x_`i&#39;, color(%70) ||
+}
+tw `graph&#39;, legend(order(1 &quot;y=1&quot; 2 &quot;y=2&quot; 3 &quot;y=3&quot; 4 &quot;y=4&quot;) row(1))
+drop x_* d_*</code></pre>
+<p><img src="imgp/g1.png" style="width:75.0%" /></p>
+<p><strong>Densités empilée par la méthode de ridge</strong></p>
+<ul>
+<li><p>Niveau d’automatisation intermédiaire pour faciliter la compréhension du programme (pricipalement j’ai garder telles quelles les variables y x)</p></li>
+<li><p>Estimation des densités : Prévoir un contrôle du nombre d’observations pour chaque valeur de la variable (facile à programmer)</p></li>
+<li><p>Package externe à installer: <strong><code>ggtools</code></strong></p></li>
+<li><p>Commande utilisée : <strong><code>glevelsof</code></strong> . Permet de générer une macro avec les valeurs en ordre décroissant pour ne pas créer un compteur décroissant dans la boucle et, dans le cas ou y n’est pas une suite de valeur discrètes type 1,2,3,4… et évite une étape de programmation particulièrement pénible</p></li>
+</ul>
+<pre><code>ssc install ggtools
+
+* glevelsof  var, local(l)  // = levelsof
+* glevelsof –var, local(l) // valeur de la macro l en ordre décroissant</code></pre>
+<p><em>Démarche</em>:</p>
+<p>Valeurs de <strong>iscale</strong>:</p>
+<ul>
+<li>On estime la densité de <em>x</em> sur l’ensemble de l’effectif et on récupère la valeur max avec une macro (macro `<code>maxd</code>)</li>
+<li>On calcule la différence entre la valeur max et la valeur min de Y (macro <code>yrange</code>), et on récupère le nombre de valeurs de la variable (macro <code>n_1</code>) . Ne sera utile que si <em>y</em> n’est pas discrete</li>
+<li>On calcule la valeur de iscale, enregistrée dans une macro</li>
+</ul>
+<pre><code>qui kdensity x, gen(x0 d0) kernel(gauss)  nograph
+qui sum d0
+local maxd `r(max)&#39;
+drop d0 x0
+
+glevelsof -y, local(l)
+qui sum y
+local ymin `r(min)&#39;
+local ymax `r(max)&#39;
+
+local wc: word count(`l&#39;) 
+local n_1= `wc&#39; - 1
+local yrange = `ymax&#39; - `ymin&#39;
+
+local iscale `yrange&#39;/(`n_1&#39;*`maxd&#39;)</code></pre>
+<p>Syntaxe du graphique : seuils – densités – macro empilée</p>
+<p>Pour chaque valeur de <em>y</em> (boucle <code>foreach</code>):</p>
+<ul>
+<li>On génére une variable <em>y0</em> pour définir l’origine de chaque valeur <em>y</em></li>
+<li>On estime la densité de <em>x</em> et on récupère les coordonnées</li>
+<li>On génère une variable <span class="math inline">\(y1 = y0 + d\times iscale*1.8\)</span>. La valeur 1.8 contrôle le niveau de superposition (cette valeur est utilisée par défaut dans la fonction <code>ggridge</code> de R). Plus cette valeur est élevée, plus les densités vont se superposer (on va retomber sur le premier graphique)</li>
+<li>On génère la syntaxe du graphique à l’aide d’une macro empilée.</li>
+</ul>
+<pre><code>foreach y of local l {
+
+gen y0_`y&#39; = `y&#39; 
+
+qui kdensity x if y==`y&#39;, kernel(gauss) n(200) gen(x_`y&#39; d_`y&#39;) nograph
+
+qui gen y1_`y&#39; = y0_`y&#39; + d_`y&#39;*`iscale&#39;*1.8
+
+local graph `graph&#39; rarea  y0_`y&#39; y1_`y&#39; x_`y&#39;, fcolor(%70) lc(black)  ||
+}</code></pre>
+<p>On exécute le graphique</p>
+<pre><code>tw `graph&#39;, legend(off) ylabel(1(1)4)
+drop x_* d_* y0_* y1_*</code></pre>
+<p><img src="imgp/g2.png" style="width:75.0%" /></p>
+<p>Ensemble du programme:</p>
+<pre><code>* iscale
+tempvar x0 d0
+qui kdensity x, gen(`x0&#39; `d0&#39;) kernel(gauss)  nograph
+qui sum `d0&#39;
+local maxd `r(max)&#39;
+
+glevelsof -y, local(l)
+qui sum y
+local ymin `r(min)&#39;
+local ymax `r(max)&#39;
+
+local wc: word count(`l&#39;) 
+local n_1= `wc&#39; - 1
+local yrange = `ymax&#39; - `ymin&#39;
+
+local iscale `yrange&#39;/(`n_1&#39;*`maxd&#39;)
+
+* Graph
+foreach y of local l {
+
+gen y0_`y&#39; = `y&#39; 
+
+qui kdensity x if y==`y&#39;, kernel(gauss) n(200) gen(x_`y&#39; d_`y&#39;) nograph
+
+qui gen y1_`y&#39; = y0_`y&#39; + d_`y&#39;*`iscale&#39;*1.8
+
+local graph `graph&#39; rarea  y0_`y&#39; y1_`y&#39; x_`y&#39;, fcolor(%70) lc(black)  ||
+}
+
+tw `graph&#39;, legend(off) ylabel(1(1)4)   /*name(g2, replace) title(&quot;Facteur de superposition = 10&quot;)*/
+drop x_* d_* y0_* y1_*</code></pre>
+<p><img src="imgp/g3.png" style="width:75.0%" /></p>
+<p><strong>Application à l’exemple sur les probabilités assignées aux expressions</strong></p>
+<p><a href="https://mthevenin.github.io/stata_fr/graphiques.html#522_Violin_plo" class="uri">https://mthevenin.github.io/stata_fr/graphiques.html#522_Violin_plo</a></p>
+<p>La base a été transformée en format long, pour la récupérer :</p>
+<pre><code>webuse set  &quot;https://raw.githubusercontent.com//mthevenin/stata_fr/master/&quot;
+webuse &quot;probability_long.dta&quot;, clear
+webuse set</code></pre>
+<p>Habillage/options :</p>
+<ul>
+<li>Ajout des labels des modalités sur l’axe y</li>
+<li>Des couleurs différentes entre l’aire et le contour ne donnent pas toujours un rendu optimal, la couleur de l’aire pouvant légèrement dépasser celle de la courbe (idem avec R). J’ai donc tracé un contour indépendemment de l’aire avec la commande rline</li>
+<li>J’ai réduit le facteur de superposition à .5 en raison du nombre de modalités (17) et de la valeur de iscale (voir la courbe en pic de la modalité « about even »)</li>
+<li>Une version « fond blanc » et une version « fond noir »</li>
+</ul>
+<p><img src="imgp/g4.png" style="width:75.0%" /></p>
+<p><img src="imgp/g5.png" style="width:75.0%" /></p>
+<pre><code>* iscale
+tempvar x0 d0
+qui kdensity p, gen(`x0&#39; `d0&#39;) kernel(gauss)  nograph
+qui sum `d0&#39;
+local maxd `r(max)&#39;
+
+glevelsof -proba, local(l)
+qui sum proba
+local ymin `r(min)&#39;
+local ymax `r(max)&#39;
+
+local wc: word count(`l&#39;) 
+local n_1= `wc&#39; - 1
+local yrange = `ymax&#39; - `ymin&#39;
+
+local iscale `yrange&#39;/(`n_1&#39;*`maxd&#39;)
+
+* Syntaxe du graphique
+foreach j of local l {
+gen y0_`j&#39; = `j&#39;
+qui kdensity p if proba==`j&#39;, kernel(gauss) n(200) gen(x_`j&#39; d_`j&#39;) nograph
+qui gen y1_`j&#39; = y0_`j&#39; + d_`j&#39;*`iscale&#39;*.5
+
+colorpalette viridis, nograph n(17) opacity(70) 
+
+local graph `graph&#39; rarea y0_`j&#39; y1_`j&#39; x_`j&#39; if x_`j&#39;&gt;=0 &amp; x_`j&#39;&lt;=100, ///
+                    lw(0) fc(&quot;`r(p`j&#39;)&#39;&quot;) ||                            ///
+                    rline  y0_`j&#39; y1_`j&#39; x_`j&#39; if x_`j&#39;&gt;=0 &amp; x_`j&#39;&lt;=100, lw(.2) lc(gs15) ||  }
+
+* labels sur l&#39;axe y
+local labn: value label proba
+forv i=1/17 {
+local  ylab`i&#39; : label `labn&#39; `i&#39;
+local ylab `ylab&#39; `i&#39; &quot;`ylab`i&#39;&#39;&quot;
+}
+* Exécution du graphique
+tw `graph&#39;,  legend(off)                                  ///
+ graphr(color(gs15)) plotr(color(gs15))                     ///
+ ylabel(`ylab&#39;, glw(0) labs(2)) xlabel(,glw(0) labs(1.8)) ///
+ title(&quot;Probabilités assignées&quot;, pos(11) color(gs2)) xtitle(&quot;&quot;)</code></pre>
+<p><strong>A tester</strong>: une commande qui peut générer le graphique</p>
 
 
 
