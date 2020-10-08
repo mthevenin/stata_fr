@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Spaghetti</title>
+
+<script src="site_libs/header-attrs-2.2/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Stata</a>
+</li>
+<li>
+  <a href="utils.html">Astuces &amp; utilitaires</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Graphiques
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="graphiques.html">Formation 2020</a>
+    </li>
+    <li>
+      <a href="ridge.html">Ridge</a>
+    </li>
+    <li>
+      <a href="lollipop.html">Lollipop</a>
+    </li>
+    <li>
+      <a href="spaghetti.html">Effet spaghetti</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="python.html">Python</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Spaghetti</h1>
+
+</div>
+
+
+<p><strong>Simplification et explication des programmes des graphique 86 et 87</strong></p>
+<p><a href="https://mthevenin.github.io/stata_fr/graphiques.html#542_Effet_spaghetti" class="uri">https://mthevenin.github.io/stata_fr/graphiques.html#542_Effet_spaghetti</a></p>
+<p><em>Graphiques 86 et 87</em><br />
+Ces graphiques utilisent une fonction macro (subinstr) pour les courbes en arrière plan, qui n’est pas obligatoire. En enlevant cette étape, le programme n’est pas plus court mais on s’évite de mémoriser une fonction qui n’est pas non plus utilisée à tout bout de champs.</p>
+<p><em>Graphique 87</em></p>
+<ul>
+<li>Identique au graphique 86 (hors report de la valeur max) pour tous les prénoms sous la forme d’un graphique combiné</li>
+<li>La mise en forme du report des axes pour les sous graphiques alourdi la programmation, quitte à densifier un peu le rendu du graphique final on va retirer cette option</li>
+<li>J’ai automatisé la récupération des noms des graphiques qui entre dans la commande <strong><code>graph combine</code></strong></li>
+</ul>
+<div id="graphique-sans-la-fonction-subinstr" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> Graphique sans la fonction subinstr</h1>
+<ul>
+<li>cette fonction permet de supprimer/remplacer un élément d’une macro par un autre. Ici on supprime le prénom sélectionné avec ""</li>
+<li>J’ai également supprimé le report de l’information sur l’année où le prénom a été le plus populaire, et enlevé le lissage : la commande <code>line</code> au lieu de <code>lowess</code> ( donc option <code>bw()</code> enlevée)</li>
+</ul>
+<p><img src="imgp/g14.png" style="width:75.0%" /></p>
+<p><em>Programme avec <code>subinstr</code></em></p>
+<pre><code>local name Mary
+levelsof name, l(nom)
+local other: subinstr local nom &quot;`name&#39;&quot; &quot;&quot;
+foreach o of local other {
+local lin2  `lin2&#39; line n year if name==&quot;`o&#39;&quot;,  lc(&quot;45 178 125*.40&quot;) lw(.2) ||
+}
+tw `lin2&#39; line n year if name==&quot;`name&#39;&quot;, lc(&quot;45 178 125&quot;) lw(.5) legend(off)   ///                          
+||, xsize(20) ysize(15) ytitle(&quot;&quot;)                                             ///
+xlabel(1880(40)2017, glw(.1))  ylabel(, glw(.1))                               ///
+title(&quot;Popularity of `name&#39;&quot;, pos(11) color(&quot;45 178 125&quot;))</code></pre>
+<p><em>Sans <code>subinstr</code></em></p>
+<pre><code>local name Mary
+levelsof name, l(nom)
+foreach n of local nom {
+local lin2  `lin2&#39; line n year if name==&quot;`n&#39;&quot;,  lc(&quot;45 178 125*.40&quot;) lw(.2) ||
+}     
+tw `lin2&#39; line n year if name==&quot;`name&#39;&quot;, lc(&quot;45 178 125&quot;) lw(.5) legend(off)   ///                          
+||, xsize(20) ysize(15) ytitle(&quot;&quot;)                                             ///
+xlabel(1880(40)2017, glw(.1))  ylabel(, glw(.1))                               ///
+title(&quot;Popularity of `name&#39;&quot;, pos(11) color(&quot;45 178 125&quot;))</code></pre>
+<p>Pour le prénom sélectionné (ici Mary), sa courbe sera tracée en arrière plan (macro lin2) sur laquelle va se superposer sa courbe avec un trait plus épais</p>
+</div>
+<div id="graphique-87" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Graphique 87</h1>
+<ul>
+<li>On répète dans une boucle le <em>graphique 86</em> (en enlevant sans la fonction <code>subinstr</code>)</li>
+<li>Contrairement au graphique du support, on conserve les informations sur les axes pour tous les graphiques</li>
+</ul>
+<p><strong>Point important</strong>: A la fin de chaque boucle, on doit supprimer les macros empiler <code>lin</code> et <code>lin2</code>, car leur nom n’a pas été indéxé (ce qui allège un peu la syntaxe). Si on ne les supprime pas, elles vont continuer à s’empiler sur la boucle suivante. Par rapport au support, j’ai généré automatiquement le nom des graphs qui entrent dans la commande graph combine</p>
+<p><img src="imgp/g15.png" style="width:75.0%" /></p>
+<pre><code>levelsof name, l(name)
+
+foreach nom of local name {
+* courbes en arriere plan (tous les prénoms)
+foreach nom2  of local name {
+local lin2  `lin2&#39; line n year if name==&quot;`nom2&#39;&quot;, /// 
+lc(&quot;45 178 125*.5&quot;) lw(.2)  ||
+}
+* courbe pour le prénom
+local lin line n year if name==&quot;`nom&#39;&quot;, ///
+lc(&quot;45 178 125&quot;) lw(.5) title(&quot;`nom&#39;&quot;, color(&quot;45 178 125&quot;) pos(11) ) ||
+
+* liste des noms de graphiques pour graph combine
+local nameg `nameg&#39; `nom&#39;
+
+* graphique
+tw `lin2&#39; `lin&#39;                                                                                        ///
+||, xtitle(&quot;&quot;) ytitle(&quot;&quot;) legend(off) xlabel(1880 1930 1980 2017, nogrid) ylabel(, nogrid)             ///
+name(`nom&#39;, replace) nodraw
+
+* Supprime la syntaxe du graphique pour qu&#39;elle ne s&#39;empile pas avec le prénom suivant
+* 1 graphique = 18 courbes générées
+mac drop _lin2 _lin
+}
+
+graph combine `nameg&#39; , col(4) title(&quot;A spaghetti chart of baby names popularity&quot;, pos(11)) ///
+xsize(20) ysize(15)</code></pre>
+<p><strong>A faire</strong></p>
+<p>Trouver une procédure pour automatiser le report des informations sur les axes selon la position du graphique (graphique du suppor).<br />
+<br> Principe: le graphique combiné à <strong>n</strong> lignes et <strong>m</strong> colonnes</p>
+<ul>
+<li>(Colonne 1, ligne n) : report pour x et y</li>
+<li>(Colonne 1, lignes &lt;n) : report y seulement</li>
+<li>(Colonnes &gt; 1, lignes = n) : report x seulement</li>
+<li>(Colones &gt;1 , ligne &lt; n) : aucun report</li>
+</ul>
+<p>Dans l’exemple du support : 12 graphiques avec 4 colonnes et 3 lignes</p>
+<ul>
+<li>Graphique 9</li>
+<li>Graphiques 10,11,12</li>
+<li>Graphique 1,5</li>
+<li>Graphiques 2,3,4,6,7,8</li>
+</ul>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
