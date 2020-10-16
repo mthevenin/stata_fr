@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Régression: forest plot</title>
+
+<script src="site_libs/header-attrs-2.2/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row-fluid">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Stata</a>
+</li>
+<li>
+  <a href="utils.html">Astuces &amp; utilitaires</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Graphiques
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="graphiques.html">Formation 2020</a>
+    </li>
+    <li>
+      <a href="ridge.html">Ridge</a>
+    </li>
+    <li>
+      <a href="lollipop.html">Lollipop</a>
+    </li>
+    <li>
+      <a href="spaghetti.html">Effet spaghetti</a>
+    </li>
+    <li>
+      <a href="parallel.html">Parallel</a>
+    </li>
+    <li>
+      <a href="forest_plot.html">Forest Plot</a>
+    </li>
+  </ul>
+</li>
+<li>
+  <a href="python.html">Python</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">Régression: forest plot</h1>
+
+</div>
+
+
+<p><strong>Graphique 101 : « simplification » et quelques indications sur la programmation</strong></p>
+<p><a href="https://mthevenin.github.io/stata_fr/graphiques.html#571_Forest_plot" class="uri">https://mthevenin.github.io/stata_fr/graphiques.html#571_Forest_plot</a></p>
+<p>Graphique 101 simplifié du support <strong>formation 2020</strong></p>
+<p><img src="imgp/g19.png" /></p>
+<p>L’exécution du graphique en elle-même ne pose pas vraiment de problème, elle se base sur les éléments qui permettent de produire des graphiques type « lollipop » ou « parallel coordinates ». En revanche, la difficulté réside dans la récupération des noms des variables et des labels des modalités.<br />
+Lorsque toutes les variables sont discrètes, ça va encore, mais lorsque on introduit une ou plusieurs variables continues ou des intéractions ça se complique un peu. J’ai réglé la question pour les variables continues, et sur le même principe ça devrait fonctionner pour les intéractions (à tester tout de même).<br />
+Ce type de graphique me semble, mais il y a un peu de travail à prévoir, pouvoir être programmé dans une commande.</p>
+<div id="coefplot-ben-jann" class="section level1" number="1">
+<h1 number="1"><span class="header-section-number">1</span> coefplot (Ben Jann)</h1>
+<ul>
+<li>Commande très riche, voire trop. Une quarantaine d’options, dès fois un peu obscures</li>
+<li>Bute à mon sens sur la récupération des noms de variables qu’il faut passer manuellement en option</li>
+</ul>
+<pre><code>use nhanes2, clear
+
+grstyle init
+grstyle set mesh, compact
+grstyle set legend 6, nobox
+
+xtile bmigr = bmi, n(4)
+label define bmi 1 &quot;Q1&quot; 2 &quot;Q1-Q2&quot; 3 &quot;Q3-Q4&quot; 4 &quot;Q4&quot;, modify
+label value bmigr bmi
+label define ny 0 &quot;No&quot; 1 &quot;Yes&quot;, modify
+label value black ny
+label value rural ny
+
+qui keep highbp bmigr  sex black agegrp region rural 
+logit highbp i.bmigr  i.sex i.black i.agegrp i.region i.rural 
+coefplot, drop(_cons) base</code></pre>
+<p><img src="imgp/g20.png" /></p>
+</div>
+<div id="récupération-des-estimateurs-labels-et-noms-de-variable" class="section level1" number="2">
+<h1 number="2"><span class="header-section-number">2</span> Récupération des estimateurs, labels et noms de variable</h1>
+<ul>
+<li>La commande coefplot permet de récupérer sous forme de variables les estimateurs avec l’option <code>gen(prefixe)</code></li>
+<li>On génére une macro qui liste les variables, dans le même ordre que pour le modèle</li>
+<li>On récupère le nombre de lignes générées par coefplot, ici 20 (ddl + références)</li>
+</ul>
+<pre><code>logit highbp i.bmigr  i.sex i.black i.agegrp i.region i.rural
+qui coefplot, gen(b) drop(_cons) base nodraw
+local varlist bmigr sex black agegrp region rural
+
+/*
+     +---------------------------------------------------------------+
+     | bat          bb         bV        bse        bll1        bul1 |
+     |---------------------------------------------------------------|
+  1. |   1           0          0          0           0           0 |
+  2. |   2     .279448   .0044987   .0670724    .1479886    .4109074 |
+  3. |   3    .7833707    .004304   .0656046    .6547882    .9119533 |
+  4. |   4    1.545453   .0044103   .0664102    1.415291    1.675614 |
+  5. |   5           0          0          0           0           0 |
+     |---------------------------------------------------------------|
+  6. |   6   -.4415582   .0020558   .0453412   -.5304254   -.3526911 |
+  7. |   7           0          0          0           0           0 |
+  8. |   8    .4160118   .0057786   .0760173    .2670206     .565003 |
+  9. |   9           0          0          0           0           0 |
+ 10. |  10    .5083148   .0066892   .0817873    .3480147    .6686149 |
+     |---------------------------------------------------------------|
+ 11. |  11    .9891738   .0070185   .0837767    .8249744    1.153373 |
+ 12. |  12    1.595775   .0068213   .0825909      1.4339    1.757651 |
+ 13. |  13    1.789531   .0049481   .0703424    1.651662    1.927399 |
+ 14. |  14    2.212622   .0083187   .0912071    2.033859    2.391385 |
+ 15. |  15           0          0          0           0           0 |
+     |---------------------------------------------------------------|
+ 16. |  16   -.1281252   .0043867   .0662324   -.2579384     .001688 |
+ 17. |  17   -.1194366   .0044918   .0670207   -.2507948    .0119217 |
+ 18. |  18   -.0111016   .0044348   .0665942   -.1416239    .1194207 |
+ 19. |  19           0          0          0           0           0 |
+ 20. |  20   -.0511447   .0023003   .0479612    -.145147    .0428576 |
+     +---------------------------------------------------------------+
+*/</code></pre>
+<p>C’est là qu’on récupère tous les labels et les noms de variables qui vont être transformer en valeur par la suite en variables. On va comme d’habitude utiliser les fonctions macros pour les labels des macros empilées. On va devoir générer une boucle par variable de la liste, et pour chaque variable une boucle pour tous ses labels.</p>
+<p>La macro <code>mod</code> va lister toutes les labels des modalités, et la macro <code>var</code> va lister les noms de variables</p>
+<pre><code>foreach v of local varlist {
+local labn: value label `v&#39;
+
+levelsof `v&#39;, local(l)
+foreach l2 of local l {
+local lab`l2&#39;: label `labn&#39;  `l2&#39;
+local mod `mod&#39; `lab`l2&#39;&#39;
+local var `var&#39; `v&#39;
+}
+}
+/*
+_mod:  Q1 Q1-Q2 Q3-Q4 Q4 Male Female No Yes 20-29 30-39 40-49 50-59 60-69 70+ NE MW S W No Yes
+_var:  bmigr bmigr bmigr bmigr sex sex black black agegrp agegrp agegrp agegrp agegrp 
+       agegrp region region region region rural rural
+*/</code></pre>
+<p>On a bien 20 labels générés et 20 noms de variables (4 pour lavariable bmigr, 2 pour la variable sex ……)</p>
+</div>
+<div id="création-des-variables-pour-les-labels-et-les-noms-de-variables" class="section level1" number="3">
+<h1 number="3"><span class="header-section-number">3</span> Création des variables pour les labels et les noms de variables</h1>
+<p>Pour les labels pas de difficulté, on va mettre leur valeur sur chaque ligne. Pour les variables en revanche, on va garder un seul nom de variable, qui se situera sur la ligne de la première modalité. La variable vdiff permet de repérer les changements de nom de variable d’une ligne à la suivante</p>
+<pre><code>* variable lab
+gen lab=&quot;.&quot;
+local i = 1 
+foreach lab of local mod {
+qui replace lab=&quot;`lab&#39;&quot; in `i++&#39;
+qui replace lab=&quot;.&quot; if _n&gt;`n&#39;
+}
+
+* variable var
+gen var=&quot;.&quot;
+local i = 1 
+foreach var2 of local var {
+qui replace var=&quot;`var2&#39;&quot; in `i++&#39;
+}
+
+ /*    
+     +-----------------+
+     |    lab      var |
+     |-----------------|
+  1. |     Q1    bmigr |
+  2. |  Q1-Q2    bmigr |
+  3. |  Q3-Q4    bmigr |
+  4. |     Q4    bmigr |
+  5. |   Male      sex |
+     |-----------------|
+  6. | Female      sex |
+  7. |     No    black |
+  8. |    Yes    black |
+  9. |  20-29   agegrp |
+ 10. |  30-39   agegrp |
+     |-----------------|
+ 11. |  40-49   agegrp |
+ 12. |  50-59   agegrp |
+ 13. |  60-69   agegrp |
+ 14. |    70+   agegrp |
+ 15. |     NE   region |
+     |-----------------|
+ 16. |     MW   region |
+ 17. |      S   region |
+ 18. |      W   region |
+ 19. |     No    rural |
+ 20. |    Yes    rural |
+     +-----------------+
+*/</code></pre>
+<p>La variable <strong>vdiff</strong> permet de repérer les changements de nom de variable d’une ligne à la suivante. On remplace la valeur de var par un blanc lorsque le nom de la variable est identique entre une ligne et la précédente</p>
+<pre><code>gen vdiff = var[_n] != var[_n-1]
+replace var = &quot;&quot; if vdiff!=1
+drop vdiff
+/*
+     +-------------------------+
+     |    lab   vdiff      var |
+     |-------------------------|
+  1. |     Q1       1    bmigr |
+  2. |  Q1-Q2       0          |
+  3. |  Q3-Q4       0          |
+  4. |     Q4       0          |
+  5. |   Male       1      sex |
+     |-------------------------|
+  6. | Female       0          |
+  7. |     No       1    black |
+  8. |    Yes       0          |
+  9. |  20-29       1   agegrp |
+ 10. |  30-39       0          |
+     |-------------------------|
+ 11. |  40-49       0          |
+ 12. |  50-59       0          |
+ 13. |  60-69       0          |
+ 14. |    70+       0          |
+ 15. |     NE       1   region |
+     |-------------------------|
+ 16. |     MW       0          |
+ 17. |      S       0          |
+ 18. |      W       0          |
+ 19. |     No       1    rural |
+ 20. |    Yes       0          |
+     +-------------------------+
+*/</code></pre>
+<p>Les variables <strong>lab</strong> et var seront utilisées comme labels à deux nuages de points (avec x fixes)</p>
+</div>
+<div id="calcul-des-pvalues-et-coordonnées-du-graphique" class="section level1" number="4">
+<h1 number="4"><span class="header-section-number">4</span> Calcul des pvalues et coordonnées du graphique</h1>
+<p>Comme ce graphique utilise comme variable visuelle la couleur des bulles selon la valeur des pvalues, il faut les calculer, et générer des variables qui indique quelle couleur sera affectée aux bulle (variables p01 p05 p10 p11). On génère ensuite un jeu de variable selon la valeur de p* (1 ou .).<br />
+Une version du graphique sans cette information supplémentaire, est donnée plus loin (donc programme plus court).<br />
+<br></p>
+<ul>
+<li>Pour les coordonnées de x relatifs aux valeurs des estimateurs (xb) aux noms de variables (xv) et aux noms de modalités (xl), j’aurai pu automatisé avec une macro en utilisant le minimum des estimateurs</li>
+<li>Attention à la longueur des labels et des noms de variables</li>
+<li>Pour les modèles qui reportent des odds ratios, risques ratios… cela simplifie la démarche car leur minimum =0</li>
+</ul>
+<pre><code>
+**Calcul pvalue
+capt drop pv
+gen pv =  (1-normal(abs(bb)/(bse)))*2
+format pv %9.4f
+format bb %9.2f
+
+* Pour conserver la première variable en haut et la dernière en bas
+* On génère donc le graph sur la partie négative de y
+gen bat2 = -bat
+
+
+* bulles avec couleurs selon valeur pv
+gen x01=bb if pv&lt;0.01
+gen x05=bb if pv&gt;=0.01 &amp; pv&lt;0.05
+gen x10=bb if pv&gt;=0.05 &amp; pv&lt;0.10
+gen x11=bb if pv&gt;=0.10 &amp; pv !=.
+
+* coordonnées de x pour nom variable, labels et valeur coeff
+capt drop xl xv xb xp01 xp05 xp10 xp11
+gen xv = -3    // nom variable 
+gen xl = -2.2  // label modalité
+gen xb = -1.5  // valeur coef 
+</code></pre>
+<p>Pour les modalités en référence on peut rapidement replacer la valeur de coef, un blanc, par “ref”.</p>
+<p>On a toutes les informations pour générer le graphique, qui emprunte les éléments vus pour les graphiques types “lollipop” et les graphiques type “parallel coordinates”</p>
+</div>
+<div id="graphique" class="section level1" number="5">
+<h1 number="5"><span class="header-section-number">5</span> Graphique</h1>
+<pre><code>*Graph
+colorpalette viridis, select(11 7) nograph
+local c1 &quot;&quot;`r(p1)&#39;&quot;&quot;
+local c2 &quot;&quot;`r(p2)&#39;&quot;&quot;
+colorpalette inferno, select(14 9) nograph
+local c3 &quot;&quot;`r(p1)&#39;&quot;&quot;
+local c4 &quot;&quot;`r(p2)&#39;&quot;&quot;
+
+local mopts1  mc(%0)  mlabc(gs2) mlabs(3)
+local mopts2  msize(2.5) mlc(gs2)
+
+tw scatter bat2 xv if var!=&quot;&quot;, mlabel(var) `mopts1&#39;  /// noms variables
+|| scatter bat2 xl if lab!=&quot;&quot;, mlabel(lab) `mopts1&#39;  /// noms labels
+|| scatter bat2 xb if bb!=.,   mlabel(bb)  `mopts1&#39;  /// valeurs coef
+|| pcspike bat2 bll1 bat2 bul1 , lw(.5) lc(gs2)      /// intervalle de confiance
+|| scatter bat2 x01  ,            mc(`c1&#39;) `mopts2&#39;  /// bulle si pv&lt;1%
+|| scatter bat2 x05  ,            mc(`c2&#39;) `mopts2&#39;  /// bulle si pv&lt;5%
+|| scatter bat2 x10  ,            mc(`c3&#39;) `mopts2&#39;  /// bulle si pv&lt;10%
+|| scatter bat2 x11  ,            mc(`c4&#39;) `mopts2&#39;  /// bulle si pv&gt;=10%
+|| , xlabel(-1(.5)3, glw(vthin) labc()) ylabel(,nogrid labc(%0)) ytitle(&quot;&quot;) ///
+     xline(0, lc(gs2) lw(vthin))                                            ///
+     text(0 -1.35 &quot;Coef&quot;,    color(gs2) size(3))  xline(0, lw(.2) lc(gs2))  ///
+     title(&quot;Pression sanguine élevée&quot; &quot; &quot;, pos(11) color(gs2)) scale(.7)    ///
+     legend(order(5 &quot;pv&lt;1%&quot; 6 &quot;pv&lt;5%&quot; 7 &quot;pv&lt;10%&quot;) row(1))  
+
+drop bby bplot bat bmlbl bmlpos bb bV bse bdf bll1 bul1 lab var pv bat2  ///
+      xv xl xb x01 x05 x10 x11  </code></pre>
+<p><strong>Ensemble du programme</strong></p>
+<p>Effectivement c’est long, mais il est déjà à un bon niveau d’automatisation (si seulement variables discrètes).<br />
+Il suffit de quelques modifications au début (coefplot et liste des variables en macro pour générer un graphique différent) =&gt; voir exemple qui retire la variable <em>rural</em> du graphique</p>
+<pre><code>use nhanes2, clear
+
+grstyle init
+grstyle set mesh, compact
+grstyle set legend 6, nobox
+
+xtile bmigr = bmi, n(4)
+
+label define bmi 1 &quot;Q1&quot; 2 &quot;Q1-Q2&quot; 3 &quot;Q3-Q4&quot; 4 &quot;Q4&quot;, modify
+label value bmigr bmi
+label define ny 0 &quot;No&quot; 1 &quot;Yes&quot;, modify
+label value black ny
+label value rural ny
+
+  qui keep highbp bmig  sex black agegrp region rural 
+  logit highbp i.bmigr  i.sex i.black i.agegrp i.region i.rural 
+qui coefplot, gen(b) drop(_cons) base nodraw
+
+local varlist bmigr sex black agegrp region rural 
+
+qui sum bat, d
+local n  `r(max)&#39;
+
+foreach v of local varlist {
+local labn: value label `v&#39;
+
+levelsof `v&#39;, local(l)
+foreach l2 of local l {
+local lab`l2&#39;: label `labn&#39;  `l2&#39;
+local mod `mod&#39; `lab`l2&#39;&#39;
+local var `var&#39; `v&#39;
+}
+}
+
+* variable lab
+gen lab=&quot;.&quot;
+local i = 1 
+foreach lab of local mod {
+qui replace lab=&quot;`lab&#39;&quot; in `i++&#39;
+qui replace lab=&quot;.&quot; if _n&gt;`n&#39;
+}
+
+* variable var
+gen var=&quot;.&quot;
+local i = 1 
+foreach var2 of local var {
+qui replace var=&quot;`var2&#39;&quot; in `i++&#39;
+}
+
+* On enlève les noms de variable répliquées
+gen vdiff = var[_n] != var[_n-1]
+replace var = &quot;&quot; if vdiff!=1
+drop vdiff
+
+
+* Calcul pvalue
+capt drop pv
+gen pv =  (1-normal(abs(bb)/(bse)))*2
+format pv %9.4f
+format bb %9.2f
+
+* Pour conserver la première variable en haut et la dernière en bas
+* On génère donc le graph sur la partie négative de y
+gen bat2 = -bat
+
+* coordonnées de x (hors bulles pour coef)
+capt drop xl xv xb xp01 xp05 xp10 xp11
+gen xv = -3    // nom variable 
+gen xl = -2.2  // label modalité
+gen xb = -1.5  // nom variable 
+
+* bulle avec couleurs
+gen x01=bb if pv&lt;0.01
+gen x05=bb if pv&gt;=0.01 &amp; pv&lt;0.05
+gen x10=bb if pv&gt;=0.05 &amp; pv&lt;0.10
+gen x11=bb if pv&gt;=0.10 &amp; pv !=.
+
+* Graph
+colorpalette viridis, select(11 7) nograph
+local c1 &quot;&quot;`r(p1)&#39;&quot;&quot;
+local c2 &quot;&quot;`r(p2)&#39;&quot;&quot;
+colorpalette inferno, select(14 9) nograph
+local c3 &quot;&quot;`r(p1)&#39;&quot;&quot;
+local c4 &quot;&quot;`r(p2)&#39;&quot;&quot;
+
+local mopts1  mc(%0)  mlabc(gs2) mlabs(3)
+local mopts2  msize(2.5) mlc(gs2)
+
+tw scatter bat2 xv if var!=&quot;&quot;, mlabel(var) `mopts1&#39;   /// noms variables
+|| scatter bat2 xl if lab!=&quot;&quot;, mlabel(lab) `mopts1&#39;   /// noms labels
+|| scatter bat2 xb if bb!=.,   mlabel(bb)  `mopts1&#39;   /// valeurs coef
+|| pcspike bat2 bll1 bat2 bul1 , lw(.5) lc(gs2)       /// intervalle de confiance
+|| scatter bat2 x01,  mc(`c1&#39;) `mopts2&#39;               /// bulle si pv&lt;1%
+|| scatter bat2 x05,  mc(`c2&#39;) `mopts2&#39;               /// bulle si pv&lt;5%
+|| scatter bat2 x10,  mc(`c3&#39;) `mopts2&#39;               /// bulle si pv&lt;10%
+|| scatter bat2 x11,  mc(`c4&#39;) `mopts2&#39;               /// bulle si pv&gt;=10%
+|| , xlabel(-1(.5)3, glw(vthin) labc()) ylabel(,nogrid labc(%0)) ytitle(&quot;&quot;) ///
+     xline(0, lc(gs2) lw(vthin))                                            ///
+     text(0 -1.35 &quot;Coef&quot;,    color(gs2) size(3))  xline(0, lw(.2) lc(gs2))  ///
+     title(&quot;Pression sanguine élevée&quot; &quot; &quot;, pos(11) color(gs2)) scale(.7)    ///
+     legend(order(5 &quot;pv&lt;1%&quot; 6 &quot;pv&lt;5%&quot; 7 &quot;pv&lt;10%&quot;) row(1)) 
+     
+drop bby bplot bat bmlbl bmlpos bb bV bse bdf bll1 bul1 lab var pv bat2     ///
+ p01 p05 p10 p11 xv xl xb x01 x05 x10 x11</code></pre>
+</div>
+<div id="ajouterretirer-une-variable" class="section level1" number="6">
+<h1 number="6"><span class="header-section-number">6</span> Ajouter/retirer une variable</h1>
+<p><img src="imgp/g21.png" /></p>
+<p>Exemple: on ne reporte pas les informations de la variable <em>rural</em>, qui est pourtant dans le modèle Au début du programme, il suffit d’enlever la récupération des informations sur cette variable dans la commande <code>coefplot</code> et la macro qui liste les variables</p>
+<pre><code>logit highbp i.bmigr  i.sex i.black i.agegrp i.region i.rural 
+qui coefplot, gen(b) drop(_cons 0.rural 1.rural) base nodraw 
+
+local varlist bmigr sex black agegrp region </code></pre>
+</div>
+<div id="variables-continues" class="section level1" number="7">
+<h1 number="7"><span class="header-section-number">7</span> Variable(s) continue(s)</h1>
+<p><img src="imgp/g22.png" /></p>
+<p>Pour les intéractions, je n’ai pas testé, mais a-priori ça fonctionnera sur le même principe (en plus long)</p>
+<p>Idée : - On va créer une « fausse » variable pour la variable continue, et générer un label factice (ici “-”) - Cela permettra d’insérer ce faux label dans la partie du programme qui récupère les labels des modalités des variables discretes.</p>
+<p>On va appliquer ce principe à la variable <em>bmi</em></p>
+<pre><code>use nhanes2, clear
+
+grstyle init
+grstyle set mesh, compact
+grstyle set legend 6, nobox
+
+xtile bmigr = bmi, n(4)
+
+label define bmi 1 &quot;Q1&quot; 2 &quot;Q1-Q2&quot; 3 &quot;Q3-Q4&quot; 4 &quot;Q4&quot;, modify
+label value bmigr bmi
+label define ny 0 &quot;No&quot; 1 &quot;Yes&quot;, modify
+label value black ny
+label value rural ny
+
+qui keep highbp  bmi  sex black agegrp region rural 
+logit highbp     bmi  i.sex i.black i.agegrp i.region i.rural 
+qui coefplot, gen(b) drop(_cons) base nodraw 
+
+* BMI CONTINUE =&gt; nouvelle variable + faux label 
+gen bmic = 1
+label define bmic 1 &quot;_&quot;
+label value bmic bmic
+
+* Ajout de BMIC dans varlist
+local varlist bmic sex black agegrp region rural 
+
+qui sum bat, d
+local n  `r(max)&#39;
+
+foreach v of local varlist {
+local labn: value label `v&#39;
+
+levelsof `v&#39;, local(l)
+foreach l2 of local l {
+local lab`l2&#39;: label `labn&#39;  `l2&#39;
+local mod `mod&#39; `lab`l2&#39;&#39;
+local var `var&#39; `v&#39;
+}
+}
+
+* variable lab
+gen lab=&quot;.&quot;
+local i = 1 
+foreach lab of local mod {
+qui replace lab=&quot;`lab&#39;&quot; in `i++&#39;
+qui replace lab=&quot;.&quot; if _n&gt;`n&#39;
+}
+
+
+* variable var
+gen var=&quot;.&quot;
+local i = 1 
+foreach var2 of local var {
+qui replace var=&quot;`var2&#39;&quot; in `i++&#39;
+}
+
+* on enlève les noms de variable répliquées
+gen vdiff = var[_n] != var[_n-1]
+replace var = &quot;&quot; if vdiff!=1
+drop vdiff
+
+replace var=&quot;&quot; if var==&quot;.&quot;
+
+replace var=&quot;bmi&quot; if var==&quot;bmic&quot;
+replace lab=&quot;&quot;    if lab==&quot;_&quot;
+drop bmic
+
+******* SUITE DU PROGRAMME NON MODIFIE ********</code></pre>
+</div>
+<div id="graphique-simplifié-sans-couleurs-sur-les-bulles" class="section level1" number="8">
+<h1 number="8"><span class="header-section-number">8</span> Graphique simplifié sans couleurs sur les bulles</h1>
+<p><img src="imgp/g23.png" /></p>
+<p>La partie sur la récupération des labels et noms de variables n’est pas modifiée, le reste est simplifié (à partir du calcul des pv qui ne sont plus nécessaires)</p>
+<pre><code>****** DEBUT DU PROGRAMME NON MODIFIE ******
+
+format bb %9.2f
+replace bb=. if bb==0
+* pour conserver la première variable en haut et la dernière en bas
+* On génère donc le graph sur la partie négative de y
+gen bat2 = -bat
+
+* coordonnées de x (hors bulles pour coef)
+capt drop xl xv xb xp01 xp05 xp10 xp11
+gen xv = -3    // nom variable 
+gen xl = -2.2  // label modalité
+gen xb = -1.5    // nom variable 
+*gen xb = 3.5   // coef
+
+* Graph
+
+local mopts1  mc(%0)  mlabc(gs2) mlabs(3)
+local mopts2  msize(2.5) mlc(gs2)
+
+tw scatter bat2 xv if var!=&quot;&quot;, mlabel(var) `mopts1&#39;   /// noms variables
+|| scatter bat2 xl if lab!=&quot;&quot;, mlabel(lab) `mopts1&#39;   /// noms labels
+|| scatter bat2 xb if bb!=.,   mlabel(bb)  `mopts1&#39;   /// valeurs coef
+|| pcspike bat2 bll1 bat2 bul1 , lw(.5) lc(gs2)       /// intervalle de confiance
+|| scatter bat2 bb ,  mc(gs10) `mopts2&#39;  /// bulles
+|| , xlabel(-1(.5)3, glw(vthin) labc()) ylabel(,nogrid labc(%0)) ytitle(&quot;&quot;) ///
+     xline(0, lc(gs2) lw(vthin))                                            ///
+     text(0 -1.35 &quot;Coef&quot;,    color(gs2) size(3))  xline(0, lw(.2) lc(gs2))  ///
+     title(&quot;Pression sanguine élevée&quot; &quot; &quot;, pos(11) color(gs2)) scale(.7)
+     legend(off)  </code></pre>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

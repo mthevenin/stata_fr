@@ -15,7 +15,11 @@ navbar:
           - text: "Lollipop"
             href:  lollipop.html
           - text: "Effet spaghetti"
-            href:  spaghetti.html  
+            href:  spaghetti.html
+          - text: "Parallel"
+            href:  parallel.html
+          - text: "Forest Plot"
+            href:  forest_plot.html               
     - text: "Python"
       href: python.html  
 
