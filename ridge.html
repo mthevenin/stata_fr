@@ -356,6 +356,12 @@ div.tocify {
     <li>
       <a href="spaghetti.html">Effet spaghetti</a>
     </li>
+    <li>
+      <a href="parallel.html">Parallel</a>
+    </li>
+    <li>
+      <a href="forest_plot.html">Forest Plot</a>
+    </li>
   </ul>
 </li>
 <li>
@@ -422,7 +428,7 @@ drop x_* d_*</code></pre>
 <li><p>Niveau d’automatisation intermédiaire pour faciliter la compréhension du programme (pricipalement j’ai garder telles quelles les variables y x)</p></li>
 <li><p>Estimation des densités : Prévoir un contrôle du nombre d’observations pour chaque valeur de la variable (facile à programmer)</p></li>
 <li><p>Package externe à installer: <strong><code>ggtools</code></strong></p></li>
-<li><p>Commande utilisée : <strong><code>glevelsof</code></strong> . Permet de générer une macro avec les valeurs en ordre décroissant pour ne pas créer un compteur décroissant dans la boucle et, dans le cas ou y n’est pas une suite de valeur discrètes type 1,2,3,4… et évite une étape de programmation particulièrement pénible</p></li>
+<li><p>Commande utilisée : <strong><code>glevelsof</code></strong> . Permet de générer une macro avec les valeurs en ordre décroissant. On évite donc de créer un compteur décroissant dans la boucle (type `i–’) et, dans le cas ou <em>y</em> n’est pas une suite de valeur type 1,2,3,4… évite une étape de programmation particulièrement pénible</p></li>
 </ul>
 <pre><code>ssc install ggtools
 
