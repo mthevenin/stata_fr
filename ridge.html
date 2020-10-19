@@ -402,10 +402,10 @@ div.tocify {
 <p><strong>Exemple</strong></p>
 <pre><code>clear
 set obs 399
-gen x= rnormal(0,2) in 1/99
-replace x= rnormal(1,2) in 100/199
-replace x= rnormal(2,3) in 200/299
-replace x= rnormal(3,4) in 300/399
+gen x= rnormal(0,1) in 1/99
+replace x= rnormal(1,1) in 100/199
+replace x= rnormal(2,1) in 200/299
+replace x= rnormal(3,1) in 300/399
 
 gen y=1 in 1/99
 replace y=2 in 100/199

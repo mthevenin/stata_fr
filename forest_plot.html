@@ -572,17 +572,11 @@ capt drop pv
 gen pv =  (1-normal(abs(bb)/(bse)))*2
 format pv %9.4f
 format bb %9.2f
+replace bb=. if bb==0
 
 * Pour conserver la première variable en haut et la dernière en bas
 * On génère donc le graph sur la partie négative de y
 gen bat2 = -bat
-
-
-* bulles avec couleurs selon valeur pv
-gen x01=bb if pv&lt;0.01
-gen x05=bb if pv&gt;=0.01 &amp; pv&lt;0.05
-gen x10=bb if pv&gt;=0.05 &amp; pv&lt;0.10
-gen x11=bb if pv&gt;=0.10 &amp; pv !=.
 
 * coordonnées de x pour nom variable, labels et valeur coeff
 capt drop xl xv xb xp01 xp05 xp10 xp11
@@ -610,18 +604,16 @@ tw scatter bat2 xv if var!=&quot;&quot;, mlabel(var) `mopts1&#39;  /// noms vari
 || scatter bat2 xl if lab!=&quot;&quot;, mlabel(lab) `mopts1&#39;  /// noms labels
 || scatter bat2 xb if bb!=.,   mlabel(bb)  `mopts1&#39;  /// valeurs coef
 || pcspike bat2 bll1 bat2 bul1 , lw(.5) lc(gs2)      /// intervalle de confiance
-|| scatter bat2 x01  ,            mc(`c1&#39;) `mopts2&#39;  /// bulle si pv&lt;1%
-|| scatter bat2 x05  ,            mc(`c2&#39;) `mopts2&#39;  /// bulle si pv&lt;5%
-|| scatter bat2 x10  ,            mc(`c3&#39;) `mopts2&#39;  /// bulle si pv&lt;10%
-|| scatter bat2 x11  ,            mc(`c4&#39;) `mopts2&#39;  /// bulle si pv&gt;=10%
+|| scatter bat2 bb if pv&lt;.01,           mc(&quot;`c1&#39;&quot;) `mopts2&#39;  /// bulle si pv&lt;1%
+|| scatter bat2 bb if pv&gt;=.01 &amp; pv&lt;.05,  mc(&quot;`c2&#39;&quot;) `mopts2&#39; /// bulle si pv&lt;5%
+|| scatter bat2 bb if pv&gt;=.05 &amp; pv&lt;.1,  mc(&quot;`c3&#39;&quot;) `mopts2&#39;  /// bulle si pv&lt;10%
+|| scatter bat2 bb if pv&gt;=.1,           mc(&quot;`c4&#39;&quot;) `mopts2&#39;  /// bulle si pv&gt;=10%
 || , xlabel(-1(.5)3, glw(vthin) labc()) ylabel(,nogrid labc(%0)) ytitle(&quot;&quot;) ///
      xline(0, lc(gs2) lw(vthin))                                            ///
      text(0 -1.35 &quot;Coef&quot;,    color(gs2) size(3))  xline(0, lw(.2) lc(gs2))  ///
      title(&quot;Pression sanguine élevée&quot; &quot; &quot;, pos(11) color(gs2)) scale(.7)    ///
      legend(order(5 &quot;pv&lt;1%&quot; 6 &quot;pv&lt;5%&quot; 7 &quot;pv&lt;10%&quot;) row(1))  
-
-drop bby bplot bat bmlbl bmlpos bb bV bse bdf bll1 bul1 lab var pv bat2  ///
-      xv xl xb x01 x05 x10 x11  </code></pre>
+</code></pre>
 <p><strong>Ensemble du programme</strong></p>
 <p>Effectivement c’est long, mais il est déjà à un bon niveau d’automatisation (si seulement variables discrètes).<br />
 Il suffit de quelques modifications au début (coefplot et liste des variables en macro pour générer un graphique différent) =&gt; voir exemple qui retire la variable <em>rural</em> du graphique</p>
@@ -685,6 +677,7 @@ capt drop pv
 gen pv =  (1-normal(abs(bb)/(bse)))*2
 format pv %9.4f
 format bb %9.2f
+replace bb=. if bb==0
 
 * Pour conserver la première variable en haut et la dernière en bas
 * On génère donc le graph sur la partie négative de y
@@ -695,12 +688,6 @@ capt drop xl xv xb xp01 xp05 xp10 xp11
 gen xv = -3    // nom variable 
 gen xl = -2.2  // label modalité
 gen xb = -1.5  // nom variable 
-
-* bulle avec couleurs
-gen x01=bb if pv&lt;0.01
-gen x05=bb if pv&gt;=0.01 &amp; pv&lt;0.05
-gen x10=bb if pv&gt;=0.05 &amp; pv&lt;0.10
-gen x11=bb if pv&gt;=0.10 &amp; pv !=.
 
 * Graph
 colorpalette viridis, select(11 7) nograph
@@ -717,10 +704,10 @@ tw scatter bat2 xv if var!=&quot;&quot;, mlabel(var) `mopts1&#39;   /// noms var
 || scatter bat2 xl if lab!=&quot;&quot;, mlabel(lab) `mopts1&#39;   /// noms labels
 || scatter bat2 xb if bb!=.,   mlabel(bb)  `mopts1&#39;   /// valeurs coef
 || pcspike bat2 bll1 bat2 bul1 , lw(.5) lc(gs2)       /// intervalle de confiance
-|| scatter bat2 x01,  mc(`c1&#39;) `mopts2&#39;               /// bulle si pv&lt;1%
-|| scatter bat2 x05,  mc(`c2&#39;) `mopts2&#39;               /// bulle si pv&lt;5%
-|| scatter bat2 x10,  mc(`c3&#39;) `mopts2&#39;               /// bulle si pv&lt;10%
-|| scatter bat2 x11,  mc(`c4&#39;) `mopts2&#39;               /// bulle si pv&gt;=10%
+|| scatter bat2 bb if pv&lt;.01,           mc(&quot;`c1&#39;&quot;) `mopts2&#39;  /// bulle  si pv&lt;1%
+|| scatter bat2 bb if pv&gt;=.01 &amp; pv&lt;.05,  mc(&quot;`c2&#39;&quot;) `mopts2&#39; /// bulle  si pv&lt;5%
+|| scatter bat2 bb if pv&gt;=.05 &amp; pv&lt;.1,  mc(&quot;`c3&#39;&quot;) `mopts2&#39;  /// bulle  si pv&lt;10%
+|| scatter bat2 bb if pv&gt;=.1,           mc(&quot;`c4&#39;&quot;) `mopts2&#39;  /// bulle  si pv&gt;=10%
 || , xlabel(-1(.5)3, glw(vthin) labc()) ylabel(,nogrid labc(%0)) ytitle(&quot;&quot;) ///
      xline(0, lc(gs2) lw(vthin))                                            ///
      text(0 -1.35 &quot;Coef&quot;,    color(gs2) size(3))  xline(0, lw(.2) lc(gs2))  ///
