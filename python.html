@@ -13,7 +13,7 @@
 
 <title>Python</title>
 
-<script src="site_libs/header-attrs-2.2/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
@@ -24,6 +24,17 @@
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 
@@ -384,12 +395,16 @@ div.tocify {
 </div>
 
 
-<p><strong>[Version très provisoire mai 2020]</strong> <strong>Mises à jour prévue à partir de la mi-octobre 2020 </strong></p>
+<p><strong>[Version très provisoire mai 2020]</strong><br />
+<strong>Mises à jour prévue à partir de l’automne 2020 </strong><br />
+<strong>MAJ du 04-11-2020</strong>: en fin de page, programme qui passe directement une macro Stata dans une fonction graphique<br />
+<br></p>
 <ul>
 <li>Depuis la version 16 de Stata (printemps 2019) il est possible d’utiliser Python de manière intéractive avec Stata.</li>
-<li>Une librairie Python <code>SFI</code> (<a href="https://www.stata.com/python/api16/Data.html" class="uri">https://www.stata.com/python/api16/Data.html</a>) est mise à disposition pour favoriser cette interactivé, en particulier pour passer des macros Stata vers Python.</li>
-<li>En l’état, il me semble que Python peut permettre à Stata de s’étoffer sur deux domaines: le <em>machine learning</em> (<code>sklearn</code>) et la <em>data visualization</em> (<code>seaborn</code>, <code>plotly</code>).</li>
-<li>l’entrée de l’aide stata sur python: <code>help python</code></li>
+<li>Une librairie Python <code>SFI</code> (<a href="https://www.stata.com/python/api16/Data.html" class="uri">https://www.stata.com/python/api16/Data.html</a>) est mise à disposition pour favoriser cette interactivé.</li>
+<li>A l’inverse, une librairie Python officielle devrait être mis à disposition pour utiliser Stata sous <strong>Jupyter</strong> et <strong>Spyder</strong>. Actuellement, un noyau Stata [<strong>Statakernel</strong>] est déjà disponible pour <strong>Jupyter</strong> et <strong>Atom</strong> et fonctionne très bien.</li>
+<li>En l’état, il me semble que Python peut permettre à Stata de s’étoffer sur deux domaines: le <em>machine learning</em> (<code>sklearn</code>) et les graphiques <em>data visualization</em> (<code>seaborn</code>, <code>plotly</code>).</li>
+<li>l’entrée de l’aide Stata pour utiliser Python: <code>help python</code></li>
 <li>Eléments de Correspondance Stata - Python pour la manipulation des données ( librairie<code>pandas</code>): <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata" class="uri">https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata</a></li>
 </ul>
 <div id="installation-de-python-et-des-librairies-windows" class="section level1" number="1">
@@ -411,18 +426,20 @@ div.tocify {
 <li>Installation Standard: <a href="https://www.python.org/downloads/" class="uri">https://www.python.org/downloads/</a></li>
 <li>Anaconda: <a href="https://www.anaconda.com/products/individual" class="uri">https://www.anaconda.com/products/individual</a> / Miniconda: <a href="https://docs.conda.io/en/latest/miniconda.htm" class="uri">https://docs.conda.io/en/latest/miniconda.htm</a></li>
 </ul>
-<p><br> <strong>Installation et première utilisation</strong></p>
+<p>Pour un usage minimal de Python, il n’est pas recommander d’installer <em>Anaconda</em> qui prend beaucoup d’espace</p>
+<p><br> <strong>Installation standard et première utilisation</strong></p>
 <ul>
+<li><a href="https://www.python.org/downloads/windows/" class="uri">https://www.python.org/downloads/windows/</a></li>
 <li>Bien vérifier que la case <strong>[ADD python 3.8 to PATH]</strong> est bien cochée</li>
 <li>Ne pas modifier le répertoire d’installation normalement, sous windows: <code>C:\Users\username\AppData\Local\Programs\Python</code></li>
-<li>Une fois l’installation terminée, ouvrir l’invite de commande [taper <code>cmd</code> dans la boite de recherche du menu windows, ou sous stata exécuter <code>!</code> ou <code>shell</code>]</li>
-<li>dans le prompteur, exécuter <code>python</code> puis effectuer une operation simple <code>1+1</code> ou <code>print("Bonjour python")</code></li>
+<li>Une fois l’installation terminée, ouvrir l’invite de commande [taper <code>cmd</code> dans la boite de recherche du menu windows, ou sous Stata exécuter <code>!</code> ou <code>shell</code>]</li>
+<li>Dans le prompteur, exécuter <code>python</code> puis effectuer une operation simple <code>1+1</code> ou <code>print("Bonjour python")</code></li>
 </ul>
 </div>
 <div id="installation-des-librairies-python" class="section level2" number="1.2">
 <h2 number="1.2"><span class="header-section-number">1.2</span> Installation des librairies Python</h2>
 <ul>
-<li>Normalement peu de librairies sont installées</li>
+<li>Peu de librairies sont installées lors de l’installation</li>
 <li>On peut obtenir leur liste avec la commande <code>help("modules")</code></li>
 <li>Pour vérifier la présence d’une librairie: <code>help("nom_librairie")</code></li>
 </ul>
@@ -431,10 +448,10 @@ No Python documentation found for &#39;statsmodels&#39;.
 Use help() to get the interactive help utility.
 Use help(str) for help on the str class.</code></pre>
 <ul>
-<li>Pour installer une librairie, on utilise <code>pip</code> normalement installée avec Python (vérifier avec <code>help("pip")</code>)</li>
-<li>Installation de <code>statmodels</code>:
+<li>Pour installer une librairie, on utilise la commande <code>pip</code> normalement installée avec Python (vérifier avec <code>help("pip")</code>)</li>
+<li>Exemple: Installation de <code>statmodels</code>:
 <ul>
-<li>[1] Réouvrir le prompteur windows (<code>!</code> sous Stata)</li>
+<li>[1] Réouvrir le prompteur windows</li>
 <li>[2] Exécuter <code>pip install statsmodels</code> (ou <code>! pip install statsmodels</code> sous Stata)</li>
 </ul></li>
 </ul>
@@ -473,8 +490,7 @@ PACKAGE CONTENTS
     tools (package)
     tsa (package</code></pre>
 <ul>
-<li>Comme pour R, l’installation d’une librairie installe les dépendances. Par exemple la librairie <code>pandas</code> (nécessaire pour la manipulation des données) installera <code>numpy</code>.</li>
-<li>On peut installer directement des librairies Python sous Stata: <code>! pip install pandas</code> (pas conseillé car le prompteur se referme automatiquement après exécution).</li>
+<li>Comme pour <em>R</em>, l’installation d’une librairie installe également les dépendances. Par exemple la librairie <code>pandas</code> installera <code>numpy</code>.</li>
 </ul>
 <p>Extrait de l’aide <code>numpy</code> après l’installation de <code>pandas</code></p>
 <pre><code>help(&quot;numpy&quot;)
@@ -517,6 +533,7 @@ DESCRIPTION
 <li><strong>seaborn</strong>: <code>pip install seaborn</code> [<a href="https://seaborn.pydata.org/" class="uri">https://seaborn.pydata.org/</a>]</li>
 <li><strong>plotly</strong>: <code>pip install plotly</code> [<a href="https://plotly.com/python/" class="uri">https://plotly.com/python/</a>]</li>
 </ul>
+<p>Attention: certaines librairies graphiques comme <strong>Altair</strong> ou <strong>Bokeh</strong> ne sont utilisables que sous certains environnement comme <em>Jupyter</em>, et ne pourront donc pas être utilisées dans un <em>.do</em> de Stata.</p>
 </div>
 </div>
 <div id="exécuter-python-avec-stata" class="section level1" number="2">
@@ -524,9 +541,9 @@ DESCRIPTION
 <p>Aide Stata: <code>help python</code></p>
 <div id="lecture-de-python-par-stata" class="section level2" number="2.1">
 <h2 number="2.1"><span class="header-section-number">2.1</span> Lecture de Python par Stata</h2>
-<p><strong>Rappel</strong>: s’assurer de la concordance des builts (Stata 64 =&gt; Python 64)</p>
+<p><strong>Rappel</strong>: s’assurer de la concordance des builts (Stata 64 =&gt; Python 64 / Stata 32 =&gt; Python 32)</p>
 <ul>
-<li>Lorsque Python est installé, vous pouvez vérifier qu’il est bien reconnu avec <code>python query</code></li>
+<li>Lorsque Python est installé, on peut vérifier qu’il est bien reconnu avec <code>python query</code></li>
 </ul>
 <pre><code>python query
 
@@ -542,7 +559,7 @@ DESCRIPTION
 
 </code></pre>
 <ul>
-<li>Si on a plusieurs installations de python, on peut récupérer les chemins d’accès avec <code>python search</code>:</li>
+<li>Si on a plusieurs installations de Python (Standard et Conda par exemples), on peut récupérer les chemins d’accès avec <code>python search</code>:</li>
 </ul>
 <pre><code>python search 
  Python environments found:  
@@ -571,7 +588,9 @@ python query
 <ul>
 <li>Une ligne</li>
 </ul>
-<pre><code>python: print(&quot;Bonjour Python&quot;)</code></pre>
+<pre><code>python: print(&quot;Bonjour Python&quot;)
+
+Bonjour Python</code></pre>
 <ul>
 <li>Un bloc de ligne</li>
 </ul>
@@ -614,6 +633,7 @@ python describe
 </div>
 <div id="quelques-exemple-dutilisation-de-python-pour-les-graphiques" class="section level2" number="2.3">
 <h2 number="2.3"><span class="header-section-number">2.3</span> Quelques exemple d’utilisation de Python pour les graphiques</h2>
+<p><strong>Mise à jour prévue</strong>: l’utilisation de la librairie SFI me semble complexifier le code alors que les macros Stata me semble utilisable plus facilement qu’il ne parait.</p>
 <div id="chargement-dune-base-stata-sous-python" class="section level3" number="2.3.1">
 <h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Chargement d’une base stata sous python</h3>
 <ul>
@@ -645,7 +665,7 @@ end
 <ul>
 <li>Création d’un graphique de type matrixplot avec la librairie <code>seaborn</code> sur un extrait de la base auto</li>
 <li>On va utiliser la fonction <code>pairplot</code> de la librairie <code>seaborn</code> (acronyme <code>sns</code>)</li>
-<li><code>seaborn</code> ne permettant pas au graphique de s’afficher avec une exécution sous Stata, il est enregistré avec la fonction <code>nom_objet.savefig(path/nom_graph)</code> puis ouvert via le prompteur windows <code>! nom_graph</code></li>
+<li><code>seaborn</code> ne permettant pas au graphique de s’afficher directement aorès son exécution avec Stata, il est enregistré avec la fonction <code>nom_objet.savefig(path/nom_graph)</code> puis ouvert via le prompteur windows <code>! nom_graph</code></li>
 </ul>
 <pre><code>python:
 import seaborn as sns
@@ -672,6 +692,7 @@ end
 <div id="exemple-2" class="section level3" number="2.3.3">
 <h3 number="2.3.3"><span class="header-section-number">2.3.3</span> Exemple 2</h3>
 <p>Création d’un graphique de type <em>violin</em> de la librairie <code>plotpy</code> avec passage d’une macro à un argument de stata vers Python</p>
+<p><strong>MAJ du 04/11</strong>: on peut se passer de la librairie <code>SFI</code>, la démarche étant un peu lourde, et utiliser directement les macros dans la fonction <code>violin</code> de <em>Plotly</em>. Voir le programme en fin de page. C’est franchement plus simple.</p>
 <p><strong>Etape par étape</strong><br />
 <br></p>
 <p><strong>Définition d’une variable par une macro</strong></p>
@@ -791,10 +812,39 @@ end
 * violin mpg
 * violin price, title(&quot;GRAPHIQUE TYPE VIOLON&quot;) xtitle(&quot;PRICE&quot;)
 </code></pre>
-</div>
-<div id="exemple-3" class="section level3" number="2.3.4">
-<h3 number="2.3.4"><span class="header-section-number">2.3.4</span> Exemple 3</h3>
-<p><En cours>: Création d’un graphique avec passage d’une macro à plusieurs arguments de stata vers Python</p>
+<p><strong>MAJ du 04 Novembre 2020</strong></p>
+<ul>
+<li>On va utiliser directement la macro qui enregistre le nom de la variable, ici <em>turn</em>, dans la fonction <code>violin</code></li>
+<li>On utilise la fonction <code>read_stata</code> de la librairie <code>pandas</code> pour charger la base Stata</li>
+<li>On voit que la macro <code>x</code> est directement utilisable dans la fonction <code>violin</code>:</li>
+</ul>
+<pre><code>go.Violin(y=df[&#39;`x&#39;&#39;],....)</code></pre>
+<ul>
+<li>Bizarrement dans le programme précédent, j’avais utiliser directement la macro `title’ dans le programme Python, sans tester la même chose pour la variable</li>
+</ul>
+<pre><code>sysuse auto, clear
+
+local x turn
+
+python: 
+import plotly.graph_objects as go
+import pandas as pa
+
+df = pa.read_stata(&#39;auto.dta&#39;)
+
+
+fig = go.Figure(data=go.Violin(y=df[&#39;`x&#39;&#39;], 
+box_visible=True, 
+line_color=&#39;black&#39;, meanline_visible=True, 
+fillcolor=&#39;rgb(248,118,109)&#39;, 
+opacity=0.5, x0=&#39;var&#39;))
+fig.update_layout( title=&quot; Violin plot pour la variable `x&#39;&quot;, 
+font=dict( family=&quot;Arial&quot;, 
+size=18, color=&#39;rgb(97,156,255)&#39;))
+
+fig.show()
+
+end</code></pre>
 </div>
 </div>
 </div>
@@ -810,7 +860,7 @@ end
 
 // add bootstrap table styles to pandoc tables
 function bootstrapStylePandocTables() {
-  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
   bootstrapStylePandocTables();
