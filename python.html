@@ -426,7 +426,7 @@ div.tocify {
 <li>Installation Standard: <a href="https://www.python.org/downloads/" class="uri">https://www.python.org/downloads/</a></li>
 <li>Anaconda: <a href="https://www.anaconda.com/products/individual" class="uri">https://www.anaconda.com/products/individual</a> / Miniconda: <a href="https://docs.conda.io/en/latest/miniconda.htm" class="uri">https://docs.conda.io/en/latest/miniconda.htm</a></li>
 </ul>
-<p>Pour un usage minimal de Python, il n’est pas recommander d’installer <em>Anaconda</em> qui prend beaucoup d’espace</p>
+<p>Pour un usage minimal de Python, il n’est pas recommander d’installer <em>Anaconda</em> qui prend beaucoup d’espace. <em>Miniconda</em> devrait suffire.</p>
 <p><br> <strong>Installation standard et première utilisation</strong></p>
 <ul>
 <li><a href="https://www.python.org/downloads/windows/" class="uri">https://www.python.org/downloads/windows/</a></li>
@@ -633,9 +633,9 @@ python describe
 </div>
 <div id="quelques-exemple-dutilisation-de-python-pour-les-graphiques" class="section level2" number="2.3">
 <h2 number="2.3"><span class="header-section-number">2.3</span> Quelques exemple d’utilisation de Python pour les graphiques</h2>
-<p><strong>Mise à jour prévue</strong>: l’utilisation de la librairie SFI me semble complexifier le code alors que les macros Stata me semble utilisable plus facilement qu’il ne parait.</p>
-<div id="chargement-dune-base-stata-sous-python" class="section level3" number="2.3.1">
-<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Chargement d’une base stata sous python</h3>
+<p>=&gt; L’utilisation de la librairie SFI semble complexifier le code alors que les macros Stata sont directement reconnues.</p>
+<div id="chargement-dune-base-stata-avec-python" class="section level3" number="2.3.1">
+<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Chargement d’une base Stata avec Python</h3>
 <ul>
 <li>Une librarie est chargée avec l’instruction <code>import</code>. Un acronyme lui est associé, ici <code>pa</code> (en anglais c’est généralement <code>pd</code>….on s’en passera)</li>
 <li><code>pandas</code> a une fonction permettant de lire une base en format .dta [<code>read_dta()</code>]</li>
@@ -691,8 +691,8 @@ end
 </div>
 <div id="exemple-2" class="section level3" number="2.3.3">
 <h3 number="2.3.3"><span class="header-section-number">2.3.3</span> Exemple 2</h3>
-<p>Création d’un graphique de type <em>violin</em> de la librairie <code>plotpy</code> avec passage d’une macro à un argument de stata vers Python</p>
-<p><strong>MAJ du 04/11</strong>: on peut se passer de la librairie <code>SFI</code>, la démarche étant un peu lourde, et utiliser directement les macros dans la fonction <code>violin</code> de <em>Plotly</em>. Voir le programme en fin de page. C’est franchement plus simple.</p>
+<p>Création d’un graphique de type <em>violin</em> de la librairie <code>plotpy</code> en passant une macro à un argument de Stata vers Python</p>
+<p><strong>MAJ du 04/11/20</strong>: on peut se passer de la librairie <code>SFI</code>, la démarche étant un peu lourde, et utiliser directement les macros dans la fonction <code>violin</code> de <em>Plotly</em>. Voir le programme en fin de page. C’est franchement plus simple.</p>
 <p><strong>Etape par étape</strong><br />
 <br></p>
 <p><strong>Définition d’une variable par une macro</strong></p>
@@ -747,9 +747,9 @@ fig.update_layout( title=&quot; violin plot pour la variable `x&#39;&quot;, font
 python: fig.show())</code></pre>
 <ul>
 <li>La variable est appelée par <code>y=df['var']</code>, le reste constitue des options</li>
-<li><code>fig.update_layout</code> permet d’ajouter des éléments de texte. On peut récupérer directement le nom de la variable dans le titre avec la macro <em>x</em>: <strong>title=“violin plot pour la variable `x’”</strong>. On pourrait faire de même avec les titres des axes, dont les champs n’ont pas été rempli.<br />
+<li><code>fig.update_layout</code> permet d’ajouter des éléments de texte. On peut récupérer directement le nom de la variable dans le titre avec la macro <em>x</em>: <strong>title=“violin plot pour la variable `x’”</strong>. On pourrait faire de même avec les titres des axes, dont les champs n’ont pas été défini.<br />
 </li>
-<li><code>fig.show()</code> permet d’afficher le graphique sous format <em>html</em> (type de graphique de <code>plotly</code>). On peut se déplacer sur le graphique pour lire les valeurs (moyenne, médiane, valeur de y et la densité via un lissage de type kernel(kde)). Le graphique peut être enregistré en format statique (.png) directement via le menu de la fenêtre.</li>
+<li><code>fig.show()</code> permet d’afficher le graphique sous format <em>html</em> (format des graphique de <code>plotly</code>). On peut se déplacer sur le graphique pour lire les valeurs (moyenne, médiane, valeur de y et la densité via un lissage de type kernel(kde)). Le graphique peut être enregistré en format statique (.png) directement via le menu de la fenêtre.</li>
 </ul>
 <iframe width="800" height="600" src="img/p2.html">
 </iframe>
@@ -773,7 +773,7 @@ python: fig.show()
 
 end</code></pre>
 <p><strong>Dans une routine type ado</strong><br />
-Je rencontre une difficulté pour afficher le graphique avec un programme en deux blocs, un bloc Stata puis un bloc python. Une histoire de fonction a appelé dans le bloc Stata que je n’arrive pas à définir</p>
+Je rencontre une difficulté pour afficher le graphique avec un programme en deux blocs, un bloc Stata puis un bloc python. Une histoire de fonction à appeler dans le bloc Stata que je n’arrive pas à définir</p>
 <pre><code>programme define violin
 syntax varlist [,options]
 &lt;programme Stata&gt;
@@ -782,7 +782,7 @@ end
 python:
 &lt;code python&gt;
 end</code></pre>
-<p>En un bloc, en appelant python à chaque ligne, la routine suivante fonctionne (quelques petites différences )</p>
+<p>En un bloc, en appelant Python à chaque ligne, ce qui n’est franchement pas génial, la routine suivante fonctionne</p>
 <pre><code>***Programme de la commande violon***
 
 *partie Stata
@@ -820,7 +820,7 @@ end
 </ul>
 <pre><code>go.Violin(y=df[&#39;`x&#39;&#39;],....)</code></pre>
 <ul>
-<li>Bizarrement dans le programme précédent, j’avais utiliser directement la macro `title’ dans le programme Python, sans tester la même chose pour la variable</li>
+<li>Bizarrement dans le programme précédent, j’avais utilisé directement la macro `title’ dans le programme Python, sans tester la même chose pour la variable</li>
 </ul>
 <pre><code>sysuse auto, clear
 
@@ -831,7 +831,6 @@ import plotly.graph_objects as go
 import pandas as pa
 
 df = pa.read_stata(&#39;auto.dta&#39;)
-
 
 fig = go.Figure(data=go.Violin(y=df[&#39;`x&#39;&#39;], 
 box_visible=True, 
