@@ -403,7 +403,7 @@ div.tocify {
 <li>A l’inverse, une librairie Python officielle devrait être mis à disposition pour utiliser Stata sous <strong>Jupyter</strong> et <strong>Spyder</strong>. Actuellement, un noyau Stata [<strong>Statakernel</strong>] est déjà disponible pour <strong>Jupyter</strong> et <strong>Atom</strong> et fonctionne très bien.</li>
 <li>En l’état, il me semble que Python peut permettre à Stata de s’étoffer sur deux domaines: le <em>machine learning</em> (<code>sklearn</code>) et les graphiques <em>data visualization</em>: <code>matplotlib</code>/<code>seaborn</code>, le wrapper de ggplot2 <code>plotnine</code> et, pour les graphiques intéractifs et dynamique <code>plotly</code>).</li>
 <li>l’entrée de l’aide Stata pour utiliser Python: <code>help python</code></li>
-<li>Eléments de Correspondance Stata - Python pour la manipulation des données ( librairie<code>pandas</code>): <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata" class="uri">https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata</a></li>
+<li>Eléments de Correspondance Stata - Python pour la manipulation des données (librairie<code>pandas</code>): <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata" class="uri">https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata</a></li>
 </ul>
 <div id="installation-de-python-et-des-librairies-windows" class="section level1" number="1">
 <h1 number="1"><span class="header-section-number">1</span> Installation de Python et des librairies (Windows)</h1>
@@ -850,14 +850,15 @@ end</code></pre>
 <ul>
 <li>Principe: reprendre des visualisations de la partie <a href="https://mthevenin.github.io/stata_fr/graphiques.html#5_Visualisation_des_donn%C3%A9es_avec_Stata"><em>visualisation des données avec Stata</em></a> avec des codes python exécutables dans un .do.</li>
 <li>J’utiliserai principalement le wrapper de ggplot2, <strong>plotnine</strong>. Selon la nécessité d’autres fonctions issues de seaborn seront utilisées (par exemple <code>jointplot</code>).</li>
-<li>Par rapport à <strong>seaborn</strong>, <strong>plotnine</strong> affiche directement les graphiques, et je n’ai pas rencontré de problème avec les axes lorsque les coordonnées sont modifiés (obligé de fermer et réouvrir le .do avec seaborn). Il faut néanmoins penser à fermer la fenêtre avant d’exécuter un nouveau graphique.</li>
-<li>On peut se reporter facilement aux ressources sur ggplot2 pour construire un graphique avec plotnine, la syntaxe étant quasiment identique.</li>
-<li>Support <strong>plotnine</strong>: <a href="https://plotnine.readthedocs.io/en/stable/index.html" class="uri">https://plotnine.readthedocs.io/en/stable/index.html</a><br />
+<li>Par rapport à <strong>seaborn</strong>, <strong>plotnine</strong> affiche directement les graphiques, et je n’ai pas rencontré de problème avec les axes lorsque les coordonnées sont modifiées (obligé de fermer et réouvrir le .do avec <em>seaborn</em>). Il faut néanmoins penser à fermer la fenêtre avant d’exécuter un nouveau graphique pour qu’il s’affiche.</li>
+<li>On peut se reporter facilement aux ressources sur <strong>ggplot2</strong> pour construire un graphique avec <strong>plotnine</strong>, la syntaxe étant quasiment identique.</li>
+<li>Support <strong>plotnine</strong> (fonctions peu détaillées): <a href="https://plotnine.readthedocs.io/en/stable/index.html" class="uri">https://plotnine.readthedocs.io/en/stable/index.html</a><br />
 </li>
 <li>Quelques ressources ggplot2:
 <ul>
 <li><a href="https://larmarange.github.io/seminaire-INED-18juin2019/diaporama.html#/" class="uri">https://larmarange.github.io/seminaire-INED-18juin2019/diaporama.html#/</a> et <a href="https://larmarange.github.io/analyse-R/" class="uri">https://larmarange.github.io/analyse-R/</a> (plusieurs chapitres dédiés aux graphiques)</li>
 <li><a href="http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization" class="uri">http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization</a> (en)</li>
+<li>Beaucoup d’entraide via les forums type <em>stackexchange</em></li>
 </ul></li>
 </ul>
 <p><strong>Différence plotnine / ggplot2</strong></p>
@@ -1000,7 +1001,7 @@ df.head()
 )
 
 end</code></pre>
-<p>Si l’on souhaite contrôler le nombre d’observations par catégorie on peut tracer des jitters <strong><code>geom_jitter()</code></strong></p>
+<p>Si l’on souhaite contrôler le nombre d’observations par catégorie on peut tracer des jitters avec <strong><code>geom_jitter()</code></strong></p>
 <p><img src="gpython/g6.png" /></p>
 <pre><code>python:
 (
@@ -1054,13 +1055,24 @@ ggplot(df, aes(&#39;factor(x)&#39;, y=&#39;y&#39;))
 )
 
 end</code></pre>
+<p>Découverte un peu par hasard, peut-être que la meilleure visualisation est donnée ici par la géométrie <strong><code>geom_sina</code></strong> qui contrôle les coordonnées des jitters sur l’axe discret par la valeur de la densité.</p>
+<p><img src="gpython/g9b.png" /></p>
+<p>L’option <code>stroke</code> permet de changer l’épaisseur du contour des bulles</p>
+<pre><code>python:
+(
+    ggplot(df, aes(x=&#39;factor(x)&#39;, y=&#39;y&#39;, fill=&#39;factor(x)&#39;))
+    +  geom_sina(size=1, color=&#39;black&#39;, stroke=.1)
+    +  geom_boxplot(alpha=.5, fill=&#39;white&#39;, width=.1)
+    + theme(legend_position=&#39;none&#39;)
+)
+end</code></pre>
 </div>
 <div id="application-sur-les-probabilités-assignées" class="section level2" number="3.3">
 <h2 number="3.3"><span class="header-section-number">3.3</span> Application sur les probabilités assignées</h2>
 <p><br></p>
-<p>Graphique avec les 17 densités illisibles</p>
+<p>Le graphique avec les 17 densités est peu lisible</p>
 <p><img src="gpython/g10.png" /></p>
-<p>*je me suis calé sur l’option par défaut de Stata avec l’option <code>bw='silverman'</code>, qui me semble bien plus approprié pour faire apparaître la forte concentration des réponse autoure de 50% pour “about even”.</p>
+<p>Je me suis calé sur l’option par défaut de Stata avec l’option <code>bw='silverman'</code>, qui me semble bien plus appropriée pour faire apparaître la forte concentration des réponse autoure de 50% pour “about even”.</p>
 <pre><code>import pandas as pa
 df=pa.read_stata(&#39;D:/Marc/SMS/FORMATIONS/2020/graph ur9/formation/probability_long.dta&#39;)
 df.head()
@@ -1095,7 +1107,7 @@ On peut représenter rapidement les différentes densités sous forme de facette
 )</code></pre>
 <p><em>Boxplot</em><br />
 <br></p>
-<p>Des box-plot me semblent assez appropriées (effectifs constants pour tous les groupes)</p>
+<p>Des box-plot me semblent assez appropriées, avec ici des effectifs identiques pour tous les groupes.</p>
 <p><img src="gpython/g14.png" /></p>
 <p><em>Ridge</em><br />
 <br> La librairie plotnine n’a pas une fonction comme <code>ggridge</code> pour tracer des courbes de ridge.<br />
@@ -1103,7 +1115,106 @@ On peut utiliser la librarie <strong><code>joypy</code></strong>, dont la syntax
 </div>
 <div id="nuages-et-densités-2d" class="section level2" number="3.4">
 <h2 number="3.4"><span class="header-section-number">3.4</span> Nuages et densités 2D</h2>
-<p>[suite semaine du 15 au 19 février ]</p>
+<ul>
+<li>Pour les nuages de points on utilise <strong><code>geom_point</code></strong></li>
+<li>Pour les densités (courbes de niveau) et les histogrammes sur deux axes de coordonnées on utilise <strong><code>geom_density_2d</code></strong> et <strong><code>geom_bin2d</code></strong></li>
+<li>On tracera également le graphique combiné avec les distributions marginales à l’aide de la fonction <strong><code>jointplot</code></strong> de la librairies <strong><code>seaborn</code></strong></li>
+</ul>
+<p><em>Préparation de données</em></p>
+<pre><code>use &quot;D:/Marc/SMS/FORMATIONS/2020/graph ur9/formation/twonums.dta&quot;, clear
+
+keep if surface&lt;=3000
+keep if prix&lt;=500000
+
+save &quot;prix_surface&quot;, replace
+
+python: 
+
+import pandas as pa
+import plotnine as p9
+from plotnine import *
+import numpy as np
+df=pa.read_stata(&#39;D:/stata_temp/prix_surface.dta&#39;)
+df.head()
+
+end</code></pre>
+<p><strong>Nuages de points</strong><br />
+<br></p>
+<p><img src="gpython/g15.png" /></p>
+<pre class="{"><code>python:
+
+(
+ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;)) 
++ geom_point(color=&#39;#41B6C4&#39;)    
+)
+
+end</code></pre>
+<p>On réduit la taille des bulles avec l’option “<code>size</code>”</p>
+<p><img src="gpython/g16.png" /></p>
+<pre><code>python:
+
+(
+ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
++ geom_point(color=&#39;#41B6C4&#39;, size=.1)    
+)
+
+end</code></pre>
+<p><strong>Courbes de niveau</strong><br />
+<br></p>
+<p><img src="gpython/g17.png" /></p>
+<p>L’option <strong><code>level</code></strong>, donne comme avec Stata le nombre de courbes de niveau qui sont estimées</p>
+<pre><code>python:
+
+(
+ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;))   
++ geom_density_2d(color=&#39;#41B6C4&#39;, levels=20, size=.5)   
+)
+
+end</code></pre>
+<p>On peut empiler le nuage de points les courbes (+ petites barres sur les axes pour les distributions marginales)</p>
+<p><img src="gpython/g18.png" /></p>
+<pre><code>python:
+
+(
+ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
++ geom_point(size=.1, color=&#39;#41B6C4&#39;)   
++ geom_density_2d(levels=20,  size=.5)   
++ geom_rug(color=&#39;#41B6C4&#39;)
+)
+
+end</code></pre>
+<p>Pour reporter des couleurs pour chaque ligne de niveau ou remplir d’une couleur différente la surface entre chaque courbe, ça se complique un peu. Je ne serai pas vraiment capable d’expliquer le pourquoi du comment de la syntaxe de l’argument <strong><code>'..level..'</code></strong></p>
+<p><img src="gpython/g19.png" /></p>
+<pre><code>python:
+
+(
+ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;, color=&#39;..level..&#39;)) 
++ geom_density_2d(levels=20, size=.5)
++ theme(legend_position=&#39;none&#39;)   
+)
+
+end</code></pre>
+<p><img src="gpython/g20.png" /></p>
+<pre><code>python:
+(
+ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;)) 
++  stat_density_2d(aes(fill=&#39;..level..&#39;), geom = &quot;polygon&quot;,  contour=True, levels=20)
++ geom_density_2d(levels=20, size=.5, color=&#39;black&#39;)  
++ theme(legend_position=&#39;none&#39;)        
+)
+end
+
+</code></pre>
+<p><strong>Histogramme 2d</strong><br />
+<br></p>
+<p>Il n’y a pas (encore) de version sous forme d’hexagone</p>
+<p><img src="gpython/g21.png" /></p>
+<pre><code>python:
+(
+ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
++ geom_bin2d(bins = 50, color=&#39;white&#39;, size=.2)    
+)
+end</code></pre>
 </div>
 </div>
 
