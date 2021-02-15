@@ -1162,7 +1162,7 @@ end</code></pre>
 <p><strong>Courbes de niveau</strong><br />
 <br></p>
 <p><img src="gpython/g17.png" /></p>
-<p>L’option <strong><code>level</code></strong>, donne comme avec Stata le nombre de courbes de niveau qui sont estimées</p>
+<p>L’option <strong><code>level</code></strong> donne comme avec Stata le nombre de courbes de niveau qui sont estimées</p>
 <pre><code>python:
 
 (
@@ -1205,7 +1205,7 @@ ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 end
 
 </code></pre>
-<p><strong>Histogramme 2d</strong><br />
+<p><strong>Heatmap (histogramme 2d)</strong><br />
 <br></p>
 <p>Il n’y a pas (encore) de version sous forme d’hexagone</p>
 <p><img src="gpython/g21.png" /></p>
@@ -1215,6 +1215,55 @@ ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 + geom_bin2d(bins = 50, color=&#39;white&#39;, size=.2)    
 )
 end</code></pre>
+<p><strong>Combinaison avec les distributions marginales (seaborn)</strong></p>
+<ul>
+<li>La fonction <strong><code>jointplot</code></strong> semble ici la plus adaptée, syntaxe très simple</li>
+<li>L’option <strong><code>kind</code></strong> définira le type de représentation: nuage/histogramme, heatmap/histogramme, courbe de niveau/densités [par défaut nuage + histogramme]</li>
+</ul>
+<pre><code>import seaborn as sns
+import matplotlib as plt</code></pre>
+<p><img src="gpython/g22.png" /></p>
+<pre><code>python:
+
+g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;)
+g.savefig(&quot;graph1.png&quot;)
+end
+
+!graph1.png</code></pre>
+<p><img src="gpython/g23.png" /></p>
+<pre><code>python:
+
+g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;, kind=&#39;hist&#39;)
+g.savefig(&quot;graph1.png&quot;)
+end
+
+!graph1.png</code></pre>
+<p>On peut obtenire une heatmap avec des hexagones avec l’option <code>kind='hex'</code></p>
+<p><img src="gpython/g24.png" /></p>
+<pre><code>python:
+
+g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;, kind=&#39;hex&#39;)
+g.savefig(&quot;graph1.png&quot;)
+end
+
+!graph1.png</code></pre>
+<p><img src="gpython/g25.png" /></p>
+<pre><code>python:
+
+g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;, kind=&#39;kde&#39;)
+g.savefig(&quot;graph1.png&quot;)
+end
+
+!graph1.png</code></pre>
+<p>L’option <code>fill</code> permet de remplir l’aire entre les courbes de niveau ainsi que les densités marginales</p>
+<p><img src="gpython/g26.png" /></p>
+<pre><code>python:
+
+g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;, kind=&#39;kde&#39;, fill=&#39;#41B6C4&#39;)
+g.savefig(&quot;graph1.png&quot;)
+end
+
+!graph1.png</code></pre>
 </div>
 </div>
 
