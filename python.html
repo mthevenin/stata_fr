@@ -629,9 +629,8 @@ b:
 python describe
 </code></pre>
 </div>
-<div id="quelques-exemple-dutilisation-de-python-pour-les-graphiques" class="section level2" number="2.3">
-<h2 number="2.3"><span class="header-section-number">2.3</span> Quelques exemple d’utilisation de Python pour les graphiques</h2>
-<p>=&gt; L’utilisation de la librairie SFI semble complexifier le code alors que les macros Stata sont directement reconnues.</p>
+<div id="quelques-exemples-dutilisation-de-python-graphiques" class="section level2" number="2.3">
+<h2 number="2.3"><span class="header-section-number">2.3</span> Quelques exemples d’utilisation de Python (graphiques)</h2>
 <div id="chargement-dune-base-stata-avec-python" class="section level3" number="2.3.1">
 <h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Chargement d’une base Stata avec Python</h3>
 <ul>
@@ -720,7 +719,7 @@ df = pd.DataFrame(v,columns = [&#39;var&#39;])</code></pre>
 &gt;&gt;&gt; varname
 &#39;turn&#39;</code></pre>
 <ul>
-<li><code>v = Data.get(var = varname)</code> permet de récupérer, sous forme de vecteur, les observations de la variable associée à la macro (ici <em>turn</em>)</li>
+<li><code>v = Data.get(var = varname)</code> permet de récupérer, sous forme d’un vecteur, les observations de la variable associée à la macro (ici <em>turn</em>)</li>
 </ul>
 <pre><code>&gt;&gt;&gt; v = Data.get(var = varname)
 &gt;&gt;&gt; v
@@ -745,9 +744,9 @@ fig.update_layout( title=&quot; violin plot pour la variable `x&#39;&quot;, font
 python: fig.show())</code></pre>
 <ul>
 <li>La variable est appelée par <code>y=df['var']</code>, le reste constitue des options</li>
-<li><code>fig.update_layout</code> permet d’ajouter des éléments de texte. On peut récupérer directement le nom de la variable dans le titre avec la macro <em>x</em>: <strong>title=“violin plot pour la variable `x’”</strong>. On pourrait faire de même avec les titres des axes, dont les champs n’ont pas été défini.<br />
+<li><code>fig.update_layout</code> permet d’ajouter des éléments de type texte. On peut récupérer directement le nom de la variable dans le titre avec la macro <em>x</em>: <strong>title=“violin plot pour la variable `x’”</strong>. On pourrait faire de même avec les titres des axes.<br />
 </li>
-<li><code>fig.show()</code> permet d’afficher le graphique sous format <em>html</em> (format des graphique de <code>plotly</code>). On peut se déplacer sur le graphique pour lire les valeurs (moyenne, médiane, valeur de y et la densité via un lissage de type kernel(kde)). Le graphique peut être enregistré en format statique (.png) directement via le menu de la fenêtre.</li>
+<li><code>fig.show()</code> permet d’afficher le graphique sous format <em>html</em> (format des graphique de <code>plotly</code>). On peut se déplacer sur le graphique pour lire les valeurs (moyenne, médiane, valeur de y et la valeur de la densité estimée. Le graphique peut être enregistré en format statique (.png) directement via le menu de la fenêtre.</li>
 </ul>
 <iframe width="800" height="600" src="img/p2.html">
 </iframe>
@@ -846,26 +845,26 @@ end</code></pre>
 </div>
 </div>
 <div id="visualisation-des-données-plotnine" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Visualisation des données (plotnine)</h1>
+<h1 number="3"><span class="header-section-number">3</span> Visualisation des données (plotnine…)</h1>
 <ul>
 <li>Principe: reprendre des visualisations de la partie <a href="https://mthevenin.github.io/stata_fr/graphiques.html#5_Visualisation_des_donn%C3%A9es_avec_Stata"><em>visualisation des données avec Stata</em></a> avec des codes python exécutables dans un .do.</li>
-<li>J’utiliserai principalement le wrapper de ggplot2, <strong>plotnine</strong>. Selon la nécessité d’autres fonctions issues de seaborn seront utilisées (par exemple <code>jointplot</code>).</li>
+<li><strong>Tous les chemins mènent à ggplot</strong>: J’utiliserai principalement le wrapper de ggplot2, <strong>plotnine</strong> (Hassan Kibirige).</li>
 <li>Par rapport à <strong>seaborn</strong>, <strong>plotnine</strong> affiche directement les graphiques, et je n’ai pas rencontré de problème avec les axes lorsque les coordonnées sont modifiées (obligé de fermer et réouvrir le .do avec <em>seaborn</em>). Il faut néanmoins penser à fermer la fenêtre avant d’exécuter un nouveau graphique pour qu’il s’affiche.</li>
 <li>On peut se reporter facilement aux ressources sur <strong>ggplot2</strong> pour construire un graphique avec <strong>plotnine</strong>, la syntaxe étant quasiment identique.</li>
-<li>Support <strong>plotnine</strong> (fonctions peu détaillées): <a href="https://plotnine.readthedocs.io/en/stable/index.html" class="uri">https://plotnine.readthedocs.io/en/stable/index.html</a><br />
-</li>
+<li>Support <strong>plotnine</strong> (fonctions peu détaillées): <a href="https://plotnine.readthedocs.io/en/stable/index.html" class="uri">https://plotnine.readthedocs.io/en/stable/index.html</a></li>
+<li>Traduction des chapitres de l’ouvrage <em><a href="https://r4ds.had.co.nz/">R for data science</a></em> (H.Wickham,G.Grolemund) dédiés à <strong>ggplot</strong> en <strong>plotnine</strong>: <a href="https://datascienceworkshops.com/blog/plotnine-grammar-of-graphics-for-python/" class="uri">https://datascienceworkshops.com/blog/plotnine-grammar-of-graphics-for-python/</a></li>
 <li>Quelques ressources ggplot2:
 <ul>
 <li><a href="https://larmarange.github.io/seminaire-INED-18juin2019/diaporama.html#/" class="uri">https://larmarange.github.io/seminaire-INED-18juin2019/diaporama.html#/</a> et <a href="https://larmarange.github.io/analyse-R/" class="uri">https://larmarange.github.io/analyse-R/</a> (plusieurs chapitres dédiés aux graphiques)</li>
 <li><a href="http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization" class="uri">http://www.sthda.com/english/wiki/be-awesome-in-ggplot2-a-practical-guide-to-be-highly-effective-r-software-and-data-visualization</a> (en)</li>
-<li>Beaucoup d’entraide via les forums type <em>stackexchange</em></li>
+<li>Beaucoup d’entraides via les forums type <em>stackexchange</em></li>
 </ul></li>
 </ul>
 <p><strong>Différence plotnine / ggplot2</strong></p>
 <ul>
-<li>La couverture des fonctionnalités de ggplot2 n’est pas totale. Mais je ne peux pas (encore) l’évaluer, mais j’ai repéré par exemple moins de possibilité aux niveaux de la souplesse en terme d’utilisation des palettes de couleurs.</li>
+<li>La couverture des fonctionnalités de <em>ggplot2</em> avec <em>plotnine</em> n’est pas totale, elle serait de 95% (J.Janssens).</li>
 <li>On doit utiliser la parenthèse comme délimiteur si le graphique est exécuté sur plusieurs lignes</li>
-<li>Les arguments de certaines options ne sont pas sépararées par <code>.</code> mais par <code>_</code> [par exemple <code>axis_text_x</code> au lieu de <code>axis.text.x</code>]</li>
+<li>Les arguments de certaines options ne sont pas sépararés par <code>.</code> mais par <code>_</code> [par exemple <code>axis_text_x</code> au lieu de <code>axis.text.x</code>]</li>
 </ul>
 <p><strong>Installation des librairies</strong></p>
 <p>Dans l’invite de commande windows</p>
@@ -1116,7 +1115,7 @@ On peut utiliser la librarie <strong><code>joypy</code></strong>, dont la syntax
 <div id="nuages-et-densités-2d" class="section level2" number="3.4">
 <h2 number="3.4"><span class="header-section-number">3.4</span> Nuages et densités 2D</h2>
 <ul>
-<li>Pour les nuages de points on utilise <strong><code>geom_point</code></strong></li>
+<li>Pour les nuages de points on utilise <strong><code>geom_point()</code></strong></li>
 <li>Pour les densités (courbes de niveau) et les histogrammes sur deux axes de coordonnées on utilise <strong><code>geom_density_2d</code></strong> et <strong><code>geom_bin2d</code></strong></li>
 <li>On tracera également le graphique combiné avec les distributions marginales à l’aide de la fonction <strong><code>jointplot</code></strong> de la librairies <strong><code>seaborn</code></strong></li>
 </ul>
@@ -1264,6 +1263,135 @@ g.savefig(&quot;graph1.png&quot;)
 end
 
 !graph1.png</code></pre>
+</div>
+<div id="courbes" class="section level2" number="3.5">
+<h2 number="3.5"><span class="header-section-number">3.5</span> Courbes</h2>
+<ul>
+<li>Applications sur les prénoms (effet spaghetti)</li>
+<li>Pour tracer des courbes on utilise <strong><code>geom_line()</code></strong></li>
+<li>Si on veut remplir la surface sous la courbe par une couleur on utilise <strong><code>geom_area()</code></strong>. C’est le même principe qu’avec les graphiques Stata.</li>
+</ul>
+<p><em>Préparation des données (Stata)</em></p>
+<pre><code>clear
+import delimited using &quot;https://raw.githubusercontent.com/mthevenin/stata_fr/master/babynames.csv&quot;
+gen mary=&quot;Mary&quot; if name==&quot;Mary&quot;
+save babyname, replace</code></pre>
+<p>Le graphique peu lisible si les courbes sont empilées sur un même graphique</p>
+<p><img src="gpython/g27.png" /></p>
+<pre><code>python:
+(
+ggplot(df, aes(x=&#39;year&#39;, y=&#39;n&#39;, group=&#39;name&#39;, color=&#39;name&#39;)) 
++ geom_line()  
+)
+end</code></pre>
+<p>Comme pour les densités, on peut représenter les courbes sous formes de facettes. J’ai ajouter quelques options pour contrôler la taille des textes et ajouter un titre au graphique. Une version avec le remplissage de l’aire sous les courbes est également donnée: on replace <code>color='name'</code> par <code>'fill='name'</code> et <code>geom_line()</code> par <code>geom_area</code>.</p>
+<p><img src="gpython/g28.png" /></p>
+<pre><code>python:
+(
+    ggplot(df, aes(x=&#39;year&#39;, y=&#39;n&#39;, group=&#39;name&#39;, color=&#39;name&#39;))
+    + geom_line()  
+    + facet_wrap(&#39;name&#39;)
+    + theme(strip_text = element_text(size=5),
+            axis_text_x = element_text(size = 5),
+            axis_text_y = element_text(size = 6),
+            legend_position=&#39;none&#39;) 
+    + labs(title=&quot;Popularity of american names&quot;)
+)
+end</code></pre>
+<p><img src="gpython/g28b.png" /></p>
+<pre><code>python:
+(
+    ggplot(df, aes(x=&#39;year&#39;, y=&#39;n&#39;, group=&#39;name&#39;, fill=&#39;name&#39;))
+    + geom_line()  
+    + facet_wrap(&#39;name&#39;)
+    + theme(strip_text = element_text(size=5),
+            axis_text_x = element_text(size = 5),
+            axis_text_y = element_text(size = 6),
+            legend_position=&#39;none&#39;) 
+    + labs(title=&quot;Popularity of american names&quot;)
+)
+end</code></pre>
+<p>L’autre solution est de mettre un nom en <em>highlight</em>. On superpose la courbe pour Mary (verte et plus épaisse) aux autres (grises, plus fines).<br />
+La version pour tous les prénoms sous forme de facettes, particulièrement lourde à programmer avec Stata n’est pas tracée, je n’ai pas trouvé de solution simple avec <em>plotnine</em> (le graphique d’origine de Yan Holtz, sous R, mobilise des fonctions <code>dplyr</code>dans les arguments <code>ggplot</code>).</p>
+<p><img src="gpython/g29.png" /></p>
+<pre><code>python:
+mary = df.query(&quot;name == &#39;Mary&#39;&quot;)
+
+(
+    ggplot(df, aes(x=&#39;year&#39;, y=&#39;n&#39;, group=&#39;name&#39;))
+  + geom_line(color=&#39;grey&#39;)  
+    + geom_line(mary, aes(x=&#39;year&#39;, y=&#39;n&#39;), color=&quot;#2DB27D&quot;, size=1.5)
+    + labs(title=&quot;Popularity of Mary&quot;, color=&quot;#2DB27D&quot;)
+    + theme(
+    plot_title = element_text(colour = &quot;#2DB27D&quot;)
+    )
+)
+end</code></pre>
+</div>
+<div id="barres-et-lollipop" class="section level2" number="3.6">
+<h2 number="3.6"><span class="header-section-number">3.6</span> Barres et lollipop</h2>
+<p>Cela va se compliquer un peu (ordre des barres, légende pour les comparaisons)<br />
+<br></p>
+<ul>
+<li>On exécute des graphiques de types barres avec <strong><code>geom_bar</code></strong>.</li>
+<li>Pour un graphique de type <strong>lollipop</strong>, on utilise <strong><code>geom_segment()</code></strong> et <strong><code>geom_point()</code></strong></li>
+<li>Pour ordonner les barres, on utilisera la fonction <code>reorder()</code>. Cela alourdit la syntaxe du graphique, mais évite d’utiliser des fonctions <code>pandas</code> elles mêmes assez lourdes.</li>
+<li>Comme il s’agit d’utiliser Python avec Stata, les données seront mises en forme avec la commande <code>collapse</code>.</li>
+</ul>
+<p><strong>Barres</strong></p>
+<p>*Préparation des données (Stata)</p>
+<pre><code>sysuse nlsw88.dta, clear
+keep wage occupation union
+drop if inlist(occupation,9,10,12, .) 
+save nlsw88.dta, replace
+
+
+keep wage occupation union
+drop if inlist(occupation,9,10,12, .) 
+
+preserve
+
+collapse wage, by(occ)
+drop if occ==.
+drop if wage==.
+
+save wage1, replace
+
+restore</code></pre>
+<ul>
+<li>On réutilisera <code>geom_bar()</code> pour les variables catégorielles, mais ici comme on a une observation par branche professionnelle, aucun calcul n’est nécessaire pour générer le graphique. On indique que les valeurs sont prises telles quelles avec l’option <strong><code>stat=identity</code></strong>.</li>
+<li>Comme les graphiques de type barres sont plus lisibles horizontalement, on inverse les coordonnées avec <code>coord_flip()</code></li>
+</ul>
+<p><img src="gpython/g30.png" /></p>
+<pre><code>(
+ggplot()
++ geom_bar(df,aes(x=&#39;occupation&#39;, y=&#39;wage&#39;) , stat=&#39;identity&#39;, color=&#39;black&#39;, fill=&#39;#225EA8&#39;)
++ ylab(&quot;Wage (mean)&quot;)
++ xlab(&quot;Occupation&quot;)    
++ coord_flip()
+)</code></pre>
+<p>Pour trier les branches selon la valeur du salaire moyen horaire, on utilise dans le mapping la fonction <strong><code>reorder(variable,valeur)</code></strong>. L’argument <em>valeur</em> est donné par la variable <em>wage</em></p>
+<p><img src="gpython/g31.png" /></p>
+<pre><code>python:
+(
+ggplot()
++ geom_bar(df,aes(x=&#39;reorder(occupation,wage)&#39;, y=&#39;wage&#39;) , stat=&#39;identity&#39;, color=&#39;black&#39;, fill=&#39;#225EA8&#39;)
++ ylab(&quot;Wage (mean)&quot;)
++ xlab(&quot;Occupation&quot;)    
++ coord_flip()
+)
+end</code></pre>
+<p>Pour inverser l’ordre on remplace dans la fonction <code>reorder()</code> <em>wage</em> par <em>-wage</em></p>
+<p><img src="gpython/g31b.png" /></p>
+<pre><code>python:
+(
+ggplot()
++ geom_bar(df,aes(x=&#39;reorder(occupation,-wage)&#39;, y=&#39;wage&#39;) , stat=&#39;identity&#39;, color=&#39;black&#39;, fill=&#39;#225EA8&#39;)
++ ylab(&quot;Wage (mean)&quot;)
++ xlab(&quot;Occupation&quot;)    
++ coord_flip()
+)
+end</code></pre>
 </div>
 </div>
 
