@@ -1392,6 +1392,91 @@ ggplot()
 + coord_flip()
 )
 end</code></pre>
+<p><strong>Lollipop</strong></p>
+<ul>
+<li>Sur le même principe que Stata, on utilise <strong><code>geom_segment()</code></strong> [stata: <code>pci</code>] et <strong><code>point_point()</code></strong> [stata: <code>scatter</code>] pour afficher ce type de graphique</li>
+<li>Une version avec écarts par rapport au salaire moyen toutes branches professionnelles confondues est présentées. En amont on récupère cette moyenne avec Stata et on génère les différences (variable <em>diffw</em>) dans la base collapsée.</li>
+</ul>
+<p><em>Préparation des données</em><br />
+<br></p>
+<pre><code>use nlsw88,clear
+
+qui sum wage
+local mw = `r(mean)&#39;
+
+preserve
+
+collapse wage, by(occupation)
+drop if occ==.
+drop if wage==.
+gen mw = `mw&#39;
+gen diffw = wage - mw
+save wage1, replace
+
+restore
+
+python:
+df=pa.read_stata(&#39;D:/stata_temp/wage1.dta&#39;)
+df.head()
+end</code></pre>
+<p><img src="gpython/g32.png" /></p>
+<pre><code>python:
+(
+ggplot()
++ geom_segment(df,aes(y=&#39;occupation&#39;,  yend=&#39;occupation&#39;, x=0, xend=&#39;wage&#39;), size=1.2, color=&#39;#225EA8&#39;)
++ geom_point(df, aes(y=&#39;occupation&#39;, x=&#39;wage&#39;), size=3.5, color=&#39;#225EA8&#39;, fill=&#39;#1D91C0&#39;)  
++ xlab(&quot;Wage (mean)&quot;)
+)
+end</code></pre>
+<p><img src="gpython/g33.png" /></p>
+<pre><code>python:
+(
+ggplot()
++ geom_segment(df,aes(y=&#39;reorder(occupation,wage)&#39;, yend=&#39;reorder(occupation,wage)&#39;, 
+                      x=0, xend=&#39;wage&#39;), size=1.2, color=&#39;#225EA8&#39;)
++ geom_point(df, aes(y=&#39;reorder(occupation,wage)&#39;,   x=&#39;wage&#39;), size=3.5, fill=&#39;#1D91C0&#39; )  
++ xlab(&quot;Wage (mean)&quot;)
++ ylab(&quot;Occupation&quot;)    
+)
+end</code></pre>
+<p>On peut jouer sur l’épaisseur des segments et la couleur des bulles</p>
+<p><img src="gpython/g33b.png" /></p>
+<pre><code>python:
+(
+ggplot()
++ geom_segment(df,aes(y=&#39;reorder(occupation,wage)&#39;, yend=&#39;reorder(occupation,wage)&#39;, 
+                      x=0, xend=&#39;wage&#39;), size=5.8, color=&#39;#225EA8&#39;)
++ geom_point(df, aes(y=&#39;reorder(occupation,wage)&#39;,   x=&#39;wage&#39;), size=5, fill=&#39;yellow&#39; )  
++ xlab(&quot;Wage (mean)&quot;)
++ ylab(&quot;Occupation&quot;)    
+)
+end</code></pre>
+<p>Pour visualiser les différences entre le salaire moyen des branches et la moyenne sur l’ensemble des observations on utilise la variable <em>diffw</em> au lieu de <em>wage</em></p>
+<p><img src="gpython/g34.png" /></p>
+<pre><code>python:
+(
+ggplot()
++ geom_segment(df,aes(y=&#39;reorder(occupation,diffw)&#39;, yend=&#39;reorder(occupation,diffw)&#39;, x=0, xend=&#39;diffw&#39;), size=1.2, color=&#39;#225EA8&#39;)
++ geom_point(df, aes(y=&#39;reorder(occupation,diffw)&#39;,   x=&#39;diffw&#39;), size=3.5, fill=&#39;#1D91C0&#39; )  
++ xlab(&quot;Ecarts avec le salaire moyen&quot;)
++ ylab(&quot;Professions&quot;)    
+)
+end</code></pre>
+<ul>
+<li>Pour améliorer le graphique on peut ajouter une barre verticale sur x=0<br />
+</li>
+<li>On a également changer le thème du graphique: <strong><code>theme_light()</code></strong></li>
+</ul>
+<p><img src="gpython/g35.png" /></p>
+<pre><code>(
+ggplot()
++ geom_segment(df,aes(y=&#39;reorder(occupation,diffw)&#39;, yend=&#39;reorder(occupation,diffw)&#39;, x=0, xend=&#39;diffw&#39;), size=1.2, color=&#39;#225EA8&#39;)
++ geom_point(df, aes(y=&#39;reorder(occupation,diffw)&#39;,   x=&#39;diffw&#39;), size=3.5, fill=&#39;#1D91C0&#39; )
++ geom_segment(df,aes(y=1, yend=10, x=0, xend=0), size=1.2, color=&#39;#225EA8&#39;)  
++ xlab(&quot;wage - mean(wage)&quot;)
++ ylab(&quot;Occupation&quot;)    
++ theme_light()
+)</code></pre>
 </div>
 </div>
 
