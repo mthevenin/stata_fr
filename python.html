@@ -866,6 +866,21 @@ end</code></pre>
 <li>On doit utiliser la parenthèse comme délimiteur si le graphique est exécuté sur plusieurs lignes</li>
 <li>Les arguments de certaines options ne sont pas sépararés par <code>.</code> mais par <code>_</code> [par exemple <code>axis_text_x</code> au lieu de <code>axis.text.x</code>]</li>
 </ul>
+<p><strong>Macro Stata</strong></p>
+<p><strong>Les macro Stata sont pleinement reconnues par <code>plotnine</code></strong>….et ça c’est bien !</p>
+<p>Exemple</p>
+<pre><code>
+* Prévoir chargement des librairies python
+
+sysuse auto, clear
+local x price
+local y mpg
+save auto, replace
+
+python:
+df=pa.read_stata(&#39;D:/stata_temp/auto.dta&#39;)
+( ggplot(df, aes(x=&#39;`x&#39;&#39;, y=&#39;`y&#39;&#39;)) + geom_point() )
+end</code></pre>
 <p><strong>Installation des librairies</strong></p>
 <p>Dans l’invite de commande windows</p>
 <pre><code>pip install plotnine
