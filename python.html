@@ -916,7 +916,6 @@ end</code></pre>
 <li>La couleur des barres est entrée en hexadecimal (pour convertir du rgb en hex:<a href="http://www.proftnj.com/RGB3.htm" class="uri">http://www.proftnj.com/RGB3.htm</a>) avec l’option <code>fill</code></li>
 <li>La couleur du contour des barres est entré avec l’option <code>color</code></li>
 </ul>
-<p><img src="gpython/g2.png" /></p>
 <pre><code>import delimited &quot;https://raw.githubusercontent.com/holtzy/data_to_viz/master/Example_dataset/1_OneNum.csv&quot;, clear
 keep if price&lt;=300
 save price, replace
@@ -932,10 +931,10 @@ df.head()
 )
 
 end</code></pre>
+<p><img src="gpython/g2.png" /></p>
 <ul>
 <li>Pour une densité, on utilise <strong><code>geom_density()</code></strong></li>
 </ul>
-<p><img src="gpython/g3.png" /></p>
 <pre><code>python:
 
 (
@@ -944,10 +943,10 @@ end</code></pre>
 )
 
 end</code></pre>
+<p><img src="gpython/g3.png" /></p>
 <ul>
 <li>On peut ajouter sous forme de petites barres la distribution de la variable avec <strong><code>geom_rug()</code></strong></li>
 </ul>
-<p><img src="gpython/g4.png" /></p>
 <pre><code>python:
 
 (
@@ -957,6 +956,7 @@ end</code></pre>
 )
 
 end</code></pre>
+<p><img src="gpython/g4.png" /></p>
 </div>
 <div id="box-plot-et-violin" class="section level2" number="3.2">
 <h2 number="3.2"><span class="header-section-number">3.2</span> Box plot et violin</h2>
@@ -987,7 +987,6 @@ save &quot;box&quot;, replace</code></pre>
 <li>Les <em>notches</em> permettent de mieux faire apparaitre la médiane</li>
 <li>On retire la légende, les valeurs des catégories étant déjà reportées sur x, avec <strong><code>theme(legend_position='none')</code></strong>. <em><code>theme(....)</code></em> permet d’entrer toutes les options générales du graphique</li>
 </ul>
-<p><img src="gpython/g5.png" /></p>
 <pre><code>python:
 
 df=pa.read_stata(&#39;D:/stata_temp/box.dta&#39;)
@@ -1000,8 +999,8 @@ df.head()
 )
 
 end</code></pre>
+<p><img src="gpython/g5.png" /></p>
 <p>Si l’on souhaite contrôler le nombre d’observations par catégorie on peut tracer des jitters avec <strong><code>geom_jitter()</code></strong></p>
-<p><img src="gpython/g6.png" /></p>
 <pre><code>python:
 (
   ggplot(df, aes(x=&#39;factor(x)&#39;, y=&#39;y&#39;, fill=&#39;factor(x)&#39;)) 
@@ -1010,8 +1009,8 @@ end</code></pre>
 ) 
 
 end</code></pre>
+<p><img src="gpython/g6.png" /></p>
 <p>Ces jitters peuvent être facilement ajouter aux box en arrière plan.</p>
-<p><img src="gpython/g7.png" /></p>
 <pre><code>python:
 
 g1= aes(x=&#39;factor(x)&#39;, y=&#39;y&#39;)
@@ -1024,13 +1023,13 @@ ggplot(df, aes(&#39;factor(x)&#39;, y=&#39;y&#39;))
 )
 
 end</code></pre>
+<p><img src="gpython/g7.png" /></p>
 <p><strong>BEAN &amp; VIOLIN</strong></p>
 <ul>
 <li>Les graphiques de type beans réprésentent la même densité en mirroir. Ils sont néanmoins exécutés avec <strong><code>geom_violin()</code></strong></li>
 <li>On ajoute la valeur des quartiles avec <strong><code>draw_quantiles=(.25,.5,.75)</code></strong></li>
 <li>Pour obtenir des violins, on doit superposer une box plot, ce qu’on fait dans le second graphique.</li>
 </ul>
-<p><img src="gpython/g8.png" /></p>
 <pre><code>python:
 
 (
@@ -1040,8 +1039,8 @@ end</code></pre>
 )
 
 end</code></pre>
+<p><img src="gpython/g8.png" /></p>
 <p>Le graphique <em>violin</em> avec des jitters en arrière plan</p>
-<p><img src="gpython/g9.png" /></p>
 <pre><code>python: 
 
 v= aes(x=&#39;factor(x)&#39;, y=&#39;y&#39;, fill=&#39;factor(x)&#39;)
@@ -1054,8 +1053,8 @@ ggplot(df, aes(&#39;factor(x)&#39;, y=&#39;y&#39;))
 )
 
 end</code></pre>
-<p>Découverte un peu par hasard, peut-être que la meilleure visualisation est donnée ici par la géométrie <strong><code>geom_sina</code></strong> qui contrôle les coordonnées des jitters sur l’axe discret par la valeur de la densité.</p>
-<p><img src="gpython/g9b.png" /></p>
+<p><img src="gpython/g9.png" /></p>
+<p>Découverte un peu par hasard, et peut-être que la meilleure visualisation est donnée ici par la géométrie <strong><code>geom_sina</code></strong> qui contrôle les coordonnées des jitters sur l’axe discret par la valeur de la densité.</p>
 <p>L’option <code>stroke</code> permet de changer l’épaisseur du contour des bulles</p>
 <pre><code>python:
 (
@@ -1065,13 +1064,15 @@ end</code></pre>
     + theme(legend_position=&#39;none&#39;)
 )
 end</code></pre>
+<p><img src="gpython/g9b.png" /></p>
 </div>
 <div id="application-sur-les-probabilités-assignées" class="section level2" number="3.3">
 <h2 number="3.3"><span class="header-section-number">3.3</span> Application sur les probabilités assignées</h2>
 <p><br></p>
-<p>Le graphique avec les 17 densités est peu lisible</p>
-<p><img src="gpython/g10.png" /></p>
-<p>Je me suis calé sur l’option par défaut de Stata avec l’option <code>bw='silverman'</code>, qui me semble bien plus appropriée pour faire apparaître la forte concentration des réponse autoure de 50% pour “about even”.</p>
+<ul>
+<li>Le graphique avec les 17 densités est peu lisible</li>
+<li>Je me suis calé sur l’option par défaut de Stata avec l’option <code>bw='silverman'</code>, qui me semble bien plus appropriée pour faire apparaître la forte concentration des réponse autoure de 50% pour “about even”</li>
+</ul>
 <pre><code>import pandas as pa
 df=pa.read_stata(&#39;D:/Marc/SMS/FORMATIONS/2020/graph ur9/formation/probability_long.dta&#39;)
 df.head()
@@ -1081,13 +1082,13 @@ df.head()
     + geom_density(alpha=0.7, color=&#39;black&#39;, bw=&#39;silverman&#39;)
 )
 </code></pre>
+<p><img src="gpython/g10.png" /></p>
 <p><em>Facettes</em><br />
 On peut représenter rapidement les différentes densités sous forme de facettes (graphique combiné de chaque courbe)</p>
 <ul>
 <li>Facette: <strong><code>facet_wrap('proba')</code></strong></li>
 <li>J’ai réduit la taille des titres des sous graphiques avec <strong><code>theme(strip_text = element_text(size=5))</code></strong></li>
 </ul>
-<p><img src="gpython/g11.png" /></p>
 <pre><code>(
     ggplot(df, aes(x=&#39;p&#39;, color=&quot;proba&quot;, fill=&#39;proba&#39;))
     + geom_density(alpha=0.5, bw=&#39;silverman&#39;)
@@ -1095,8 +1096,8 @@ On peut représenter rapidement les différentes densités sous forme de facette
     + theme(strip_text = element_text(size=5))
     + theme(legend_position=&#39;none&#39;)   
 )</code></pre>
+<p><img src="gpython/g11.png" /></p>
 <p>Même type de graphique avec des histogrammes</p>
-<p><img src="gpython/g12.png" /></p>
 <pre><code>(
     ggplot(df, aes(x=&#39;p&#39;, color=&quot;proba&quot;, fill=&#39;proba&#39;))
     + geom_histogram(alpha=0.5, binwidth=5)
@@ -1104,13 +1105,14 @@ On peut représenter rapidement les différentes densités sous forme de facette
     + theme(strip_text = element_text(size=5))
     + theme(legend_position=&#39;none&#39;)   
 )</code></pre>
+<p><img src="gpython/g12.png" /></p>
 <p><em>Boxplot</em><br />
 <br></p>
 <p>Des box-plot me semblent assez appropriées, avec ici des effectifs identiques pour tous les groupes.</p>
 <p><img src="gpython/g14.png" /></p>
 <p><em>Ridge</em><br />
 <br> La librairie plotnine n’a pas une fonction comme <code>ggridge</code> pour tracer des courbes de ridge.<br />
-On peut utiliser la librarie <strong><code>joypy</code></strong>, dont la syntaxe est simple, mais provoque (chez moi) un crash de Stata</p>
+On peut utiliser la librarie <strong><code>joypy</code></strong>, dont la syntaxe est simple, mais provoque (chez moi) un crash de Stata (ok avec le notebook <em>Jupyter</em>)</p>
 </div>
 <div id="nuages-et-densités-2d" class="section level2" number="3.4">
 <h2 number="3.4"><span class="header-section-number">3.4</span> Nuages et densités 2D</h2>
@@ -1139,8 +1141,7 @@ df.head()
 end</code></pre>
 <p><strong>Nuages de points</strong><br />
 <br></p>
-<p><img src="gpython/g15.png" /></p>
-<pre class="{"><code>python:
+<pre><code>python:
 
 (
 ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;)) 
@@ -1148,8 +1149,8 @@ ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 )
 
 end</code></pre>
+<p><img src="gpython/g15.png" /></p>
 <p>On réduit la taille des bulles avec l’option “<code>size</code>”</p>
-<p><img src="gpython/g16.png" /></p>
 <pre><code>python:
 
 (
@@ -1158,9 +1159,9 @@ ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 )
 
 end</code></pre>
+<p><img src="gpython/g16.png" /></p>
 <p><strong>Courbes de niveau</strong><br />
 <br></p>
-<p><img src="gpython/g17.png" /></p>
 <p>L’option <strong><code>level</code></strong> donne comme avec Stata le nombre de courbes de niveau qui sont estimées</p>
 <pre><code>python:
 
@@ -1170,8 +1171,8 @@ ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 )
 
 end</code></pre>
+<p><img src="gpython/g17.png" /></p>
 <p>On peut empiler le nuage de points les courbes (+ petites barres sur les axes pour les distributions marginales)</p>
-<p><img src="gpython/g18.png" /></p>
 <pre><code>python:
 
 (
@@ -1182,8 +1183,8 @@ ggplot(df, aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 )
 
 end</code></pre>
-<p>Pour reporter des couleurs pour chaque ligne de niveau ou remplir d’une couleur différente la surface entre chaque courbe, ça se complique un peu. Je ne serai pas vraiment capable d’expliquer le pourquoi du comment de la syntaxe de l’argument <strong><code>'..level..'</code></strong></p>
-<p><img src="gpython/g19.png" /></p>
+<p><img src="gpython/g18.png" /></p>
+<p>Pour reporter des couleurs pour chaque ligne de niveau ou remplir d’une couleur différente la surface entre chaque courbe, les couleurs sont appliquées sur l’argument <code>level</code> (nombre de courbes estimées) <strong><code>'..level..'</code></strong></p>
 <pre><code>python:
 
 (
@@ -1193,7 +1194,8 @@ ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;, color=&#39;..level..&#39;))
 )
 
 end</code></pre>
-<p><img src="gpython/g20.png" /></p>
+<p><img src="gpython/g19.png" /></p>
+<p>Pour remplir les surface entre les courbes, on doit ajouter l’option <strong><code>stat_density_2d</code></strong>, ajouter un mapping <em>aes()</em> avec l’argument <strong><code>fill='..level..'</code></strong>, ainsi que la geométrie <strong><code>polygon</code></strong> (pas très intuitif)</p>
 <pre><code>python:
 (
 ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;)) 
@@ -1204,24 +1206,25 @@ ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 end
 
 </code></pre>
+<p><img src="gpython/g20.png" /></p>
 <p><strong>Heatmap (histogramme 2d)</strong><br />
 <br></p>
-<p>Il n’y a pas (encore) de version sous forme d’hexagone</p>
-<p><img src="gpython/g21.png" /></p>
+<p>Il n’y a pas (encore) de version sous forme d’hexagone avec <strong>plotnine</strong></p>
 <pre><code>python:
 (
 ggplot(aes(x=&#39;surface&#39;, y=&#39;prix&#39;))
 + geom_bin2d(bins = 50, color=&#39;white&#39;, size=.2)    
 )
 end</code></pre>
+<p><img src="gpython/g21.png" /></p>
 <p><strong>Combinaison avec les distributions marginales (seaborn)</strong></p>
 <ul>
-<li>La fonction <strong><code>jointplot</code></strong> semble ici la plus adaptée, syntaxe très simple</li>
-<li>L’option <strong><code>kind</code></strong> définira le type de représentation: nuage/histogramme, heatmap/histogramme, courbe de niveau/densités [par défaut nuage + histogramme]</li>
+<li>La fonction <strong><code>jointplot</code></strong> semble ici la plus adaptée, la syntaxe très simple.</li>
+<li>L’option <strong><code>kind</code></strong> définit le type de représentation: nuage/histogramme, heatmap/histogramme, courbe de niveau/densités [par défaut nuage + histogramme]</li>
+<li>les graphique de <strong>seaborn</strong> sont plus fastidieux pour être afficher avec Stata, il faut sauf exception les enregistrer (sauf si la fonction <strong><code>plt.show()</code></strong> fonctionne) avec la fonction <strong><code>savefig()</code></strong> et les ouvrir avec une shell (<strong><code>! nom_graph.png</code></strong>)</li>
 </ul>
 <pre><code>import seaborn as sns
 import matplotlib as plt</code></pre>
-<p><img src="gpython/g22.png" /></p>
 <pre><code>python:
 
 g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;)
@@ -1229,6 +1232,7 @@ g.savefig(&quot;graph1.png&quot;)
 end
 
 !graph1.png</code></pre>
+<p><img src="gpython/g22.png" /></p>
 <p><img src="gpython/g23.png" /></p>
 <pre><code>python:
 
@@ -1237,8 +1241,8 @@ g.savefig(&quot;graph1.png&quot;)
 end
 
 !graph1.png</code></pre>
-<p>On peut obtenire une heatmap avec des hexagones avec l’option <code>kind='hex'</code></p>
-<p><img src="gpython/g24.png" /></p>
+<p><img src="gpython/g23.png" /></p>
+<p>On peut obtenir une heatmap de type héxagones avec l’option <code>kind='hex'</code></p>
 <pre><code>python:
 
 g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;, kind=&#39;hex&#39;)
@@ -1246,7 +1250,7 @@ g.savefig(&quot;graph1.png&quot;)
 end
 
 !graph1.png</code></pre>
-<p><img src="gpython/g25.png" /></p>
+<p><img src="gpython/g24.png" /></p>
 <pre><code>python:
 
 g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;, kind=&#39;kde&#39;)
@@ -1254,8 +1258,8 @@ g.savefig(&quot;graph1.png&quot;)
 end
 
 !graph1.png</code></pre>
-<p>L’option <code>fill</code> permet de remplir l’aire entre les courbes de niveau ainsi que les densités marginales</p>
-<p><img src="gpython/g26.png" /></p>
+<p><img src="gpython/g25.png" /></p>
+<p>L’option <strong><code>fill='code_couleur'</code></strong> permet de remplir l’aire entre les courbes de niveau ainsi que les densités marginales</p>
 <pre><code>python:
 
 g = sns.jointplot(data=df, y=&quot;prix&quot;, x=&quot;surface&quot;, color=&#39;#41B6C4&#39;, kind=&#39;kde&#39;, fill=&#39;#41B6C4&#39;)
@@ -1263,6 +1267,7 @@ g.savefig(&quot;graph1.png&quot;)
 end
 
 !graph1.png</code></pre>
+<p><img src="gpython/g26.png" /></p>
 </div>
 <div id="courbes" class="section level2" number="3.5">
 <h2 number="3.5"><span class="header-section-number">3.5</span> Courbes</h2>
@@ -1276,16 +1281,15 @@ end
 import delimited using &quot;https://raw.githubusercontent.com/mthevenin/stata_fr/master/babynames.csv&quot;
 gen mary=&quot;Mary&quot; if name==&quot;Mary&quot;
 save babyname, replace</code></pre>
-<p>Le graphique peu lisible si les courbes sont empilées sur un même graphique</p>
-<p><img src="gpython/g27.png" /></p>
+<p>Le graphique est peu lisible si les courbes sont empilées</p>
 <pre><code>python:
 (
 ggplot(df, aes(x=&#39;year&#39;, y=&#39;n&#39;, group=&#39;name&#39;, color=&#39;name&#39;)) 
 + geom_line()  
 )
 end</code></pre>
+<p><img src="gpython/g27.png" /></p>
 <p>Comme pour les densités, on peut représenter les courbes sous formes de facettes. J’ai ajouter quelques options pour contrôler la taille des textes et ajouter un titre au graphique. Une version avec le remplissage de l’aire sous les courbes est également donnée: on replace <code>color='name'</code> par <code>'fill='name'</code> et <code>geom_line()</code> par <code>geom_area</code>.</p>
-<p><img src="gpython/g28.png" /></p>
 <pre><code>python:
 (
     ggplot(df, aes(x=&#39;year&#39;, y=&#39;n&#39;, group=&#39;name&#39;, color=&#39;name&#39;))
@@ -1298,7 +1302,7 @@ end</code></pre>
     + labs(title=&quot;Popularity of american names&quot;)
 )
 end</code></pre>
-<p><img src="gpython/g28b.png" /></p>
+<p><img src="gpython/g28.png" /></p>
 <pre><code>python:
 (
     ggplot(df, aes(x=&#39;year&#39;, y=&#39;n&#39;, group=&#39;name&#39;, fill=&#39;name&#39;))
@@ -1311,9 +1315,9 @@ end</code></pre>
     + labs(title=&quot;Popularity of american names&quot;)
 )
 end</code></pre>
+<p><img src="gpython/g28b.png" /></p>
 <p>L’autre solution est de mettre un nom en <em>highlight</em>. On superpose la courbe pour Mary (verte et plus épaisse) aux autres (grises, plus fines).<br />
 La version pour tous les prénoms sous forme de facettes, particulièrement lourde à programmer avec Stata n’est pas tracée, je n’ai pas trouvé de solution simple avec <em>plotnine</em> (le graphique d’origine de Yan Holtz, sous R, mobilise des fonctions <code>dplyr</code>dans les arguments <code>ggplot</code>).</p>
-<p><img src="gpython/g29.png" /></p>
 <pre><code>python:
 mary = df.query(&quot;name == &#39;Mary&#39;&quot;)
 
@@ -1327,6 +1331,7 @@ mary = df.query(&quot;name == &#39;Mary&#39;&quot;)
     )
 )
 end</code></pre>
+<p><img src="gpython/g29.png" /></p>
 </div>
 <div id="barres-et-lollipop" class="section level2" number="3.6">
 <h2 number="3.6"><span class="header-section-number">3.6</span> Barres et lollipop</h2>
@@ -1346,9 +1351,6 @@ drop if inlist(occupation,9,10,12, .)
 save nlsw88.dta, replace
 
 
-keep wage occupation union
-drop if inlist(occupation,9,10,12, .) 
-
 preserve
 
 collapse wage, by(occ)
@@ -1362,7 +1364,6 @@ restore</code></pre>
 <li>On réutilisera <code>geom_bar()</code> pour les variables catégorielles, mais ici comme on a une observation par branche professionnelle, aucun calcul n’est nécessaire pour générer le graphique. On indique que les valeurs sont prises telles quelles avec l’option <strong><code>stat=identity</code></strong>.</li>
 <li>Comme les graphiques de type barres sont plus lisibles horizontalement, on inverse les coordonnées avec <code>coord_flip()</code></li>
 </ul>
-<p><img src="gpython/g30.png" /></p>
 <pre><code>(
 ggplot()
 + geom_bar(df,aes(x=&#39;occupation&#39;, y=&#39;wage&#39;) , stat=&#39;identity&#39;, color=&#39;black&#39;, fill=&#39;#225EA8&#39;)
@@ -1370,8 +1371,8 @@ ggplot()
 + xlab(&quot;Occupation&quot;)    
 + coord_flip()
 )</code></pre>
+<p><img src="gpython/g30.png" /></p>
 <p>Pour trier les branches selon la valeur du salaire moyen horaire, on utilise dans le mapping la fonction <strong><code>reorder(variable,valeur)</code></strong>. L’argument <em>valeur</em> est donné par la variable <em>wage</em></p>
-<p><img src="gpython/g31.png" /></p>
 <pre><code>python:
 (
 ggplot()
@@ -1381,8 +1382,8 @@ ggplot()
 + coord_flip()
 )
 end</code></pre>
+<p><img src="gpython/g31.png" /></p>
 <p>Pour inverser l’ordre on remplace dans la fonction <code>reorder()</code> <em>wage</em> par <em>-wage</em></p>
-<p><img src="gpython/g31b.png" /></p>
 <pre><code>python:
 (
 ggplot()
@@ -1392,6 +1393,7 @@ ggplot()
 + coord_flip()
 )
 end</code></pre>
+<p><img src="gpython/g31b.png" /></p>
 <p><strong>Lollipop</strong></p>
 <ul>
 <li>Sur le même principe que Stata, on utilise <strong><code>geom_segment()</code></strong> [stata: <code>pci</code>] et <strong><code>point_point()</code></strong> [stata: <code>scatter</code>] pour afficher ce type de graphique</li>
@@ -1407,7 +1409,7 @@ local mw = `r(mean)&#39;
 preserve
 
 collapse wage, by(occupation)
-drop if occ==.
+drop if occupation==.
 drop if wage==.
 gen mw = `mw&#39;
 gen diffw = wage - mw
@@ -1419,7 +1421,7 @@ python:
 df=pa.read_stata(&#39;D:/stata_temp/wage1.dta&#39;)
 df.head()
 end</code></pre>
-<p><img src="gpython/g32.png" /></p>
+<p><em>Graphique</em></p>
 <pre><code>python:
 (
 ggplot()
@@ -1428,7 +1430,7 @@ ggplot()
 + xlab(&quot;Wage (mean)&quot;)
 )
 end</code></pre>
-<p><img src="gpython/g33.png" /></p>
+<p><img src="gpython/g32.png" /></p>
 <pre><code>python:
 (
 ggplot()
@@ -1439,8 +1441,8 @@ ggplot()
 + ylab(&quot;Occupation&quot;)    
 )
 end</code></pre>
+<p><img src="gpython/g33.png" /></p>
 <p>On peut jouer sur l’épaisseur des segments et la couleur des bulles</p>
-<p><img src="gpython/g33b.png" /></p>
 <pre><code>python:
 (
 ggplot()
@@ -1451,8 +1453,8 @@ ggplot()
 + ylab(&quot;Occupation&quot;)    
 )
 end</code></pre>
+<p><img src="gpython/g33b.png" /></p>
 <p>Pour visualiser les différences entre le salaire moyen des branches et la moyenne sur l’ensemble des observations on utilise la variable <em>diffw</em> au lieu de <em>wage</em></p>
-<p><img src="gpython/g34.png" /></p>
 <pre><code>python:
 (
 ggplot()
@@ -1462,12 +1464,12 @@ ggplot()
 + ylab(&quot;Professions&quot;)    
 )
 end</code></pre>
+<p><img src="gpython/g34.png" /></p>
 <ul>
 <li>Pour améliorer le graphique on peut ajouter une barre verticale sur x=0<br />
 </li>
 <li>On a également changer le thème du graphique: <strong><code>theme_light()</code></strong></li>
 </ul>
-<p><img src="gpython/g35.png" /></p>
 <pre><code>(
 ggplot()
 + geom_segment(df,aes(y=&#39;reorder(occupation,diffw)&#39;, yend=&#39;reorder(occupation,diffw)&#39;, x=0, xend=&#39;diffw&#39;), size=1.2, color=&#39;#225EA8&#39;)
@@ -1477,6 +1479,99 @@ ggplot()
 + ylab(&quot;Occupation&quot;)    
 + theme_light()
 )</code></pre>
+<p><img src="gpython/g35.png" /></p>
+<p><strong>Comparaisons: haltères</strong></p>
+<ul>
+<li>On génère en amont avec Stata les salaires moyens selon l’appartenance ou non à un syndicat (<em>wage0</em> et <em>wage1</em>). On les utilise pour renseigner les coordonnées de <code>geom_segment()</code> avec <em>x=wage0</em> et <em>xend=wage1</em>, et on génère également deux nuages. Les professions seront triées par la valeur de <em>wage1</em> (dans l’exemple avec stata on avait utilisé la moyenne de <em>wage0</em> et <em>wage1</em>) .</li>
+<li>Pour générer une légende manuellement (ce n’est pas le fort de la syntaxe de <code>ggplot</code> à mon sens), on a besoin de de créer deux variables précisant les deux labels (<em>nunion = non union</em> et <em>union = union</em>). La légende est générée par l’option <strong><code>scale_fill_manual()</code></strong> dans laquelle on renseigne les couleurs qui seront automatiquement affectées aux bulles et les labels.</li>
+</ul>
+<p><em>Préparation des données</em></p>
+<pre><code>use nlsw88.dta, clear
+
+preserve
+
+collapse wage, by(occupation union)
+drop if union==.
+drop if occupation==.
+reshape wide wage, i(occ) j(union)
+
+gen union=&quot;Union&quot; 
+gen nunion=&quot;Non Union&quot;
+
+save wage2, replace
+
+restore</code></pre>
+<p><em>Graphique</em></p>
+<pre><code>(
+ggplot()
++ geom_segment(df,aes(y=&#39;reorder(occupation,wage1)&#39;, yend=&#39;reorder(occupation,wage1)&#39;, x=&quot;wage0&quot;, xend=&#39;wage1&#39;), size=5.8, color=&#39;#081D58&#39;)
++ geom_point(df,  aes(y=&#39;reorder(occupation,wage1)&#39;, x=&#39;wage0&#39;, fill=&#39;nunion&#39;), size=5, color=&#39;#081D58&#39;)
++ geom_point(df,  aes(y=&#39;reorder(occupation,wage1)&#39;, x=&#39;wage1&#39;, fill=&#39;union&#39;), size=5, color=&#39;#081D58&#39;)  
++ xlab(&quot;Wage (mean)&quot;)
++ ylab(&quot;Occupation&quot;)        
++ scale_fill_manual(name=&#39; &#39;, values=[&quot;green&quot;, &quot;yellow&quot;], limits=[&quot;Union&quot;, &quot;Non Union&quot;])
++ theme_light()    
+)</code></pre>
+<p><img src="gpython/g36.png" /></p>
+</div>
+<div id="variables-catégorielles" class="section level2" number="3.7">
+<h2 number="3.7"><span class="header-section-number">3.7</span> Variables catégorielles</h2>
+<ul>
+<li>On va de nouveau utiliser les graphiques de type barre</li>
+<li>La commande <code>catplot</code> de Stata (NJ.Cox) permet de récupérer directement les %, avec <code>plotnine</code> (idem <code>ggplot</code>) on doit générer la statistique en amont avec la commande <code>collapse</code>.</li>
+<li>Pour la visualisation de type <em>mosaique</em>, la geometrie <code>*geom_mosaic()*</code> n’est pas (encore) implémentée dans plotnine. Une solution est possible avec les facettes, mais une option pour ajuster leur largeur n’est pas encore activée. Le rendu n’est donc pas optimal. Pour générer le graphique avec <strong><code>geom_rect</code></strong>, il y a un travail plus important pour générer les coordonnées; la commande Stata fait donc très bien l’affaire.</li>
+</ul>
+<p><em>Préparation des données (Stata)</em></p>
+<pre><code>use nhanes2f, clear
+drop if health==.
+keep race health
+gen h=health
+
+preserve
+collapse (count) h, by(race health)
+bysort race: egen tot=total(h)
+gen p = (h/tot)*100
+save health, replace
+
+restore</code></pre>
+<ul>
+<li>Par défaut, on obtient une version empilée du graphique. Pour afficher une barre distincte pour chaque niveau de santé, on utlise l’option <strong><code>position = position_dodge()</code></strong> dans les arguments de *<code>geom_bar()</code></li>
+<li>J’ai ajouté quelques options pour le graphique au niveau des couleurs</li>
+</ul>
+<p><em>stacked</em></p>
+<pre><code>(
+   ggplot(df, aes(x=&#39;race&#39;, y=&#39;p&#39;, fill=&#39;health&#39;))
+ + geom_bar(stat=&#39;identity&#39;, alpha=1, color=&#39;#E6EFEF&#39;, size=.2)
+ + scale_fill_manual(name=&quot; &quot;, values=[&#39;#46327F&#39;, &#39;#46637D&#39;,&#39;#21908C&#39;, &#39;#64B479&#39;, &#39;#9FDA3A&#39;], limits=[&quot;poor&quot;, &quot;fair&quot;, &quot;average&quot;, &quot;good&quot;, &quot;excellent&quot;])
+ + coord_flip()
+ + theme_light()
+ + theme(
+         panel_background  = element_rect(fill = &#39;#E6EFEF&#39;),
+         plot_background   = element_rect(fill = &#39;#E6EFEF&#39;),
+         legend_background = element_rect(fill = &#39;#E6EFEF&#39;)
+ )
+ + ylab(&quot;%&quot;)
+ + ggtitle(&quot;Subjective health&quot;)   
+)</code></pre>
+<p><img src="gpython/g37.png" /></p>
+<p><em>Unstacked</em></p>
+<pre><code>python:
+(
+   ggplot(df, aes(x=&#39;race&#39;, y=&#39;p&#39;, fill=&#39;health&#39;))
+ + geom_bar(stat=&#39;identity&#39;, alpha=1, color=&#39;#E6EFEF&#39;, size=.2, position = position_dodge())
+ + scale_fill_manual(name=&quot; &quot;, values=[&#39;#46327F&#39;, &#39;#46637D&#39;,&#39;#21908C&#39;, &#39;#64B479&#39;, &#39;#9FDA3A&#39;], limits=[&quot;poor&quot;, &quot;fair&quot;, &quot;average&quot;, &quot;good&quot;, &quot;excellent&quot;])
+ + coord_flip()
+ + theme_light()
+ + theme(
+         panel_background  = element_rect(fill = &#39;#E6EFEF&#39;),
+         plot_background   = element_rect(fill = &#39;#E6EFEF&#39;),
+         legend_background = element_rect(fill = &#39;#E6EFEF&#39;)
+ )
+ + ylab(&quot;%&quot;)
+ + ggtitle(&quot;Subjective health&quot;)   
+)
+end</code></pre>
+<p><img src="gpython/g38.png" /></p>
 </div>
 </div>
 
