@@ -36,9 +36,9 @@ tw
    msize(*1.5)  mlc(black) mlw(*.5) mc("139 209 187*.5") jitter(1)  
 	
 ||  lfitci  price mpg  if !foreign, 
-	clcolor("34 94 168*1.2")    fcolor("34 94 168%25")  alcolor(%0)       
+	clc("34 94 168*1.2")    fc("34 94 168%25")  alc(%0)       
 || lfitci  price mpg  if foreign,  
-    clcolor("139 209 187*1.2")  fcolor("139 209 187%25") alcolor(%0) 
+    clc("139 209 187*1.2")  fc("139 209 187%25") alc(%0) 
 	
 || , legend(order(1 "Domestic" 2 "Foreign") region(lc(%0))) ///                                          
      ytitle("price") 
