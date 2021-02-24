@@ -1,0 +1,24 @@
+sysuse auto, clear
+
+qui separate mpg, by(foreign)
+
+kdensity mpg0 , g(x1 d1) nograph k(gauss) n(200)
+kdensity mpg1 , g(x0 d0) nograph k(gauss) n(200)
+ 
+* histogrammes 
+#delimit ; 
+tw 
+   histogram mpg0  , bin(10)  density fcolor("34 94 168%70")   lc(black) lw(vvthin)   
+|| histogram mpg1  , bin(10)  density fcolor("139 209 187%70") lc(black) lw(vvthin)   
+|| , legend(order(1 "Domestic" 2 "Foreign") region(lcolor(%0))) 
+	 xlabel(10(10)50)
+;
+
+* densités
+#delimit ;
+tw area d1 d0 x0, 
+   fc("34 94 168%70" "139 209 187%70") lc(black black) lw(vthin vthin) 
+   legend(order(1 "Domestic" 2 "Foreign")  region(lcolor(%0))) 
+   xlabel(10(10)50) 
+;
+   
