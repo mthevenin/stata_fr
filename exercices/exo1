@@ -22,4 +22,4 @@ tw area d1 d0 x0,
    xlabel(10(10)50) 
 ;
    
-drop mpg0 mpg1 x0 x1 d0 d1 // mettre des tempvar en amont pour faciliter (voir section macros)
+drop mpg0 mpg1 x0 x1 d0 d1 // mettre des tempvar en amont pour alléger le prog (voir section macros)
