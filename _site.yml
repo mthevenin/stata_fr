@@ -2,32 +2,53 @@ name: ""
 navbar:
   title: ""
   left:
+  - text: "Analyse des durées"
+    href: index.html
+  - text: "Données et théorie"
+    menu:
+    - text: "Introduction"
+      href:  Introduction.html
+    - text: "Les Données biographiques"
+      href: Donnees.html
+    - text: "Eléments théoriques"
+      href: Theorie.html
+  - text: "Méthodes non paramétriques"
+    href: nonparam.html
+  - text: "Modèles à risques proportionnels"
+    menu:
+    - text: "Intro"
+      href: Intro_mod.html
+    - text: "Cox"
+      href: cox.html    
+    - text: "Méthode à temps discret"
+      href: discret.html
+    - text: "Variables dynamiques"
+      href: dynamiques.html
+  - text: "Compléments"
+    menu:
+    - text: "Modèles paramétriques"
+      href: param.html
+    - text: "Risques concurrents"
+      href: concurrents.html   
+    - text: "fragilité et imunité"
+      href: cure.html
+  - text: "Programmation"
+    menu:
+    - text: "SAS"
+      href: SAS.html
     - text: "Stata"
-      href: index.html
-    - text: "Astuces & utilitaires"
-      href: utils.html      
-    - text: "Graphiques"
-      menu:
-          - text: "Formation 2020"
-            href: graphiques.html
-          - text: "Ridge"
-            href:  ridge.html            
-          - text: "Lollipop"
-            href:  lollipop.html
-          - text: "Effet spaghetti"
-            href:  spaghetti.html
-          - text: "Parallel"
-            href:  parallel.html
-          - text: "Forest Plot"
-            href:  forest_plot.html               
+      href: Stata.html
+    - text: "R"
+      href: R.html
     - text: "Python"
-      href: python.html  
+      href: Python.html
 
 
-output: 
+output:
+
   html_document: 
-    theme: cerulean
-    highlight: pygments
+    theme: simplex
+    highlight: zenburn
     number_sections: yes
     toc: yes
     toc_float: yes
