@@ -5,13 +5,13 @@ navbar:
     - text: "Stata"
       href: index.html
     - text: "Astuces & utilitaires"
-      href: utils.html      
+      href: utils.html
     - text: "Graphiques"
       menu:
       - text: "Formation 2020"
         href: graphiques.html
       - text: "Ridge"
-        href: ridge.html            
+        href: ridge.html
       - text: "Lollipop"
         href: lollipop.html
       - text: "Effet spaghetti"
@@ -19,9 +19,9 @@ navbar:
       - text: "Parallel"
         href: parallel.html
       - text: "Forest Plot"
-        href: forest_plot.html               
+        href: forest_plot.html
     - text: "Python"
-      href: python.html  
+      href: python.html
 
 
 output: 
