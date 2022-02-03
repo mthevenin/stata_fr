@@ -11,21 +11,28 @@
 
 
 
-<title>Python</title>
+<title>python.knit</title>
 
-<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
 <link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
 <script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
-<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -39,32 +46,7 @@
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
+
 
 
 
@@ -74,10 +56,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -94,40 +72,13 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
 <style type="text/css">
-/* padding for bootstrap navbar */
-body {
-  padding-top: 51px;
-  padding-bottom: 40px;
-}
-/* offset scroll position for anchor links (for fixed navbar)  */
-.section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
-.section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
-}
 .dropdown-submenu {
   position: relative;
 }
@@ -155,7 +106,7 @@ body {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #ffffff;
+  border-left-color: #adb5bd;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -167,7 +118,7 @@ body {
 }
 </style>
 
-<script>
+<script type="text/javascript">
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -178,10 +129,23 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.parent().addClass('active');
+  menuAnchor.tab('show');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
 });
 </script>
 
@@ -193,7 +157,6 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -319,7 +282,7 @@ div.tocify {
 
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
-<div class="row-fluid">
+<div class="row">
 <div class="col-xs-12 col-sm-4 col-md-3">
 <div id="TOC" class="tocify">
 </div>
@@ -348,32 +311,8 @@ div.tocify {
 <li>
   <a href="utils.html">Astuces &amp; utilitaires</a>
 </li>
-<li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-    Graphiques
-     
-    <span class="caret"></span>
-  </a>
-  <ul class="dropdown-menu" role="menu">
-    <li>
-      <a href="graphiques.html">Formation 2020</a>
-    </li>
-    <li>
-      <a href="ridge.html">Ridge</a>
-    </li>
-    <li>
-      <a href="lollipop.html">Lollipop</a>
-    </li>
-    <li>
-      <a href="spaghetti.html">Effet spaghetti</a>
-    </li>
-    <li>
-      <a href="parallel.html">Parallel</a>
-    </li>
-    <li>
-      <a href="forest_plot.html">Forest Plot</a>
-    </li>
-  </ul>
+<li>
+  <a href="graphiques.html">Graphiques 2020</a>
 </li>
 <li>
   <a href="python.html">Python</a>
@@ -386,15 +325,26 @@ div.tocify {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
-<h1 class="title toc-ignore">Python</h1>
 
 </div>
 
 
+<style>
+body {font-family: Consolas;
+     font-size: 12pt}
+
+hide {
+      background-color: #d6d6d6;
+      color: #d6d6d6;}
+hide:hover {
+      background-color: white;
+      color: black;}
+</style>
+<p><br><br></p>
 <p><strong>MAJ du 12 février 2021</strong>: début d’une section sur la visualisation des données avec Python, avec des codes exécutables dans un .do.<br />
 <br></p>
 <ul>
@@ -406,9 +356,9 @@ div.tocify {
 <li>Eléments de Correspondance Stata - Python pour la manipulation des données (librairie<code>pandas</code>): <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata" class="uri">https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata</a></li>
 </ul>
 <div id="installation-de-python-et-des-librairies-windows" class="section level1" number="1">
-<h1 number="1"><span class="header-section-number">1</span> Installation de Python et des librairies (Windows)</h1>
+<h1><span class="header-section-number">1</span> Installation de Python et des librairies (Windows)</h1>
 <div id="intallation-de-python" class="section level2" number="1.1">
-<h2 number="1.1"><span class="header-section-number">1.1</span> Intallation de Python</h2>
+<h2><span class="header-section-number">1.1</span> Intallation de Python</h2>
 <p><strong>WARNING</strong> Pour utiliser Python, vous devez avoir le même type de built pour les deux applications:</p>
 <ul>
 <li>Stata 64 bits =&gt; Python 64 Bits</li>
@@ -435,7 +385,7 @@ div.tocify {
 </ul>
 </div>
 <div id="installation-des-librairies-python" class="section level2" number="1.2">
-<h2 number="1.2"><span class="header-section-number">1.2</span> Installation des librairies Python</h2>
+<h2><span class="header-section-number">1.2</span> Installation des librairies Python</h2>
 <ul>
 <li>Peu de librairies sont installées lors de l’installation</li>
 <li>On peut obtenir leur liste avec la commande <code>help("modules")</code></li>
@@ -524,7 +474,7 @@ DESCRIPTION
 <p><strong>Mise à jour d’une librairie</strong>: <code>pip install nom_librairie --upgrade</code></p>
 </div>
 <div id="librairies-graphiques" class="section level2" number="1.3">
-<h2 number="1.3"><span class="header-section-number">1.3</span> Librairies graphiques</h2>
+<h2><span class="header-section-number">1.3</span> Librairies graphiques</h2>
 <p>Une liste des principales libraires graphiques de Python:</p>
 <ul>
 <li><strong>matplotlib</strong>: <code>pip install matplotlib</code> [<a href="https://matplotlib.org/" class="uri">https://matplotlib.org/</a>]</li>
@@ -535,10 +485,10 @@ DESCRIPTION
 </div>
 </div>
 <div id="exécuter-python-avec-stata" class="section level1" number="2">
-<h1 number="2"><span class="header-section-number">2</span> Exécuter Python avec Stata</h1>
+<h1><span class="header-section-number">2</span> Exécuter Python avec Stata</h1>
 <p>Aide Stata: <code>help python</code></p>
 <div id="lecture-de-python-par-stata" class="section level2" number="2.1">
-<h2 number="2.1"><span class="header-section-number">2.1</span> Lecture de Python par Stata</h2>
+<h2><span class="header-section-number">2.1</span> Lecture de Python par Stata</h2>
 <p><strong>Rappel</strong>: s’assurer de la concordance des builts (Stata 64 =&gt; Python 64 / Stata 32 =&gt; Python 32)</p>
 <ul>
 <li>Lorsque Python est installé, on peut vérifier qu’il est bien reconnu avec <code>python query</code></li>
@@ -582,7 +532,7 @@ python query
 </code></pre>
 </div>
 <div id="utilisation-de-python-en-mode-interactif" class="section level2" number="2.2">
-<h2 number="2.2"><span class="header-section-number">2.2</span> Utilisation de python en mode interactif</h2>
+<h2><span class="header-section-number">2.2</span> Utilisation de python en mode interactif</h2>
 <ul>
 <li>Une ligne</li>
 </ul>
@@ -630,9 +580,9 @@ python describe
 </code></pre>
 </div>
 <div id="quelques-exemples-dutilisation-de-python-graphiques" class="section level2" number="2.3">
-<h2 number="2.3"><span class="header-section-number">2.3</span> Quelques exemples d’utilisation de Python (graphiques)</h2>
+<h2><span class="header-section-number">2.3</span> Quelques exemples d’utilisation de Python (graphiques)</h2>
 <div id="chargement-dune-base-stata-avec-python" class="section level3" number="2.3.1">
-<h3 number="2.3.1"><span class="header-section-number">2.3.1</span> Chargement d’une base Stata avec Python</h3>
+<h3><span class="header-section-number">2.3.1</span> Chargement d’une base Stata avec Python</h3>
 <ul>
 <li>Une librarie est chargée avec l’instruction <code>import</code>. Un acronyme lui est associé, ici <code>pa</code> (en anglais c’est généralement <code>pd</code>….on s’en passera)</li>
 <li><code>pandas</code> a une fonction permettant de lire une base en format .dta [<code>read_dta()</code>]</li>
@@ -658,7 +608,7 @@ end
 </code></pre>
 </div>
 <div id="exemple-1" class="section level3" number="2.3.2">
-<h3 number="2.3.2"><span class="header-section-number">2.3.2</span> Exemple 1</h3>
+<h3><span class="header-section-number">2.3.2</span> Exemple 1</h3>
 <ul>
 <li>Création d’un graphique de type matrixplot avec la librairie <code>seaborn</code> sur un extrait de la base auto</li>
 <li>On va utiliser la fonction <code>pairplot</code> de la librairie <code>seaborn</code> (acronyme <code>sns</code>)</li>
@@ -687,7 +637,7 @@ end
 <p><img src="img/p1.png" /></p>
 </div>
 <div id="exemple-2" class="section level3" number="2.3.3">
-<h3 number="2.3.3"><span class="header-section-number">2.3.3</span> Exemple 2</h3>
+<h3><span class="header-section-number">2.3.3</span> Exemple 2</h3>
 <p>Création d’un graphique de type <em>violin</em> de la librairie <code>plotpy</code> en passant une macro à un argument de Stata vers Python</p>
 <p><strong>MAJ du 04/11/20</strong>: on peut se passer de la librairie <code>SFI</code>, la démarche étant un peu lourde, et utiliser directement les macros dans la fonction <code>violin</code> de <em>Plotly</em>. Voir le programme en fin de page. C’est franchement plus simple.</p>
 <p><strong>Etape par étape</strong><br />
@@ -845,7 +795,7 @@ end</code></pre>
 </div>
 </div>
 <div id="visualisation-des-données-plotnine" class="section level1" number="3">
-<h1 number="3"><span class="header-section-number">3</span> Visualisation des données (plotnine…)</h1>
+<h1><span class="header-section-number">3</span> Visualisation des données (plotnine…)</h1>
 <ul>
 <li>Principe: reprendre des visualisations de la partie <a href="https://mthevenin.github.io/stata_fr/graphiques.html#5_Visualisation_des_donn%C3%A9es_avec_Stata"><em>visualisation des données avec Stata</em></a> avec des codes python exécutables dans un .do.</li>
 <li><strong>Tous les chemins mènent à ggplot</strong>: J’utiliserai principalement le wrapper de ggplot2, <strong>plotnine</strong> (Hassan Kibirige).</li>
@@ -924,7 +874,7 @@ ggplot(df, aes(x=&#39;price&#39;, y=&#39;mpg&#39;, fill=&#39;foreign&#39;))
 end</code></pre>
 <p><img src="gpython/g1.png" /></p>
 <div id="histogramme-et-densité" class="section level2" number="3.1">
-<h2 number="3.1"><span class="header-section-number">3.1</span> Histogramme et Densité</h2>
+<h2><span class="header-section-number">3.1</span> Histogramme et Densité</h2>
 <ul>
 <li>L’histogramme est exécuté avec <strong><code>geom_histogram()</code></strong></li>
 <li>La largeur des barres a été fixée à 10 par l’option <code>binwidth</code></li>
@@ -974,7 +924,7 @@ end</code></pre>
 <p><img src="gpython/g4.png" /></p>
 </div>
 <div id="box-plot-et-violin" class="section level2" number="3.2">
-<h2 number="3.2"><span class="header-section-number">3.2</span> Box plot et violin</h2>
+<h2><span class="header-section-number">3.2</span> Box plot et violin</h2>
 <p><em>Préparation des données</em></p>
 <pre><code>clear
 set obs 1000
@@ -1082,7 +1032,7 @@ end</code></pre>
 <p><img src="gpython/g9b.png" /></p>
 </div>
 <div id="application-sur-les-probabilités-assignées" class="section level2" number="3.3">
-<h2 number="3.3"><span class="header-section-number">3.3</span> Application sur les probabilités assignées</h2>
+<h2><span class="header-section-number">3.3</span> Application sur les probabilités assignées</h2>
 <p><br></p>
 <ul>
 <li>Le graphique avec les 17 densités est peu lisible</li>
@@ -1130,7 +1080,7 @@ On peut représenter rapidement les différentes densités sous forme de facette
 On peut utiliser la librarie <strong><code>joypy</code></strong>, dont la syntaxe est simple, mais provoque (chez moi) un crash de Stata (ok avec le notebook <em>Jupyter</em>)</p>
 </div>
 <div id="nuages-et-densités-2d" class="section level2" number="3.4">
-<h2 number="3.4"><span class="header-section-number">3.4</span> Nuages et densités 2D</h2>
+<h2><span class="header-section-number">3.4</span> Nuages et densités 2D</h2>
 <ul>
 <li>Pour les nuages de points on utilise <strong><code>geom_point()</code></strong></li>
 <li>Pour les densités (courbes de niveau) et les histogrammes sur deux axes de coordonnées on utilise <strong><code>geom_density_2d</code></strong> et <strong><code>geom_bin2d</code></strong></li>
@@ -1285,7 +1235,7 @@ end
 <p><img src="gpython/g26.png" /></p>
 </div>
 <div id="courbes" class="section level2" number="3.5">
-<h2 number="3.5"><span class="header-section-number">3.5</span> Courbes</h2>
+<h2><span class="header-section-number">3.5</span> Courbes</h2>
 <ul>
 <li>Applications sur les prénoms (effet spaghetti)</li>
 <li>Pour tracer des courbes on utilise <strong><code>geom_line()</code></strong></li>
@@ -1349,7 +1299,7 @@ end</code></pre>
 <p><img src="gpython/g29.png" /></p>
 </div>
 <div id="barres-et-lollipop" class="section level2" number="3.6">
-<h2 number="3.6"><span class="header-section-number">3.6</span> Barres et lollipop</h2>
+<h2><span class="header-section-number">3.6</span> Barres et lollipop</h2>
 <p>Cela va se compliquer un peu (ordre des barres, légende pour les comparaisons)<br />
 <br></p>
 <ul>
@@ -1530,7 +1480,7 @@ ggplot()
 <p><img src="gpython/g36.png" /></p>
 </div>
 <div id="variables-catégorielles" class="section level2" number="3.7">
-<h2 number="3.7"><span class="header-section-number">3.7</span> Variables catégorielles</h2>
+<h2><span class="header-section-number">3.7</span> Variables catégorielles</h2>
 <ul>
 <li>On va de nouveau utiliser les graphiques de type barre</li>
 <li>La commande <code>catplot</code> de Stata (NJ.Cox) permet de récupérer directement les %, avec <code>plotnine</code> (idem <code>ggplot</code>) on doit générer la statistique en amont avec la commande <code>collapse</code>.</li>
@@ -1619,7 +1569,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>
@@ -1628,6 +1578,9 @@ $(document).ready(function () {
 
 <script>
 $(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
 
     // move toc-ignore selectors from section div to header
     $('div.section.toc-ignore')
