@@ -11,25 +11,18 @@
 
 
 
-<title>index.knit</title>
+<title>index.utf8</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="site_libs/header-attrs-2.5/header-attrs.js"></script>
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cerulean.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/anchor-sections-1.0/anchor-sections.css" rel="stylesheet" />
+<script src="site_libs/anchor-sections-1.0/anchor-sections.js"></script>
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -43,7 +36,32 @@
 
 
 
-
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
 
 
 
@@ -53,6 +71,10 @@
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -69,13 +91,40 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
-pre code {
-  padding: 0;
-}
 </style>
 
 
 <style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 51px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h2 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h3 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h4 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h5 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
+.section h6 {
+  padding-top: 56px;
+  margin-top: -56px;
+}
 .dropdown-submenu {
   position: relative;
 }
@@ -103,7 +152,7 @@ pre code {
   margin-right: -10px;
 }
 .dropdown-submenu:hover>a:after {
-  border-left-color: #adb5bd;
+  border-left-color: #ffffff;
 }
 .dropdown-submenu.pull-left {
   float: none;
@@ -115,7 +164,7 @@ pre code {
 }
 </style>
 
-<script type="text/javascript">
+<script>
 // manage active state of menu based on current page
 $(document).ready(function () {
   // active menu anchor
@@ -126,23 +175,10 @@ $(document).ready(function () {
   var menuAnchor = $('a[href="' + href + '"]');
 
   // mark it active
-  menuAnchor.tab('show');
+  menuAnchor.parent().addClass('active');
 
   // if it's got a parent navbar menu mark it active as well
   menuAnchor.closest('li.dropdown').addClass('active');
-
-  // Navbar adjustments
-  var navHeight = $(".navbar").first().height() + 15;
-  var style = document.createElement('style');
-  var pt = "padding-top: " + navHeight + "px; ";
-  var mt = "margin-top: -" + navHeight + "px; ";
-  var css = "";
-  // offset scroll position for anchor links (for fixed navbar)
-  for (var i = 1; i <= 6; i++) {
-    css += ".section h" + i + "{ " + pt + mt + "}\n";
-  }
-  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
-  document.head.appendChild(style);
 });
 </script>
 
@@ -154,6 +190,7 @@ $(document).ready(function () {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
+  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -273,7 +310,7 @@ $(document).ready(function () {
   </div><!--/.container -->
 </div><!--/.navbar -->
 
-<div id="header">
+<div class="fluid-row" id="header">
 
 
 
@@ -282,33 +319,33 @@ $(document).ready(function () {
 
 
 <style>
-body {background-color: #FFFFFF }
-body {font-family: Consolas }
-body {font-size: 13pt }
+body {background-color: #030A1D }
 </style>
-<p><br><br><br></p>
-<p><span style="color:rgb(3,10,29);"> <strong>MAJ 02 février 2022</strong>: on reprend du service.<br />
-La nouvelle version de la formation est prévue pour septembre 2022. La version pdf sera mise à jour progressivement: <a href="https://github.com/mthevenin/stata_fr/blob/master/v2_2021.pdf" class="uri">https://github.com/mthevenin/stata_fr/blob/master/v2_2021.pdf</a></p>
-<p><br> <span style="color:rgb(3,10,29);"> <strong>MAJ du 25 février 2021</strong>: <strong>Seconde version de la formation sur les graphiques</strong>.<br />
+<p><br> <span style="color:rgb(208,208,208);"> <strong>MAJ du 25 février 2021</strong>: <strong>Seconde version de la formation sur les graphiques</strong>.<br />
 J’ai commencé la nouvelle version, je l’espère plus aboutie, de la formation sur les graphique. Elle devrait être accompagnée de la programmation de deux commandes graphiques (peut-être trois) pour les courbes de crête (ridge) et les lollipop/haltère. Une version pdf qui sera mise à jour progressivement est disponible à cette adresse: <a href="https://github.com/mthevenin/stata_fr/blob/master/v2_2021.pdf" class="uri">https://github.com/mthevenin/stata_fr/blob/master/v2_2021.pdf</a> <br></p>
-<p><span style="color:rgb(3,10,29);"> <strong>MAJ du 19 février 2021</strong>: <strong>tous les chemins mènent à ggplot</strong>.<br />
-Une quarantaine de graphiques, plutôt simples, exécutés dans un .do et générés avec la librairie <em>plotnine</em> de Python, wrapper de <strong>ggplot2</strong>, sont disponibles dans la page dédiée à <strong>Python</strong>. Elles reprennent une partie les visualisations développées pour la formation Stata. <br> <span style="color:rgb(3,10,29);">Ce support a été récemment recentré sur les questions relatives aux graphiques avec Stata, suite à une demande de formation de la part de l’unité de recherche de <strong>démographie économique</strong> de l’Ined.</p>
+<p><span style="color:rgb(208,208,208);"> <strong>MAJ du 19 février 2021</strong>: <strong>tous les chemins mènent à ggplot</strong>.<br />
+Une quarantaine de graphiques, plutôt simples, exécutés dans un .do et générés avec la librairie <em>plotnine</em> de Python, wrapper de <strong>ggplot2</strong>, sont disponibles dans la page dédiée à <strong>Python</strong>. Elles reprennent une partie les visualisations développées pour la formation Stata. <br> <span style="color:rgb(208,208,208);">Ce support a été récemment recentré sur les questions relatives aux graphiques avec Stata, suite à une demande de formation de la part de l’unité de recherche de <strong>démographie économique</strong> de l’Ined.</p>
+<ul>
+<li><span style="color:rgb(208,208,208);"><strong>Astuces et utilitaires</strong>: quelques informations pour améliorer l’utilisation de Stata (<em>profile.do</em>, <em>trash box</em>, <em>log automatique</em>…).</li>
+<li><span style="color:rgb(208,208,208);"><strong>Graphiques</strong>: support des deux séances de formation. Si je tiens mes promesses une version améliorée, espérons finale, sera disponible en 2021.</li>
+<li><span style="color:rgb(208,208,208);"><strong>Python</strong>: Depuis la version 16 de Stata, Python est directement exécutable sous Stata. Cette page donne quelques informations sur l’installation de Python, son utilisation avec Stata, et la production de graphiques. Des mises à jour sont prévues, en particulier sur l’utilisation des macros Stata dans les fonctions graphiques de Python.</li>
+</ul>
 <p><img src="accueil.png" style="width:80.0%" /></p>
 <p><a href="https://github.com/mthevenin/stata_fr/blob/master/accueil">Programme du graphique précédent</a></p>
 <p><strong>Liens Ined</strong></p>
 <ul>
-<li><span style="color:rgb(3,10,29);"><strong>Site de l’Ined</strong>:</span> <a href="https://www.ined.fr" class="uri">https://www.ined.fr</a><br />
+<li><span style="color:rgb(208,208,208);"><strong>Site de l’Ined</strong>:</span> <a href="https://www.ined.fr" class="uri">https://www.ined.fr</a><br />
 </li>
-<li><span style="color:rgb(3,10,29);"><strong>Site du service des méthodes statistiques</strong>:</span> <a href="https://sms.site.ined.fr" class="uri">https://sms.site.ined.fr</a><br />
+<li><span style="color:rgb(208,208,208);"><strong>Site du service des méthodes statistiques</strong>:</span> <a href="https://sms.site.ined.fr" class="uri">https://sms.site.ined.fr</a><br />
 </li>
-<li><span style="color:rgb(3,10,29);"><strong>Site des Rencontres de Statistique Appliquée</strong>:</span> <a href="https://statapp.site.ined.fr/" class="uri">https://statapp.site.ined.fr/</a><br />
+<li><span style="color:rgb(208,208,208);"><strong>Site des Rencontres de Statistique Appliquée</strong>:</span> <a href="https://statapp.site.ined.fr/" class="uri">https://statapp.site.ined.fr/</a><br />
 </li>
-<li><span style="color:rgb(3,10,29);"><strong>Site du séminaire R à l’Usage des Sciences Sociales (RUSS)</strong>:</span> <a href="https://russ.site.ined.fr" class="uri">https://russ.site.ined.fr</a></li>
+<li><span style="color:rgb(208,208,208);"><strong>Site du séminaire R à l’Usage des Sciences Sociales (RUSS)</strong>:</span> <a href="https://russ.site.ined.fr" class="uri">https://russ.site.ined.fr</a></li>
 </ul>
 <p><em>Autres supports</em></p>
 <ul>
-<li><span style="color:rgb(3,10,29);"><strong>Formation analyse des durées (2017-2020)</strong>:</span> <a href="https://mthevenin.github.io/analyse_duree/" class="uri">https://mthevenin.github.io/analyse_duree/</a></li>
-<li><span style="color:rgb(3,10,29);"><strong>Formation introduction à Stata (2018)</strong>:</span> <a href="https://mthevenin.github.io/formation_stata/" class="uri">https://mthevenin.github.io/formation_stata/</a></li>
+<li><span style="color:rgb(208,208,208);"><strong>Formation analyse des durées (2017-2020)</strong>:</span> <a href="https://mthevenin.github.io/analyse_duree/" class="uri">https://mthevenin.github.io/analyse_duree/</a></li>
+<li><span style="color:rgb(208,208,208);"><strong>Formation introduction à Stata (2018)</strong>:</span> <a href="https://mthevenin.github.io/formation_stata/" class="uri">https://mthevenin.github.io/formation_stata/</a></li>
 </ul>
 <p><br> <a href="mailto:marc.thevenin@ined.fr" class="uri">mailto:marc.thevenin@ined.fr</a> - Service Méthodes Statistiques - Ined - <br> Support réalisé avec <a href="href:https://www.rstudio.com">Rstudio</a> - librairies <strong>Rmarkdown</strong>, <strong>Knitr</strong><br />
 Version Stata: <a href="https://www.stata.com/">16 Standard Edition</a></p>
@@ -340,7 +377,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+    $(this).parent().toggleClass('nav-tabs-open')
   });
 });
 </script>
