@@ -9,7 +9,7 @@ navbar:
     - text: "Graphiques"
       menu:
           - text: "Formation 2020"
-            href: graphiques.html
+            href:  graphiques.html
           - text: "Ridge"
             href:  ridge.html            
           - text: "Lollipop"
