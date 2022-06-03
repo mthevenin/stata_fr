@@ -5,6 +5,9 @@ navbar:
   left:
     - text: ""
       href: index.html
+    - text: "Infos & Maj"
+      icon: fa-clock
+      href: maj.html      
     - text: "Contact"
       icon: fa-envelope-o
       href: mailto:marc.thevenin@ined.fr                  
