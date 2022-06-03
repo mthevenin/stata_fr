@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- This is a Stata 16.0 generated SVG file (http://www.stata.com) -->
+
+<svg version="1.1" width="5.50in" height="4.00in" viewBox="0 0 3960 2880" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>Stata Graph - Graph</desc>
+	<rect x="0" y="0" width="3960" height="2880" style="fill:#FFFFFF;stroke:none"/>
+	<rect x="0.00" y="0.00" width="3959.88" height="2880.00" style="fill:#FFFFFF"/>
+	<rect x="2.88" y="2.88" width="3954.12" height="2874.24" style="fill:none;stroke:#FFFFFF;stroke-width:5.76"/>
+	<rect x="63.36" y="63.36" width="1916.64" height="1376.64" style="fill:#440154"/>
+	<rect x="65.52" y="65.52" width="1912.32" height="1372.32" style="fill:none;stroke:#440154;stroke-width:4.32"/>
+	<rect x="110.88" y="110.88" width="1821.60" height="1281.60" style="fill:#440154"/>
+	<rect x="113.04" y="113.04" width="1817.28" height="1277.28" style="fill:none;stroke:#440154;stroke-width:4.32"/>
+	<circle cx="1021.56" cy="751.68" r="16.73" style="fill:#000004;fill-opacity:0.00"/>
+	<circle cx="1021.56" cy="751.68" r="13.49" style="fill:none;stroke:#000004;stroke-opacity:0.00;stroke-width:6.48"/>
+	<text x="1021.68" y="769.67" style="font-family:'Helvetica';font-weight:bold;font-size:89.97px;fill:#D0D0d0" text-anchor="middle"> Graphique 1</text>
+	<rect x="1980.00" y="63.36" width="1916.52" height="1376.64" style="fill:#31688E"/>
+	<rect x="1982.16" y="65.52" width="1912.20" height="1372.32" style="fill:none;stroke:#31688E;stroke-width:4.32"/>
+	<rect x="2027.40" y="110.88" width="1821.60" height="1281.60" style="fill:#31688E"/>
+	<rect x="2029.56" y="113.04" width="1817.28" height="1277.28" style="fill:none;stroke:#31688E;stroke-width:4.32"/>
+	<circle cx="2938.20" cy="751.68" r="16.73" style="fill:#000004;fill-opacity:0.00"/>
+	<circle cx="2938.20" cy="751.68" r="13.49" style="fill:none;stroke:#000004;stroke-opacity:0.00;stroke-width:6.48"/>
+	<text x="2938.20" y="769.67" style="font-family:'Helvetica';font-weight:bold;font-size:89.97px;fill:#A0A0a0" text-anchor="middle"> Graphique 2</text>
+	<rect x="63.36" y="1440.00" width="1916.64" height="1376.64" style="fill:#35B779"/>
+	<rect x="65.52" y="1442.16" width="1912.32" height="1372.32" style="fill:none;stroke:#35B779;stroke-width:4.32"/>
+	<rect x="110.88" y="1487.52" width="1821.60" height="1281.60" style="fill:#35B779"/>
+	<rect x="113.04" y="1489.68" width="1817.28" height="1277.28" style="fill:none;stroke:#35B779;stroke-width:4.32"/>
+	<circle cx="1021.56" cy="2128.44" r="16.73" style="fill:#000004;fill-opacity:0.00"/>
+	<circle cx="1021.56" cy="2128.44" r="13.49" style="fill:none;stroke:#000004;stroke-opacity:0.00;stroke-width:6.48"/>
+	<text x="1021.68" y="2146.31" style="font-family:'Helvetica';font-weight:bold;font-size:89.97px;fill:#505050" text-anchor="middle"> Graphique 3</text>
+	<rect x="1980.00" y="1440.00" width="1916.52" height="1376.64" style="fill:#FDE725"/>
+	<rect x="1982.16" y="1442.16" width="1912.20" height="1372.32" style="fill:none;stroke:#FDE725;stroke-width:4.32"/>
+	<rect x="2027.40" y="1487.52" width="1821.60" height="1281.60" style="fill:#FDE725"/>
+	<rect x="2029.56" y="1489.68" width="1817.28" height="1277.28" style="fill:none;stroke:#FDE725;stroke-width:4.32"/>
+	<circle cx="2938.20" cy="2128.44" r="16.73" style="fill:#000004;fill-opacity:0.00"/>
+	<circle cx="2938.20" cy="2128.44" r="13.49" style="fill:none;stroke:#000004;stroke-opacity:0.00;stroke-width:6.48"/>
+	<text x="2938.20" y="2146.31" style="font-family:'Helvetica';font-weight:bold;font-size:89.97px;fill:#202020" text-anchor="middle"> Graphique 4</text>
+</svg>
