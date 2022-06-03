@@ -1,33 +1,22 @@
 name: ""
 navbar:
-  title: ""
+  title: "Stata Ined"
+  type: inverse
   left:
-    - text: "Stata"
+    - text: ""
       href: index.html
-    - text: "Astuces & utilitaires"
-      href: utils.html
-    - text: "Graphiques"
-      menu:
-      - text: "Formation 2020"
-        href: graphiques.html
-      - text: "Ridge"
-        href: ridge.html
-      - text: "Lollipop"
-        href: lollipop.html
-      - text: "Effet spaghetti"
-        href: spaghetti.html
-      - text: "Parallel"
-        href: parallel.html
-      - text: "Forest Plot"
-        href: forest_plot.html
-    - text: "Python"
-      href: python.html
+    - text: "Contact"
+      icon: fa-envelope-o
+      href: mailto:marc.thevenin@ined.fr                  
+    - text: "GitHub"
+      icon: fa-github
+      href: https://github.com/mthevenin
 
-
-output: 
-  html_document: 
-    theme: cerulean
-    highlight: pygments
+output:
+  rmdformats::downcute:
+    self_contained: true
+    default_style: "light"
+    downcute_theme: "default"
     number_sections: yes
-    toc: yes
-    toc_float: yes
+
+    
