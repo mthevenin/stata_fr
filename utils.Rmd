@@ -1,0 +1,425 @@
+---
+---
+<br><br>
+
+```{r, include=FALSE}
+options(Encoding="UTF-8")
+```
+
+<style>
+#body {font-family: Consolas;
+#     font-size: 12pt}
+
+hide {
+      background-color: #d6d6d6;
+      color: #d6d6d6;}
+hide:hover {
+      background-color: white;
+      color: black;}
+</style>
+
+
+<div class="alert alert-warning">
+Il s'agit d'une page assez ancienne (2017 avec quelques mises à jour) qui donne quelques astuces pour faciliter le travail avec Stata.   
+Si tout est optionnel ici, j'insiste néanmoins sur l'utilité de générer automatiquement des logs de session via la création d'un fichier `profile.do`.
+</div>
+
+
+# **Création et édition d'un fichier profile.do**
+Le programme **`profile.do`** permet d'exécuter certaines opérations lors de l'ouverture d'une session.   
+Ce fichier , s'il n'existe pas, doit être placer dans le répertoire `C:\Users\user_name\` (C => utilisateurs => nom_utilisateur) sous Windows. Sous Linux, à l'Ined, il doit simplement est placé dans le repertoire racine de l'utilisateur **`home/user/user_name`**.  Les fonctionnalités proposées dans le programme ici peuvent être désactivées en insérant des zones de commentaires ou tout simplement en les supprimant, ou ajoutée à un profile.do existant (penser à changer les chemins si nécessaire).  
+
+Fonctionnalités proposées:  
+
+> - Affectation d'un répertoire par défaut. Voir la section ***Répertoire de fichiers temporaires ou trash box*** plus bas.
+<br>
+> - Chargement des .ado externes dans le lecteur D.  Conseillé à l'Ined en raison du système de sauvegarde. Au préalable il convient de coller le répertoire *ado* qui se trouve normalement sur la racine du lecteur C,  dans la racine du lecteur D.
+<br>
+> - Désactivation du blocage du défilement de l'output (très optionnel).
+<br>
+> - Création d'un fichier log à chaque ouverture de session : voir ci-dessous  ***Création automatique d'un fichier log à l'ouverture d'une session***. Fonctionnalité qui me semble la plus utile.
+<br>
+
+
+<br>
+Contenu du fichier profile.do 
+
+```{r eval=FALSE}
+**************************
+* profile.do Ined        *
+* M.Thevenin Ined-SMS    *
+**************************
+
+********************************
+* ado plus et personal dans D: *
+******************************** 
+  
+sysdir set PLUS "d:\ado\plus"
+sysdir set PERSONAL "d:\ado\personal"
+
+****************
+** STATA_TEMP **
+****************
+
+*****************************************
+* répertoire par défaut dans Stata_temp *
+*****************************************
+cd "D:/stata_temp/"
+
+*************************************************
+* chargement du répertoire  $tmp dans stata tmp *
+*************************************************
+noisily display as result "Librairie temporaire tmp chargee dans D:stata_temp"
+global tmp "D:/stata_temp/"
+
+*************************************************
+* affichage du contenu du repertoire stata_temp *
+*************************************************
+noisily display as txt    "------------------------------------"
+noisily display as result "  Contenu du repertoire stata_temp  "
+noisily display as txt    "------------------------------------"
+noisily dir "D:/stata_temp/*"
+
+**************************************************
+* Chargement du répertoire  $tmp dans stata_temp *
+**************************************************
+
+noisily display as result "répertoire temporaire tmp chargee dans D:stata_temp/"
+global tmp "D:/stata_temp/"
+
+***********************************************************************
+* Creation automatique d un fichier log à chaque ouverture de session * 
+***********************************************************************
+
+capture log close statalog
+local cdt = "`c(current_date)'"
+local cdt: subinstr local cdt " " "-", all
+local cti = "`c(current_time)'"
+local cti: subinstr local cti ":" ".", all
+local statalogname "statalog_`cdt'_`cti'.log"
+noisily display "Creation d'un fichier log dans D:/stata_temp/log/"
+noisily display "Nom du log: `statalogname'"
+log using "D:/stata_temp/log/`statalogname'" , text name(statalog)
+noisily display ""
+
+***************************************************
+* supprimer le blocage du défilement  de l output *
+***************************************************
+set more off, permanently
+```
+
+
+# **Un "Libname"**
+
+<div class="alert alert-info">
+**Juin 2022**: la version 16 de Stata (2019) intègre un système de *frame* permettant de manipuler plusieurs bases sans passer par les étapes `use - save`. Testé seulement en surface et très rapidement. Une section, plutôt prioritaire, est prévu.
+</div>
+
+**Utilisation d'une macro pour enregistrer un chemin**
+Le principe consiste à affecter plusieurs répertoires de travail en début de programme (cf libname avec Sas) simplement à l'aide de macros de type `global`. On peut alors faire les manipulations courantes de fichiers enregistrés dans plusieurs répertoires sans avoir à modifier le répertoire actif avec la commande `cd`.
+
+***Exemple***:
+La base data1.dta se trouve dans le répertoire X et la base data2.dta se trouve dans le répertoire Y.
+Pour affecter les répertoires, on utilise des macros soit locale ou globale. En terme de syntaxe. La macro globale présente un  avantage en terme de syntaxe (`$nom_macro`), il faut néanmoins vérifier qu'un nom de macro global n'est pas déjà utilisé et, de préférence, supprimer les nouvelles macro  en fin de programme.
+
+```{r eval=FALSE}
+macro list
+
+macro global X "path/X"
+macro global Y "path/Y"
+
+use  $X/data1, clear
+sort id
+save $X/data1, replace
+use  $Y/data2, clear
+sort  id
+merge id using $X/data1
+
+macro drop X Y
+```
+
+<br>
+
+# **Répertoire  temporaire ou trash box** 
+
+Stata dispose d'un système d'enregistrement et d'ouverture des fichiers par défaut. Normalement, à l'Ined, il se situe dans la racine du lecteur D. 
+Pour vérifier son emplacement de ce répertoire par défaut : exécuter `pwd`.  
+
+<br>
+Dans un programme, une fois qu'un répertoire est affecté avec la commande `cd`, le répertoire par défaut n'est plus identifié comme tel, celui affecté par `cd` prenant le relai.  La solution proposée ici est de créer un répertoire nommé  *stata_temp* dans la racine du répertoire D par exemple,  et d'utiliser soit les commandes dédiées dont les programmes sont données en fin de page (`tuse`, `tsave`,  `tdir` et `terase`), soit la macro globale associée `$tmp`. Le répertoire sera reconnu grâce au *profile.do* (voir plus haut), et le nom de la  macro  *`tmp`*.
+
+**Les commandes associées**:  
+- **`tuse  nom_base`**  : ouvre une base (identique à `use $tmp/nom_base`).  
+- **`tsave nom_base`**  : sauvegarde une base (identique à `save $tmp/nom_base`).  
+- **`tdir  nom_base`**  : affiche le contenu du répertoire stata_temp. A l'ouverture d'une session Stata, le contenu du répertoire est  affiché (propriété du profile, on peut supprimer cet affichage).  
+- `terase [extension fichier]`: efface le contenu du répertoire, `terase` seul supprimera tous les fichiers Stata. Exemple:  
+  * `terase`  
+  * `terase log`  
+  * `terase dta`  
+
+Pour apparier une ou plusieurs base enregistrées dans ce répertoire, on utilisera le nom de la macro variable `$tmp/`, par exemple: `merge id using $tmp/base1`.    
+
+Le nom de la macro peut être modifiée dans le *profile.do*. Par exemple si on préfère que cela soit t au lieu de tmp, il suffit de modifier la ligne `global tmp "D:/stata_temp/"` par `global t "D:/stata_temp/"`.  
+
+<br>
+
+# **Création automatique d'un fichier log à l'ouverture d'une session**
+
+**Fonctionalité la plus utile** (en attendant que Stata propose un jour un enregistrement continu et automatique des programmes).  
+
+<br>
+Ici les fichiers log sont enregistrés le sous répertoire  **log** du répertoire **stata_temp**. Il faut donc créer ce répertoire (D:stata_temp/log/). Les log sont directement générés dans le profile.do (voir plus haut).   
+ 
+En exécutant la commande `terase` (ou `terase log`), le log d'une session active ne sera pas supprimé.  
+ 
+Si l'on souhaite modifier l'emplacement des fichiers log, par exemple de **:D/Stata_temp/log**  vers  **:D/stata_log** il suffit de créer ce répertoire **stata_log** dans :D et de modifier la ligne suivante dans le **profile.do** :  
+```{r eval=FALSE}
+log using "D:/stata_temp/log/`statalogname'" , text name(statalog)  
+```
+par  
+```{r eval=FALSE}
+log using "D:/stata_log/`statalogname'" , text name(statalog)  
+```
+
+
+# **Markdown, Stata avec RStudio et Python**
+
+Le markdown est un langage d'édition et de formatage de texte particulièrement simplifié (d'où **down** par rapport aux langage de type **markup** comme le très pénible **`smcl`** de Stata.  
+
+Via des commandes externes puis via une intégration interne, il est possible d'exécuter des programmes Stata commentés via ce "langage".  
+Cette intégration via la commande **`dyndoc`** (pour dynamic document) ne m'ayant pas du tout emballé, loin de là, on peut passer. ((https://www.stata.com/features/overview/markdown/). 
+<br>
+**Avec RStudio**  
+Il est possible  d'exécuter des programmes Stata avec R dans un document de type **`Rmarkdown`** avec RStudio grâce à la librairie **Statamarkdown** (Doug Hemken). Si le temps d'exécution n'est franchement pas paru optimal, cette fonctionalité est particulièrement intéressante pour éditer facilement et rapidement des document html, word ou pdf. 
+Défauts: l'intégration au document des graphiques Stata n'est pas automatique et, vraiement plus embêtant, les  fonctions externes ne sont pas reconnues et doivent être placées dans le ado officiel.  
+
+Sources:  
+
+* Julien Barnier: [markdown avec Rstudio](https://juba.github.io/tidyverse/13-rmarkdown.html)
+* Doug Hemken: [statamarkdown]([https://www.ssc.wisc.edu/~hemken/Stataworkshops/Stata%20and%20R%20Markdown/StataMarkdown)
+
+**Avec Jupyter (Python)**  
+Même chose avec le noyau Stata du notebook **Jupyter** (nécessite Anaconda ou Miniconda). Le temps d'exécution m'est apparu plus rapide qu'avec Rstudio. 
+Avantage: l'intégration des graphiques Stata au document est automatique, et visiblement les macro Stata de type `local` sont conservée en mémoire.  
+Source: Kyle Barron [Stata kernel](https://kylebarron.dev/stata_kernel/)  
+
+<div class="alert alert-info">
+**Maj juin 2022**: une librairie officielle Stata, **pystata**, pour exécuter Stata dans **Jupyter** ou **Spyder** a été mis à disposition avec la version 17 de Stata. ***Pas encore testée*** nous avons à l'Ined la nouvelle version de Stata depuis peu. 
+</div>
+
+# **Annexe: tuse - tsave - tdir - terase**
+
+* Courts *.ado* qui permettent  d'ouvrir, enregistrer... des fichiers dans un répertoire temporaire alors qu'un autre répertoire de travail par défaut a été déclaré.
+
+* Marche à suivre
+  * Voir la section **repértoire temporaire ou trash box**: créer un répertoire temporaire
+  * Dans les programmes `tuse`, `tsave` modifier seulement le chemin du répertoire, ici **`D:/stata_temp/`**
+  * Enregistrer les programmes avec l'extension *.ado* dans le repertoire **ado plus** où, de préférence, dans un sous repertoire de *personal* (l'usage est de créer des sous répertoire avec la première lettre du nom du fichier .ado)  
+<br>  
+  
+**`tuse`**  
+
+* Usage: Ouvre une base dans le répertoire par défaut **stata_temp**.
+* Changer le chemin si nécessaire
+
+
+```{}
+capture program drop tuse
+program define tuse
+
+syntax anything
+tokenize `anything'
+
+use "D:/stata_temp/`anything'.dta" , clear
+
+end
+```
+
+
+**tsave**  
+
+* Usage: Enregistre une base dans le répertoire par défaut 
+* Changer le chemin si nécessaire
+
+```{}
+capture program drop tuse
+program define tsave
+
+syntax    anything
+tokenize `anything'
+
+saveold "D:/stata_temp/`anything'.dta" , replace
+
+end
+```
+
+
+**tdir**
+
+
+* Usage: Affiche les fichiers qui sont enregistrés dans le répertoire par défaut
+* Changer le chemin si nécessaire
+
+```{}
+capture program drop tdir
+program define tdir
+
+syntax
+display as txt    "------------------------------------"
+display as result "  Contenu du repertoire stata_temp  "
+display as txt    "------------------------------------"
+dir "D:/stata_temp/"
+```
+
+**terase**
+
+* Usage: Affiche les fichiers qui sont enregistrés dans le répertoire par défaut
+* Demande la création d'un profile.do qui déclare le chemin du répertoire temporaire (voir le début de la page). Changer le chemin de la macro global `tmp` si nécessaire
+* Attention: supprimer les 2 parties qui supprime les logs si un sous répertoire *log* n'a pas été créé, ce qui serait bien dommage [voir plus haut **création automatique d'un fichier log** ]
+
+* Le type d'extension, interne à Stata ou autres, n'est pas exhaustif et peut-être facilement ajouté
+
+
+```{}
+capture program drop terase
+
+
+*** COMMAND TERASE ***
+
+program define terase
+
+syntax [namelist] 
+
+
+qui cd "$tmp/"
+
+di as text "Deleted files:"
+
+* tous types de fichiers
+
+if "`namelist'"=="" {
+
+* dta
+qui local listeF1 : dir . files "*.dta"
+foreach x of local listeF1 {
+di as result "`x' deleted"
+erase `x'
+}
+
+*do
+qui local listeF2 : dir . files "*.do"
+foreach x of local listeF2 {
+di as result "`x' deleted"
+erase "`x'"
+}
+
+
+*ado
+local listeF3 : dir . files "*.ado"
+foreach x of local listeF3 {
+di as result "`x' deleted"
+erase `x'
+}
+
+*smcl
+qui local listeF4 : dir . files "*.smcl"
+foreach x of local listeF4 {
+di as result "`x' deleted"
+erase `x'
+}
+
+
+*gph
+qui local listeF4 : dir . files "*.gph"
+foreach x of local listeF4 {
+di as result "`x' deleted"
+erase `x'
+}
+
+*stsem
+qui local listeF4 : dir . files "*.stsem"
+foreach x of local listeF4 {
+di as result "`x' deleted"
+erase `x'
+}
+
+*log
+qui cd "D:\stata_temp\log\"
+qui local listeF4 : dir . files "*.log"
+foreach x of local listeF4 {
+capture erase `x'
+*di as result "log files deleted excepted current log"
+}
+}
+
+* Par type de fichier 
+
+*dta
+if "`namelist'"=="dta" {
+qui local listeF1 : dir . files "*.dta"
+foreach x of local listeF1 {
+di as result "`x' deleted'"
+erase "`x'"
+}
+}
+
+*do
+if "`namelist'"=="do" {
+qui local listeF1 : dir . files "*.do"
+foreach x of local listeF1 {
+di as result "`x' deleted"
+erase "`x'"
+}
+}
+
+*ado
+if "`namelist'"=="ado" {
+local listeF3 : dir . files "*.ado"
+foreach x of local listeF3 {
+di as result "`x'  deleted"
+erase "`x'"
+}
+}
+
+*smcl
+if "`namelist'"=="smcl" {
+qui local listeF4 : dir . files "*.smcl"
+foreach x of local listeF4 {
+di as result "`x' deleted"
+erase "`x'"
+}
+}
+
+*gph
+if "`namelist'"=="gph" {
+qui local listeF4 : dir . files "*.gph"
+foreach x of local listeF4 {
+di as result "`x' deleted"
+erase `x'
+}
+}
+
+*stsem
+if "`namelist'"=="stsem" {
+qui local listeF4 : dir . files "*.stsem"
+foreach x of local listeF4 {
+di as result "`x' deleted"
+erase "`x'"
+}
+}
+
+*log
+if "`namelist'"=="log" {
+qui cd "D:\stata_temp\log\"
+qui local listeF4 : dir . files "*.log"
+foreach x of local listeF4 {
+capture erase `x'
+di as result "log files deleted excepted current log"
+}
+}
+end
+```
+
+
+
+
