@@ -201,8 +201,8 @@
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div class="page-content has-page-title">
 <style>
-body {font-family: Consolas;
-     font-size: 12pt}
+#body {font-family: Consolas;
+#     font-size: 12pt}
 
 hide {
       background-color: #d6d6d6;
@@ -212,12 +212,13 @@ hide:hover {
       color: black;}
 </style>
 <p><br><br></p>
-<p><strong>MAJ du 12 février 2021</strong>: début d’une section sur la visualisation des données avec Python, avec des codes exécutables dans un .do.<br />
-<br></p>
 <ul>
 <li>Depuis la version 16 de Stata (printemps 2019) il est possible d’utiliser Python de manière intéractive avec Stata.</li>
 <li>Une librairie Python <code>SFI</code> (<a href="https://www.stata.com/python/api16/Data.html" class="uri">https://www.stata.com/python/api16/Data.html</a>) est mise à disposition pour favoriser cette interactivé.</li>
-<li>A l’inverse, une librairie Python officielle devrait être mis à disposition pour utiliser Stata sous <strong>Jupyter</strong> et <strong>Spyder</strong>. Actuellement, un noyau Stata [<strong>Statakernel</strong>] est déjà disponible pour <strong>Jupyter</strong> et <strong>Atom</strong> et fonctionne très bien.</li>
+<li>A l’inverse, une librairie Python officielle devrait être mis à disposition pour utiliser Stata sous <strong>Jupyter</strong> et <strong>Spyder</strong>. Actuellement, un noyau Stata [<strong>Statakernel</strong>] est déjà disponible pour <strong>Jupyter</strong> et <strong>Atom</strong> et fonctionne très bien.
+<ul>
+<li><strong>MAJ juin 2022</strong>: la librairie <strong><code>pystata</code></strong> est disponible depuis le printemps 2021 avec la sortie de la version 17 de Stata / pas encore testée</li>
+</ul></li>
 <li>En l’état, il me semble que Python peut permettre à Stata de s’étoffer sur deux domaines: le <em>machine learning</em> (<code>sklearn</code>) et les graphiques <em>data visualization</em>: <code>matplotlib</code>/<code>seaborn</code>, le wrapper de ggplot2 <code>plotnine</code> et, pour les graphiques intéractifs et dynamique <code>plotly</code>).</li>
 <li>l’entrée de l’aide Stata pour utiliser Python: <code>help python</code></li>
 <li>Eléments de Correspondance Stata - Python pour la manipulation des données (librairie<code>pandas</code>): <a href="https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata" class="uri">https://pandas.pydata.org/docs/getting_started/comparison/comparison_with_stata.html#compare-with-stata</a></li>
