@@ -26,8 +26,14 @@ Permet de tester une paletter sur un graphique témoin
 
 ## Exemples
 
+Collection ***Brewer***, palette ***YlGnBu***:
 **`testpal YlGnBu, rev op(50) bf(5)`**  
 <br>
-
 ![](testpal1.png)
+
+Collection ***tableau***, palette ***10***:
+**`testpal tab 10 , rev op(100) bf(1)`**  
+<br>
+![](testpal2.png)
+
 
