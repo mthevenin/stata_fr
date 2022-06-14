@@ -22,7 +22,7 @@ Permet de tester une palette sur un graphique témoin
 
 * **`rev`**: inverse l'ordre des couleurs de la palette
 * **`op(#)`**: modifie le pourcentage d'opacité des couleurs. Par défaut 80% (op(80)). # est compris entre 0+ et 100.
-* **`bf(#)`**: permet de modifier la clareté des graphiques de la seconde colonne (blanc pour la première). # est une valeur comprise entre 1 (noir) et 14 (presque blanc). 
+* **`bf(#)`**: permet de modifier la clarté des graphiques de la seconde colonne (blanc pour la première). # est une valeur comprise entre 1 (noir) et 14 (presque blanc). 
 
 ## Exemples
 
