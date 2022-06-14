@@ -10,7 +10,7 @@ date: "14/06/2022"
 
 # Commande testpal
 
-Permet de tester une paletter sur un graphique témoin
+Permet de tester une palette sur un graphique témoin
 
 ## Installation
 
@@ -18,7 +18,7 @@ Permet de tester une paletter sur un graphique témoin
 
 ## Syntaxe
 
-**`testpal *nom_palette* , [rev] [op(#)] [bf(#)]`**
+**`testpal nom_palette , [rev] [op(#)] [bf(#)]`**
 
 * **`rev`**: inverse l'ordre des couleurs de la palette
 * **`op(#)`**: modifie le pourcentage d'opacité des couleurs. Par défaut 80% (op(80)). # est compris entre 0+ et 100.
