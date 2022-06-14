@@ -29,5 +29,5 @@ Permet de tester une paletter sur un graphique témoin
 **`testpal YlGnBu, rev op(50) bf(5)`**  
 <br>
 
-![](img/tespal1.png)
+![](testpal1.png)
 
