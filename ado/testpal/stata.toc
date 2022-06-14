@@ -5,4 +5,4 @@ d affiliation   : ined-sms
 d support       : marc.thevenin@ined.fr
 d               : https://mthevenin.github.io/stata_fr/
 
-p qlt           : test palette générées par colorpalette (B.Jann)
+p testpal           : test palette générées par colorpalette (B.Jann)
