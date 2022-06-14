@@ -1,3 +1,12 @@
+---
+title: "commande testpal"
+author: "Marc Thevenin"
+date: "14/06/2022"
+#output:
+#  html_document:
+#    toc: yes
+---
+
 
 # commande testpal
 
@@ -17,7 +26,8 @@ Permet de tester une paletter sur un graphique témoin
 
 ## Exemples
 
-**`testpal YlGnBu, rev op(50) bf(5)`**
+**`testpal YlGnBu, rev op(50) bf(5)`**  
+<br>
 
-![](testpal1.png)
+![](img/testpal1.png)
 
