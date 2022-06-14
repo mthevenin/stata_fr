@@ -1,5 +1,5 @@
 ---
-title: "commande testpal"
+title: "Commande testpal"
 author: "Marc Thevenin"
 date: "14/06/2022"
 #output:
@@ -8,7 +8,7 @@ date: "14/06/2022"
 ---
 
 
-# commande testpal
+# Commande testpal
 
 Permet de tester une paletter sur un graphique témoin
 
