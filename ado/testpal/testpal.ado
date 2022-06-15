@@ -3,7 +3,7 @@
 capt program drop testpal
 program define testpal
 
-syntax anything , [op(integer 80)] [rev] [bf(integer 2)] 
+syntax anything , [op(integer 100)] [rev] [bf(integer 2)] 
 
 
 * Dépendance: installation de colorpalette et grstyle 
