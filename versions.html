@@ -7,7 +7,7 @@
 
     
     
-    <title>maj.knit</title>
+    <title>versions.knit</title>
 
         <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
         <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -178,15 +178,13 @@
 <!-- Don't indent these lines or it will mess pre blocks indentation --> 
 <div class="page-content has-page-title">
 <p><br><br></p>
-<p><strong>2022</strong></p>
+<p><strong>Versions à l’Ined</strong></p>
+<p>Sauf exception les versions windows et linux sont en version 17 SE. La version 16 avait été partiellement déployée sous windows en 2020, alors que la version précédente linux était la 15 (2017).<br />
+A noter pour la version linux, utilisée principalement pour le personnel non titutaire, qu’il est possible depuis la version 16 d’importer directement des bases en format Sas avec la commande <strong><code>import sas</code></strong>. Pour les exportations de fichiers .dta en .sas7bdat, il est toujours recommandé d’utiliser la commande <strong><code>savasas</code></strong> (<code>findit saswrapper</code>)</p>
+<p><strong>Ajouts et améliorations avec la version 17</strong>: <a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a></p>
 <ul>
-<li><p><strong>26 juillet 2022</strong>: une courte note sur les versions Stata utilisées à l’Ined.</p></li>
-<li><p><strong>22 juillet 2022</strong>: petite commande graphique en version alpha: <strong><code>gjoint</code></strong>. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande <strong><code>hexplot</code></strong> de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.</p></li>
-<li><p><strong>19 juillet 2022</strong>: suivi des <strong>conférences Stata</strong> depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.</p></li>
-<li><p><strong>18 juillet 2022</strong>: Commande <code>gridge</code> (MT) pour générer des courbes dites de <em>ridge</em>, avec je l’espère quelques apports, par rapport aux commandes existantes: (<a href="https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md" class="uri">https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md</a>)</p></li>
-<li><p><strong>06 juillet 2022</strong>: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (<a href="https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf" class="uri">https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf</a>)</p></li>
-<li><p><strong>21 juin 2022</strong>: Commande <code>fablot</code> (<strong><em>NJ.Cox</em></strong>) pour contrôler les <em>effets spaghetti</em> (<a href="https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md" class="uri">https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md</a>)</p></li>
-<li><p><strong>03 Juin 2022</strong>: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined.</p></li>
+<li><p><strong>Amélioration du temps d’exécution</strong>: sans comparation avec les versions antérieures, on note une nette amélioration du temps d’exécution en particulier pour la commande <code>collapse</code>, la commande <code>sort</code> et les opérations qui lui sont associées, par exemple avec le prefixe <code>bysort</code> (voir la note de version en lien ci-dessus). Associées aux commande du package <strong><code>gtools</code></strong> le gain de temps apparait encore plus considérable pour des opérations sur des bases de données volumineuses. Les fonctionnalités de ce package seront décrites dans la partie dédiée à la programmation (lien à venir).</p></li>
+<li><p><strong>Whishlist</strong>: Vous pouvez alimenter la whishlist de la version 18 (printemps 2023) …. cela fait de nombreuses années qu’une autosave de l’éditeur de programme est demandé. Cela va bien finir par arriver un jour: <a href="https://www.statalist.org/forums/forum/general-stata-discussion/general" class="uri">https://www.statalist.org/forums/forum/general-stata-discussion/general</a>.</p></li>
 </ul>
 </div>
 
