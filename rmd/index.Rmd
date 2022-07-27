@@ -1,0 +1,141 @@
+---
+title: "<br>Stata Ined"
+author: "M.Thevenin"
+date: "`r Sys.Date()`"
+output:
+  rmdformats::downcute:
+    self_contained: true
+    default_style: "light"
+    downcute_theme: "default"
+---
+
+
+```{r setup, include=FALSE}
+## Global options
+knitr::opts_chunk$set(cache = TRUE)
+
+library(knitr)
+library (shiny)
+library (rsconnect)
+library(haven)
+library(pander)
+library(memisc)
+library(fontawesome)
+```
+
+
+<style>
+body {
+  background-color: lightblue;
+}
+</style>
+
+<style>
+hide {
+      background-color: #d6d6d6;
+      color: #d6d6d6;}
+hide:hover {
+      background-color: white;
+      color: black;}
+</style>
+
+<style>
+.column-left{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+.column-center{
+  float: left;
+  width: 50%;
+  text-align: left;
+}
+</style>
+
+<body>
+
+<br>
+
+<h3><span class="badge badge-secondary">Info</span>**Groupe Stata à l'Ined et refonte du site**</h3>  
+<br>
+
+Liens vers les éléments existants en attendant que cela prenne forme (utilitaires et python avec Stata):  
+
+* [Utilitaires et astuces](utils.html)
+* [Utilisation de Python sous Stata](python.html)
+
+<br>
+
+**Menu provisoire (Lien vers le sous-site graphiques activé )**
+
+<table><tr><td>
+<div class="column-left">
+`r fa("info", fill = "steelblue", height = "2em", margin_right="5em")` **Infos Stata**    
+
+* [**Mises à jour du logiciel et version à l'Ined**](versions.html)
+* Stata Journal, ouvrages
+* [**Suivi des conférences**](conferences.html) 
+
+
+`r fa("code", fill = "steelblue", height = "2em", margin_right="3em")` **Programmation**    
+
+* Surement beaucoup de macros
+* `gtools`/`ftools` pour travailler sur des bases volumineuses (priorité) 
+* [**Mise à jour de la formation introductive à Stata**](https://mthevenin.github.io/formation_stata/index.html)
+* Stata <=> R   
+
+<br><br>
+</div>
+
+
+<div class="column-center">
+`r fa("chart-line", fill = "steelblue", height = "2em", margin_right="5em")` [**Graphiques [site dédié]**](https://mthevenin.github.io/stata_graphiques/)  
+
+* [**Nouvelle version de la formation (en cours)**](https://mthevenin.github.io/stata_graphiques/formation.html) 
+* Suivi des visualisations disponibles sur le web
+* Cas pratiques avec programmes  
+
+
+
+<br><br>
+</div>
+</td></tr></table>
+
+
+`r fa("university", fill = "steelblue")` **Liens Ined**
+<div class="alert alert-info">
+* <span style="color:rgb(3,10,29);">**Site de l'Ined**:</span> [`r fa("link", fill = "steelblue")`](https://www.ined.fr)
+* <span style="color:rgb(3,10,29);">**Site du Service  Méthodes Statistiques**:</span>[`r fa("link", fill = "steelblue")`](https://sms.site.ined.fr)  
+* <span style="color:rgb(3,10,29);">**Site des Rencontres de Statistique Appliquée**:</span> [`r fa("link", fill = "steelblue")`](https://statapp.site.ined.fr/)   
+* <span style="color:rgb(3,10,29);">**Site du séminaire R à l'Usage des Sciences Sociales (RUSS)**:</span> [`r fa("link", fill = "steelblue")`](https://russ.site.ined.fr) 
+</div>
+
+`r fa("book", fill = "steelblue")` **Autres supports**  
+<div class="alert alert-info">
+* <span style="color:rgb(3,10,29);">**Formation analyse des durées (2017-2020)**:</span> https://mthevenin.github.io/analyse_duree/
+* <span style="color:rgb(3,10,29);">**Formation introduction à Stata (2018) [Daté - remettre à jour]**:</span> https://mthevenin.github.io/formation_stata/
+</div>
+
+<br>
+Marc Thévenin - Service Méthodes Statistiques - Ined -   
+
+* `r fa("r-project", fill = "steelblue")` Support réalisé avec [Rstudio](href:https://www.rstudio.com) - librairies **Rmarkdown**, **Knitr**. Thème **readthedown** du package **rmdformats** de [**Julien Barnier**](https://www.centre-max-weber.fr/Julien-Barnier)
+* `r fa("code", fill = "steelblue")` Version Stata: [17-SE](https://www.stata.com/)
+
+
+<script src="https://giscus.app/client.js"
+        data-repo="mthevenin/stata_fr"
+        data-repo-id="MDEwOlJlcG9zaXRvcnkxMTAwOTM3NDQ="
+        data-category="General"
+        data-category-id="DIC_kwDOBo_lsM4CPcVO"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="light"
+        data-lang="fr"
+        crossorigin="anonymous"
+        async>
+</script>
+
+

@@ -1,0 +1,36 @@
+---
+---
+
+```{r setup, include=FALSE}
+## Global options
+knitr::opts_chunk$set(cache = TRUE)
+
+library(knitr)
+library (shiny)
+library (rsconnect)
+library(haven)
+library(pander)
+library(memisc)
+library(fontawesome)
+```
+
+<br><br>
+
+
+**2022**
+
+* **26 juillet 2022**: une courte note sur les versions Stata utilisées à l'Ined. 
+
+* **22 juillet 2022**: petite commande graphique en version alpha: **`gjoint`**. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande **`hexplot`** de Ben Jann, en reportant également les distributions marginales sour forme d'histogrammes.  
+
+* **19 juillet 2022**: suivi des **conférences Stata** depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles. 
+
+* **18 juillet 2022**: Commande `gridge` (MT) pour générer des courbes dites de *ridge*, avec je l'espère quelques apports,  par rapport aux commandes existantes: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md)
+
+* **06 juillet 2022**: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf) 
+
+
+* **21 juin 2022**: Commande `fablot` (***NJ.Cox***) pour contrôler les *effets spaghetti* (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md) 
+
+* **03 Juin 2022**: Début de la refonte totale du support dans le cadre de la mise en place d'un groupe d'utilisatrices et d'utilisateurs de Stata à l'Ined.
+
