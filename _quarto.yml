@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  search: 
+    location: sidebar
+  page-navigation: true
+  reader-mode: true
+  page-footer: "Marc Thévenin - Ined-Sms - Août 2022" 
+  navbar:
+    left:
+      - href: index.qmd
+        text: "Stata Ined"
+      - icon: github
+        href: https://github.com/mthevenin        
+      - href: https://mthevenin.github.io/stata_graphiques/
+        text: "Graphiques"     
+      - text: "Programmation [en cours: renvoi formation stata]"   
+        href: https://mthevenin.github.io/formation_stata/    
+
+  sidebar:
+      style: "docked"
+      background: "#ebebeb"
+      contents:
+      - href: maj.qmd
+      - href: versions.qmd
+      - href: conferences.qmd
+
+format:
+  html:
+    theme:  
+      light: [superhero,theme-dark.scss]
+      dark:  [superhero, theme-light.scss]
+    toc: true
+
+
+
