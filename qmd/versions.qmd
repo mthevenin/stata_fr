@@ -1,0 +1,41 @@
+---
+title: "Versions Stata"
+---
+
+
+```{r setup, include=FALSE}
+## Global options
+knitr::opts_chunk$set(cache = TRUE)
+
+library(knitr)
+library (shiny)
+library (rsconnect)
+library(haven)
+library(pander)
+library(memisc)
+library(fontawesome)
+```
+
+<br><br>
+
+
+**Versions à l'Ined**  
+
+Sauf exception les versions windows et linux sont en version 17 SE. La version 16 avait été partiellement déployée sous windows en 2020, alors que la version précédente linux était la 15 (2017).  
+A noter pour la version linux, utilisée principalement pour le personnel non titutaire, qu'il est possible depuis la version 16 d'importer directement des bases en format Sas avec la commande **`import sas`**. Pour les exportations de fichiers .dta en .sas7bdat, il est toujours recommandé d'utiliser la commande **`savasas`** (`findit saswrapper`)   
+
+
+**Ajouts et améliorations avec la version 17**:  <https://www.stata.com/new-in-stata/> 
+
+- **Amélioration du temps d'exécution**: sans comparation avec les versions antérieures, on note une nette amélioration du temps d'exécution en particulier pour la commande `collapse`, la commande `sort` et les opérations qui lui sont associées, par exemple avec le prefixe `bysort` (voir la note de version en lien ci-dessus). Associées aux commande du package **`gtools`** le gain de temps apparait encore plus considérable pour des opérations sur des bases de données volumineuses. Les fonctionnalités de ce package seront décrites dans la partie dédiée à la programmation (lien à venir).
+
+- **Whishlist**: Vous pouvez alimenter la whishlist de la version 18 (printemps 2023) .... cela fait de nombreuses années qu'une autosave de l'éditeur de programme est demandé. Cela va bien finir par arriver un jour: <https://www.statalist.org/forums/forum/general-stata-discussion/genera>l.
+
+
+
+
+
+
+
+
+
