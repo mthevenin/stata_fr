@@ -30,6 +30,7 @@ website:
       - href: maj.qmd
       - href: versions.qmd
       - href: conferences.qmd
+      - href: Stata_journal.qmd      
 
 format:
   html:

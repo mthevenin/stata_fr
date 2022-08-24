@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Stata Ined",
     "section": "",
-    "text": "to do:\n\nRessources: Stata Journal - Ouvrages - sites utilisateurs\nProposition ateliers et formations internes\nPrésentation du support et aide à la navigation\n\n Liens Ined\n\n\n\n\n\n\nNote\n\n\n\n\nSite de l’Ined: \nSite du Service Méthodes Statistiques: \n\nSite des Rencontres de Statistique Appliquée: \n\nSite du séminaire R à l’Usage des Sciences Sociales (RUSS): \n\n\n\n Autres supports\n\n\n\n\n\n\n\nNote\n\n\n\n\nFormation analyse des durées (2017-2020): https://mthevenin.github.io/analyse_duree/\nFormation introduction à Stata (2018): datée - mise à jour en cours: https://mthevenin.github.io/formation_stata/\n\n\n\n\n Support réalisé avec Rstudio - Quarto.\n Version Stata: 17-SE"
+    "text": "to do sur cette page d’acceuil:\n\nRessources: Stata Journal - Ouvrages - sites utilisateurs\nProposition ateliers et formations internes\nPrésentation du support et aide à la navigation\n\nGraphique: mis à jour de la formation 2020 et inclusions de ressources sous forme de programme (4 entrées actuellement), liens, biblio….\nProgrammation: j’en suis vraiment au tout début. Deux premières entrées: une sur le fichier profile.do et une sur le package gtools, avec des benchmarks comparant les commandes avec les commandes usines et des fonctions R équivalentes.\n\n\n\n\n Support réalisé avec Rstudio - Quarto.\n Version Stata: 17-SE"
   },
   {
     "objectID": "versions.html",
@@ -18,13 +18,27 @@
     "href": "maj.html",
     "title": "Infos & maj",
     "section": "",
-    "text": "2022\n\n26 juillet 2022: une courte note sur les versions Stata utilisées à l’Ined.\n22 juillet 2022: petite commande graphique en version alpha: gjoint. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande hexplot de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.\n19 juillet 2022: suivi des conférences Stata depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.\n18 juillet 2022: Commande gridge (MT) pour générer des courbes dites de ridge, avec je l’espère quelques apports, par rapport aux commandes existantes: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md)\n06 juillet 2022: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf)\n21 juin 2022: Commande fablot (NJ.Cox) pour contrôler les effets spaghetti: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md)\n03 Juin 2022: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined."
+    "text": "2022\n\n\n\n\n24 août: sur la forme, fin du passage de tous les support en .qmd (Quarto).\n18 août: création d’un support dédié aux éléments de programmation (hors graphiques): lien\n26 juillet: une courte note sur les versions Stata utilisées à l’Ined.\n22 juillet: petite commande graphique en version alpha: gjoint. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande hexplot de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.\n19 juillet: suivi des conférences Stata depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.\n18 juillet: Commande gridge (MT) pour générer des courbes dites de ridge, avec je l’espère quelques apports, par rapport aux commandes existantes: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md)\n06 juillet: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf)\n21 juin: Commande fablot (NJ.Cox) pour contrôler les effets spaghetti: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md)\n03 Juin: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined."
   },
   {
     "objectID": "conferences.html",
     "href": "conferences.html",
     "title": "Conférences",
     "section": "",
-    "text": "Liste non exhaustive des conférences depuis 2019. J’ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.\n2022\n\n\n\n\n\n\nNote\n\n\n\nBeaucoup de conférences prévues à l’automne, en particulier celle qui se déroulera en angleterre.\n\nUS: https://www.stata.com/meeting/us22/\n\n04-05 août, seulement le programme est disponible\n\nFR: https://www.stata.com/meeting/france22/\n\nEconométrie appliquée\nCertaines présentations sont disponibles\n\nIT: https://www.stata.com/meeting/italy22/\n\n\n\n2021\n\nUSA: https://www.stata.com/meeting/us21/\nUK: https://www.stata.com/meeting/uk21/\nCAN: https://www.stata.com/meeting/canada21/\n\n2020\n\nUSA: https://www.stata.com/meeting/us20/\n\nVoir: The causal effects of parents’ marital status on children’s earnings\n\nUK: https://www.stata.com/meeting/uk20/\nCH: https://www.stata.com/meeting/switzerland20/\nPOR: https://www.stata.com/meeting/portugal20/\n\n2019\n\nUSA: https://www.stata.com/meeting/chicago19/\nUK: https://www.stata.com/meeting/uk19/\nAUS: https://www.stata.com/meeting/oceania19/"
+    "text": "Liste non exhaustive des conférences depuis 2019. J’ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.\n\n\n\n\n\n\n2022\n\n\n\nBeaucoup de conférences prévues à l’automne, en particulier celle qui se déroulera en angleterre.\n\nUS: https://www.stata.com/meeting/us22/\n\nPrésentations disponibles\n\nFR: https://www.stata.com/meeting/france22/\n\nEconométrie appliquée, pas d’éléments propres à la programmation ou aux mises à jour du logiciel\nCertaines présentations sont disponibles\n\nIT: https://www.stata.com/meeting/italy22/\n\n\n\n\n\n\n\n\n\n2021\n\n\n\n\nUSA: https://www.stata.com/meeting/us21/\nUK: https://www.stata.com/meeting/uk21/\nCAN: https://www.stata.com/meeting/canada21/\n\n\n\n\n\n\n\n\n\n2020\n\n\n\n\nUSA: https://www.stata.com/meeting/us20/\n\nVoir: The causal effects of parents’ marital status on children’s earnings\n\nUK: https://www.stata.com/meeting/uk20/\nCH: https://www.stata.com/meeting/switzerland20/\nPOR: https://www.stata.com/meeting/portugal20/\n\n\n\n\n\n\n\n\n\n2019\n\n\n\n\nUSA: https://www.stata.com/meeting/chicago19/\nUK: https://www.stata.com/meeting/uk19/\nAUS: https://www.stata.com/meeting/oceania19/"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Marc Thévenin",
+    "section": "",
+    "text": "Liens Ined\n\n\n\n\nSite de l’Ined: \nSite du Service Méthodes Statistiques: \n\nSite des Rencontres de Statistique Appliquée: \n\nSite du séminaire R à l’Usage des Sciences Sociales (RUSS): \n\n\n\n\n\n\n\n\n\nAutres supports\n\n\n\n\nFormation analyse des durées (2017-2020): https://mthevenin.github.io/analyse_duree/\nFormation introduction à Stata (2018): datée - mise à jour en cours: https://mthevenin.github.io/formation_stata/"
+  },
+  {
+    "objectID": "Stata_journal.html",
+    "href": "Stata_journal.html",
+    "title": "Stata Journal & Ouvrages",
+    "section": "",
+    "text": "Accès au dernier numéro: [connexion compte Campus Condorcet]\n\nhttps://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current\n\n\nSommaire du dernier numéroAfficher\n\n\nJuin 2022\nAller à l’onglet Afficher"
   }
 ]

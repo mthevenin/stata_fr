@@ -35,8 +35,8 @@ ul.task-list{list-style: none;}
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -74,25 +74,30 @@ ul.task-list{list-style: none;}
   <li class="nav-item">
     <a class="nav-link" href="./index.html">Stata Ined</a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://mthevenin.github.io/stata_graphiques/">Graphiques</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://mthevenin.github.io/stata_programmation/">Programmation</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/mthevenin"><i class="bi bi-github" role="img">
 </i> 
  </a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/stata_graphiques/">Graphiques</a>
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:marc.thevenin@ined.fr"><i class="bi bi-envelope" role="img">
+</i> 
+ </a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/formation_stata/">Programmation [en cours: renvoi formation stata]</a>
+    <a class="nav-link" href="./about.html">A propos</a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
                   <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-                  <a href="" class="quarto-reader-toggle nav-link" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
-  <div class="quarto-reader-toggle-btn">
-  <i class="bi"></i>
-  </div>
-</a>
               </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
@@ -159,16 +164,29 @@ ul.task-list{list-style: none;}
 </header>
 
 <p><br><br></p>
-<p><strong>2022</strong></p>
+<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<strong>2022</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <ul>
-<li><p><strong>26 juillet 2022</strong>: une courte note sur les versions Stata utilisées à l’Ined.</p></li>
-<li><p><strong>22 juillet 2022</strong>: petite commande graphique en version alpha: <strong><code>gjoint</code></strong>. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande <strong><code>hexplot</code></strong> de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.</p></li>
-<li><p><strong>19 juillet 2022</strong>: suivi des <strong>conférences Stata</strong> depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.</p></li>
-<li><p><strong>18 juillet 2022</strong>: Commande <code>gridge</code> (MT) pour générer des courbes dites de <em>ridge</em>, avec je l’espère quelques apports, par rapport aux commandes existantes: (<a href="https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md" class="uri">https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md</a>)</p></li>
-<li><p><strong>06 juillet 2022</strong>: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (<a href="https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf" class="uri">https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf</a>)</p></li>
-<li><p><strong>21 juin 2022</strong>: Commande <code>fablot</code> (<strong><em>NJ.Cox</em></strong>) pour contrôler les <em>effets spaghetti</em>: (<a href="https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md" class="uri">https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md</a>)</p></li>
-<li><p><strong>03 Juin 2022</strong>: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined.</p></li>
+<li><p><strong>24 août</strong>: sur la forme, fin du passage de tous les support en .qmd (<a href="https://quarto.org/">Quarto</a>).</p></li>
+<li><p><strong>18 août</strong>: création d’un support dédié aux éléments de programmation (hors graphiques): <a href="https://mthevenin.github.io/stata_programmation/">lien</a></p></li>
+<li><p><strong>26 juillet</strong>: une courte note sur les versions Stata utilisées à l’Ined.</p></li>
+<li><p><strong>22 juillet</strong>: petite commande graphique en version alpha: <strong><code>gjoint</code></strong>. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande <strong><code>hexplot</code></strong> de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.</p></li>
+<li><p><strong>19 juillet</strong>: suivi des <strong>conférences Stata</strong> depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.</p></li>
+<li><p><strong>18 juillet</strong>: Commande <code>gridge</code> (MT) pour générer des courbes dites de <em>ridge</em>, avec je l’espère quelques apports, par rapport aux commandes existantes: (<a href="https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md" class="uri">https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md</a>)</p></li>
+<li><p><strong>06 juillet</strong>: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (<a href="https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf" class="uri">https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf</a>)</p></li>
+<li><p><strong>21 juin</strong>: Commande <code>fablot</code> (<strong><em>NJ.Cox</em></strong>) pour contrôler les <em>effets spaghetti</em>: (<a href="https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md" class="uri">https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md</a>)</p></li>
+<li><p><strong>03 Juin</strong>: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined.</p></li>
 </ul>
+</div>
+</div>
 
 
 
