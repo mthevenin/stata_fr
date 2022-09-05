@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Stata Ined",
+    "title": "",
     "section": "",
-    "text": "to do sur cette page d’acceuil:\n\nRessources: Stata Journal - Ouvrages - sites utilisateurs\nProposition ateliers et formations internes\nPrésentation du support et aide à la navigation\n\nGraphique: mis à jour de la formation 2020 et inclusions de ressources sous forme de programme (4 entrées actuellement), liens, biblio….\nProgrammation: j’en suis vraiment au tout début. Deux premières entrées: une sur le fichier profile.do et une sur le package gtools, avec des benchmarks comparant les commandes avec les commandes usines et des fonctions R équivalentes.\n\n\n\n\n Support réalisé avec Rstudio - Quarto.\n Version Stata: 17-SE"
+    "text": "Support réalisé avec Rstudio - Quarto.\n Version Stata: 17-SE"
   },
   {
     "objectID": "versions.html",
@@ -18,7 +18,7 @@
     "href": "maj.html",
     "title": "Infos & maj",
     "section": "",
-    "text": "2022\n\n\n\n\n24 août: sur la forme, fin du passage de tous les support en .qmd (Quarto).\n18 août: création d’un support dédié aux éléments de programmation (hors graphiques): lien\n26 juillet: une courte note sur les versions Stata utilisées à l’Ined.\n22 juillet: petite commande graphique en version alpha: gjoint. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande hexplot de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.\n19 juillet: suivi des conférences Stata depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.\n18 juillet: Commande gridge (MT) pour générer des courbes dites de ridge, avec je l’espère quelques apports, par rapport aux commandes existantes: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md)\n06 juillet: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf)\n21 juin: Commande fablot (NJ.Cox) pour contrôler les effets spaghetti: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md)\n03 Juin: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined."
+    "text": "2022\n\n\n\n\n24 août: sur la forme, fin du passage de tous les supports en .qmd (Quarto).\n18 août: création d’un support dédié aux éléments de programmation (hors graphiques): lien\n26 juillet: une courte note sur les versions Stata utilisées à l’Ined.\n22 juillet: petite commande graphique en version alpha: gjoint. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande hexplot de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.\n19 juillet: suivi des conférences Stata depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.\n18 juillet: Commande gridge (MT) pour générer des courbes dites de ridge, avec je l’espère quelques apports, par rapport aux commandes existantes: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md)\n06 juillet: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf)\n21 juin: Commande fablot (NJ.Cox) pour contrôler les effets spaghetti: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md)\n03 Juin: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined."
   },
   {
     "objectID": "conferences.html",
@@ -37,8 +37,64 @@
   {
     "objectID": "Stata_journal.html",
     "href": "Stata_journal.html",
-    "title": "Stata Journal & Ouvrages",
+    "title": "Stata Journal",
     "section": "",
-    "text": "Accès au dernier numéro: [connexion compte Campus Condorcet]\n\nhttps://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current\n\n\nSommaire du dernier numéroAfficher\n\n\nJuin 2022\nAller à l’onglet Afficher"
+    "text": "Accès au dernier numéro [connexion Campus Condorcet] :\nhttps://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current\n\nSommaire du dernier numéroAfficher\n\n\nJuin 2022\nAller à l’onglet Afficher"
+  },
+  {
+    "objectID": "presentation.html#section",
+    "href": "presentation.html#section",
+    "title": "Présentation",
+    "section": "",
+    "text": "AAAAAAAAAA"
+  },
+  {
+    "objectID": "presentation.html#ce-support-daccueil",
+    "href": "presentation.html#ce-support-daccueil",
+    "title": "Présentation rapide",
+    "section": "Ce support d’accueil",
+    "text": "Ce support d’accueil\n\nContenu plutôt succinct:\n\nSuivi des conférences: avec programme et information sur la mise à disposition des présentations\nStata Journal: accès direct au dernier numéro et lecture du dernier sommaire\nMe demander des veilles et biblio sur des thèmes particulier\nA faire: proposition d’ateliers et présentations (format court), voire de formation"
+  },
+  {
+    "objectID": "presentation.html#support-dédié-aux-programmation-de-graphiques",
+    "href": "presentation.html#support-dédié-aux-programmation-de-graphiques",
+    "title": "Présentation",
+    "section": "Support dédié aux programmation de graphiques",
+    "text": "Support dédié aux programmation de graphiques\n\nLa mise à jour de la formation de 2020\nSérie d’article sur la programmation de graphiques\n\nDirectement avec le langage Stata\nAvec Python (seaborn, plotnine, plotline) sous un éditeur .do"
+  },
+  {
+    "objectID": "presentation.html#ce-support-daccueil-1",
+    "href": "presentation.html#ce-support-daccueil-1",
+    "title": "Présentation",
+    "section": "Ce support d’accueil",
+    "text": "Ce support d’accueil\n\nSuivi des conférences\nPublication du Stata journal\n\nAccès direct à la publication [être connecté ]\nMis à disposition du dernier sommaire"
+  },
+  {
+    "objectID": "presentation.html#support-dédié-à-la-programmation-de-graphiques",
+    "href": "presentation.html#support-dédié-à-la-programmation-de-graphiques",
+    "title": "Présentation rapide",
+    "section": "Support dédié à la programmation de graphiques",
+    "text": "Support dédié à la programmation de graphiques\nMAJ formation de 2020\n\nChapitres 1 à 3\nPas satisfait du chapitre 4 de 2020, je cherche encore\nUn cinquième chapitre sur les graphiques issus des librairies Python seaborn, plotnine et plotly [avec code simple]\n\nTopics\nSérie d’articles courts, présenté sour forme de blog\n\nAvec Stata\n\nExemple: Commandes que j’ai programmées cet été (gridge, gjoint)\nSolution à l’effet Spaghetti avec fabplot de NJ.Cox\nLa commande axis de NJ Cox qui fait gagné un temps monstre par rapport à ce que j’avais fais pour les graphiques types lollipop et haltère. J’étais passé complètement au travers.\n\nAvec Python (seaborn, plotnine, plotline) sous un éditeur .do\n\nBilio et liens\nA faire très rapidement\n\nRemettre et actualiser la biblio de la formation de 2020\nSites sur la visualisation avec Stata. Exemple: site Medium d’Asjad Naqvi\n\n:::"
+  },
+  {
+    "objectID": "presentation.html",
+    "href": "presentation.html",
+    "title": "Présentation",
+    "section": "",
+    "text": "todo\n\nProposition ateliers et formations internes\nPrésentation du support et aide à la navigation\n\nGraphique: mis à jour de la formation 2020 et inclusions de ressources sous forme de programme (4 entrées actuellement), liens, biblio….\nProgrammation: j’en suis vraiment au tout début. Deux premières entrées: une sur le fichier profile.do et une sur le package gtools, avec des benchmarks comparant les commandes avec les commandes usines et des fonctions R équivalentes."
+  },
+  {
+    "objectID": "presentation.html#support-dédié-à-la-programmation-hors-graphiques",
+    "href": "presentation.html#support-dédié-à-la-programmation-hors-graphiques",
+    "title": "Présentation rapide",
+    "section": "Support dédié à la programmation (hors graphiques)",
+    "text": "Support dédié à la programmation (hors graphiques)\nCréation très récente\n\nAvec contenu:\n\nfichier profile.do,\nAmélioration des durées d’exécution avec le package gtools\n\nPrésentation de quelques commandes associées\nBenchmark (jusqu’à 10M) avec commandes usines fonctions R\n\n\nSans contenu ou presque\n\nProgrammation avec les Macros, c’est incontournable.\n\nSi la programmation d’algorithme vous intéresse me le faire savoir\n\nStata <=> R forcément\n\nCela va pas vous intéresser, mais je dois remettre progressivement ma formation introductive qui très ancienne."
+  },
+  {
+    "objectID": "presentation.html#le-support-programmation",
+    "href": "presentation.html#le-support-programmation",
+    "title": "Présentation rapide",
+    "section": "Le support programmation",
+    "text": "Le support programmation"
   }
 ]
