@@ -148,7 +148,14 @@ ul.task-list{list-style: none;}
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#versions-installées-2022" id="toc-versions-installées-2022" class="nav-link active" data-scroll-target="#versions-installées-2022"><strong>Versions installées (2022)</strong></a></li>
+  <li><a href="#mise-à-jour-de-la-version" id="toc-mise-à-jour-de-la-version" class="nav-link" data-scroll-target="#mise-à-jour-de-la-version">Mise à jour de la version</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -170,6 +177,8 @@ ul.task-list{list-style: none;}
 </header>
 
 <p><br><br></p>
+<section id="versions-installées-2022" class="level1">
+<h1><strong>Versions installées (2022)</strong></h1>
 <p><strong>Versions à l’Ined</strong></p>
 <p>Sauf exception les versions windows et linux sont en version 17 SE. La version 16 avait été partiellement déployée sous windows en 2020, alors que la version précédente linux était la 15 (2017).<br>
 A noter pour la version linux, utilisée principalement pour le personnel non titutaire, qu’il est possible depuis la version 16 d’importer directement des bases en format Sas avec la commande <strong><code>import sas</code></strong>. Pour les exportations de fichiers .dta en .sas7bdat, il est toujours recommandé d’utiliser la commande <strong><code>savasas</code></strong> (<code>findit saswrapper</code>)</p>
@@ -178,8 +187,26 @@ A noter pour la version linux, utilisée principalement pour le personnel non ti
 <li><p><strong>Amélioration du temps d’exécution</strong>: sans comparation avec les versions antérieures, on note une nette amélioration du temps d’exécution en particulier pour la commande <code>collapse</code>, la commande <code>sort</code> et les opérations qui lui sont associées, par exemple avec le prefixe <code>bysort</code> (voir la note de version en lien ci-dessus). Associées aux commande du package <strong><code>gtools</code></strong> le gain de temps apparait encore plus considérable pour des opérations sur des bases de données volumineuses. Les fonctionnalités de ce package seront décrites dans la partie dédiée à la programmation (lien à venir).</p></li>
 <li><p><strong>Whishlist</strong>: Vous pouvez alimenter la whishlist de la version 18 (printemps 2023) …. cela fait de nombreuses années qu’une autosave de l’éditeur de programme est demandé. Cela va bien finir par arriver un jour: <a href="https://www.statalist.org/forums/forum/general-stata-discussion/genera" class="uri">https://www.statalist.org/forums/forum/general-stata-discussion/genera</a>l.</p></li>
 </ul>
+</section>
+<section id="mise-à-jour-de-la-version" class="level1">
+<h1>Mise à jour de la version</h1>
+<p>Au cours des deux années d’existence d’une version, plusieurs mises à jour visant à fixer des bugs sont disponibles. Si on saute une ou plusieurs maj, la dernière met à jour l’ensemble (cela sera forcément un peu plus long)</p>
+<ul>
+<li><p>Consultation des mises à jours (avec contenu): <strong><code>update query</code></strong></p></li>
+<li><p>Installation de la mise à jour</p>
+<ul>
+<li>Le fichier ouvert avec <code>update query</code> propose d’installer la ou les mises à jour. Toutes les sessions devront être fermée avant l’installation.</li>
+<li>A l’Ined, la mise à jour ne peut se faire que sous son <strong>compte administrateur</strong>. Ce type de session a été mise en place il y a quelques années par le service informatique. Si vous ne l’avez jamais utilisé ou oublié, il faut entrer son login administrateur et un mot de passe. <em>Normalement</em>:
+<ul>
+<li>Login: <strong>adm_nom</strong>. Pour moi donc: <em>adm_thevenin</em></li>
+<li>Mot De Passe: le mot de passe du <em>sceau ined</em> (sous condition, j’ai du mettre un mdp différent à mon retour de détachement).</li>
+<li>Si problème: contacter le service informatique à l’adresse <a href="mailto:support-micro@ined.fr" class="email">support-micro@ined.fr</a></li>
+</ul></li>
+</ul></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
