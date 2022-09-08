@@ -8,6 +8,7 @@ Ici quelques entrées:
 
 * Suivi des conférences 
 * Note sur les versions utilisées à l'Ined
+* Mise à disposition des 4 derniers numéros du *Stata Journal*
 * Infos & maj sur le support
 
 Renvois:
