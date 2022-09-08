@@ -2,6 +2,8 @@
 
 Accueil du support Stata pour l'Ined
 
+Accès au support: https://mthevenin.github.io/stata_fr/
+
 Ici quelques entrées:
 
 * Suivi des conférences 
