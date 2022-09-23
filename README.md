@@ -16,5 +16,6 @@ Renvois:
 * Sous support appelé "programmation" (hors graphiques). Premiers éléments
   * profile.do
   * package gtools avec benchmarks (versus commande usine et fonction R)
+  * `collect` introduit avec la version 17 pour les outputs.
 * Sous support sur les graphiques (c'est de la programmation, mais cela fait suite à la formation interne de 2020 faite avec Bénédicte Garnier pour l'unité de recherche Démographie Economique (et je la remercie).
-* Sous support sur la programmation
+* Sous support sur la programmation de graphique (principalement la reprise de la formation de 2020)
