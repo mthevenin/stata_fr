@@ -1,0 +1,38 @@
+---
+title: " "
+---
+
+```{r setup, include=FALSE}
+options(Encoding="UTF-8")
+library(fontawesome)
+```
+
+
+::: callout-note
+
+## 08 Septembre 2022: **`collect`**
+
+::: {layout-ncol=2}
+<br>
+**`collect`** 
+La version 17 de Stata a introduit une suite nommée `collect` permettant de paramétrer, enregistrer, et utiliser des styles pour les tableaux. Dans le fichier d'aide, l'idée de  remplacer les commandes utilisateurs existantes, en particulier la très populaire `outreg2`, est assez clairement annoncée. Après quelques heures d'apprentissage, je suis agréablement surpris pour ne pas dire bluffé.   
+Une première courte présentation pour les régressions se trouve dans le support **programmation**
+
+
+![](https://mthevenin.github.io/stata_programmation/tableaux/collect.PNG)
+
+:::
+:::
+
+<br>
+---
+<br>
+
+
+
+
+-   `r fa("r-project", fill = "steelblue")` Support réalisé avec [Rstudio](href:https://www.rstudio.com) - [Quarto](https://quarto.org).
+-   `r fa("code", fill = "steelblue")` Version Stata: [17-SE](https://www.stata.com/)
+
+
+

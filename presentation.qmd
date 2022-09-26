@@ -1,0 +1,94 @@
+---
+title: "Présentation rapide"
+format:
+  revealjs:
+    incremental: false   
+    scrollable: true
+#    smaller: true
+---
+
+
+# Trois supports
+
+
+- Accès direct par la barre de navigation
+- Fenêtre de recherche pour chaque support
+- Accès au contenu via une barre horizontal
+
+
+::: callout-note
+Tous les supports ont été réalisés avec **Quarto** [*Rstudio*] sorti officiellement le 29 Juillet 2022
+:::
+
+## Ce support d'accueil
+
+- Contenu plutôt succinct:
+  - Suivi des conférences: avec programme et information sur la mise à disposition des présentations
+  - Stata Journal: accès direct au dernier numéro et lecture du dernier sommaire
+  - *Me demander des veilles et biblio sur des thèmes particulier*
+  - A faire: proposition d'ateliers et présentations (format court), voire de formation
+
+
+
+
+## Support dédié à la programmation de graphiques
+
+
+
+### MAJ formation de 2020
+
+- Chapitres 1 à 3
+- Pas satisfait du chapitre 4 de 2020, je cherche encore
+- Un cinquième chapitre sur les graphiques issus des librairies Python *seaborn*, *plotnine* et *plotly* [avec code simple]
+
+### Topics 
+
+Série d'articles courts, présenté sour forme de *blog*  
+
+  - Avec Stata 
+    - Exemple: Commandes que j'ai programmées cet été (gridge, gjoint)
+    - Solution à l'effet Spaghetti avec `fabplot` de NJ.Cox
+    - La commande `axis` de NJ Cox qui fait gagné un temps monstre par rapport à ce que j'avais fais pour les graphiques types *lollipop* et *haltère*. J'étais passé complètement au travers.
+    
+  - Avec Python (seaborn, plotnine, plotline) sous un éditeur .do
+
+### Bilio et liens
+
+A faire très rapidement
+
+- Remettre et actualiser la biblio de la formation de 2020
+- Sites sur la visualisation avec Stata. Exemple: [site *Medium* d'Asjad Naqvi](https://asjadnaqvi.medium.com/)
+
+:::
+
+
+
+## Support dédié à la programmation (hors graphiques)
+
+Création très récente
+
+- Avec contenu: 
+  - fichier **profile.do**, 
+  -  Amélioration des durées d'exécution avec le package **gtools** 
+     - Présentation de quelques commandes associées
+     - Benchmark (jusqu'à 10M) avec commandes usines fonctions R
+
+- Sans contenu ou presque
+  - Programmation avec les **Macros**, c'est incontournable.
+    - *Si la programmation d'algorithme vous intéresse me le faire savoir*
+  - **Stata <=> R** forcément
+
+- Cela va pas  vous intéresser, mais je dois remettre progressivement ma formation introductive qui très ancienne.
+  
+  
+
+
+
+
+
+
+
+
+
+    
+

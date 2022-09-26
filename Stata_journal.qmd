@@ -1,0 +1,44 @@
+---
+title: "Stata Journal"
+---
+
+# **Stata Journal**
+
+**Accès au dernier numéro** \[[connexion *Campus Condorcet*](https://refid-auth.campus-condorcet.fr/cas/login?service=https%3A%2F%2Fwww.campus-condorcet.fr%2Fservlet%2Fcom.jsbsoft.jtf.core.SG%3FPROC%3DIDENTIFICATION_FRONT)\] :    
+<https://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current>
+
+
+Sommaire des 4 derniers numéros. J'ai stocké les sommaires antérieurs à cet adresse [lien](https://github.com/mthevenin/stata_fr/tree/master/sj)
+
+::: panel-tabset
+
+
+## **2022-2**
+
+<iframe src="sj/stja_22_2.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+
+## **2022-1**
+
+<iframe src="sj/stja_22_1.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+
+## **2021-4**
+
+<iframe src="sj/stja_21_4.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+
+## **2021-3**
+
+<iframe src="sj/stja_21_3.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
+:::
+
+
+- **Vous pouvez me solliciter pour une veille/biblio particulière** 
+
+

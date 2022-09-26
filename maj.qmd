@@ -1,0 +1,50 @@
+---
+title: "Infos & maj"
+---
+
+```{r setup, include=FALSE}
+## Global options
+knitr::opts_chunk$set(cache = TRUE)
+
+library(knitr)
+library (shiny)
+library (rsconnect)
+library(haven)
+library(pander)
+library(memisc)
+library(fontawesome)
+```
+
+<br><br>
+
+::: {.callout-note icon="false"}
+## **2022**
+
+-   **06 septembre**: Une première présentation de la suite **`collect`** pour paramétrer, enregistrer un style pour les tableaux, et de les exporter [lien](https://mthevenin.github.io/stata_programmation/tableaux/intro.html). Très intéressant à première vue 
+
+-   **05 septembre**:
+    - La barre de navigation est identique pour les 3 supports (merci Marion)
+    - Stata Journal: les 4 derniers sommaires figureront sur la page 
+    - Version: ajout d'un point rapide sur la mise à jour du logiciel
+
+-   **24 août**: sur la forme, fin du passage de tous les supports en .qmd ([Quarto](https://quarto.org/)).
+
+-   **18 août**: création d'un support dédié aux éléments de programmation (hors graphiques): [lien](https://mthevenin.github.io/stata_programmation/)
+
+-   **26 juillet**: une courte note sur les versions Stata utilisées à l'Ined.
+
+-   **22 juillet**: petite commande graphique en version alpha: **`gjoint`**. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande **`hexplot`** de Ben Jann, en reportant également les distributions marginales sour forme d'histogrammes.
+
+-   **19 juillet**: suivi des **conférences Stata** depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.
+
+-   **18 juillet**: Commande `gridge` (MT) pour générer des courbes dites de *ridge*, avec je l'espère quelques apports, par rapport aux commandes existantes: (<https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md>)
+
+-   **06 juillet**: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (<https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf>)
+
+-   **21 juin**: Commande `fablot` (***NJ.Cox***) pour contrôler les *effets spaghetti*: (<https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md>)
+
+-   **03 Juin**: Début de la refonte totale du support dans le cadre de la mise en place d'un groupe d'utilisatrices et d'utilisateurs de Stata à l'Ined.
+:::
+
+
+

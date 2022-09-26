@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "Marc Thévenin",
+    "section": "",
+    "text": "Sms-Ined\n\n\n\n\n\n\nLiens Ined\n\n\n\n\nSite de l’Ined: \nSite du Service Méthodes Statistiques: \n\nSite des Rencontres de Statistique Appliquée: \n\nSite du séminaire R à l’Usage des Sciences Sociales (RUSS): \n\n\n\n\n\n\n\n\n\nAutres supports\n\n\n\n\nFormation analyse des durées (2017-2020): https://mthevenin.github.io/analyse_duree/\nFormation introduction à Stata (2018): datée - mise à jour en cours: https://mthevenin.github.io/formation_stata/"
+  },
+  {
+    "objectID": "ado/testpal/Readme.html",
+    "href": "ado/testpal/Readme.html",
+    "title": "Commande testpal",
+    "section": "",
+    "text": "Permet de tester une palette sur un graphique témoin\n\n\nnet install testpal, from(\"https://mthevenin.github.io/stata_fr/ado/testpal/\") replace\n\n\n\ntestpal nom_palette , [rev] [op(#)] [bf(#)]\n\nrev: inverse l’ordre des couleurs de la palette\nop(#): modifie le pourcentage d’opacité des couleurs. Par défaut l’opacité est de 100%: op(100). # est compris entre 0+ et 100.\nbf(#): permet de modifier la clarté de la couleur de fond des graphiques de la seconde colonne (fixé à blanc pour la première). # est une valeur comprise entre 1 (noir) et 14 (presque blanc).\n\n\n\n\nCollection Brewer, palette YlGnBu:\n`testpal YlGnBu, rev op(50) bf(5)` \n\nCollection tableau, palette 10:\ntestpal tab 10 , rev op(100) bf(1)"
+  },
+  {
+    "objectID": "conferences.html",
+    "href": "conferences.html",
+    "title": "Conférences",
+    "section": "",
+    "text": "Liste non exhaustive des conférences depuis 2019. J’ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.\n\n\n\n\n\n\n2022\n\n\n\nBeaucoup de conférences prévues à l’automne, en particulier celle qui se déroulera en angleterre.\n\nUK: https://www.stata.com/meeting/uk22/\n\nPrésentations disponibles.\n\nUS: https://www.stata.com/meeting/us22/\n\nPrésentations disponibles\n\nFR: https://www.stata.com/meeting/france22/\n\nEconométrie appliquée, pas d’éléments propres à la programmation ou aux mises à jour du logiciel\nCertaines présentations sont disponibles\n\nIT: https://www.stata.com/meeting/italy22/\n\n\n\n\n\n\n\n\n\n2021\n\n\n\n\nUSA: https://www.stata.com/meeting/us21/\nUK: https://www.stata.com/meeting/uk21/\nCAN: https://www.stata.com/meeting/canada21/\n\n\n\n\n\n\n\n\n\n2020\n\n\n\n\nUSA: https://www.stata.com/meeting/us20/\n\nVoir: The causal effects of parents’ marital status on children’s earnings\n\nUK: https://www.stata.com/meeting/uk20/\nCH: https://www.stata.com/meeting/switzerland20/\nPOR: https://www.stata.com/meeting/portugal20/\n\n\n\n\n\n\n\n\n\n2019\n\n\n\n\nUSA: https://www.stata.com/meeting/chicago19/\nUK: https://www.stata.com/meeting/uk19/\nAUS: https://www.stata.com/meeting/oceania19/"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "",
+    "section": "",
+    "text": "08 Septembre 2022: collect\n\n\n\n\n\n\n collect La version 17 de Stata a introduit une suite nommée collect permettant de paramétrer, enregistrer, et utiliser des styles pour les tableaux. Dans le fichier d’aide, l’idée de remplacer les commandes utilisateurs existantes, en particulier la très populaire outreg2, est assez clairement annoncée. Après quelques heures d’apprentissage, je suis agréablement surpris pour ne pas dire bluffé.\nUne première courte présentation pour les régressions se trouve dans le support programmation\n\n\n\n\n\n\n\n\n\n\n\n\n Support réalisé avec Rstudio - Quarto.\n Version Stata: 17-SE"
+  },
+  {
+    "objectID": "maj.html",
+    "href": "maj.html",
+    "title": "Infos & maj",
+    "section": "",
+    "text": "2022\n\n\n\n\n06 septembre: Une première présentation de la suite collect pour paramétrer, enregistrer un style pour les tableaux, et de les exporter lien. Très intéressant à première vue\n05 septembre:\n\nLa barre de navigation est identique pour les 3 supports (merci Marion)\nStata Journal: les 4 derniers sommaires figureront sur la page\nVersion: ajout d’un point rapide sur la mise à jour du logiciel\n\n24 août: sur la forme, fin du passage de tous les supports en .qmd (Quarto).\n18 août: création d’un support dédié aux éléments de programmation (hors graphiques): lien\n26 juillet: une courte note sur les versions Stata utilisées à l’Ined.\n22 juillet: petite commande graphique en version alpha: gjoint. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande hexplot de Ben Jann, en reportant également les distributions marginales sour forme d’histogrammes.\n19 juillet: suivi des conférences Stata depuis 2020. Pour les conférences passées seulement celles dont les présentations sont disponibles.\n18 juillet: Commande gridge (MT) pour générer des courbes dites de ridge, avec je l’espère quelques apports, par rapport aux commandes existantes: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/gridge/Readme.md)\n06 juillet: Mise à jour du document sur les graphiques avec les chapitres 1 à 3: (https://raw.githubusercontent.com/mthevenin/stata_graphiques/main/v2_2022_chap123.pdf)\n21 juin: Commande fablot (NJ.Cox) pour contrôler les effets spaghetti: (https://github.com/mthevenin/stata_graphiques/blob/main/ressources/fabplot/Readme.md)\n03 Juin: Début de la refonte totale du support dans le cadre de la mise en place d’un groupe d’utilisatrices et d’utilisateurs de Stata à l’Ined."
+  },
+  {
+    "objectID": "presentation.html#ce-support-daccueil",
+    "href": "presentation.html#ce-support-daccueil",
+    "title": "Présentation rapide",
+    "section": "Ce support d’accueil",
+    "text": "Ce support d’accueil\n\nContenu plutôt succinct:\n\nSuivi des conférences: avec programme et information sur la mise à disposition des présentations\nStata Journal: accès direct au dernier numéro et lecture du dernier sommaire\nMe demander des veilles et biblio sur des thèmes particulier\nA faire: proposition d’ateliers et présentations (format court), voire de formation"
+  },
+  {
+    "objectID": "presentation.html#support-dédié-à-la-programmation-de-graphiques",
+    "href": "presentation.html#support-dédié-à-la-programmation-de-graphiques",
+    "title": "Présentation rapide",
+    "section": "Support dédié à la programmation de graphiques",
+    "text": "Support dédié à la programmation de graphiques\nMAJ formation de 2020\n\nChapitres 1 à 3\nPas satisfait du chapitre 4 de 2020, je cherche encore\nUn cinquième chapitre sur les graphiques issus des librairies Python seaborn, plotnine et plotly [avec code simple]\n\nTopics\nSérie d’articles courts, présenté sour forme de blog\n\nAvec Stata\n\nExemple: Commandes que j’ai programmées cet été (gridge, gjoint)\nSolution à l’effet Spaghetti avec fabplot de NJ.Cox\nLa commande axis de NJ Cox qui fait gagné un temps monstre par rapport à ce que j’avais fais pour les graphiques types lollipop et haltère. J’étais passé complètement au travers.\n\nAvec Python (seaborn, plotnine, plotline) sous un éditeur .do\n\nBilio et liens\nA faire très rapidement\n\nRemettre et actualiser la biblio de la formation de 2020\nSites sur la visualisation avec Stata. Exemple: site Medium d’Asjad Naqvi\n\n:::"
+  },
+  {
+    "objectID": "presentation.html#support-dédié-à-la-programmation-hors-graphiques",
+    "href": "presentation.html#support-dédié-à-la-programmation-hors-graphiques",
+    "title": "Présentation rapide",
+    "section": "Support dédié à la programmation (hors graphiques)",
+    "text": "Support dédié à la programmation (hors graphiques)\nCréation très récente\n\nAvec contenu:\n\nfichier profile.do,\nAmélioration des durées d’exécution avec le package gtools\n\nPrésentation de quelques commandes associées\nBenchmark (jusqu’à 10M) avec commandes usines fonctions R\n\n\nSans contenu ou presque\n\nProgrammation avec les Macros, c’est incontournable.\n\nSi la programmation d’algorithme vous intéresse me le faire savoir\n\nStata <=> R forcément\n\nCela va pas vous intéresser, mais je dois remettre progressivement ma formation introductive qui très ancienne."
+  },
+  {
+    "objectID": "Stata_journal.html",
+    "href": "Stata_journal.html",
+    "title": "Stata Journal",
+    "section": "",
+    "text": "Stata Journal\nAccès au dernier numéro [connexion Campus Condorcet] :\nhttps://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current\nSommaire des 4 derniers numéros. J’ai stocké les sommaires antérieurs à cet adresse lien\n\n2022-22022-12021-42021-3\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nVous pouvez me solliciter pour une veille/biblio particulière"
+  },
+  {
+    "objectID": "versions.html",
+    "href": "versions.html",
+    "title": "Versions Stata",
+    "section": "",
+    "text": "Versions installées (2022)\nVersions à l’Ined\nSauf exception les versions windows et linux sont en version 17 SE. La version 16 avait été partiellement déployée sous windows en 2020, alors que la version précédente linux était la 15 (2017).\nA noter pour la version linux, utilisée principalement pour le personnel non titutaire, qu’il est possible depuis la version 16 d’importer directement des bases en format Sas avec la commande import sas. Pour les exportations de fichiers .dta en .sas7bdat, il est toujours recommandé d’utiliser la commande savasas (findit saswrapper)\nAjouts et améliorations avec la version 17: https://www.stata.com/new-in-stata/\n\nAmélioration du temps d’exécution: sans comparation avec les versions antérieures, on note une nette amélioration du temps d’exécution en particulier pour la commande collapse, la commande sort et les opérations qui lui sont associées, par exemple avec le prefixe bysort (voir la note de version en lien ci-dessus). Associées aux commande du package gtools le gain de temps apparait encore plus considérable pour des opérations sur des bases de données volumineuses. Les fonctionnalités de ce package seront décrites dans la partie dédiée à la programmation (lien à venir).\nWhishlist: Vous pouvez alimenter la whishlist de la version 18 (printemps 2023) …. cela fait de nombreuses années qu’une autosave de l’éditeur de programme est demandé. Cela va bien finir par arriver un jour: https://www.statalist.org/forums/forum/general-stata-discussion/general.\n\n\n\nMise à jour de la version\nAu cours des deux années d’existence d’une version, plusieurs mises à jour visant à fixer des bugs sont disponibles. Si on saute une ou plusieurs maj, la dernière met à jour l’ensemble (cela sera forcément un peu plus long)\n\nConsultation des mises à jours (avec contenu): update query\nInstallation de la mise à jour\n\nLe fichier ouvert avec update query propose d’installer la ou les mises à jour. Toutes les sessions devront être fermée avant l’installation.\nA l’Ined, la mise à jour ne peut se faire que sous son compte administrateur. Ce type de session a été mise en place il y a quelques années par le service informatique. Si vous ne l’avez jamais utilisé ou oublié, il faut entrer son login administrateur et un mot de passe. Normalement:\n\nLogin: adm_nom. Pour moi donc: adm_thevenin\nMot De Passe: le mot de passe du sceau ined (sous condition, j’ai du mettre un mdp différent à mon retour de détachement).\nSi problème: contacter le service informatique à l’adresse support-micro@ined.fr"
+  }
+]
