@@ -37,12 +37,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -102,9 +100,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./about.html">A propos</a>
   </li>  
 </ul>
-              <div class="quarto-toggle-container">
-                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
-              </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
@@ -154,11 +149,11 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
+    <h2 id="toc-title">Sections</h2>
    
   <ul>
-  <li><a href="#versions-installées-2022" id="toc-versions-installées-2022" class="nav-link active" data-scroll-target="#versions-installées-2022"><strong>Versions installées (2022)</strong></a></li>
-  <li><a href="#mise-à-jour-de-la-version" id="toc-mise-à-jour-de-la-version" class="nav-link" data-scroll-target="#mise-à-jour-de-la-version">Mise à jour de la version</a></li>
+  <li><a href="#versions-installées-2022" id="toc-versions-installées-2022" class="nav-link active" data-scroll-target="#versions-installées-2022"><span class="toc-section-number">1</span>  <strong>Versions installées (2022)</strong></a></li>
+  <li><a href="#mise-à-jour-de-la-version" id="toc-mise-à-jour-de-la-version" class="nav-link" data-scroll-target="#mise-à-jour-de-la-version"><span class="toc-section-number">2</span>  Mise à jour de la version</a></li>
   </ul>
 </nav>
     </div>
@@ -182,8 +177,8 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><br><br></p>
-<section id="versions-installées-2022" class="level1">
-<h1><strong>Versions installées (2022)</strong></h1>
+<section id="versions-installées-2022" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> <strong>Versions installées (2022)</strong></h1>
 <p><strong>Versions à l’Ined</strong></p>
 <p>Sauf exception les versions windows et linux sont en version 17 SE. La version 16 avait été partiellement déployée sous windows en 2020, alors que la version précédente linux était la 15 (2017).<br>
 A noter pour la version linux, utilisée principalement pour le personnel non titutaire, qu’il est possible depuis la version 16 d’importer directement des bases en format <em>Sas</em> avec la commande <strong><code>import sas</code></strong>. Pour les exportations de fichiers .dta en .sas7bdat, il est toujours recommandé d’utiliser la commande <strong><code>savasas</code></strong> (<code>findit saswrapper</code>)</p>
@@ -193,8 +188,8 @@ A noter pour la version linux, utilisée principalement pour le personnel non ti
 <li><p><strong>Whishlist</strong>: Vous pouvez alimenter la whishlist de la version 18 (printemps 2023) …. cela fait de nombreuses années qu’une autosave de l’éditeur de programme est demandé. Cela va bien finir par arriver un jour: <a href="https://www.statalist.org/forums/forum/general-stata-discussion/genera" class="uri">https://www.statalist.org/forums/forum/general-stata-discussion/genera</a>l.</p></li>
 </ul>
 </section>
-<section id="mise-à-jour-de-la-version" class="level1">
-<h1>Mise à jour de la version</h1>
+<section id="mise-à-jour-de-la-version" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Mise à jour de la version</h1>
 <p>Au cours des deux années d’existence d’une version, plusieurs mises à jour visant à fixer des bugs sont disponibles. Si on saute une ou plusieurs maj, la dernière met à jour l’ensemble (cela sera forcément un peu plus long)</p>
 <ul>
 <li><p>Consultation des mises à jours (avec contenu): <strong><code>update query</code></strong></p></li>
@@ -234,121 +229,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  let localAlternateSentinel = 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
