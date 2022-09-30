@@ -20,7 +20,9 @@ library(fontawesome)
 ::: {.callout-note icon="false"}
 ## **2022**
 
--   **06 septembre**: Une première présentation de la suite **`collect`** pour paramétrer, enregistrer un style pour les tableaux, et de les exporter [lien](https://mthevenin.github.io/stata_programmation/tableaux/intro.html). Très intéressant à première vue 
+-   **30 septembre**: présentation du package **`Statamarkdown`** (Doug Hemken), qui permet d'éditer des documents tout en exécutant un programme Stata avec *RStudio* [[lien](https://mthevenin.github.io/stata_programmation/R/statamarkdown/statamarkdown_html.html)]
+
+-   **06 septembre**: Une première présentation de la suite **`collect`** pour paramétrer, enregistrer un style pour les tableaux, et de les exporter [[lien](https://mthevenin.github.io/stata_programmation/tableaux/intro.html)]. Très intéressant à première vue 
 
 -   **05 septembre**:
     - La barre de navigation est identique pour les 3 supports (merci Marion)
