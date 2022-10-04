@@ -20,6 +20,8 @@ library(fontawesome)
 ::: {.callout-note icon="false"}
 ## **2022**
 
+- ** 04 octobre**: Générer des graphiques Python avec Stata: installation de Python, vérification de l'exécution sous stata, et deux exemples [[Lien](https://mthevenin.github.io/stata_graphiques/programmation/python/python.html)] 
+
 -   **30 septembre**: présentation du package **`Statamarkdown`** (Doug Hemken), qui permet d'éditer des documents tout en exécutant un programme Stata avec *RStudio* [[lien](https://mthevenin.github.io/stata_programmation/R/statamarkdown/statamarkdown_html.html)]
 
 -   **06 septembre**: Une première présentation de la suite **`collect`** pour paramétrer, enregistrer un style pour les tableaux, et de les exporter [[lien](https://mthevenin.github.io/stata_programmation/tableaux/intro.html)]. Très intéressant à première vue 
