@@ -7,6 +7,15 @@ options(Encoding="UTF-8")
 library(fontawesome)
 ```
 
+
+::: callout-note
+
+## 07 octobre 2022: **`Stata journal septembre 2022`** (RStudio)
+
+Sortie du Stata Journal de septembre 2022. Voir le sommaire dans la section *StataJournal*
+
+:::
+
 ::: callout-note
 
 ## 30 septembre 2022: **`Statamarkdown`** (RStudio)
@@ -32,11 +41,6 @@ Une première courte présentation pour les régressions se trouve dans le suppo
 
 :::
 :::
-
-<br>
----
-<br>
-
 
 
 
