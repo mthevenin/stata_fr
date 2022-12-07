@@ -20,7 +20,13 @@ library(fontawesome)
 ::: {.callout-note icon="false"}
 ## **2022**
 
-- **07 octobre**: sortie du numéro de septembre 2022 du Stata Journal
+- **07 décembre**:
+  * Info sur la nouvelle commande de Ben Jann `violinplot` (voir support sur les graphiques)
+  * Mise à jour de la section conférence 
+
+- **07 octobre**: 
+   - sommaire du numéro de septembre 2022 du Stata Journal
+   - Effet marginaiux avec Stata et R (nouvelle librairie R)
 
 - **04 octobre**: Générer des graphiques Python avec Stata: installation de Python, vérification de l'exécution sous stata, et deux exemples [[Lien](https://mthevenin.github.io/stata_graphiques/programmation/python/python.html)] 
 
