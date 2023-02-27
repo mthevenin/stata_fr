@@ -18,6 +18,19 @@ library(fontawesome)
 <br><br>
 
 ::: {.callout-note icon="false"}
+
+
+# **2023**
+
+- **27 février**
+  * présentation des **frame** dans le support programmation (section *need for speed*)
+  
+
+:::
+
+
+::: {.callout-note icon="false"}
+
 ## **2022**
 
 - **07 décembre**:
@@ -26,7 +39,7 @@ library(fontawesome)
 
 - **07 octobre**: 
    - sommaire du numéro de septembre 2022 du Stata Journal
-   - Effet marginaiux avec Stata et R (nouvelle librairie R)
+   - Effet marginaux avec Stata et R (nouvelle librairie R)
 
 - **04 octobre**: Générer des graphiques Python avec Stata: installation de Python, vérification de l'exécution sous stata, et deux exemples [[Lien](https://mthevenin.github.io/stata_graphiques/programmation/python/python.html)] 
 

@@ -10,9 +10,9 @@ library(fontawesome)
 
 ::: callout-note
 
-## 07 octobre 2022: **`Stata journal septembre 2022`** (RStudio)
+## 27 février 2022: **Les frames** 
 
-Sortie du Stata Journal de septembre 2022. Voir le sommaire dans la section *StataJournal*
+Présentation, par l'exemple, des **frames** introduites dans la version 16 de Stata (2019): [Liens](https://mthevenin.github.io/stata_programmation/speedup/frame/frame.html)
 
 :::
 
