@@ -23,6 +23,18 @@ library(fontawesome)
 
 Liste non exhaustive des conférences depuis 2019. J'ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.
 
+
+:::  {.callout-note appearance="simple" icon="false"}
+## **2023**
+
+-   **Virtual symposium (biostatistique et épidémiologie)**: <https://www.stata.com/symposiums/biostatistics-and-epidemiology23/>
+    - Présentations disponibles
+-   **AUS**: <https://www.stata.com/meeting/oceania23/>
+    - Présentations et/ou vidéos disponibles
+
+:::
+
+
 :::  {.callout-note appearance="simple" icon="false"}
 ## **2022**
 
