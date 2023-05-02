@@ -13,22 +13,10 @@
 }
 
 
-/*
-.sidebar {
-  background-color:  #7eadba;
-  font-family: 'Roboto', sans-serif;
-  font-size: 1.3em;
-  font-weight: 550;
-  color:white;
-  align-items: center;
-}
-*/
-
-
 .sidebar-item {
   margin-top: 1.0rem; 
   margin-left:1.0em; 
-  border: 1.5px solid #37424a;
+  border:  solid #37424a;
   border-radius: 0.4em;
   border-width: thin;
   font-size: 18px;
@@ -41,11 +29,11 @@
 
 
 #quarto-sidebar  {
-  background-color:  #7eadba;
+  background-color: white;
+  border: 1px;
   font-family: 'Roboto', sans-serif;
   font-size: 1.1em;
   font-weight: 500;
-  color:white;
   align-items: center;
   
 }
