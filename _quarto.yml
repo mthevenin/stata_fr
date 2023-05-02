@@ -6,7 +6,9 @@ website:
   search: 
     location: navbar
   page-navigation: true
-  page-footer: "Marc Thévenin - Ined-Sms - Mai 2023" 
+  page-footer: 
+    left: "Marc Thévenin / Ined-Sms / Mai 2023"
+    background: dark
   navbar:
     left:
       - href: index.qmd
