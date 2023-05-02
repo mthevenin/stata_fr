@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.96">
+<meta name="generator" content="quarto-1.3.330">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -18,9 +18,10 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -47,48 +48,19 @@ pre.numberSource code > span > a:first-child::before
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
     padding: 0 4px; width: 4em;
-    color: #aaaaaa;
   }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
 div.sourceCode
   {   }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -102,12 +74,10 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="site_libs/quarto-search/fuse.min.js"></script>
@@ -142,12 +112,20 @@ div.csl-indent {
   }
 }</script>
 <style>
-    .quarto-title-block .quarto-title-banner {
+    .quarto-title-block .quarto-title-banner,
+    .quarto-title-block .quarto-title-banner h1,
+    .quarto-title-block .quarto-title-banner h2,
+    .quarto-title-block .quarto-title-banner h3,
+    .quarto-title-block .quarto-title-banner h4,
+    .quarto-title-block .quarto-title-banner h5,
+    .quarto-title-block .quarto-title-banner h6
+    {
       background: #034E79;
     }
     </style>
 
 
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -162,38 +140,39 @@ div.csl-indent {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html">Stata Ined</a>
+    <a class="nav-link" href="./index.html" rel="" target="">
+ <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/stata_graphiques/">Graphiques</a>
+    <a class="nav-link" href="https://mthevenin.github.io/stata_graphiques/" rel="" target="">
+ <span class="menu-text">Graphiques</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/stata_programmation/">Programmation</a>
+    <a class="nav-link" href="https://mthevenin.github.io/stata_programmation/" rel="" target="">
+ <span class="menu-text">Programmation</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/mthevenin"><i class="bi bi-github" role="img">
-</i> 
- </a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="mailto:marc.thevenin@ined.fr"><i class="bi bi-envelope" role="img">
-</i> 
- </a>
-  </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html">A propos</a>
+    <a class="nav-link active" href="./about.html" rel="" target="" aria-current="page">
+ <span class="menu-text">A propos</span></a>
   </li>  
 </ul>
+            <div class="quarto-navbar-tools">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">Bibliographie de Marion Leturcq 2009-2022</h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Bibliographie de Marion Leturcq 2009-2022</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -202,7 +181,7 @@ div.csl-indent {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <div class="quarto-title-block"><div><h1 class="title d-none d-lg-block">Bibliographie de Marion Leturcq 2009-2022</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
+      <div class="quarto-title-block"><div><h1 class="title">Bibliographie de Marion Leturcq 2009-2022</h1><button type="button" class="btn code-tools-button" id="quarto-code-tools-source"><i class="bi"></i> Code</button></div></div>
                       </div>
   </div>
     
@@ -211,7 +190,7 @@ div.csl-indent {
     <div class="quarto-title-meta-heading">Affiliation</div>
     
       <div class="quarto-title-meta-contents">
-      <a href="https://github.com/mthevenin">Marc Thevenin</a> 
+      <p class="author"><a href="https://github.com/mthevenin">Marc Thevenin</a> </p>
     </div>
       <div class="quarto-title-meta-contents">
           <p class="affiliation">
@@ -228,9 +207,10 @@ div.csl-indent {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">30 September, 2022</p>
+        <p class="date">2 May, 2023</p>
       </div>
     </div>
+    
       
     </div>
     
@@ -243,50 +223,60 @@ div.csl-indent {
   
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
+        <div class="sidebar-tools-collapse tools-wide">
+    <a href="./about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
+    <a href="https://github.com/mthevenin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="mailto:marc.thevenin@ined.fr" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+</div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maj.html" class="sidebar-item-text sidebar-link">Infos &amp; maj</a>
+  <a href="./maj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infos &amp; maj</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./versions.html" class="sidebar-item-text sidebar-link">Versions Stata</a>
+  <a href="./versions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versions Stata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conferences.html" class="sidebar-item-text sidebar-link">Conférences</a>
+  <a href="./conferences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conférences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Stata_journal.html" class="sidebar-item-text sidebar-link">Stata Journal</a>
+  <a href="./Stata_journal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stata Journal</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Sections</h2>
    
   <ul>
-  <li><a href="#header-et-style" id="toc-header-et-style" class="nav-link active" data-scroll-target="#header-et-style"><span class="toc-section-number">1</span>  header et style</a>
+  <li><a href="#header-et-style" id="toc-header-et-style" class="nav-link active" data-scroll-target="#header-et-style"><span class="header-section-number">1</span> header et style</a>
   <ul class="collapse">
-  <li><a href="#exemple-header-html" id="toc-exemple-header-html" class="nav-link" data-scroll-target="#exemple-header-html"><span class="toc-section-number">1.1</span>  Exemple header html</a></li>
-  <li><a href="#choix-du-style" id="toc-choix-du-style" class="nav-link" data-scroll-target="#choix-du-style"><span class="toc-section-number">1.2</span>  Choix du style</a></li>
+  <li><a href="#exemple-header-html" id="toc-exemple-header-html" class="nav-link" data-scroll-target="#exemple-header-html"><span class="header-section-number">1.1</span> Exemple header html</a></li>
+  <li><a href="#choix-du-style" id="toc-choix-du-style" class="nav-link" data-scroll-target="#choix-du-style"><span class="header-section-number">1.2</span> Choix du style</a></li>
   </ul></li>
-  <li><a href="#référencement-dans-le-texte" id="toc-référencement-dans-le-texte" class="nav-link" data-scroll-target="#référencement-dans-le-texte"><span class="toc-section-number">2</span>  Référencement dans le texte</a></li>
-  <li><a href="#affichage-de-la-bibliographie" id="toc-affichage-de-la-bibliographie" class="nav-link" data-scroll-target="#affichage-de-la-bibliographie"><span class="toc-section-number">3</span>  Affichage de la bibliographie</a></li>
+  <li><a href="#référencement-dans-le-texte" id="toc-référencement-dans-le-texte" class="nav-link" data-scroll-target="#référencement-dans-le-texte"><span class="header-section-number">2</span> Référencement dans le texte</a></li>
+  <li><a href="#affichage-de-la-bibliographie" id="toc-affichage-de-la-bibliographie" class="nav-link" data-scroll-target="#affichage-de-la-bibliographie"><span class="header-section-number">3</span> Affichage de la bibliographie</a></li>
   </ul>
 </nav>
     </div>
@@ -391,7 +381,89 @@ div.csl-indent {
 </section>
 <section id="affichage-de-la-bibliographie" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Affichage de la bibliographie</h1>
-
+<div id="refs" class="references csl-bib-body" role="list">
+<div id="ref-berger_covid-19_2021" class="csl-entry" role="listitem">
+<strong>Berger, L.M., Ferrari, G., Leturcq, M., Panico, L. &amp; Solaz, A.</strong> (<strong>2021</strong>), <span>“<span>COVID</span>-19 lockdowns and demographically-relevant <span>Google</span> <span>Trends</span>: <span>A</span> cross-national analysis,”</span> <em>PLoS one</em>, vol.&nbsp;16, n°3, p.&nbsp;e0248072. https://doi.org/<a href="https://doi.org/10.1371/journal.pone.0248072">10.1371/journal.pone.0248072</a>
+</div>
+<div id="ref-castillo_rico_childhood_2020" class="csl-entry" role="listitem">
+<strong>Castillo Rico, B., Leturcq, M. &amp; Panico, L.</strong> (<strong>2020a</strong>), <span>“<a href="http://www.caf.fr/sites/default/files/cnaf/Documents/Dser/PSF/131-132/RPSF131_132_P4_BCastilloRico_etAl_versionanglaise.pdf">Childhood poverty and deprivation at the starting gate in <span>France</span>. <span>Examples</span> using <span>Elfe</span> survey</a>,”</span> <em>Revue des politiques sociales et familiales</em>, n°131-132, pp.&nbsp;35–49.
+</div>
+<div id="ref-castillo_rico_pauvrete_2020" class="csl-entry" role="listitem">
+<strong>Castillo Rico, B., Leturcq, M. &amp; Panico, L.</strong> (<strong>2020b</strong>), <span>“<a href="http://www.caf.fr/sites/default/files/cnaf/Documents/Dser/PSF/131-132/RPSF131_132_P1_BCastilloRico_MLeturcq_LPanico.pdf">La pauvreté des enfants à la naissance en <span>France</span>. <span>Résultats</span> de l’enquête <span>Elfe</span></a>,”</span> <em>Revue des politiques sociales et familiales</em>, n°131-132, pp.&nbsp;35–49.
+</div>
+<div id="ref-fremeaux_plus_2013" class="csl-entry" role="listitem">
+<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2013</strong>), <span>“<a href="https://www.insee.fr/fr/statistiques/1377810">Plus ou moins mariés: L’évolution du mariage et des contrats de mariage en <span>France</span></a>,”</span> <em>Économie et Statistique</em>, n°462-463, pp.&nbsp;125–151.
+</div>
+<div id="ref-fremeaux_wealth_2016" class="csl-entry" role="listitem">
+<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2016</strong>), <span>“<a href="https://www.ined.fr/fr/publications/editions/document-travail/wealth-marriage-prenuptial-agreements-france-1855-2010/">Wealth, marriage and prenuptial agreements in <span>France</span> (1855 - 2010)</a>,”</span> Documents de travail, n°221, "Paris, France", Ined.
+</div>
+<div id="ref-fremeaux_prenuptial_2018" class="csl-entry" role="listitem">
+<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2018</strong>), <span>“Prenuptial agreements and matrimonial property regimes in <span>France</span>, 1855–2010,”</span> <em>Explorations in Economic History</em>, vol.&nbsp;68, pp.&nbsp;132–142. https://doi.org/<a href="https://doi.org/10.1016/j.eeh.2017.10.004">10.1016/j.eeh.2017.10.004</a>
+</div>
+<div id="ref-fremeaux_inequalities_2020" class="csl-entry" role="listitem">
+<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2020</strong>), <span>“Inequalities and the individualization of wealth,”</span> <em>Journal of Public Economics</em>, vol.&nbsp;184, pp.&nbsp;1–18. https://doi.org/<a href="https://doi.org/10.1016/j.jpubeco.2020.104145">10.1016/j.jpubeco.2020.104145</a>
+</div>
+<div id="ref-fremeaux_wealth_2022" class="csl-entry" role="listitem">
+<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2022</strong>), <span>“Wealth <span>Accumulation</span> and the <span>Gender</span> <span>Wealth</span> <span>Gap</span> <span>Across</span> <span>Couples</span>’ <span>Legal</span> <span>Statuses</span> and <span>Matrimonial</span> <span>Property</span> <span>Regimes</span> in <span>France</span>,”</span> <em>European Journal of Population</em>, n°Online first. https://doi.org/<a href="https://doi.org/10.1007/s10680-022-09632-5">10.1007/s10680-022-09632-5</a>
+</div>
+<div id="ref-gousse_more_2018" class="csl-entry" role="listitem">
+<strong>Goussé, M. &amp; Leturcq, M.</strong> (<strong>2018</strong>), <span>“<a href="http://www.crrep.ca/sites/crrep.ca/files/fichier_publications/crrep-2018-08p_0.pdf">More or less unmarried. <span>The</span> impact of legal settings of cohabitation on labor market outcomes</a>,”</span> Working {Paper} - {CRREP}, n°2018-08, "Québec, Canada", Centre de recherche sur les risques les enjeux économiques et les politiques publiques.
+</div>
+<div id="ref-gousse_more_2022" class="csl-entry" role="listitem">
+<strong>Goussé, M. &amp; Leturcq, M.</strong> (<strong>2022</strong>), <span>“More or less unmarried. <span>The</span> impact of legal settings of cohabitation on labour market outcomes,”</span> <em>European Economic Review</em>, vol.&nbsp;149, pp.&nbsp;1–21. https://doi.org/<a href="https://doi.org/10.1016/j.euroecorev.2022.104259">10.1016/j.euroecorev.2022.104259</a>
+</div>
+<div id="ref-hupkau_fertility_2016" class="csl-entry" role="listitem">
+<strong>Hupkau, C. &amp; Leturcq, M.</strong> (<strong>2016</strong>), <span>“<a href="https://www.ined.fr/fr/publications/editions/document-travail/fertility-and-labor-supply-new-evidence-from-uk/">Fertility and labour supply: New evidence from the <span>UK</span></a>,”</span> Documents de travail, n°220, "Paris, France", Ined.
+</div>
+<div id="ref-hupkau_fertility_2017" class="csl-entry" role="listitem">
+<strong>Hupkau, C. &amp; Leturcq, M.</strong> (<strong>2017</strong>), <span>“<a href="http://cep.lse.ac.uk/_new/publications/abstract.asp?index=5302">Fertility and mothers’ labor supply : New evidence using time-to-conception</a>,”</span> {CEP} {Discussion} {Paper}, n°1463, "London, Royaume-Uni", Centre For Economic Performance.
+</div>
+<div id="ref-leturcq_will_2012" class="csl-entry" role="listitem">
+<strong>Leturcq, M.</strong> (<strong>2012</strong>), <span>“Will you civil union me? <span>Civil</span> unions and taxation in <span>France</span>,”</span> <em>Journal of Public Economics</em>, vol.&nbsp;96, n°5-6, pp.&nbsp;541–552. https://doi.org/<a href="https://doi.org/10.1016/j.jpubeco.2012.02.008">10.1016/j.jpubeco.2012.02.008</a>
+</div>
+<div id="ref-leturcq_faire_2016" class="csl-entry" role="listitem">
+<strong>Leturcq, M.</strong> (<strong>2016a</strong>), <span>“Faire patrimoine à part,”</span> <em>in</em> François Dubet (ed.), <em>Léguer, hériter</em>, "Paris, France", La Découverte, pp.&nbsp;134–146.
+</div>
+<div id="ref-leturcq_book_2016" class="csl-entry" role="listitem">
+<strong>Leturcq, M.</strong> (<strong>2016b</strong>), <span>“Book review of : <span>Sabina</span> <span>Alkire</span>, <span>James</span> <span>Foster</span>, <span>Suman</span> <span>Seth</span>, <span>Maria</span>-<span>Emma</span> <span>Santos</span>, <span>José</span>-<span>Manuel</span> <span>Roche</span> and <span>Paola</span> <span>Ballon</span>, <span>Multidimensional</span> <span>Poverty</span> <span>Measurement</span> and <span>Analysis</span>, <span>Oxford</span> <span>University</span> <span>Press</span>, 2015, <span>XI</span>-356 p.”</span> <em>Population (English edition)</em>, vol.&nbsp;71, n°1, pp.&nbsp;147–149. https://doi.org/<a href="https://doi.org/10.3917/popu.1601.0149">10.3917/popu.1601.0149</a>
+</div>
+<div id="ref-leturcq_compte_2016" class="csl-entry" role="listitem">
+<strong>Leturcq, M.</strong> (<strong>2016c</strong>), <span>“<a href="https://www.cairn.info/article.php?ID_ARTICLE=POPU_1601_0149">Compte rendu de : <span>Sabina</span> <span>Alkire</span>, <span>James</span> <span>Foster</span>, <span>Suman</span> <span>Seth</span>, <span>Maria</span> <span>Emma</span> <span>Santos</span>, <span>José</span> <span>Manuel</span> <span>Roche</span> et <span>Paola</span> <span>Ballon</span>, <span>Multidimentional</span> <span>Poverty</span> <span>Measurement</span> and <span>Analysis</span>, <span>Oxford</span>, <span>Oxford</span> <span>University</span> <span>Press</span>, 2015, 368 p.</a>”</span> <em>Population (édition française)</em>, vol.&nbsp;71, n°1, pp.&nbsp;149–152.
+</div>
+<div id="ref-leturcq_compte_2021" class="csl-entry" role="listitem">
+<strong>Leturcq, M.</strong> (<strong>2021a</strong>), <span>“Compte rendu de : <span>PÉRIVIER</span> <span>Hélène</span>, 2020, <span>L</span>’économie féministe. <span>Pourquoi</span> la science économique a besoin du féminisme et vice versa, <span>Paris</span>, <span>Les</span> presses de <span>Sciences</span> <span>Po</span>, 224 p.”</span> <em>Population (édition française)</em>, vol.&nbsp;76, n°4, pp.&nbsp;738–740. https://doi.org/<a href="https://doi.org/10.3917/popu.2104.0738">10.3917/popu.2104.0738</a>
+</div>
+<div id="ref-leturcq_book_2021" class="csl-entry" role="listitem">
+<strong>Leturcq, M.</strong> (<strong>2021b</strong>), <span>“Book <span>Review</span> of: <span>PÉRIVIER</span> <span>H</span>., 2020, <span>L</span>’économie féministe: <span>Pourquoi</span> la science économique a besoin du féminisme et vice versa [<span>Feminist</span> <span>Economics</span>: <span>Why</span> <span>Economics</span> <span>Needs</span> <span>Feminism</span> and <span>Vice</span> <span>Versa</span>], <span>Paris</span>, <span>Les</span> presses de <span>Sciences</span> <span>Po</span>, 224 pages,”</span> <em>Population (English edition)</em>, vol.&nbsp;76, n°4, pp.&nbsp;685–687. https://doi.org/<a href="https://doi.org/10.3917/popu.2104.0738">10.3917/popu.2104.0738</a>
+</div>
+<div id="ref-leturcq_individualisation_2019" class="csl-entry" role="listitem">
+<strong>Leturcq, M. &amp; Frémeaux, N.</strong> (<strong>2019</strong>), <span>“<a href="https://www.ofce.sciences-po.fr/pdf/revue/1-161OFCE.pdf">Individualisation du patrimoine au sein des couples : Quels enjeux pour la fiscalité ?</a>”</span> <em>Revue de l’OFCE</em>, n°161, pp.&nbsp;1–31.
+</div>
+<div id="ref-leturcq_long-term_2016" class="csl-entry" role="listitem">
+<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2016a</strong>), <span>“<a href="https://www.ined.fr/fr/publications/editions/document-travail/long-term-effect-of-parental-separation-on-childhood-financial-poverty/">The long-term effect of parental separation on childhood financial poverty and multidimensional deprivation : A lifecourse approach</a>,”</span> Documents de travail de l'{Ined}, n°228, "Paris, France", Ined.
+</div>
+<div id="ref-leturcq_how_2016" class="csl-entry" role="listitem">
+<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2016b</strong>), <span>“<a href="http://www.niussp.org/2016/12/19/parental-separation-affect-childrens-day-day-life-leffet-de-la-rupture-conjugale-sur-la-vie-quotidienne-des-enfants/">How does parental separation affect children’s day-to-day life?</a>”</span> <em>N-IUSSP</em>.
+</div>
+<div id="ref-leturcq_long-term_2018" class="csl-entry" role="listitem">
+<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2018a</strong>), <span>“The long-term effect of parental separation on childhood financial poverty and multidimensional deprivation : A lifecourse approach,”</span>
+</div>
+<div id="ref-leturcq_long-term_2018-1" class="csl-entry" role="listitem">
+<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2018b</strong>), <span>“The long-term effect of parental separation on childhood financial poverty and multidimensional deprivation : A lifecourse approach,”</span>
+</div>
+<div id="ref-leturcq_long-term_2019" class="csl-entry" role="listitem">
+<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2019</strong>), <span>“The <span>Long</span>-<span>Term</span> <span>Effects</span> of <span>Parental</span> <span>Separation</span> on <span>Childhood</span> <span>Multidimensional</span> <span>Deprivation</span>: <span>A</span> <span>Lifecourse</span> <span>Approach</span>,”</span> <em>Social Indicators Research</em>, pp.&nbsp;1–34. https://doi.org/<a href="https://doi.org/10.1007/s11205-018-02060-1">10.1007/s11205-018-02060-1</a>
+</div>
+<div id="ref-leturcq_temps_2009" class="csl-entry" role="listitem">
+<strong>Leturcq, M. &amp; Wierink, M.</strong> (<strong>2009</strong>), <span>“Temps de travail et bien être des mères de trois enfants ou plus en emploi,”</span> <em>in</em> Ariane Pailhé &amp; Anne Solaz (eds.), <em>Entre famille et travail : Des arrangements de couples aux pratiques des employeurs</em>, "Paris, France", Ined / La Découverte, pp.&nbsp;93–114.
+</div>
+<div id="ref-woolridge_estimation_2018" class="csl-entry" role="listitem">
+<strong>Woolridge, J.M.</strong> (<strong>2018a</strong>), <span>“Estimation par variables instrumentales et doubles moindres carrés,”</span> <em>in</em> Jeffrey M. Woolridge, Pierre André, Michel Beine, Sophie Béreau, Maëlys de la Rupelle, Jean-Yves Gnabo, Cédric Heuchenne &amp; Marion Leturcq (eds.), <em>Introduction à l’économétrie : Une approche moderne</em>, "Louvain-la-Neuve, Belgique", De Boeck Supérieur (Ouvertures économiques), pp.&nbsp;601–647.
+</div>
+<div id="ref-woolridge_nature_2018" class="csl-entry" role="listitem">
+<strong>Woolridge, J.M.</strong> (<strong>2018b</strong>), <span>“La nature de l’économétrie et la structure des données économiques,”</span> <em>in</em> Jeffrey M. Woolridge, Pierre André, Michel Beine, Sophie Béreau, Maëlys de la Rupelle, Jean-Yves Gnabo, Cédric Heuchenne &amp; Marion Leturcq (eds.), <em>Introduction à l’économétrie : Une approche moderne</em>, "Louvain-la-Neuve, Belgique", De Boeck Supérieur (Ouvertures économiques), pp.&nbsp;21–44.
+</div>
+</div>
 <hr>
 
 
@@ -400,89 +472,7 @@ div.csl-indent {
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body" role="doc-bibliography">
-<div id="ref-berger_covid-19_2021" class="csl-entry" role="doc-biblioentry">
-<strong>Berger, L.M., Ferrari, G., Leturcq, M., Panico, L. &amp; Solaz, A.</strong> (<strong>2021</strong>), <span>“<span>COVID</span>-19 lockdowns and demographically-relevant <span>Google</span> <span>Trends</span>: <span>A</span> cross-national analysis,”</span> <em>PLoS one</em>, vol.&nbsp;16, n°3, p.&nbsp;e0248072. https://doi.org/<a href="https://doi.org/10.1371/journal.pone.0248072">10.1371/journal.pone.0248072</a>
-</div>
-<div id="ref-castillo_rico_childhood_2020" class="csl-entry" role="doc-biblioentry">
-<strong>Castillo Rico, B., Leturcq, M. &amp; Panico, L.</strong> (<strong>2020a</strong>), <span>“<a href="http://www.caf.fr/sites/default/files/cnaf/Documents/Dser/PSF/131-132/RPSF131_132_P4_BCastilloRico_etAl_versionanglaise.pdf">Childhood poverty and deprivation at the starting gate in <span>France</span>. <span>Examples</span> using <span>Elfe</span> survey</a>,”</span> <em>Revue des politiques sociales et familiales</em>, n°131-132, pp.&nbsp;35–49.
-</div>
-<div id="ref-castillo_rico_pauvrete_2020" class="csl-entry" role="doc-biblioentry">
-<strong>Castillo Rico, B., Leturcq, M. &amp; Panico, L.</strong> (<strong>2020b</strong>), <span>“<a href="http://www.caf.fr/sites/default/files/cnaf/Documents/Dser/PSF/131-132/RPSF131_132_P1_BCastilloRico_MLeturcq_LPanico.pdf">La pauvreté des enfants à la naissance en <span>France</span>. <span>Résultats</span> de l’enquête <span>Elfe</span></a>,”</span> <em>Revue des politiques sociales et familiales</em>, n°131-132, pp.&nbsp;35–49.
-</div>
-<div id="ref-fremeaux_plus_2013" class="csl-entry" role="doc-biblioentry">
-<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2013</strong>), <span>“<a href="https://www.insee.fr/fr/statistiques/1377810">Plus ou moins mariés: L’évolution du mariage et des contrats de mariage en <span>France</span></a>,”</span> <em>Économie et Statistique</em>, n°462-463, pp.&nbsp;125–151.
-</div>
-<div id="ref-fremeaux_wealth_2016" class="csl-entry" role="doc-biblioentry">
-<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2016</strong>), <span>“<a href="https://www.ined.fr/fr/publications/editions/document-travail/wealth-marriage-prenuptial-agreements-france-1855-2010/">Wealth, marriage and prenuptial agreements in <span>France</span> (1855 - 2010)</a>,”</span> Documents de travail, n°221, "Paris, France", Ined.
-</div>
-<div id="ref-fremeaux_prenuptial_2018" class="csl-entry" role="doc-biblioentry">
-<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2018</strong>), <span>“Prenuptial agreements and matrimonial property regimes in <span>France</span>, 1855–2010,”</span> <em>Explorations in Economic History</em>, vol.&nbsp;68, pp.&nbsp;132–142. https://doi.org/<a href="https://doi.org/10.1016/j.eeh.2017.10.004">10.1016/j.eeh.2017.10.004</a>
-</div>
-<div id="ref-fremeaux_inequalities_2020" class="csl-entry" role="doc-biblioentry">
-<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2020</strong>), <span>“Inequalities and the individualization of wealth,”</span> <em>Journal of Public Economics</em>, vol.&nbsp;184, pp.&nbsp;1–18. https://doi.org/<a href="https://doi.org/10.1016/j.jpubeco.2020.104145">10.1016/j.jpubeco.2020.104145</a>
-</div>
-<div id="ref-fremeaux_wealth_2022" class="csl-entry" role="doc-biblioentry">
-<strong>Frémeaux, N. &amp; Leturcq, M.</strong> (<strong>2022</strong>), <span>“Wealth <span>Accumulation</span> and the <span>Gender</span> <span>Wealth</span> <span>Gap</span> <span>Across</span> <span>Couples</span>’ <span>Legal</span> <span>Statuses</span> and <span>Matrimonial</span> <span>Property</span> <span>Regimes</span> in <span>France</span>,”</span> <em>European Journal of Population</em>, n°Online first. https://doi.org/<a href="https://doi.org/10.1007/s10680-022-09632-5">10.1007/s10680-022-09632-5</a>
-</div>
-<div id="ref-gousse_more_2018" class="csl-entry" role="doc-biblioentry">
-<strong>Goussé, M. &amp; Leturcq, M.</strong> (<strong>2018</strong>), <span>“<a href="http://www.crrep.ca/sites/crrep.ca/files/fichier_publications/crrep-2018-08p_0.pdf">More or less unmarried. <span>The</span> impact of legal settings of cohabitation on labor market outcomes</a>,”</span> Working {Paper} - {CRREP}, n°2018-08, "Québec, Canada", Centre de recherche sur les risques les enjeux économiques et les politiques publiques.
-</div>
-<div id="ref-gousse_more_2022" class="csl-entry" role="doc-biblioentry">
-<strong>Goussé, M. &amp; Leturcq, M.</strong> (<strong>2022</strong>), <span>“More or less unmarried. <span>The</span> impact of legal settings of cohabitation on labour market outcomes,”</span> <em>European Economic Review</em>, vol.&nbsp;149, pp.&nbsp;1–21. https://doi.org/<a href="https://doi.org/10.1016/j.euroecorev.2022.104259">10.1016/j.euroecorev.2022.104259</a>
-</div>
-<div id="ref-hupkau_fertility_2016" class="csl-entry" role="doc-biblioentry">
-<strong>Hupkau, C. &amp; Leturcq, M.</strong> (<strong>2016</strong>), <span>“<a href="https://www.ined.fr/fr/publications/editions/document-travail/fertility-and-labor-supply-new-evidence-from-uk/">Fertility and labour supply: New evidence from the <span>UK</span></a>,”</span> Documents de travail, n°220, "Paris, France", Ined.
-</div>
-<div id="ref-hupkau_fertility_2017" class="csl-entry" role="doc-biblioentry">
-<strong>Hupkau, C. &amp; Leturcq, M.</strong> (<strong>2017</strong>), <span>“<a href="http://cep.lse.ac.uk/_new/publications/abstract.asp?index=5302">Fertility and mothers’ labor supply : New evidence using time-to-conception</a>,”</span> {CEP} {Discussion} {Paper}, n°1463, "London, Royaume-Uni", Centre For Economic Performance.
-</div>
-<div id="ref-leturcq_will_2012" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M.</strong> (<strong>2012</strong>), <span>“Will you civil union me? <span>Civil</span> unions and taxation in <span>France</span>,”</span> <em>Journal of Public Economics</em>, vol.&nbsp;96, n°5-6, pp.&nbsp;541–552. https://doi.org/<a href="https://doi.org/10.1016/j.jpubeco.2012.02.008">10.1016/j.jpubeco.2012.02.008</a>
-</div>
-<div id="ref-leturcq_faire_2016" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M.</strong> (<strong>2016a</strong>), <span>“Faire patrimoine à part,”</span> <em>in</em> François Dubet (ed.), <em>Léguer, hériter</em>, "Paris, France", La Découverte, pp.&nbsp;134–146.
-</div>
-<div id="ref-leturcq_book_2016" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M.</strong> (<strong>2016b</strong>), <span>“Book review of : <span>Sabina</span> <span>Alkire</span>, <span>James</span> <span>Foster</span>, <span>Suman</span> <span>Seth</span>, <span>Maria</span>-<span>Emma</span> <span>Santos</span>, <span>José</span>-<span>Manuel</span> <span>Roche</span> and <span>Paola</span> <span>Ballon</span>, <span>Multidimensional</span> <span>Poverty</span> <span>Measurement</span> and <span>Analysis</span>, <span>Oxford</span> <span>University</span> <span>Press</span>, 2015, <span>XI</span>-356 p.”</span> <em>Population (English edition)</em>, vol.&nbsp;71, n°1, pp.&nbsp;147–149. https://doi.org/<a href="https://doi.org/10.3917/popu.1601.0149">10.3917/popu.1601.0149</a>
-</div>
-<div id="ref-leturcq_compte_2016" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M.</strong> (<strong>2016c</strong>), <span>“<a href="https://www.cairn.info/article.php?ID_ARTICLE=POPU_1601_0149">Compte rendu de : <span>Sabina</span> <span>Alkire</span>, <span>James</span> <span>Foster</span>, <span>Suman</span> <span>Seth</span>, <span>Maria</span> <span>Emma</span> <span>Santos</span>, <span>José</span> <span>Manuel</span> <span>Roche</span> et <span>Paola</span> <span>Ballon</span>, <span>Multidimentional</span> <span>Poverty</span> <span>Measurement</span> and <span>Analysis</span>, <span>Oxford</span>, <span>Oxford</span> <span>University</span> <span>Press</span>, 2015, 368 p.</a>”</span> <em>Population (édition française)</em>, vol.&nbsp;71, n°1, pp.&nbsp;149–152.
-</div>
-<div id="ref-leturcq_compte_2021" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M.</strong> (<strong>2021a</strong>), <span>“Compte rendu de : <span>PÉRIVIER</span> <span>Hélène</span>, 2020, <span>L</span>’économie féministe. <span>Pourquoi</span> la science économique a besoin du féminisme et vice versa, <span>Paris</span>, <span>Les</span> presses de <span>Sciences</span> <span>Po</span>, 224 p.”</span> <em>Population (édition française)</em>, vol.&nbsp;76, n°4, pp.&nbsp;738–740. https://doi.org/<a href="https://doi.org/10.3917/popu.2104.0738">10.3917/popu.2104.0738</a>
-</div>
-<div id="ref-leturcq_book_2021" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M.</strong> (<strong>2021b</strong>), <span>“Book <span>Review</span> of: <span>PÉRIVIER</span> <span>H</span>., 2020, <span>L</span>’économie féministe: <span>Pourquoi</span> la science économique a besoin du féminisme et vice versa [<span>Feminist</span> <span>Economics</span>: <span>Why</span> <span>Economics</span> <span>Needs</span> <span>Feminism</span> and <span>Vice</span> <span>Versa</span>], <span>Paris</span>, <span>Les</span> presses de <span>Sciences</span> <span>Po</span>, 224 pages,”</span> <em>Population (English edition)</em>, vol.&nbsp;76, n°4, pp.&nbsp;685–687. https://doi.org/<a href="https://doi.org/10.3917/popu.2104.0738">10.3917/popu.2104.0738</a>
-</div>
-<div id="ref-leturcq_individualisation_2019" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M. &amp; Frémeaux, N.</strong> (<strong>2019</strong>), <span>“<a href="https://www.ofce.sciences-po.fr/pdf/revue/1-161OFCE.pdf">Individualisation du patrimoine au sein des couples : Quels enjeux pour la fiscalité ?</a>”</span> <em>Revue de l’OFCE</em>, n°161, pp.&nbsp;1–31.
-</div>
-<div id="ref-leturcq_long-term_2016" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2016a</strong>), <span>“<a href="https://www.ined.fr/fr/publications/editions/document-travail/long-term-effect-of-parental-separation-on-childhood-financial-poverty/">The long-term effect of parental separation on childhood financial poverty and multidimensional deprivation : A lifecourse approach</a>,”</span> Documents de travail de l'{Ined}, n°228, "Paris, France", Ined.
-</div>
-<div id="ref-leturcq_how_2016" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2016b</strong>), <span>“<a href="http://www.niussp.org/2016/12/19/parental-separation-affect-childrens-day-day-life-leffet-de-la-rupture-conjugale-sur-la-vie-quotidienne-des-enfants/">How does parental separation affect children’s day-to-day life?</a>”</span> <em>N-IUSSP</em>.
-</div>
-<div id="ref-leturcq_long-term_2018" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2018a</strong>), <span>“The long-term effect of parental separation on childhood financial poverty and multidimensional deprivation : A lifecourse approach,”</span>
-</div>
-<div id="ref-leturcq_long-term_2018-1" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2018b</strong>), <span>“The long-term effect of parental separation on childhood financial poverty and multidimensional deprivation : A lifecourse approach,”</span>
-</div>
-<div id="ref-leturcq_long-term_2019" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M. &amp; Panico, L.</strong> (<strong>2019</strong>), <span>“The <span>Long</span>-<span>Term</span> <span>Effects</span> of <span>Parental</span> <span>Separation</span> on <span>Childhood</span> <span>Multidimensional</span> <span>Deprivation</span>: <span>A</span> <span>Lifecourse</span> <span>Approach</span>,”</span> <em>Social Indicators Research</em>, pp.&nbsp;1–34. https://doi.org/<a href="https://doi.org/10.1007/s11205-018-02060-1">10.1007/s11205-018-02060-1</a>
-</div>
-<div id="ref-leturcq_temps_2009" class="csl-entry" role="doc-biblioentry">
-<strong>Leturcq, M. &amp; Wierink, M.</strong> (<strong>2009</strong>), <span>“Temps de travail et bien être des mères de trois enfants ou plus en emploi,”</span> <em>in</em> Ariane Pailhé &amp; Anne Solaz (eds.), <em>Entre famille et travail : Des arrangements de couples aux pratiques des employeurs</em>, "Paris, France", Ined / La Découverte, pp.&nbsp;93–114.
-</div>
-<div id="ref-woolridge_estimation_2018" class="csl-entry" role="doc-biblioentry">
-<strong>Woolridge, J.M.</strong> (<strong>2018a</strong>), <span>“Estimation par variables instrumentales et doubles moindres carrés,”</span> <em>in</em> Jeffrey M. Woolridge, Pierre André, Michel Beine, Sophie Béreau, Maëlys de la Rupelle, Jean-Yves Gnabo, Cédric Heuchenne &amp; Marion Leturcq (eds.), <em>Introduction à l’économétrie : Une approche moderne</em>, "Louvain-la-Neuve, Belgique", De Boeck Supérieur (Ouvertures économiques), pp.&nbsp;601–647.
-</div>
-<div id="ref-woolridge_nature_2018" class="csl-entry" role="doc-biblioentry">
-<strong>Woolridge, J.M.</strong> (<strong>2018b</strong>), <span>“La nature de l’économétrie et la structure des données économiques,”</span> <em>in</em> Jeffrey M. Woolridge, Pierre André, Michel Beine, Sophie Béreau, Maëlys de la Rupelle, Jean-Yves Gnabo, Cédric Heuchenne &amp; Marion Leturcq (eds.), <em>Introduction à l’économétrie : Une approche moderne</em>, "Louvain-la-Neuve, Belgique", De Boeck Supérieur (Ouvertures économiques), pp.&nbsp;21–44.
-</div>
-</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
 <li id="fn1"><p>se reporter à <span class="citation" data-cites="fremeaux_wealth_2022">Frémeaux &amp; Leturcq (<a href="#ref-fremeaux_wealth_2022" role="doc-biblioref">2022</a>)</span><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -515,9 +505,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -529,7 +533,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -616,24 +637,128 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
@@ -794,7 +919,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-      <div class="nav-footer-center">Marc Thévenin - Ined-Sms - Août 2022</div>
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Marc Thévenin - Ined-Sms - Août 2022</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
 

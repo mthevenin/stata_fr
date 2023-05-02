@@ -4,15 +4,25 @@
 //$body-color: #0f2537;
 $link-color: #4c9be8;
 
-//navbar
-//$navbar-bg: #3B4D5B;
-//$nav-tabs-link-active-color:   $body-color !default;
-//$nav-link-disabled-color:           rgba(255, 255, 255, .4) !default;
-//$navbar-hl: #ebebeb;
+// font face
+@import url('https://fonts.googleapis.com/css2?family=Oswald');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
 
-// Code blocks
-//$code-block-bg-alpha: -.5;
-//$code-block-bg: #94C3E9;
 
-// Code color-rendering
-$code-color: #2A6392;
+//sidebar
+
+$sidebar-bg: #7eadba;
+
+.button-styling {
+  border-radius: 0.6rem;
+  border-width: thin;
+  font-size: 18px;
+  letter-spacing: 3px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-right: 6px;
+  padding-left: 6px;
+  transition-duration: 0.4s;
+}
+
