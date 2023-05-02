@@ -1,6 +1,7 @@
 /* css styles */
 
 /* Nav bar */
+
 .navbar {
   display: flex;
   padding-top: 0;
@@ -12,19 +13,22 @@
 }
 
 
-
+/*
 .sidebar {
+  background-color:  #7eadba;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 550;
   color:white;
   align-items: center;
 }
+*/
+
 
 .sidebar-item {
   margin-top: 1.0rem; 
   margin-left:1.0em; 
-  border: 1.0px solid #37424a;
+  border: 1.5px solid #37424a;
   border-radius: 0.4em;
   border-width: thin;
   font-size: 18px;
@@ -33,6 +37,17 @@
   padding-bottom: 2px;
   padding-right: 6px;
   padding-left: 6px;
+}
+
+
+#quarto-sidebar  {
+  background-color:  #7eadba;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1.1em;
+  font-weight: 500;
+  color:white;
+  align-items: center;
+  
 }
 
 
