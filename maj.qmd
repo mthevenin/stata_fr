@@ -2,18 +2,7 @@
 title: "Infos & maj"
 ---
 
-```{r setup, include=FALSE}
-## Global options
-knitr::opts_chunk$set(cache = TRUE)
 
-library(knitr)
-library (shiny)
-library (rsconnect)
-library(haven)
-library(pander)
-library(memisc)
-library(fontawesome)
-```
 
 <br><br>
 
