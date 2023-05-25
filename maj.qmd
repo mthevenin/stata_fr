@@ -12,7 +12,7 @@ title: "Infos & maj"
 # **2023**
 
 - **15 mars** 
-  * Mise à disposition d'une petite commande qui permet d'ajouter les effectifs sur un axe discret d'un graphique. On peut également l'appliquer à des tableaux de régressions (sans intéractions).
+  * Mise à disposition d'une petite commande qui permet d'ajouter les effectifs sur un axe discret d'un graphique. On peut également l'appliquer à des tableaux de régressions (sans intéraction).
 
 - **27 février**
   * présentation des **frame** dans le support programmation (section *need for speed*)
