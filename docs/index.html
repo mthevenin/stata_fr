@@ -2,11 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<<<<<<< HEAD
 <meta name="generator" content="quarto-1.3.361">
-=======
-<meta name="generator" content="quarto-1.2.269">
->>>>>>> a894ec4c520d1869ecac5027c3d0f7257caf23f5
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,7 +17,7 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
 </style>
@@ -73,29 +69,30 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page">
+    <a class="nav-link active" href="./index.html" rel="" target="" aria-current="page">
  <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/stata_graphiques/">
+    <a class="nav-link" href="https://mthevenin.github.io/stata_graphiques/" rel="" target="">
  <span class="menu-text">Graphiques</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/stata_programmation/">
+    <a class="nav-link" href="https://mthevenin.github.io/stata_programmation/" rel="" target="">
  <span class="menu-text">Programmation</span></a>
   </li>  
 </ul>
-              <div id="quarto-search" class="" title="Search"></div>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
-<<<<<<< HEAD
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
@@ -106,13 +103,6 @@ ul.task-list li input[type="checkbox"] {
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
-=======
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
->>>>>>> a894ec4c520d1869ecac5027c3d0f7257caf23f5
       </button>
     </div>
   </nav>
@@ -120,43 +110,48 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
-      <div class="mt-2 flex-shrink-0 align-items-center">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
+        </div>
         <div class="sidebar-tools-collapse tools-wide">
-    <a href="./about.html" title="Marc Thévenin" class="sidebar-tool px-1"><i class="bi bi-"></i></a>
-    <a href="https://github.com/mthevenin" title="" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
-    <a href="mailto:marc.thevenin@ined.fr" title="" class="sidebar-tool px-1"><i class="bi bi-envelope"></i></a>
-    <a href="./about.html" title="Marc Thévenin" class="sidebar-tool px-1"><i class="bi bi-file-person"></i></a>
+    <a href="./about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
+    <a href="https://github.com/mthevenin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+    <a href="mailto:marc.thevenin@ined.fr" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
+    <a href="./about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
 </div>
-      </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maj.html" class="sidebar-item-text sidebar-link">Infos &amp; maj</a>
+  <a href="./maj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infos &amp; maj</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./versions.html" class="sidebar-item-text sidebar-link">Versions Stata</a>
+  <a href="./versions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Versions Stata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conferences.html" class="sidebar-item-text sidebar-link">Conférences</a>
+  <a href="./conferences.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Conférences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Stata_journal.html" class="sidebar-item-text sidebar-link">Stata Journal</a>
+  <a href="./Stata_journal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Stata Journal</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -166,12 +161,12 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Sortie de la version 18
 </div>
 </div>
@@ -190,27 +185,27 @@ Sortie de la version 18
 </ul>
 </div>
 </div>
-<div class="callout-note callout callout-style-default no-icon callout-captioned">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Ajouter les effectifs sur un axe discret
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p><strong><code>addnlab</code></strong>: Commande simple d’utilisation qui permet d’ajouter les effectifs sur un axe discret. Fonctionne également avec des graphiques type <em>small multiple</em> générés avec l’option <code>by</code>.<br>
-Avec une petite manipulation supplémentaire, on peut également l’appliquer à des outputs de régression (éviter si présence d’intéraction).<br>
+Avec une petite manipulation supplémentaire, on peut également l’appliquer à des outputs de régression.<br>
 <a href="https://mthevenin.github.io/stata_graphiques/programmation/addnlab/addnlab.html">Présentation</a></p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 27 février 2022: <strong>Les frames</strong>
 </div>
 </div>
@@ -218,12 +213,12 @@ Avec une petite manipulation supplémentaire, on peut également l’appliquer �
 <p>Présentation, par l’exemple, des <strong>frames</strong> introduites dans la version 16 de Stata (2019): <a href="https://mthevenin.github.io/stata_programmation/speedup/frame/frame.html">Lien</a></p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 30 septembre 2022: <strong><code>Statamarkdown</code></strong> (RStudio)
 </div>
 </div>
@@ -232,12 +227,12 @@ Avec une petite manipulation supplémentaire, on peut également l’appliquer �
 <a href="https://mthevenin.github.io/stata_programmation/R/statamarkdown/statamarkdown_html.html">Lien</a></p>
 </div>
 </div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 08 Septembre 2022: <strong><code>collect</code></strong>
 </div>
 </div>
@@ -259,6 +254,115 @@ Une première courte présentation pour les régressions se trouve dans le suppo
 <li>Support réalisé avec <a href="https://posit.co/">Posit-Rstudio</a> - <a href="https://quarto.org">Quarto</a>.</li>
 <li>Version Stata: <a href="https://www.stata.com/">17-SE</a></li>
 </ul>
+<p>=======</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Sortie de la version 18
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>En attendant son installation:</p>
+<ul>
+<li>Un système de backup des .do qui ressemble à une autosave. Je ne sais pas quel est la durée entre deux sauvegardes du programme ou si cette durée est paramétrable.</li>
+<li>Apparition d’un format <strong>.dtas</strong>, qui semble enregistrer un ensemble de frames, dont un ensemble de bases liées entre elles</li>
+<li>Un nouveau thème graphique par défaut (il y avait-il besoin d’une nouvelle version????) qui remplace le très vintage thème s2.</li>
+<li>Une option très intéressante qui allegera la programmation des graphiques, <strong><code>colorvar()</code></strong>, proche de <strong><code>colors</code></strong> de <code>ggplot2</code> permettant de générer automatiquement les sous objets graphiques:
+<ul>
+<li>On faisait: <code>tw scatter price mpg if !foreign || scatter price mpg foreign</code></li>
+<li>On fera: <code>tw scatter price mpg, colorval(foreign)</code></li>
+</ul></li>
+<li>Ensemble des nouveautés: <a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Ajouter les effectifs sur un axe discret
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><code>addnlab</code></strong>: Commande simple d’utilisation qui permet d’ajouter les effectifs sur un axe discret. Fonctionne également avec des graphiques type <em>small multiple</em> générés avec l’option <code>by</code>.<br>
+Avec une petite manipulation supplémentaire, on peut également l’appliquer à des outputs de régression (éviter si présence d’intéraction).<br>
+<a href="https://mthevenin.github.io/stata_graphiques/programmation/addnlab/addnlab.html">Présentation</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+27 février 2022: <strong>Les frames</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Présentation, par l’exemple, des <strong>frames</strong> introduites dans la version 16 de Stata (2019): <a href="https://mthevenin.github.io/stata_programmation/speedup/frame/frame.html">Lien</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+30 septembre 2022: <strong><code>Statamarkdown</code></strong> (RStudio)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Une présentation du package <strong>Statamarkdown</strong> de <strong><em>Doug Hemken</em></strong>. La durée d’exécution n’est pas optimale, mais ce package permet d’exécuter des programmes Stata dans <em>RStudio</em> tout en éditant un document (article, rapport, thèse…).<br>
+<a href="https://mthevenin.github.io/stata_programmation/R/statamarkdown/statamarkdown_html.html">Lien</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+08 Septembre 2022: <strong><code>collect</code></strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<div class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><br> <strong><code>collect</code></strong> La version 17 de Stata a introduit une suite nommée <code>collect</code> permettant de paramétrer, enregistrer, et utiliser des styles pour les tableaux. Dans le fichier d’aide, l’idée de remplacer les commandes utilisateurs existantes, en particulier la très populaire <code>outreg2</code>, est assez clairement annoncée. Après quelques heures d’apprentissage, je suis agréablement surpris pour ne pas dire bluffé.<br>
+Une première courte présentation pour les régressions se trouve dans le support <strong>programmation</strong></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://mthevenin.github.io/stata_programmation/tableaux/collect.PNG" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><svg aria-hidden="true" role="img" viewbox="0 0 581 512" style="height:1em;width:1.13em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M581 226.6C581 119.1 450.9 32 290.5 32S0 119.1 0 226.6C0 322.4 103.3 402 239.4 418.1V480h99.1v-61.5c24.3-2.7 47.6-7.4 69.4-13.9L448 480h112l-67.4-113.7c54.5-35.4 88.4-84.9 88.4-139.7zm-466.8 14.5c0-73.5 98.9-133 220.8-133s211.9 40.7 211.9 133c0 50.1-26.5 85-70.3 106.4-2.4-1.6-4.7-2.9-6.4-3.7-10.2-5.2-27.8-10.5-27.8-10.5s86.6-6.4 86.6-92.7-90.6-87.9-90.6-87.9h-199V361c-74.1-21.5-125.2-67.1-125.2-119.9zm225.1 38.3v-55.6c57.8 0 87.8-6.8 87.8 27.3 0 36.5-38.2 28.3-87.8 28.3zm-.9 72.5H365c10.8 0 18.9 11.7 24 19.2-16.1 1.9-33 2.8-50.6 2.9v-22.1z"></path></svg> Support réalisé avec <a href="href:https://www.rstudio.com">Rstudio</a> - <a href="https://quarto.org">Quarto</a>.</li>
+<li><svg aria-hidden="true" role="img" viewbox="0 0 640 512" style="height:1em;width:1.25em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:steelblue;overflow:visible;position:relative;"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"></path></svg> Version Stata: <a href="https://www.stata.com/">17-SE</a></li>
+</ul>
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<blockquote class="blockquote">
+<p>a894ec4c520d1869ecac5027c3d0f7257caf23f5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
 
 
 
@@ -290,9 +394,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -357,6 +475,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -400,6 +604,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">Marc Thévenin / Ined-Sms / Mai 2023</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
   </div>
 </footer>
 
