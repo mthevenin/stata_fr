@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ---
 title: " "
 ---
@@ -75,3 +76,82 @@ Une première courte présentation pour les régressions se trouve dans le suppo
 
 
 
+=======
+---
+title: " "
+---
+
+```{r setup, include=FALSE}
+options(Encoding="UTF-8")
+library(fontawesome)
+```
+
+
+::: {.callout-note icon="false"}
+## Sortie de la version 18
+
+En attendant son installation: 
+
+- Un système de backup des .do qui ressemble à une autosave. Je ne sais pas quel est la durée entre deux sauvegardes du programme ou si cette durée est paramétrable. 
+- Apparition d'un format **.dtas**, qui semble enregistrer un ensemble de frames, dont un ensemble de bases liées entre elles 
+- Un nouveau thème graphique par défaut (il y avait-il besoin d'une nouvelle version????) qui remplace le très vintage thème s2. 
+- Une option très intéressante qui allegera la programmation des graphiques, **`colorvar()`**, proche de **`colors`** de `ggplot2` permettant de générer automatiquement les sous objets graphiques:  
+  - On faisait: `tw scatter price mpg if !foreign || scatter price mpg foreign`
+  - On fera: `tw scatter price mpg, colorval(foreign)`
+- Ensemble des nouveautés: <https://www.stata.com/new-in-stata/>  
+
+:::
+
+
+::: {.callout-note icon="false"}
+## Ajouter les effectifs sur un axe discret
+
+**`addnlab`**: Commande simple d'utilisation qui permet d'ajouter les effectifs sur un axe discret. Fonctionne également avec des graphiques type *small multiple* générés avec l'option `by`.  
+Avec une petite manipulation supplémentaire, on peut également l'appliquer à des outputs de régression (éviter si présence d'intéraction).  
+[Présentation](https://mthevenin.github.io/stata_graphiques/programmation/addnlab/addnlab.html)
+
+:::
+
+
+::: callout-note
+
+## 27 février 2022: **Les frames** 
+
+Présentation, par l'exemple, des **frames** introduites dans la version 16 de Stata (2019): [Lien](https://mthevenin.github.io/stata_programmation/speedup/frame/frame.html)
+
+:::
+
+::: callout-note
+
+## 30 septembre 2022: **`Statamarkdown`** (RStudio)
+
+Une présentation du package **Statamarkdown** de ***Doug Hemken***. La durée d'exécution n'est pas optimale, mais ce package permet d'exécuter des programmes Stata dans *RStudio* tout en éditant un 
+document (article, rapport, thèse...).  
+[Lien](https://mthevenin.github.io/stata_programmation/R/statamarkdown/statamarkdown_html.html)
+:::
+
+
+::: callout-note
+
+## 08 Septembre 2022: **`collect`**
+
+::: {layout-ncol=2}
+<br>
+**`collect`** 
+La version 17 de Stata a introduit une suite nommée `collect` permettant de paramétrer, enregistrer, et utiliser des styles pour les tableaux. Dans le fichier d'aide, l'idée de  remplacer les commandes utilisateurs existantes, en particulier la très populaire `outreg2`, est assez clairement annoncée. Après quelques heures d'apprentissage, je suis agréablement surpris pour ne pas dire bluffé.   
+Une première courte présentation pour les régressions se trouve dans le support **programmation**
+
+
+![](https://mthevenin.github.io/stata_programmation/tableaux/collect.PNG)
+
+:::
+:::
+
+
+
+-   `r fa("r-project", fill = "steelblue")` Support réalisé avec [Rstudio](href:https://www.rstudio.com) - [Quarto](https://quarto.org).
+-   `r fa("code", fill = "steelblue")` Version Stata: [17-SE](https://www.stata.com/)
+
+
+
+>>>>>>> a894ec4c520d1869ecac5027c3d0f7257caf23f5
