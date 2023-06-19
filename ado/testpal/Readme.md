@@ -28,7 +28,7 @@ Permet de tester une palette sur un graphique témoin
 
 Collection ***Brewer***, palette ***YlGnBu***:  
 ```{}
-`testpal YlGnBu, rev op(50) bf(5)` 
+testpal YlGnBu, rev op(50) bf(5) 
 ```
 ![](testpal1.png)
 
