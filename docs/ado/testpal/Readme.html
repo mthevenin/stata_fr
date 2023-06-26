@@ -194,7 +194,7 @@ ul.task-list li input[type="checkbox"] {
 <p>Permet de tester une palette sur un graphique témoin</p>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
-<p><strong><code>net install testpal, from("https://mthevenin.github.io/stata_fr/ado/testpal/") replace</code></strong></p>
+<p><strong><code>net install testpal, from("https://raw.githubusercontent.com/mthevenin/stata_fr/master/ado/testpal/") replace</code></strong></p>
 </section>
 <section id="syntaxe" class="level2">
 <h2 class="anchored" data-anchor-id="syntaxe">Syntaxe</h2>
@@ -208,7 +208,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="exemples" class="level2">
 <h2 class="anchored" data-anchor-id="exemples">Exemples</h2>
 <p>Collection <strong><em>Brewer</em></strong>, palette <strong><em>YlGnBu</em></strong>:</p>
-<pre><code>`testpal YlGnBu, rev op(50) bf(5)` </code></pre>
+<pre><code>testpal YlGnBu, rev op(50) bf(5) </code></pre>
 <p><img src="testpal1.png" class="img-fluid"></p>
 <p>Collection <strong><em>tableau</em></strong>, palette <strong><em>10</em></strong>:</p>
 <pre><code>testpal tab 10 , rev op(100) bf(1)</code></pre>
