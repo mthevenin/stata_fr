@@ -14,7 +14,7 @@ Permet de tester une palette sur un graphique témoin
 
 ## Installation
 
-**`net install testpal, from("https://mthevenin.github.io/stata_fr/ado/testpal/") replace`**
+**`net install testpal, from("https://raw.githubusercontent.com/mthevenin/stata_fr/master/ado/testpal/") replace`**
 
 ## Syntaxe
 
@@ -28,7 +28,7 @@ Permet de tester une palette sur un graphique témoin
 
 Collection ***Brewer***, palette ***YlGnBu***:  
 ```{}
-`testpal YlGnBu, rev op(50) bf(5)` 
+testpal YlGnBu, rev op(50) bf(5) 
 ```
 ![](testpal1.png)
 
