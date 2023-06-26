@@ -3,23 +3,26 @@ project:
   output-dir: docs
 
 website:
-  search: 
-    location: navbar
+  search: false
+#  location: navbar
+#  title: "STATA FR"
   page-navigation: true
   page-footer: 
-    left: "Marc Thévenin / Ined-Sms / Mai 2023"
+    left: "Marc Thévenin / Ined-Sms / Juillet 2023"
     background: dark
   navbar:
-    left:
+    left: 
       - href: index.qmd
         text: "Stata Ined"
-      - href: https://mthevenin.github.io/stata_graphiques/
-        text: "Graphiques"     
-      - text: "Programmation"
-        href: https://mthevenin.github.io/stata_programmation/    
-
+      - href: articles/index.qmd
+        text: "Articles"
+      - text: Formations
+        menu: 
+          - text: "Formation initiale"
+            href: https://mthevenin.github.io/stata_programmation/
+          - text: "Graphiques"
+            href: https://mthevenin.github.io/stata_graphiques/           
   sidebar:
-    pinned: true
     align: center
     tools: 
       - href: about.qmd
@@ -29,7 +32,6 @@ website:
         href: mailto:marc.thevenin@ined.fr 
       - icon: file-person
         href: about.qmd
-
     style: docked
     search: true
     contents:
@@ -40,15 +42,19 @@ website:
 
 format:
   html:
-    theme: [yeti, theme-light.scss] 
+    theme: [yeti, styles.scss] 
     css: styles.css
     code-background: true
     code-copy: true
-    toc: true
-    toc-depth: 3
-    toc-title: Sections
-number-sections: true
+highlight-style: dracula
+#    toc: true
+#    toc-depth: 3
+#    toc-title: Sections
+#number-sections: true
 
+
+execute: 
+  freeze: auto
 
 
 

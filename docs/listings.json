@@ -1,0 +1,47 @@
+[
+  {
+    "listing": "/articles/index/index.html",
+    "items": [
+      "/articles/index/posts/addnlab/addnlab.html",
+      "/articles/index/posts/frame/frame.html",
+      "/articles/index/posts/gtools/gtools.html",
+      "/articles/index/posts/graph_python/python.html",
+      "/articles/index/posts/collect/collect.html",
+      "/articles/index/posts/fabplot/fabplot.html",
+      "/articles/index/posts/gjoint/gjoint.html",
+      "/articles/index/posts/gridge/gridge.html",
+      "/articles/index/posts/lollipop/lollipop.html",
+      "/articles/index/posts/profile/profile.html"
+    ]
+  },
+  {
+    "listing": "/articles/index.html",
+    "items": [
+      "/articles/index/posts/addnlab/addnlab.html",
+      "/articles/index/posts/frame/frame.html",
+      "/articles/index/posts/gtools/gtools.html",
+      "/articles/index/posts/graph_python/python.html",
+      "/articles/index/posts/collect/collect.html",
+      "/articles/index/posts/fabplot/fabplot.html",
+      "/articles/index/posts/gjoint/gjoint.html",
+      "/articles/index/posts/gridge/gridge.html",
+      "/articles/index/posts/lollipop/lollipop.html",
+      "/articles/index/posts/profile/profile.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/articles/index/posts/addnlab/addnlab.html",
+      "/articles/index/posts/frame/frame.html",
+      "/articles/index/posts/gtools/gtools.html",
+      "/articles/index/posts/graph_python/python.html",
+      "/articles/index/posts/collect/collect.html",
+      "/articles/index/posts/fabplot/fabplot.html",
+      "/articles/index/posts/gjoint/gjoint.html",
+      "/articles/index/posts/gridge/gridge.html",
+      "/articles/index/posts/lollipop/lollipop.html",
+      "/articles/index/posts/profile/profile.html"
+    ]
+  }
+]

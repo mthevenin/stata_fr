@@ -24,11 +24,10 @@ ul.task-list li input[type="checkbox"] {
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -39,12 +38,6 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
-  "copy-button": false,
-  "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
-  "limit": 20,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -58,18 +51,49 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-latest-content .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      page: 6,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-latest-content'] = new List('listing-latest-content', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-            <div id="quarto-search" class="" title="Search"></div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -80,13 +104,24 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/stata_graphiques/" rel="" target="">
- <span class="menu-text">Graphiques</span></a>
+    <a class="nav-link" href="./articles/index.html" rel="" target="">
+ <span class="menu-text">Articles</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://mthevenin.github.io/stata_programmation/" rel="" target="">
- <span class="menu-text">Programmation</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-formations" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Formations</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-formations">    
+        <li>
+    <a class="dropdown-item" href="https://mthevenin.github.io/stata_programmation/" rel="" target="">
+ <span class="dropdown-text">Formation initiale</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="https://mthevenin.github.io/stata_graphiques/" rel="" target="">
+ <span class="dropdown-text">Graphiques</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -153,107 +188,326 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
 
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<!-- Derniers ajouts R-->
+<div class="content-container">
+<section id="derniers-ajouts" class="level1 listing-block">
+<h1>DERNIERS AJOUTS</h1>
+<p><a href="articles/index.html"><strong>Accéder à la liste des articles</strong></a></p>
+<div id="listing-latest-content" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="graphique,ado" data-listing-date-sort="1678834800000" data-listing-file-modified-sort="1687769391523" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./articles/index/posts/addnlab/addnlab.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title" data-anchor-id="derniers-ajouts">
+<strong>Ajouter les effectifs sur un axe discret avec addnlab</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
 </div>
-<div class="callout-title-container flex-fill">
-Sortie de la version 18
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>En attendant son installation:</p>
-<ul>
-<li>Un système de backup des .do qui ressemble à une autosave. Je ne sais pas quel est la durée entre deux sauvegardes du programme ou si cette durée est paramétrable.</li>
-<li>Apparition d’un format <strong>.dtas</strong>, qui semble enregistrer un ensemble de frames, dont un ensemble de bases liées entre elles</li>
-<li>Un nouveau thème graphique par défaut (il y avait-il besoin d’une nouvelle version????) qui remplace le très vintage thème s2.</li>
-<li>Une option très intéressante qui allegera la programmation des graphiques, <strong><code>colorvar()</code></strong>, proche de <strong><code>colors</code></strong> de <code>ggplot2</code> permettant de générer automatiquement les sous objets graphiques:
-<ul>
-<li>On faisait: <code>tw scatter price mpg if !foreign || scatter price mpg foreign</code></li>
-<li>On fera: <code>tw scatter price mpg, colorval(foreign)</code></li>
-</ul></li>
-<li>Ensemble des nouveautés: <a href="https://www.stata.com/new-in-stata/" class="uri">https://www.stata.com/new-in-stata/</a></li>
-</ul>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
+<div class="card-text listing-description">
+<p>Une petite commande sans grande prétention, mais peut-être utile, car elle permet d’ajouter sur l’axe discret d’un graphique, le nombre d’observations de chaque modalité. On peut également l’utiliser, avec une manipulation supplémentaire, pour les outputs de modèles.</p>
 </div>
-<div class="callout-title-container flex-fill">
-Ajouter les effectifs sur un axe discret
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong><code>addnlab</code></strong>: Commande simple d’utilisation qui permet d’ajouter les effectifs sur un axe discret. Fonctionne également avec des graphiques type <em>small multiple</em> générés avec l’option <code>by</code>.<br>
-Avec une petite manipulation supplémentaire, on peut également l’appliquer à des outputs de régression.<br>
-<a href="https://mthevenin.github.io/stata_graphiques/programmation/addnlab/addnlab.html">Présentation</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-27 février 2022: <strong>Les frames</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Présentation, par l’exemple, des <strong>frames</strong> introduites dans la version 16 de Stata (2019): <a href="https://mthevenin.github.io/stata_programmation/speedup/frame/frame.html">Lien</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-30 septembre 2022: <strong><code>Statamarkdown</code></strong> (RStudio)
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Une présentation du package <strong>Statamarkdown</strong> de <strong><em>Doug Hemken</em></strong>. La durée d’exécution n’est pas optimale, mais ce package permet d’exécuter des programmes Stata dans <em>RStudio</em> tout en éditant un document (article, rapport, thèse…).<br>
-<a href="https://mthevenin.github.io/stata_programmation/R/statamarkdown/statamarkdown_html.html">Lien</a></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-08 Septembre 2022: <strong><code>collect</code></strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<div class="quarto-layout-panel">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><br> <strong><code>collect</code></strong> La version 17 de Stata a introduit une suite nommée <code>collect</code> permettant de paramétrer, enregistrer, et utiliser des styles pour les tableaux. Dans le fichier d’aide, l’idée de remplacer les commandes utilisateurs existantes, en particulier la très populaire <code>outreg2</code>, est assez clairement annoncée. Après quelques heures d’apprentissage, je suis agréablement surpris pour ne pas dire bluffé.<br>
-Une première courte présentation pour les régressions se trouve dans le support <strong>programmation</strong></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="https://mthevenin.github.io/stata_programmation/tableaux/collect.PNG" class="img-fluid"></p>
+<div class="listing-date">
+Mar 15, 2023
 </div>
 </div>
 </div>
 </div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="frame" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1687778901897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<a href="./articles/index/posts/frame/frame.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Introduction aux frames (Stata 16)</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('frame'); return false;">
+frame
+</div>
+</div>
+<div class="card-text listing-description">
+Les frames, introduites avec la version 16 de Stata, permettent de travailler parallèlement sur plusieurs bases de données, sans avoir à enregistrer/ouvrir. Un système de liaison entre frames revisite l’appariement des bases. Il s’avère particulièrement utile lorsqu’on alimente une base…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Feb 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="gtools,runtime" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1687774489222" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13">
+<a href="./articles/index/posts/gtools/gtools.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Améliorer grander la durée d’exécution avec Gtools</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('gtools'); return false;">
+gtools
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('runtime'); return false;">
+runtime
+</div>
+</div>
+<div class="card-text listing-description">
+Le package <strong><code>gtools</code></strong> de Mauricio Caceres Bravo permet d’améliorer significativement la durée d’exécution pour un certain nombre d’opérations, en particulier les transpositions de bases (<code>reshape</code>). Les éléments qui suivent proposent des éléments de benchmark avec les commandes usines et des…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Feb 23, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="graphique,python" data-listing-date-sort="1664748000000" data-listing-file-modified-sort="1687769429090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5">
+<a href="./articles/index/posts/graph_python/python.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Faire des graphiques sous Stata avec Python</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('python'); return false;">
+python
+</div>
+</div>
+<div class="card-text listing-description">
+Il s’agit d’une courte présentation de l’utilisation de Python sous Stata pour générer des graphiques. Après quelques éléments sur l’installation de Python et son utilisation avec Stata, trois exemples de graphiques sont données avec les librairies <strong><code>seaborn</code></strong>, <strong><code>plotnine</code></strong> (wrapper de…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Oct 3, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="tableaux,output" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687777343458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35">
+<a href="./articles/index/posts/collect/collect.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Editer des outputs avec collect</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('tableaux'); return false;">
+tableaux
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('output'); return false;">
+output
+</div>
+</div>
+<div class="card-text listing-description">
+La suite <strong><code>collect</code></strong> introduite avec le version 17 va t-elle remplacer <code>outreg2</code> et autres commandes de mise en forme et d’exportation de tableaux? Pas encore un tutoriel, dès éléments sont encore obscurs, mais avec quelques copier-coller issus des fichiers d’aides je présente juste deux…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Sep 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="5" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769374156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<a href="./articles/index/posts/fabplot/fabplot.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Contrôler l’effet spaghetti avec fabplot (NJ.Cox)</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
+</div>
+</div>
+<div class="card-text listing-description">
+La commande <strong><code>fabplot</code></strong> programmée en 2021 par Nj.Cox permet de contrôler efficacement les effets dits <em>spaghetti</em> (courbes) ou <em>paella</em> (nuages de points). J’ai ajouté une option pour modifier les courbes au second plan, NJ.Cox ayant toujours tendance à bloquer l’habillage de ces commandes…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Sep 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="6" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769402707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1">
+<a href="./articles/index/posts/gjoint/gjoint.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Distributions croisées avec gjoint</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
+</div>
+</div>
+<div class="card-text listing-description">
+Petite commande graphique en version alpha: <strong><code>gjoint</code></strong>. Permet de visualiser la distribution croisée de deux variables quantitatives avec la commande <strong><code>hexplot</code></strong> de Ben Jann, en reportant également les distributions marginales avec des d’histogrammes. Pas de gros changement à prévoir, si ce…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Sep 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769293837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6">
+<a href="./articles/index/posts/gridge/gridge.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Visualisation des densités avec gridge</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ado'); return false;">
+ado
+</div>
+</div>
+<div class="card-text listing-description">
+<p>Depuis 2020, des programmes permettent de générer de type lignes de crête: <code>joyplot</code> (A.Naqvi) et <code>joy_plot</code> (F.Rios-Avila). A partir d’un programme écrit à l’automne 2020, et en restant au plus près de la fonction <code>ggridge</code> de R, j’ai également (et modestement) programmé une commande.</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Sep 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="8" data-categories="graphique" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769447539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
+<a href="./articles/index/posts/lollipop/lollipop.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Programmer un graphique Lollipop</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('graphique'); return false;">
+graphique
+</div>
+</div>
+<div class="card-text listing-description">
+J’étais complétement passé à côte de la fonction <strong><code>axis</code></strong> du package <strong><code>egenmore</code></strong> de Nj.Cox. Elle permet de construire un axe discret ordonné en récupérant automatiquement les labels d’une variable. Les programmes de la version 2000 pour générer des graphiques de types <strong>lollipop</strong> ou…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Sep 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="9" data-categories="profile" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687775236701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7">
+<a href="./articles/index/posts/profile/profile.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<strong>Configurer les sessions avec un profile.do</strong>
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('profile'); return false;">
+profile
+</div>
+</div>
+<div class="card-text listing-description">
+<p>Un fichier <strong>profile.do</strong> est un programme qui s’éxécute à l’ouverture d’une session Stata. Ce programme comporte uniquement des éléments de configuration des sessions.</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Marc Thévenin
+</div>
+<div class="listing-date">
+Sep 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+<nav id="latest-content-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
+</div>
+</section>
 </div>
 <ul>
 <li>Support réalisé avec <a href="https://posit.co/">Posit-Rstudio</a> - <a href="https://quarto.org">Quarto</a>.</li>
-<li>Version Stata: <a href="https://www.stata.com/">17-SE</a></li>
+<li>Exécution de Stata dans Quarto: noyau Jupyter <a href="https://github.com/hugetim/nbstata">nbstata</a></li>
+<li>Version Stata: <a href="https://www.stata.com/">18-SE</a></li>
 </ul>
+
 
 
 
@@ -494,7 +748,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Marc Thévenin / Ined-Sms / Mai 2023</div>   
+    <div class="nav-footer-left">Marc Thévenin / Ined-Sms / Juillet 2023</div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>

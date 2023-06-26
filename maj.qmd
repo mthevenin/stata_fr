@@ -3,13 +3,17 @@ title: "Infos & maj"
 ---
 
 
-
 <br><br>
 
 ::: {.callout-note icon="false"}
 
 
 # **2023**
+
+- **26 Juin** 
+  * Modification de l'architecture du support.  
+    - Le contenu hors formation des sous supports *graphiques* et *formation* ont été déplacés dans le support d'accueil, sous forme d'articles de blog. La recherche thématique est se fait grâce à des tags (*categories*)
+    - Le contenu des supports *graphiques* et *formation* est exclusivement réservé aux formations initiale. 
 
 - **15 mars** 
   * Mise à disposition d'une petite commande qui permet d'ajouter les effectifs sur un axe discret d'un graphique. On peut également l'appliquer à des tableaux de régressions (sans intéraction).

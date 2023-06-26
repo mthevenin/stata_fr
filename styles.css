@@ -7,8 +7,8 @@
   padding-top: 0;
   padding-bottom: 0;
   font-family: 'Roboto', sans-serif;
-  font-size: 1.5em;
-  font-weight: 500;
+  font-size: 2.0em;
+  font-weight: 600;
   border-bottom: 1px solid white;
 }
 
@@ -16,7 +16,7 @@
 .sidebar-item {
   margin-top: 1.0rem; 
   margin-left:1.0em; 
-  border:  solid #37424a;
+  border:  solid #008cba;
   border-radius: 0.4em;
   border-width: thin;
   font-size: 18px;
@@ -37,5 +37,153 @@
   align-items: center;
   
 }
+
+
+/*-- quarto titles --*/
+
+.quarto-title-banner {
+  margin-bottom: 0.75em;
+}
+
+
+/* index vignettes */
+
+/*-- container --*/
+
+.content-container {
+  padding-left: 1.5em;
+  padding-right: 1.5em;
+}
+
+.pagination {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+
+.pagination a {
+  color:  #008cba;
+  font-weight:500;
+  background-color: white;
+  float: left;
+  padding: 1px 16px;
+  text-decoration: none;
+  border-radius: 2px;
+  border: .1px solid gainsboro;
+}
+
+.pagination a.active {
+  text-decoration: none;
+  color: white;
+}
+
+/*-- listing block --*/
+
+.listing-block {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-bottom: 1.8em; 
+  box-sizing: border-box;
+  border-bottom: 1px solid black;
+}
+
+.listing-block h2 {
+
+ /* margin-top: 1.5em; */
+  color: black;
+  text-transform: uppercase;
+}
+
+.listing-block h2:hover {
+  color: #3a849c;
+}
+
+
+
+/*-- VIGNETTE GRID --*/
+
+.quarto-grid-item.borderless {
+  background-color: #3a849c;
+}
+
+.quarto-grid-item div.post-contents {
+  margin-left: 0.5em;
+  padding: 15px;
+  text-align: justify;
+}
+
+.quarto-grid-item .card-title {
+  margin-top: 0.5em;
+  margin-bottom: 0.75em;
+  margin-left: 0.5em;
+  font-weight: 500; 
+  text-align: left;
+}
+
+.quarto-grid-item .listing-categories {
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: .5em;
+}
+
+.quarto-grid-item .listing-categories .listing-category {
+  color: #008cba;
+  border: solid 1px #008cba !important;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: .75em;
+}
+
+
+
+/* Vignette alignement*/
+.quarto-grid-item .card-attribution.justify {
+  justify-content: right;
+}
+
+
+/* Vignette auteur et date*/
+.quarto-grid-item .card-attribution {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  color#008cba;
+  flex-grow: 10;
+  align-items: flex-end;
+  padding:10px;
+}
+
+.quarto-grid-item img.thumbnail-image {
+  object-fit: cover;
+  height: 0px !important;
+  width: 0%;
+}
+
+.quarto-grid-item {
+  border: solid 0px ;
+  border-color: #008cba;
+  border-radius: 1px ;
+  background-color:white;
+  overflow: hidden;
+  filter:grayscale(2%);
+  box-shadow: inset 0 -3em 3em rgba(0, 0, 0, 0), 0 0 0 2px rgb(255, 255, 255),
+    0.3em 0.3em 1em rgba(0, 140, 186, 0.2);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
