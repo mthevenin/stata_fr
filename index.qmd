@@ -37,7 +37,7 @@ toc: false
 :::
 
 
--    Support réalisé avec [Posit-Rstudio](https://posit.co/) - [Quarto](https://quarto.org).
+-    Support réalisé avec [Posit-Rstudio](https://posit.co/) - [Quarto](https://quarto.org). 
 -    Exécution de Stata dans Quarto: noyau Jupyter [nbstata](https://github.com/hugetim/nbstata) 
 -    Version Stata: [18-SE](https://www.stata.com/)
 
