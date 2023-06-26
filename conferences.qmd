@@ -27,6 +27,9 @@ Liste non exhaustive des conférences depuis 2019. J'ai sélectionné les confé
 :::  {.callout-note appearance="simple" icon="false"}
 ## **2023**
 
+
+-   **FR**: <https://www.stata.com/meeting/france23/>
+    - Présentations disponibles
 -   **Virtual symposium (biostatistique et épidémiologie)**: <https://www.stata.com/symposiums/biostatistics-and-epidemiology23/>
     - Présentations disponibles
 -   **AUS**: <https://www.stata.com/meeting/oceania23/>
