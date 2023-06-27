@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Marc Thévenin">
+<meta name="dcterms.date" content="2023-06-27">
 
-<title>Présentation rapide</title>
+<title>Autosave des .do à partir de Stata 18</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,18 +25,21 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -51,7 +56,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -66,11 +71,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../../../index.html" rel="" target="">
  <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./articles/index.html" rel="" target="">
+    <a class="nav-link" href="../../../../articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -99,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Présentation rapide</li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Autosave des .do à partir de Stata 18</strong></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -118,34 +123,34 @@ ul.task-list li input[type="checkbox"] {
         </div>
         </div>
         <div class="sidebar-tools-collapse tools-wide">
-    <a href="./about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
+    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
     <a href="https://github.com/mthevenin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="mailto:marc.thevenin@ined.fr" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
-    <a href="./about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
+    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maj.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../maj.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Infos &amp; maj</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./versions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../versions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Versions Stata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conferences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../conferences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conférences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Stata_journal.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../Stata_journal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stata Journal</span></a>
   </div>
 </li>
@@ -156,119 +161,75 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="presentation.html"><i class="bi bi-file-slides"></i>RevealJS</a></li></ul></div></div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="autosave.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Présentation rapide</h1>
-</div>
+<h1 class="title"><strong>Autosave des .do à partir de Stata 18</strong></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Stata 18</div>
+    <div class="quarto-category">autosave</div>
+  </div>
+  </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Marc Thévenin </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Ined
+          </p>
+      </div>
+    </div>
 
 <div class="quarto-title-meta">
 
-    
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 27, 2023</p>
+    </div>
+  </div>
   
     
   </div>
   
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>Sans aucun doute une des fonctionalités les plus intéressantes de la version: enfin la présence d’une autosave des .do et .ado. On peut paramétrer la fréquence d’enregistrement automatique (par défaut 4 secondes).</p>
+  </div>
+</div>
 
 </header>
 
-<section id="trois-supports" class="level1">
-<h1>Trois supports</h1>
+<p><br><br> Pour faire très court:</p>
 <ul>
-<li>Accès direct par la barre de navigation</li>
-<li>Fenêtre de recherche pour chaque support</li>
-<li>Accès au contenu via une barre horizontal</li>
+<li>Penser à ce que le fichier soit sauvegardé</li>
+<li>On peut paramétrer la fréquence de sauvegarde dans les préférences de l’éditeur [edit=&gt;preference=&gt;onglet Advanced]. Par défaut la fréquence est de 4 secondes, ce qui semble suffisant.</li>
+<li>Après un crash, ou autre mésaventure, il sera proposer d’ouvrir le fichier sauvegardé automatiquement.</li>
+<li>Penser à enregistrer le programme de récupération avec le nom original.</li>
 </ul>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="img/img1.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Note
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img/img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="img/img2.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
+</figure>
 </div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Tous les supports ont été réalisés avec <strong>Quarto</strong> [<em>Rstudio</em>] sorti officiellement le 29 Juillet 2022</p>
-</div>
-</div>
-<section id="ce-support-daccueil" class="level2">
-<h2 class="anchored" data-anchor-id="ce-support-daccueil">Ce support d’accueil</h2>
-<ul>
-<li>Contenu plutôt succinct:
-<ul>
-<li>Suivi des conférences: avec programme et information sur la mise à disposition des présentations</li>
-<li>Stata Journal: accès direct au dernier numéro et lecture du dernier sommaire</li>
-<li><em>Me demander des veilles et biblio sur des thèmes particulier</em></li>
-<li>A faire: proposition d’ateliers et présentations (format court), voire de formation</li>
-</ul></li>
-</ul>
-</section>
-<section id="support-dédié-à-la-programmation-de-graphiques" class="level2">
-<h2 class="anchored" data-anchor-id="support-dédié-à-la-programmation-de-graphiques">Support dédié à la programmation de graphiques</h2>
-<section id="maj-formation-de-2020" class="level3">
-<h3 class="anchored" data-anchor-id="maj-formation-de-2020">MAJ formation de 2020</h3>
-<ul>
-<li>Chapitres 1 à 3</li>
-<li>Pas satisfait du chapitre 4 de 2020, je cherche encore</li>
-<li>Un cinquième chapitre sur les graphiques issus des librairies Python <em>seaborn</em>, <em>plotnine</em> et <em>plotly</em> [avec code simple]</li>
-</ul>
-</section>
-<section id="topics" class="level3">
-<h3 class="anchored" data-anchor-id="topics">Topics</h3>
-<p>Série d’articles courts, présenté sour forme de <em>blog</em></p>
-<ul>
-<li>Avec Stata
-<ul>
-<li>Exemple: Commandes que j’ai programmées cet été (gridge, gjoint)</li>
-<li>Solution à l’effet Spaghetti avec <code>fabplot</code> de NJ.Cox</li>
-<li>La commande <code>axis</code> de NJ Cox qui fait gagné un temps monstre par rapport à ce que j’avais fais pour les graphiques types <em>lollipop</em> et <em>haltère</em>. J’étais passé complètement au travers.</li>
-</ul></li>
-<li>Avec Python (seaborn, plotnine, plotline) sous un éditeur .do</li>
-</ul>
-</section>
-<section id="bilio-et-liens" class="level3">
-<h3 class="anchored" data-anchor-id="bilio-et-liens">Bilio et liens</h3>
-<p>A faire très rapidement</p>
-<ul>
-<li>Remettre et actualiser la biblio de la formation de 2020</li>
-<li>Sites sur la visualisation avec Stata. Exemple: <a href="https://asjadnaqvi.medium.com/">site <em>Medium</em> d’Asjad Naqvi</a></li>
-</ul>
-<p>:::</p>
-</section>
-</section>
-<section id="support-dédié-à-la-programmation-hors-graphiques" class="level2">
-<h2 class="anchored" data-anchor-id="support-dédié-à-la-programmation-hors-graphiques">Support dédié à la programmation (hors graphiques)</h2>
-<p>Création très récente</p>
-<ul>
-<li>Avec contenu:
-<ul>
-<li>fichier <strong>profile.do</strong>,</li>
-<li>Amélioration des durées d’exécution avec le package <strong>gtools</strong>
-<ul>
-<li>Présentation de quelques commandes associées</li>
-<li>Benchmark (jusqu’à 10M) avec commandes usines fonctions R</li>
-</ul></li>
-</ul></li>
-<li>Sans contenu ou presque
-<ul>
-<li>Programmation avec les <strong>Macros</strong>, c’est incontournable.
-<ul>
-<li><em>Si la programmation d’algorithme vous intéresse me le faire savoir</em></li>
-</ul></li>
-<li><strong>Stata &lt;=&gt; R</strong> forcément</li>
-</ul></li>
-<li>Cela va pas vous intéresser, mais je dois remettre progressivement ma formation introductive qui très ancienne.</li>
-</ul>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -516,6 +477,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","closeEffect":"zoom","selector":".lightbox","loop":true,"openEffect":"zoom"});</script>
 
 
 
