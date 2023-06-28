@@ -23,17 +23,14 @@ filters:
    - lightbox
 lightbox: auto
 
+jupyter: nbstata  
+
 abstract: | 
  Les frames, introduites avec la version 16 de Stata, permettent de travailler parallèlement sur plusieurs bases de données, sans avoir à enregistrer/ouvrir. Un système de liaison entre frames revisite l'appariement des bases. Il s'avère particulièrement utile lorsqu'on alimente une base individuelle avec des données contextuelles.
-     
+
 ---
 
-```{r, include=FALSE}
-options(Encoding="UTF-8")
-library(Statamarkdown)
-stataexe <- "C:/Program Files/Stata17/StataSE-64.exe"
-knitr::opts_chunk$set(engine.path=list(stata=stataexe))
-```
+<br><br>
 
 Les **frames** on été implémentées à Stata à partir de la version 16 (2019). Elles n'améliorent pas directement les durées d'éxécution, mais en donnant la possibilité de travailler simultanément sur plusieurs bases simultanément  sans multiplier les opérations d'ouverture ou de sauvegarde, elles permettent de "gagner du temps". Mieux encore, elles ont été pensées pour faciliter les fusions et les manipulations d'informations entre bases de données en implémentant une alternative aux *`merge`* via une logique de liaison.     
 ***Les frames ont été pensées pour faciliter le travail de programmation entre bases individuelles et bases contextuelles***.
@@ -41,7 +38,7 @@ Les **frames** on été implémentées à Stata à partir de la version 16 (2019
 
 ::: callout-note
 
-La version 18 de Stata implémente le format **.dtas** qui permet de sauvergadrer une collection de frame et leurs liaisons.
+La version 18 de Stata implémente le format **.dtas** qui permet de sauvergadrer une collection de frames et leurs liaisons.
 
 :::
 
@@ -64,7 +61,7 @@ frame dir
 
 On ouvre une base, et de nouveau avec `frame dir`: 
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 clear
 webuse nhanes2
 
@@ -75,7 +72,7 @@ des, s
 
 On souhaite renommer cette frame *default*, par exemple *nhanes*:  *`frame rename`*
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame rename default nhanes
 
 frame dir
@@ -87,7 +84,7 @@ On souhaite, par exemple, créer des bases d'indicateurs en collapsant des infor
 
 On indique simplement la sélection de variables et avec l'option **`into()`** le nom de la nouvelle frame.   
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame put sex bpsystol, into(tension)
 frame put sex bmi,      into(imc)
 
@@ -126,7 +123,7 @@ command2
 ```
 
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 * frame active (nhanes2)
 tab agegrp
 
@@ -141,7 +138,7 @@ frame imc: mean   imc, over(sex)
 Sur le même principe, on va collapser les frames et *tension* et *imcs* (moyennes de *tension* et *imc*  par sexe)
 
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame tension {
 collapse tension, by(sex)
 list
@@ -153,7 +150,7 @@ list
 }
 ```
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame dir
 ```
 
@@ -178,7 +175,7 @@ frlink varlist, frame(nom_frame) gen(link_name)
 
 Ici la clé d'appariement est la variable *sex*, la liaison est de type **m:1**
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frlink m:1 sex, frame(tension) gen(l1)
 frlink m:1 sex, frame(imc)     gen(l2)
 ```
@@ -191,14 +188,14 @@ Avantage:
 - on peut renommer les variables avec **`frget`**, ici *mtension* pour *tension* et *mimc* pour *imc*. Attention aux habitudes, ici pour renommer c'est nouveau_nom=ancien_nom. 
 
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frget mtension=tension, from(l1)
 frget mimc=imc,     from(l2)
 ```
 
 Les variables *mtension* et *minc* sont maintenant dans la base/frame *nhanes*
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 mean mtension mimc, over(sex)
 ```
 
@@ -209,7 +206,7 @@ Imaginons que nous ne souhaitions pas importer les variables *mtension* *minc* q
 
 En amont je supprime les variables mtension et mimc de la frame *nhanes* (inutiles) et renomme les variables tension et imc dans leur frame respective (pour facilité la lecture de `frval`)
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 drop mtension mimc
 
 frame tension: rename tension mean_tension
@@ -218,7 +215,7 @@ frame imc:     rename imc     mean_imc
 
 Création des variables *diff_tens* et *diff_imc*
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 gen diff_tens = bpsystol - frval(l1, mean_tension)
 gen diff_imc =  bmi      - frval(l2, mean_imc)
 
@@ -228,7 +225,7 @@ list  diff_tens diff_imc in 1/10
 
 Dans une même création de variable, on peut utiliser **`frval`** pour plusieurs liaisons, et dans des expression conditionnelles. Si on souhaite ici créer une indicatrice qui repère les personnes dont la tension et l'imc sont supérieurs à la moyenne. Les variables *diff_tens* et *diff_imc* étant inutiles.  
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 drop diff_tens diff_imc
 
 gen sup_tens_imc = bpsystol> frval(l1, mean_tens) & bmi > frval(l2, mean_imc)
@@ -243,7 +240,7 @@ list sup_tens_imc in 1/10
 
 **`frame pwf`** ou plus rapidement **`pwf`**
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 pwf
 ```
 
@@ -251,7 +248,7 @@ pwf
 
 Depuis le début, seule la frame *nhanes* était chargée dans l'interface. On peut à tout moment changer la frame chargée avec *`frame change nom_frame`*. 
  
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame change tension
 des
 
@@ -266,7 +263,7 @@ frame change nhanes
 * On peut supprimer à tout moment une frame qui n'est pas chargée dans l'interface avec **`frame drop nom_frame`**. Si on applique cette commande à la frame chargée, Stata renvoie un message d'erreur.
 * On peut supprimer toutes les frames avec **`frame reset`**. Dans ce cas plus aucune base ne sera chargée dans l'interface. 
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame drop tension
 frame dir
 
@@ -280,19 +277,19 @@ Il reste la frame "vide" *default* générée automatiquement par Stata.
 
 On peut créer une frame *vide* à tout moment avec **`frame create nom_frame`**. On peut également ajouter une liste de nom de variables: **`frame create nom_frame varlist`**
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame create new
 frame dir
 ```
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame create new2 x
 frame dir
 ```
 
 La frame *new2* à une colonne, mais aucune observation
 
-```{stata, collectcode=TRUE, class.output="result"}
+```{stata}
 frame new2 {
 set obs 1000
 replace x = rnormal()
