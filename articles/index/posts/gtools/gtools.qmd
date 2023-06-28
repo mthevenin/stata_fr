@@ -1,5 +1,5 @@
 ---
-title: "**Améliorer grander la durée d'exécution avec Gtools**"
+title: "**Améliorer la durée d'exécution avec Gtools**"
 
 title-block-banner: false
 
