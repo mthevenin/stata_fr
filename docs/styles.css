@@ -41,6 +41,17 @@
 
 /*-- quarto titles --*/
 
+#title-block-header {
+  margin-block-end: 1rem;
+  position: relative;
+  margin-top: -1px;
+  margin-bottom: 1.8em;
+  border-bottom: 1px solid black;
+  padding-bottom: 1.0em;
+  background-color: white;
+}
+
+
 .quarto-title-banner {
   margin-bottom: 0.75em;
 }
