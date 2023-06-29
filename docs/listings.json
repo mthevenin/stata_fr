@@ -2,6 +2,7 @@
   {
     "listing": "/articles/index/index.html",
     "items": [
+      "/articles/index/posts/palette_style/palette_style.html",
       "/articles/index/posts/autosave/autosave.html",
       "/articles/index/posts/addnlab/addnlab.html",
       "/articles/index/posts/frame/frame.html",
@@ -18,6 +19,7 @@
   {
     "listing": "/articles/index.html",
     "items": [
+      "/articles/index/posts/palette_style/palette_style.html",
       "/articles/index/posts/autosave/autosave.html",
       "/articles/index/posts/addnlab/addnlab.html",
       "/articles/index/posts/frame/frame.html",
@@ -34,6 +36,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/articles/index/posts/palette_style/palette_style.html",
       "/articles/index/posts/autosave/autosave.html",
       "/articles/index/posts/addnlab/addnlab.html",
       "/articles/index/posts/frame/frame.html",

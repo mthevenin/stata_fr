@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Marc Thévenin">
+<meta name="dcterms.date" content="2023-06-29">
 
-<title>index</title>
+<title>Nouvelle palette de couleurs et nouveau thème usine avec Stata 18</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,20 +25,21 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -51,43 +54,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -99,11 +71,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
+    <a class="nav-link" href="../../../../index.html" rel="" target="">
  <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../articles/index.html" rel="" target="">
+    <a class="nav-link" href="../../../../articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -132,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Nouvelle palette de couleurs et nouveau thème usine avec Stata 18</strong></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -151,34 +123,34 @@ ul.task-list li input[type="checkbox"] {
         </div>
         </div>
         <div class="sidebar-tools-collapse tools-wide">
-    <a href="../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
+    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
     <a href="https://github.com/mthevenin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="mailto:marc.thevenin@ined.fr" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
-    <a href="../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
+    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../maj.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../maj.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Infos &amp; maj</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../versions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../versions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Versions Stata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../conferences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../conferences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conférences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Stata_journal.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../Stata_journal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stata Journal</span></a>
   </div>
 </li>
@@ -187,174 +159,89 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(12)</span></div><div class="category" data-category="Stata 18">Stata 18 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ado">ado <span class="quarto-category-count">(4)</span></div><div class="category" data-category="autosave">autosave <span class="quarto-category-count">(1)</span></div><div class="category" data-category="frame">frame <span class="quarto-category-count">(1)</span></div><div class="category" data-category="graphique">graphique <span class="quarto-category-count">(7)</span></div><div class="category" data-category="gtools">gtools <span class="quarto-category-count">(1)</span></div><div class="category" data-category="output">output <span class="quarto-category-count">(1)</span></div><div class="category" data-category="profile">profile <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="runtime">runtime <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tableaux">tableaux <span class="quarto-category-count">(1)</span></div></div></div>
+    
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><strong>Nouvelle palette de couleurs et nouveau thème usine avec Stata 18</strong></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Stata 18</div>
+    <div class="quarto-category">graphique</div>
+  </div>
+  </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Marc Thévenin </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Ined
+          </p>
+      </div>
+    </div>
 
-<div id="listing-posts" class="quarto-listing quarto-listing-container-table">
+<div class="quarto-title-meta">
 
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Stata 18,graphique" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688042635072" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Nouvelle palette de couleurs et nouveau thème usine avec Stata 18**" data-listing-filename-sort="palette_style.qmd">
-<td>
-<span class="listing-date">Jun 29, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/palette_style/palette_style.html" class="title listing-title"><strong>Nouvelle palette de couleurs et nouveau thème usine avec Stata 18</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="Stata 18,autosave" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1687865973742" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Autosave des .do à partir de Stata 18**" data-listing-filename-sort="autosave.qmd">
-<td>
-<span class="listing-date">Jun 27, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/autosave/autosave.html" class="title listing-title"><strong>Autosave des .do à partir de Stata 18</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="graphique,ado" data-listing-date-sort="1678834800000" data-listing-file-modified-sort="1687769391523" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Ajouter les effectifs sur un axe discret avec addnlab**" data-listing-filename-sort="addnlab.qmd">
-<td>
-<span class="listing-date">Mar 15, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/addnlab/addnlab.html" class="title listing-title"><strong>Ajouter les effectifs sur un axe discret avec addnlab</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="frame" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1687932597788" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-title-sort="**Introduction aux frames (Stata 16)**" data-listing-filename-sort="frame.qmd">
-<td>
-<span class="listing-date">Feb 23, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/frame/frame.html" class="title listing-title"><strong>Introduction aux frames (Stata 16)</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="gtools,runtime" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1687929919215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-title-sort="**Améliorer la durée d'exécution avec Gtools**" data-listing-filename-sort="gtools.qmd">
-<td>
-<span class="listing-date">Feb 23, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/gtools/gtools.html" class="title listing-title"><strong>Améliorer la durée d’exécution avec Gtools</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="graphique,python" data-listing-date-sort="1664748000000" data-listing-file-modified-sort="1687769429090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="**Faire des graphiques sous Stata avec Python**" data-listing-filename-sort="python.qmd">
-<td>
-<span class="listing-date">Oct 3, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/graph_python/python.html" class="title listing-title"><strong>Faire des graphiques sous Stata avec Python</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-
-<tr data-index="6" data-categories="tableaux,output" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687777343458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35" data-listing-title-sort="**Editer des outputs avec collect**" data-listing-filename-sort="collect.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/collect/collect.html" class="title listing-title"><strong>Editer des outputs avec collect</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="7" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769374156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="**Contrôler l'effet spaghetti avec fabplot (NJ.Cox)**" data-listing-filename-sort="fabplot.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/fabplot/fabplot.html" class="title listing-title"><strong>Contrôler l’effet spaghetti avec fabplot (NJ.Cox)</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769402707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Distributions croisées avec gjoint**" data-listing-filename-sort="gjoint.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/gjoint/gjoint.html" class="title listing-title"><strong>Distributions croisées avec gjoint</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769293837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-title-sort="**Visualisation des densités avec gridge**" data-listing-filename-sort="gridge.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/gridge/gridge.html" class="title listing-title"><strong>Visualisation des densités avec gridge</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="graphique" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769447539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="**Programmer un graphique Lollipop**" data-listing-filename-sort="lollipop.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/lollipop/lollipop.html" class="title listing-title"><strong>Programmer un graphique Lollipop</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="profile" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687775236701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-title-sort="**Configurer les sessions avec un profile.do**" data-listing-filename-sort="profile.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/profile/profile.html" class="title listing-title"><strong>Configurer les sessions avec un profile.do</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-</tbody>
-
-</table>
-<div class="listing-no-matching d-none">
-No matching items
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">June 29, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>La palette s2 et le thème s2color, dépassés depuis bien longtemps ont été enfin remplacés. Cette courte fiche présente à l’aide de quelques visuels ces éléments de visualisation</p>
+  </div>
 </div>
+
+</header>
+
+<section id="nouvelle-palette-stcolor" class="level1">
+<h1>Nouvelle palette <strong>stcolor</strong></h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Nouvelle palette stcolor"><img src="img1.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
+<figcaption class="figure-caption">Nouvelle palette stcolor</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img2.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2" title="Ancienne palette s2"><img src="img2.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
+<figcaption class="figure-caption">Ancienne palette s2</figcaption>
+</figure>
+</div>
+</section>
+<section id="nouveau-thème-par-défaut" class="level1">
+<h1>Nouveau thème par défaut</h1>
+<p>Avec le programme donné en exemple de l’aide de <code>line</code> [<code>help line</code>]:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img3.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3" title="Nouveau thème"><img src="img3.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Nouveau thème</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="img4.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4" title="Ancien thème"><img src="img4.png" class="img-fluid figure-img"></a></p>
+<figcaption class="figure-caption">Ancien thème</figcaption>
+</figure>
 </div>
 
 
-
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -602,6 +489,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":true,"descPosition":"bottom"});</script>
 
 
 
