@@ -203,7 +203,7 @@ ul.task-list li input[type="checkbox"] {
 <div>
   <div class="abstract">
     <div class="abstract-title">Abstract</div>
-    <p>La palette s2 et le thème s2color, dépassés depuis bien longtemps ont été enfin remplacés. Cette courte fiche présente à l’aide de quelques visuels ces éléments de visualisation</p>
+    <p>La palette s2 et le thème s2color, dépassés depuis bien longtemps ont été enfin remplacés. Cette courte fiche présente à l’aide de quelques visuels ces éléments de visualisation.</p>
   </div>
 </div>
 
@@ -211,6 +211,19 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="nouvelle-palette-stcolor" class="level1">
 <h1>Nouvelle palette <strong>stcolor</strong></h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+grstyle et la nouvelle option <code>colorvar</code>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>La palette chargée avec <code>grstyle set color</code> (commande de Ben Jann) n’est pas appliqué à la variable de la nouvelle option <code>colorvar</code>. C’est un peu facheux. On peut résoudre le problème en récupérant la macro <code>r(p)</code> après avoir chargé la palette avec <code>colorpalette</code> et en l’appliquant dans la nouvelle option <code>colorlist</code>.</p>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><a href="img1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Nouvelle palette stcolor"><img src="img1.png" class="img-fluid figure-img" style="width:70.0%"></a></p>
@@ -226,6 +239,19 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="nouveau-thème-par-défaut" class="level1">
 <h1>Nouveau thème par défaut</h1>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nouvelle position de la légende
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Le nouveau thème modifie le positionnement de la legende par défaut (à 3 heures), ce qui n’est pas forcément une bonne idée lorsque les labels sont assez long (écrasement important de la largeur du graphique). Pour retrouver la position à 6 heures et sur une ligne (défaut jusqu’à la v17: <code>legend(pos(6) row(1))</code>)</p>
+</div>
+</div>
 <p>Avec le programme donné en exemple de l’aide de <code>line</code> [<code>help line</code>]:</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -489,7 +515,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","selector":".lightbox","closeEffect":"zoom","loop":true,"descPosition":"bottom"});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","closeEffect":"zoom","loop":true,"selector":".lightbox","descPosition":"bottom"});</script>
 
 
 
