@@ -178,6 +178,25 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p><br><br></p>
+<section id="version-18-mai-2023" class="level1">
+<h1><strong>Version 18 (mai 2023)</strong></h1>
+<p>Je viens juste d’avoir la mise à jour de la version 18. On peut trouver la liste des mise à jour <a href="https://www.stata.com/new-in-stata/">ici</a></p>
+<p>Quelques remarques sur ce que j’ai rapidement regardé/testé:</p>
+<ul>
+<li>Présence d’une autosave pour l’éditeur de programme…enfin <a href="https://mthevenin.github.io/stata_fr/articles/index/posts/autosave/autosave.html">(lien article)</a></li>
+<li>Graphiques:
+<ul>
+<li>Nouvelle palette de couleur et nouveau thème par défaut… enfin <a href="https://mthevenin.github.io/stata_graphiques/formation/formation23.html">(lien article)</a></li>
+<li>Nouvelle(s) option(s) qui modifient la syntaxe d’empilement d’objets graphiques (<code>colorvar</code>). Déjà quelques réserves si l’empilement est relatif à une troisième variable de type discrète (on empilait avec des <code>if</code>). La syntaxe des options semblent un peu lourde pour pas grand chose <a href="https://www.stata.com/new-in-stata/graph-colors-by-variable/">(article site officiel)</a>. Cela me semble plus intéressant si la troisième variable est de type continue, même si la paramétrisation de me semble pas top. A remarqué qu’avec <code>colorvar()</code> on ne peut plus directement chargé une palette de couleur avec <code>grstyle set color</code> de B.Jann. On doit passer par <code>colorpalette</code> et inserer dans une option la macro <code>r(p)</code>.<br>
+</li>
+</ul></li>
+<li>Les frames:
+<ul>
+<li>nouvelle extension avec .dtas qui enregistrent directement une suite de frame liées (pas testé mais cela me semble très intéressant).</li>
+<li>possibilité de supprimer plusieurs frame actives avec <code>frame drop</code> (non testé).</li>
+</ul></li>
+</ul>
+</section>
 <section id="versions-installées-2022" class="level1">
 <h1><strong>Versions installées (2022)</strong></h1>
 <p><strong>Versions à l’Ined</strong></p>

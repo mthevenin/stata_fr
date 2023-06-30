@@ -18,6 +18,21 @@ library(fontawesome)
 
 <br><br>
 
+# **Version 18 (mai 2023)**
+
+Je viens juste d'avoir la mise à jour de la version 18. On peut trouver la liste des mise à jour [ici](https://www.stata.com/new-in-stata/)
+
+Quelques remarques sur ce que j'ai rapidement regardé/testé:
+
+- Présence d'une autosave pour l'éditeur de programme...enfin [(lien article)](https://mthevenin.github.io/stata_fr/articles/index/posts/autosave/autosave.html)
+- Graphiques: 
+  - Nouvelle palette de couleur et nouveau thème par défaut... enfin [(lien article)](https://mthevenin.github.io/stata_graphiques/formation/formation23.html)
+  - Nouvelle(s) option(s) qui modifient la syntaxe d'empilement d'objets graphiques (`colorvar`). Déjà quelques réserves si l'empilement est relatif à une troisième variable de type discrète (on empilait avec des `if`). La syntaxe des options semblent un peu lourde pour pas grand chose [(article site officiel)](https://www.stata.com/new-in-stata/graph-colors-by-variable/). Cela me semble plus intéressant si la troisième variable est de type continue, même si la paramétrisation de me semble pas top. A remarqué qu'avec `colorvar()` on ne peut plus directement chargé une palette de couleur avec `grstyle set color` de B.Jann. On doit passer par `colorpalette` et inserer dans une option la macro `r(p)`.  
+- Les frames:
+  - nouvelle extension avec .dtas qui enregistrent directement une suite de frame liées (pas testé mais cela me semble très intéressant).
+  - possibilité de supprimer plusieurs frame actives avec `frame drop` (non testé).
+
+
 # **Versions installées (2022)**
 
 **Versions à l'Ined**  
