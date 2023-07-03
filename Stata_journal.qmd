@@ -11,6 +11,11 @@ Sommaire des 4 derniers numéros. Les sommaires antérieurs sont disponibles à 
 
 ::: panel-tabset
 
+## **2023-2**
+
+<iframe src="sj/stja_23_2.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
 
 ## **2023-1**
 
@@ -28,15 +33,7 @@ Sommaire des 4 derniers numéros. Les sommaires antérieurs sont disponibles à 
 <iframe src="sj/stja_22_3.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 </iframe>
 
-
-## **2022-2**
-
-<iframe src="sj/stja_22_2.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
-</iframe>
-
 :::
 
-
-- **Vous pouvez me solliciter pour une veille/biblio particulière** 
 
 
