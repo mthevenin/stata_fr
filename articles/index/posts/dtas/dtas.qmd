@@ -1,5 +1,5 @@
 ---
-title: "Le format dtas (Stata 18) "
+title: "**Le format dtas (Stata 18)**"
 
 title-block-banner: false
 
