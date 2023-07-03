@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Marc Thévenin">
+<meta name="dcterms.date" content="2023-07-03">
 
-<title>index</title>
+<title>Le format dtas (Stata 18)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,23 +22,55 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -51,41 +85,12 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-posts .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
 
-    const options = {
-      valueNames: ['listing-date','listing-title','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-title-sort'] }],
-      page: 12,
-    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
-      searchColumns: ["listing-date","listing-title","listing-author"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-posts'] = new List('listing-posts', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
 <body class="nav-sidebar docked nav-fixed">
@@ -100,11 +105,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html" rel="" target="">
+    <a class="nav-link" href="../../../../index.html" rel="" target="">
  <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../articles/index.html" rel="" target="">
+    <a class="nav-link" href="../../../../articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -133,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Le format dtas (Stata 18)</li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -152,34 +157,34 @@ ul.task-list li input[type="checkbox"] {
         </div>
         </div>
         <div class="sidebar-tools-collapse tools-wide">
-    <a href="../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
+    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
     <a href="https://github.com/mthevenin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="mailto:marc.thevenin@ined.fr" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
-    <a href="../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
+    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../maj.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../maj.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Infos &amp; maj</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../versions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../versions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Versions Stata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../conferences.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../conferences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conférences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Stata_journal.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../Stata_journal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stata Journal</span></a>
   </div>
 </li>
@@ -190,184 +195,147 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(13)</span></div><div class="category" data-category="Frame">Frame <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Stata 18">Stata 18 <span class="quarto-category-count">(2)</span></div><div class="category" data-category="ado">ado <span class="quarto-category-count">(4)</span></div><div class="category" data-category="autosave">autosave <span class="quarto-category-count">(1)</span></div><div class="category" data-category="frame">frame <span class="quarto-category-count">(1)</span></div><div class="category" data-category="graphique">graphique <span class="quarto-category-count">(7)</span></div><div class="category" data-category="gtools">gtools <span class="quarto-category-count">(1)</span></div><div class="category" data-category="output">output <span class="quarto-category-count">(1)</span></div><div class="category" data-category="profile">profile <span class="quarto-category-count">(1)</span></div><div class="category" data-category="python">python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="runtime">runtime <span class="quarto-category-count">(1)</span></div><div class="category" data-category="tableaux">tableaux <span class="quarto-category-count">(1)</span></div></div></div>
+    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="dtas.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Le format dtas (Stata 18)</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Frame</div>
+  </div>
+  </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Marc Thévenin </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Ined
+          </p>
+      </div>
+    </div>
 
-<div id="listing-posts" class="quarto-listing quarto-listing-container-table">
+<div class="quarto-title-meta">
 
-<table class="quarto-listing-table table">
-<thead>
-<tr>
-<th>
-Date
-</th>
-<th>
-Title
-</th>
-<th>
-Author
-</th>
-</tr>
-</thead>
-<tbody class="list">
-<tr data-index="0" data-categories="Frame" data-listing-date-sort="1688335200000" data-listing-file-modified-sort="1688386978256" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="Le format dtas (Stata 18)" data-listing-filename-sort="dtas.qmd">
-<td>
-<span class="listing-date">Jul 3, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/dtas/dtas.html" class="title listing-title">Le format dtas (Stata 18)</a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="1" data-categories="Stata 18,graphique" data-listing-date-sort="1687989600000" data-listing-file-modified-sort="1688114185950" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Nouvelle palette de couleurs et nouveau thème usine avec Stata 18**" data-listing-filename-sort="palette_style.qmd">
-<td>
-<span class="listing-date">Jun 29, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/palette_style/palette_style.html" class="title listing-title"><strong>Nouvelle palette de couleurs et nouveau thème usine avec Stata 18</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="2" data-categories="Stata 18,autosave" data-listing-date-sort="1687816800000" data-listing-file-modified-sort="1687865973742" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Autosave des .do à partir de Stata 18**" data-listing-filename-sort="autosave.qmd">
-<td>
-<span class="listing-date">Jun 27, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/autosave/autosave.html" class="title listing-title"><strong>Autosave des .do à partir de Stata 18</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="3" data-categories="graphique,ado" data-listing-date-sort="1678834800000" data-listing-file-modified-sort="1687769391523" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Ajouter les effectifs sur un axe discret avec addnlab**" data-listing-filename-sort="addnlab.qmd">
-<td>
-<span class="listing-date">Mar 15, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/addnlab/addnlab.html" class="title listing-title"><strong>Ajouter les effectifs sur un axe discret avec addnlab</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="4" data-categories="frame" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1687932597788" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-title-sort="**Introduction aux frames (Stata 16)**" data-listing-filename-sort="frame.qmd">
-<td>
-<span class="listing-date">Feb 23, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/frame/frame.html" class="title listing-title"><strong>Introduction aux frames (Stata 16)</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="5" data-categories="gtools,runtime" data-listing-date-sort="1677106800000" data-listing-file-modified-sort="1687929919215" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-title-sort="**Améliorer la durée d'exécution avec Gtools**" data-listing-filename-sort="gtools.qmd">
-<td>
-<span class="listing-date">Feb 23, 2023</span>
-</td>
-<td>
-<a href="../../articles/index/posts/gtools/gtools.html" class="title listing-title"><strong>Améliorer la durée d’exécution avec Gtools</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="6" data-categories="graphique,python" data-listing-date-sort="1664748000000" data-listing-file-modified-sort="1687769429090" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="5" data-listing-title-sort="**Faire des graphiques sous Stata avec Python**" data-listing-filename-sort="python.qmd">
-<td>
-<span class="listing-date">Oct 3, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/graph_python/python.html" class="title listing-title"><strong>Faire des graphiques sous Stata avec Python</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-
-<tr data-index="7" data-categories="tableaux,output" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687777343458" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="35" data-listing-title-sort="**Editer des outputs avec collect**" data-listing-filename-sort="collect.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/collect/collect.html" class="title listing-title"><strong>Editer des outputs avec collect</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="8" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769374156" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="**Contrôler l'effet spaghetti avec fabplot (NJ.Cox)**" data-listing-filename-sort="fabplot.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/fabplot/fabplot.html" class="title listing-title"><strong>Contrôler l’effet spaghetti avec fabplot (NJ.Cox)</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="9" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769402707" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-title-sort="**Distributions croisées avec gjoint**" data-listing-filename-sort="gjoint.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/gjoint/gjoint.html" class="title listing-title"><strong>Distributions croisées avec gjoint</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="10" data-categories="graphique,ado" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769293837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-title-sort="**Visualisation des densités avec gridge**" data-listing-filename-sort="gridge.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/gridge/gridge.html" class="title listing-title"><strong>Visualisation des densités avec gridge</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="11" data-categories="graphique" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687769447539" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-title-sort="**Programmer un graphique Lollipop**" data-listing-filename-sort="lollipop.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/lollipop/lollipop.html" class="title listing-title"><strong>Programmer un graphique Lollipop</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-<tr data-index="12" data-categories="profile" data-listing-date-sort="1664143200000" data-listing-file-modified-sort="1687775236701" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-title-sort="**Configurer les sessions avec un profile.do**" data-listing-filename-sort="profile.qmd">
-<td>
-<span class="listing-date">Sep 26, 2022</span>
-</td>
-<td>
-<a href="../../articles/index/posts/profile/profile.html" class="title listing-title"><strong>Configurer les sessions avec un profile.do</strong></a>
-</td>
-<td>
-<span class="listing-author">Marc Thévenin</span>
-</td>
-</tr>
-</tbody>
-
-</table>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-<nav id="posts-pagination" class="listing-pagination" aria-label="Page Navigation">
-  <ul class="pagination"></ul>
-</nav>
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 3, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>La version 18 de Stata a implémenté un nouveau format, associé aux frames, le format <strong>.dtas</strong>. Il permet d’enregistrer toutes les frames actives, qu’elles soit liées ou non.</p>
+  </div>
 </div>
 
+</header>
+
+<p>Par l’exemple.</p>
+<ul>
+<li>On charge la base <em>auto</em> (nom de la frame = <em>default</em>).</li>
+<li>On renomme la frame en <em>auto</em>.</li>
+<li>On génère la frame <em>prix</em> qui comprend la variable <em>price</em> de la frame <em>auto</em>.</li>
+</ul>
+<div class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">sysuse</span> auto </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">rename</span> <span class="kw">default</span> auto</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>frame put price foreign, into(prix)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<style>div.jp-Notebook .datagrid-container {min-height: 448px; }</style>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(1978 automobile data)
+  auto  74 x 12; 1978 automobile data
+* prix  74 x 2; 1978 automobile data
+
+Note: Frames marked with * contain unsaved data.</code></pre>
+</div>
+</div>
+<ul>
+<li>La frame <em>prix</em> est transformé en une frame indicateurs avec la commande <code>collapse</code>.</li>
+</ul>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>frame prix {</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">collapse</span> price, <span class="kw">by</span>(foreign)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     +--------------------+
+     |  foreign     price |
+     |--------------------|
+  1. | Domestic   6,072.4 |
+  2. |  Foreign   6,384.7 |
+     +--------------------+</code></pre>
+</div>
+</div>
+<ul>
+<li>On enregistre les deux frames avec la commande <code>frames save</code> au format <strong>dtas</strong>.</li>
+<li>Cette collection de frames est appelée <em>auto_prix</em>.</li>
+</ul>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>frames <span class="kw">save</span> <span class="st">"auto_prix.dtas"</span>, frames(<span class="dt">_all</span>) <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>file auto_prix.dtas saved</code></pre>
+</div>
+</div>
+<ul>
+<li>On ferme les frames</li>
+<li>On ouvre la collection <em>auto_prix.dtas</em></li>
+</ul>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">reset</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>frames <span class="kw">use</span> <span class="st">"auto_prix.dtas"</span>, frames(<span class="dt">_all</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>frame change prix</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="ot">list</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  auto  74 x 12; 1978 automobile data
+  prix  2 x 2; 1978 automobile data
+  auto     74 x 12; 1978 automobile data
+  default  0 x 0
+  prix     2 x 2; 1978 automobile data
+
+     +--------------------+
+     |  foreign     price |
+     |--------------------|
+  1. | Domestic   6,072.4 |
+  2. |  Foreign   6,384.7 |
+     +--------------------+</code></pre>
+</div>
+</div>
+<ul>
+<li>On ferme la collection.</li>
+<li>On ouvre seulement la frame <em>prix</em> de la collection <em>auto_prix.dtas</em>.</li>
+</ul>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>frame <span class="kw">reset</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>frames <span class="kw">use</span> <span class="st">"auto_prix.dtas"</span>, frames(prix)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>frame <span class="ot">dir</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  prix  2 x 2; 1978 automobile data
+  default  0 x 0
+  prix     2 x 2; 1978 automobile data</code></pre>
+</div>
+</div>
 
 
 

@@ -2,6 +2,7 @@
   {
     "listing": "/articles/index/index.html",
     "items": [
+      "/articles/index/posts/dtas/dtas.html",
       "/articles/index/posts/palette_style/palette_style.html",
       "/articles/index/posts/autosave/autosave.html",
       "/articles/index/posts/addnlab/addnlab.html",
@@ -19,6 +20,7 @@
   {
     "listing": "/articles/index.html",
     "items": [
+      "/articles/index/posts/dtas/dtas.html",
       "/articles/index/posts/palette_style/palette_style.html",
       "/articles/index/posts/autosave/autosave.html",
       "/articles/index/posts/addnlab/addnlab.html",
@@ -36,6 +38,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/articles/index/posts/dtas/dtas.html",
       "/articles/index/posts/palette_style/palette_style.html",
       "/articles/index/posts/autosave/autosave.html",
       "/articles/index/posts/addnlab/addnlab.html",
