@@ -4,8 +4,8 @@ title: "**Editer des outputs avec collect**"
 title-block-banner: false
 
 categories: 
-  - tableaux
-  - output
+  - Tableaux
+  - Output
 
 author: 
   - name: "Marc Thévenin"
@@ -23,13 +23,15 @@ format:
 filters:
    - lightbox
 lightbox: auto    
-          
+ 
+jupyter: nbstata         
+                            
 abstract: | 
  La suite **`collect`** introduite avec le version 17 va t-elle remplacer `outreg2` et autres commandes de mise en forme et d'exportation de tableaux? Pas encore un tutoriel, dès éléments sont encore  obscurs, mais avec quelques copier-coller issus des fichiers d'aides je présente juste deux exemples avec des régressions.
         
 ---
 
-```{r, include=FALSE}
+```{r, include=FALSE, eval=false}
 library(Statamarkdown)
 stataexe <- "C:/Program Files/Stata17/StataSE-64.exe"
 knitr::opts_chunk$set(engine.path=list(stata=stataexe))
@@ -52,7 +54,7 @@ A partir de la base *nanhes21*:
 
 **Rappel**: un tuto plus complet viendra ultérieurement (s'il y a une demande)
 
-```{stata, eval=FALSE}
+```{stata}
 collect style row split, dups(first)  // ajoute le label de la variable à gauche comme nom de variable
 collect style column,    dups(center) // permet de ne pas multiplier le nombre de cellule sur la première ligne
 collect style cell result[_r_b _r_se _r_p], nformat(%8.3f)   // décimales des valeurs (ici idem)
@@ -66,7 +68,7 @@ collect save multimod , replace   // sauvegarde dans repertoire temporaire du st
 
 Ouverture de la base
 
-```{stata, eval=FALSE}
+```{stata}
 qui use https://www.stata-press.com/data/r17/nhanes2l, clear
 qui save nhanes, replace
 ```
@@ -76,7 +78,7 @@ qui save nhanes, replace
 ::: callout-warning
 Lorsqu'on génère un tableau avec `collect` avec un même style il me semble préférable d'exécuter systématiquement:
 
-```{stata filename="Syntaxe", eval=FALSE}
+```markdown
 collect clear
 collect use nom_style, replace
 ```
@@ -84,7 +86,7 @@ collect use nom_style, replace
 
 **Estimation du modèle avec `collect`**
 
-```{stata, eval=FALSE}
+```{stata}
 
 qui: collect _r_b _r_se _r_p: regress bpsystol i.agegrp i.region
 qui: collect _r_b _r_se _r_p: regress bpsystol i.agegrp i.region i.sex
@@ -92,7 +94,7 @@ qui: collect _r_b _r_se _r_p: regress bpsystol i.agegrp i.region i.sex
 
 **Modification du style pour ajouter le nom des modèles**
 
-```{stata, eval=FALSE}
+```{stata}
 collect label values cmdset 1 "Modèle 1" 2 "Modèle 2" 
 ```
 
@@ -100,31 +102,8 @@ On peut également ajouter un titre, modifier les labels des variables, je pense
 
 **Prévisualisation du tableau**
 
-```{stata, eval=FALSE}
+```{stata}
 collect preview
-
-/*
-------------------------------------------------------------------------------
-                            Modèle 1                       Modèle 2           
-                 Coefficient Std. error p-value Coefficient Std. error p-value
-------------------------------------------------------------------------------
-Age group 20–29        0.000      0.000               0.000      0.000        
-          30–39        2.891      0.664   0.000       2.917      0.661   0.000
-          40–49        9.580      0.716   0.000       9.584      0.713   0.000
-          50–59       18.324      0.713   0.000      18.384      0.710   0.000
-          60–69       24.184      0.574   0.000      24.193      0.571   0.000
-          70+         30.851      0.780   0.000      30.958      0.777   0.000
-Region    NE           0.000      0.000               0.000      0.000        
-          MW          -0.023      0.595   0.969       0.033      0.592   0.956
-          S           -0.303      0.591   0.608      -0.227      0.588   0.699
-          W           -0.777      0.601   0.196      -0.745      0.599   0.213
-Sex       Male                                        0.000      0.000        
-          Female                                     -4.015      0.402   0.000
-Intercept            117.632      0.589   0.000     119.672      0.621   0.000
-------------------------------------------------------------------------------
-*/  
-
-
 ```
 
 *Remarque*: on peut supprimer les baselines, mais je n'ai pas trouvé comment mettre par exemple *ref* pour la contrainte à 0.
@@ -138,7 +117,7 @@ J'ai vu large pour l'exemple
 Mettre l'option **`tableonly`** pour que la balise d'ouverture soit celle d'un tableau et non d'un document.
 :::
 
-```{stata, eval=FALSE}
+```{stat}
 collect export ex1, as(docx)     replace
 collect export ex1, as(xls)      replace
 collect export ex1, as(tex)      replace tableonly
@@ -148,7 +127,7 @@ collect export ex1, as(markdown) replace
 
 Ensemble du programme (sauf la création du style multimod et les exportations)
 
-```{stata, eval=FALSE}
+```{stata}
 collect clear
 collect use multimod
 
@@ -181,7 +160,7 @@ collect preview
 
 Juste une petite remarque sur les **notes** de bas de tableau. `collect` gère également leur présence et leur mise en forme, mais le code généré semble systématiquement les aligner au centre. A creuser, sinon il faut modifier le code *Latex* pour les aligner à gauche. Par exemple:
 
-```{r, eval=FALSE}
+```markdown
 \multicolumn{3}{l}{\footnotesize Note 1: blablabla}\\
 \multicolumn{3}{l}{\footnotesize Note 2: blablabla}\\
 \end{tabular}
@@ -211,7 +190,7 @@ Le tableau est un peu complexe, pour et les 3 premières lignes doivent être mo
 
 ***md du fichier ex1.md***
 
-```{r, eval=FALSE}
+```markdown
 |           |        | Modèle 1    |            |         | Modèle 2    |            |         |
 |           |        | Coefficient | Std. error | p-value | Coefficient | Std. error | p-value |
 |-----------|--------|-------------|------------|---------|-------------|------------|---------|
@@ -232,7 +211,7 @@ Le tableau est un peu complexe, pour et les 3 premières lignes doivent être mo
 
 ***md modifié (ligne 1 à 3***
 
-```{r, eval=FALSE}
+```markdown
 |           |        | Modèle 1    |            |         | Modèle 2    |            |         |
 |-----------|--------|-------------|------------|---------|-------------|------------|---------|  
 |           |        | Coefficient | Std. error | p-value | Coefficient | Std. error | p-value |
@@ -261,7 +240,7 @@ Pour la sortie, j'ai fait également quelques modifs au niveau du texte et chang
 
 *Rappel*: j'ai seulement reporté les AME pour seulement deux catégories *excellent* et *poor*
 
-```{stata, eval=FALSE}
+```{stata}
 collect clear
 collect use multimod
 
@@ -272,30 +251,6 @@ qui: collect _r_b _r_se _r_p: margins, dydx(*) predict(outcome(Poor))
 collect label values cmdset 1 "Excellent" 2 "Poor" 
 
 collect preview
-
-
-/*
-------------------------------------------------------------------------------
-                            Excellent                        Poor             
-                 Coefficient Std. error p-value Coefficient Std. error p-value
-------------------------------------------------------------------------------
-Age group 20–29        0.000          .       .       0.000          .       .
-          30–39       -0.028      0.015   0.066       0.008      0.004   0.031
-          40–49       -0.089      0.016   0.000       0.038      0.006   0.000
-          50–59       -0.185      0.014   0.000       0.079      0.008   0.000
-          60–69       -0.241      0.012   0.000       0.117      0.006   0.000
-          70+         -0.234      0.014   0.000       0.132      0.011   0.000
-Region    NE           0.000          .       .       0.000          .       .
-          MW          -0.008      0.012   0.525       0.025      0.006   0.000
-          S           -0.060      0.012   0.000       0.064      0.007   0.000
-          W           -0.050      0.012   0.000       0.028      0.006   0.000
-Sex       Male         0.000          .       .       0.000          .       .
-          Female      -0.039      0.008   0.000      -0.016      0.005   0.001
-Race      White        0.000          .       .       0.000          .       .
-          Black       -0.113      0.011   0.000       0.060      0.010   0.000
-          Other       -0.042      0.028   0.134      -0.011      0.017   0.526
-------------------------------------------------------------------------------
-*/  
 ```
 
 ### **Visualisation des exportations**
@@ -341,7 +296,7 @@ Il est bien évidemment de programmer et d'utiliser les styles à la volée. A m
 
 Pour un simple modèle (exemple1 Ols), sans style.
 
-```{stata, eval=FALSE}
+```{stata}
 collect clear
 quietly: collect _r_b _r_se _r_p: regress bpsystol i.agegrp i.region i.sex
 collect preview
@@ -354,27 +309,6 @@ collect layout (colname) (cmdset#result)
                           
 quietly: collect _r_b _r_se _r_p: regress bpsystol i.agegrp i.region i.sex
 collect preview
-
-/*
-------------------------------------------
-          |           1          1       1
-          | Coefficient Std. error p-value
-----------+-------------------------------
-20–29     |           0          0        
-30–39     |    2.917042   .6613269   0.000
-40–49     |    9.584328   .7129385   0.000
-50–59     |    18.38351   .7100856   0.000
-60–69     |     24.1932   .5711481   0.000
-70+       |    30.95843   .7768639   0.000
-NE        |           0          0        
-MW        |    .0329983   .5917749   0.956
-S         |   -.2269237   .5877579   0.699
-W         |   -.7447052   .5985115   0.213
-Male      |           0          0        
-Female    |    -4.01548   .4021621   0.000
-Intercept |    119.6719   .6205858   0.000
-------------------------------------------
-*/
 ```
 
 Au lieu de sélectionner des items comme \_r_b \_r_se \_r_se, on peut directement tous ceux qui sont disponibles avec **`collect get`**. Pas forcément conseillé avec les exemples car chaque regression enregistre 10 information (bornes des IC, degré de liberté, statistique t pour l'Ols, sa valeur absolue...)
