@@ -11,7 +11,7 @@
     "href": "articles/index/posts/collect/collect.html",
     "title": "Editer des outputs avec collect",
     "section": "",
-    "text": "{r, include=FALSE, eval=false} library(Statamarkdown) stataexe &lt;- \"C:/Program Files/Stata17/StataSE-64.exe\" knitr::opts_chunk$set(engine.path=list(stata=stataexe))\nPrincipe de la suite collect:\nA partir de la base nanhes21:"
+    "text": "Principe de la suite collect:\nA partir de la base nanhes21:"
   },
   {
     "objectID": "articles/index/posts/collect/collect.html#ols",

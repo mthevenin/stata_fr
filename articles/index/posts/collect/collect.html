@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 
-<meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.361">
+<head>
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta charset="utf-8" />
+<meta name="generator" content="quarto-1.3.361" />
 
-<meta name="author" content="Marc Thévenin">
-<meta name="dcterms.date" content="2022-09-26">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+
+<meta name="author" content="Marc Thévenin" />
+<meta name="dcterms.date" content="2022-09-26" />
 
 <title>Editer des outputs avec collect</title>
 <style>
@@ -58,22 +60,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 }
 </style>
 
-
-<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../../../site_libs/quarto-html/quarto.js"></script>
-<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<!-- htmldependencies:E3FAD763 -->
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -93,26 +80,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
-<link rel="stylesheet" href="../../../../styles.css">
+<link rel="stylesheet" href="../../../../styles.css" />
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+  aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation"
+  onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../../../index.html" rel="" target="">
+    <a class="nav-link" href="/index.html" rel="" target="">
  <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../../../articles/index.html" rel="" target="">
+    <a class="nav-link" href="/articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -138,11 +127,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn"
+      data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Editer des outputs avec collect</strong></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      <h1 class="quarto-secondary-nav-title"></h1>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" 
+      aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation"
+      onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
@@ -160,45 +154,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         </div>
         </div>
         <div class="sidebar-tools-collapse tools-wide">
-    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
+    <a href="/about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
     <a href="https://github.com/mthevenin" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="mailto:marc.thevenin@ined.fr" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
-    <a href="../../../../about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
+    <a href="/about.html" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../maj.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Infos &amp; maj</span></a>
+  <a href="/maj.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Infos & maj</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../versions.html" class="sidebar-item-text sidebar-link">
+  <a href="/versions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Versions Stata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../conferences.html" class="sidebar-item-text sidebar-link">
+  <a href="/conferences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conférences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../../../Stata_journal.html" class="sidebar-item-text sidebar-link">
+  <a href="/Stata_journal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stata Journal</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" ></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="collect.docx"><i class="bi bi-file-word"></i>MS Word</a></li></ul></div></div>
+        <div id="quarto-toc-target"></div>
+    </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
@@ -264,13 +258,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1><strong>Définition d’un style pour une suite de tableaux</strong></h1>
 <p><strong>Rappel</strong>: un tuto plus complet viendra ultérieurement (s’il y a une demande)</p>
 <div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>collect style <span class="ot">row</span> <span class="kw">split</span>, dups(first)  <span class="co">// ajoute le label de la variable à gauche comme nom de variable</span></span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>collect style <span class="ot">row</span> <span class="kw">split</span>, dups(first)  <span class="co">// ajoute le label de la variable à gauche comme nom de variable</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>collect style column,    dups(<span class="bn">center</span>) <span class="co">// permet de ne pas multiplier le nombre de cellule sur la première ligne</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>collect style cell result[_r_b _r_se _r_p], nformat(%8.3f)   <span class="co">// décimales des valeurs (ici idem)</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>collect style cell border_block,  border(right, pattern(nil)) <span class="co">// bête copier-coller, je n'ai pas testé avec/sans</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>collect style cell border_block,  border(right, pattern(nil)) <span class="co">// bête copier-coller, je n&#39;ai pas testé avec/sans</span></span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>collect layout (colname) (cmdset#result)  <span class="co">// Cette ligne semble obligatoire même si on ne définit pas de style</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>                          </span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">save</span> multimod , <span class="kw">replace</span>   <span class="co">// sauvegarde dans repertoire temporaire du style appelé ici multimod (format .stjson)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">save</span> multimod , <span class="kw">replace</span>   <span class="co">// sauvegarde dans repertoire temporaire du style appelé ici multimod (format .stjson)</span></span></code></pre></div>
 <div class="cell-output cell-output-display">
 <style>div.jp-Notebook .datagrid-container {min-height: 448px; }</style>
 </div>
@@ -293,15 +287,15 @@ Your layout specification does not identify any items.
 <h1><strong>Exemples</strong></h1>
 <p>Ouverture de la base</p>
 <div class="cell" data-execution_count="2">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">use</span> https:<span class="co">//www.stata-press.com/data/r17/nhanes2l, clear</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">save</span> nhanes, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">use</span> https:<span class="co">//www.stata-press.com/data/r17/nhanes2l, clear</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">save</span> nhanes, <span class="kw">replace</span></span></code></pre></div>
 </div>
 <section id="ols" class="level2">
-<h2 class="anchored" data-anchor-id="ols"><strong>Ols</strong></h2>
+<h2><strong>Ols</strong></h2>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Warning
@@ -309,23 +303,23 @@ Warning
 </div>
 <div class="callout-body-container callout-body">
 <p>Lorsqu’on génère un tableau avec <code>collect</code> avec un même style il me semble préférable d’exécuter systématiquement:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>collect clear</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>collect use nom_style, replace</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>collect clear</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>collect use nom_style, replace</span></code></pre></div>
 </div>
 </div>
 <p><strong>Estimation du modèle avec <code>collect</code></strong></p>
 <div class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region i.sex</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region i.sex</span></code></pre></div>
 </div>
 <p><strong>Modification du style pour ajouter le nom des modèles</strong></p>
 <div class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">label</span> <span class="kw">values</span> cmdset 1 <span class="st">"Modèle 1"</span> 2 <span class="st">"Modèle 2"</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">label</span> <span class="kw">values</span> cmdset 1 <span class="st">&quot;Modèle 1&quot;</span> 2 <span class="st">&quot;Modèle 2&quot;</span> </span></code></pre></div>
 </div>
 <p>On peut également ajouter un titre, modifier les labels des variables, je pense aussi les libellées des colonnes pour les indicateurs (par exemple AME au lieu de Coefficient).</p>
 <p><strong>Prévisualisation du tableau</strong></p>
 <div class="cell" data-execution_count="5">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>collect preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>collect preview</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 --------------------------------------------------------------------------------
@@ -349,12 +343,12 @@ Intercept        |     117.632      0.589   0.000     119.672      0.621   0.000
 </div>
 </div>
 <p><em>Remarque</em>: on peut supprimer les baselines, mais je n’ai pas trouvé comment mettre par exemple <em>ref</em> pour la contrainte à 0.</p>
-<p><strong>Exportations</strong><br>
+<p><strong>Exportations</strong><br />
 J’ai vu large pour l’exemple</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class='callout-icon'></i>
 </div>
 <div class="callout-title-container flex-fill">
 Exportation latex
@@ -371,15 +365,15 @@ collect export ex1, as(html)     replace
 collect export ex1, as(markdown) replace</code></pre>
 <p>Ensemble du programme (sauf la création du style multimod et les exportations)</p>
 <div class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">clear</span></span>
+<div class="sourceCode" id="cb10"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">clear</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">use</span> multimod</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region i.sex</span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">label</span> <span class="kw">values</span> cmdset 1 <span class="st">"Modèle 1"</span> 2 <span class="st">"Modèle 2"</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">label</span> <span class="kw">values</span> cmdset 1 <span class="st">&quot;Modèle 1&quot;</span> 2 <span class="st">&quot;Modèle 2&quot;</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>collect preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>collect preview</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(collection default read from file multimod.stjson)
 
@@ -404,28 +398,28 @@ Intercept            117.632      0.589   0.000     119.672      0.621   0.000
 </div>
 </div>
 <section id="visualisation-des-exportations" class="level3">
-<h3 class="anchored" data-anchor-id="visualisation-des-exportations"><strong>Visualisation des exportations</strong></h3>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
+<h3><strong>Visualisation des exportations</strong></h3>
+<div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true"><strong>Word</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false"><strong>Excel</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false"><strong>Latex (pdf)</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false"><strong>Markdown (Html)</strong></a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="word1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="word1.PNG" class="img-fluid figure-img"></a></p>
+<figure>
+<p><a href="word1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="word1.PNG" class="img-fluid" /></a></p>
 </figure>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="excel1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="excel1.PNG" class="img-fluid figure-img"></a></p>
+<figure>
+<p><a href="excel1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="excel1.PNG" class="img-fluid" /></a></p>
 </figure>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="tex1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="tex1.PNG" class="img-fluid figure-img"></a></p>
+<figure>
+<p><a href="tex1.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="tex1.PNG" class="img-fluid" /></a></p>
 </figure>
 </div>
 <ul>
@@ -433,22 +427,22 @@ Intercept            117.632      0.589   0.000     119.672      0.621   0.000
 <li>le fichier tex1.tex généré avec <code>collect export</code> donne le tableau brut balisé. Le fichier peut être inséré dans un document Latex avec <code>\estauto{nom_fichier.tex}</code> ou <code>\input{nom_fichier.tex}</code></li>
 </ul>
 <p>Juste une petite remarque sur les <strong>notes</strong> de bas de tableau. <code>collect</code> gère également leur présence et leur mise en forme, mais le code généré semble systématiquement les aligner au centre. A creuser, sinon il faut modifier le code <em>Latex</em> pour les aligner à gauche. Par exemple:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>\multicolumn{3}{l}{\footnotesize Note 1: blablabla}<span class="sc">\\</span></span>
+<div class="sourceCode" id="cb12"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>\multicolumn{3}{l}{\footnotesize Note 1: blablabla}<span class="sc">\\</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>\multicolumn{3}{l}{\footnotesize Note 2: blablabla}<span class="sc">\\</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>\end{tabular}</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>\end{table}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>\end{table}</span></code></pre></div>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<table class="table">
+<table>
 <colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -607,7 +601,7 @@ Intercept            117.632      0.589   0.000     119.672      0.621   0.000
 </table>
 <p>Le tableau est un peu complexe, pour et les 3 premières lignes doivent être modifiée en md (je n’ai pas trouvé mieux pour l’instant):</p>
 <p><strong><em>md du fichier ex1.md</em></strong></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>|           |        | Modèle 1    |            |         | Modèle 2    |            |         |</span>
+<div class="sourceCode" id="cb13"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>|           |        | Modèle 1    |            |         | Modèle 2    |            |         |</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>|           |        | Coefficient | Std. error | p-value | Coefficient | Std. error | p-value |</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>|-----------|--------|-------------|------------|---------|-------------|------------|---------|</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>| Age group | 20–29  | 0.000       | 0.000      |         | 0.000       | 0.000      |         |</span>
@@ -622,9 +616,9 @@ Intercept            117.632      0.589   0.000     119.672      0.621   0.000
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>|           | W      | -0.777      | 0.601      | 0.196   | -0.745      | 0.599      | 0.213   |</span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>| Sex       | Male   |             |            |         | 0.000       | 0.000      |         |</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>|           | Female |             |            |         | -4.015      | 0.402      | 0.000   |</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>| Intercept |        | 117.632     | 0.589      | 0.000   | 119.672     | 0.621      | 0.000   |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>| Intercept |        | 117.632     | 0.589      | 0.000   | 119.672     | 0.621      | 0.000   |</span></code></pre></div>
 <p><strong><em>md modifié (ligne 1 à 3</em></strong></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>|           |        | Modèle 1    |            |         | Modèle 2    |            |         |</span>
+<div class="sourceCode" id="cb14"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>|           |        | Modèle 1    |            |         | Modèle 2    |            |         |</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>|-----------|--------|-------------|------------|---------|-------------|------------|---------|  </span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>|           |        | Coefficient | Std. error | p-value | Coefficient | Std. error | p-value |</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>| Age group | 20–29  | 0.000       | 0.000      |         | 0.000       | 0.000      |         |</span>
@@ -639,7 +633,7 @@ Intercept            117.632      0.589   0.000     119.672      0.621   0.000
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>|           | W      | -0.777      | 0.601      | 0.196   | -0.745      | 0.599      | 0.213   |</span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>| Sex       | Male   |             |            |         | 0.000       | 0.000      |         |</span>
 <span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a>|           | Female |             |            |         | -4.015      | 0.402      | 0.000   |</span>
-<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>| Intercept |        | 117.632     | 0.589      | 0.000   | 119.672     | 0.621      | 0.000   |</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a>| Intercept |        | 117.632     | 0.589      | 0.000   | 119.672     | 0.621      | 0.000   |</span></code></pre></div>
 </div>
 </div>
 </div>
@@ -647,23 +641,23 @@ Intercept            117.632      0.589   0.000     119.672      0.621   0.000
 </section>
 </section>
 <section id="margins-avec-mlogit" class="level2">
-<h2 class="anchored" data-anchor-id="margins-avec-mlogit"><strong>Margins avec mlogit</strong></h2>
+<h2><strong>Margins avec mlogit</strong></h2>
 <ul>
 <li>Le programme est très simple, et au final on arrive à produire rapidement un output très satisfaisant avec les résulats des différentes modalités en colonne.</li>
 <li>Je n’ai pas reproduit la fin du programme avec <code>collect export</code>.</li>
 </ul>
 <p><em>Rappel</em>: j’ai seulement reporté les AME pour seulement deux catégories <em>excellent</em> et <em>poor</em></p>
 <div class="cell" data-execution_count="7">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">clear</span></span>
+<div class="sourceCode" id="cb15"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">clear</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">use</span> multimod</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span> <span class="kw">mlogit</span> hlthstat i.agegrp i.region i.sex i.race</span>
 <span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>: collect _r_b _r_se _r_p: margins, <span class="kw">dydx</span>(*) <span class="kw">predict</span>(outcome(Excellent))</span>
 <span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="kw">qui</span>: collect _r_b _r_se _r_p: margins, <span class="kw">dydx</span>(*) <span class="kw">predict</span>(outcome(Poor))</span>
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">label</span> <span class="kw">values</span> cmdset 1 <span class="st">"Excellent"</span> 2 <span class="st">"Poor"</span> </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">label</span> <span class="kw">values</span> cmdset 1 <span class="st">&quot;Excellent&quot;</span> 2 <span class="st">&quot;Poor&quot;</span> </span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>collect preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>collect preview</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(collection default read from file multimod.stjson)
 
@@ -690,42 +684,42 @@ Race      White        0.000          .       .       0.000          .       .
 </div>
 </div>
 <section id="visualisation-des-exportations-1" class="level3">
-<h3 class="anchored" data-anchor-id="visualisation-des-exportations-1"><strong>Visualisation des exportations</strong></h3>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
+<h3><strong>Visualisation des exportations</strong></h3>
+<div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><strong>Word</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><strong>Excel</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false"><strong>Latex (pdf</strong>)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false"><strong>Markdown (Html)</strong></a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="word2.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="word2.PNG" class="img-fluid figure-img"></a></p>
+<figure>
+<p><a href="word2.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="word2.PNG" class="img-fluid" /></a></p>
 </figure>
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="excel2.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="excel2.PNG" class="img-fluid figure-img"></a></p>
+<figure>
+<p><a href="excel2.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="excel2.PNG" class="img-fluid" /></a></p>
 </figure>
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="tex2.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="tex2.PNG" class="img-fluid figure-img"></a></p>
+<figure>
+<p><a href="tex2.PNG" class="lightbox" data-gallery="quarto-lightbox-gallery-6"><img src="tex2.PNG" class="img-fluid" /></a></p>
 </figure>
 </div>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
-<table class="table">
+<table>
 <colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 12%">
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
+<col style="width: 12%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -913,7 +907,7 @@ Race      White        0.000          .       .       0.000          .       .
 <p>Il est bien évidemment possible de programmer et d’utiliser les styles à la volée. A minima, il semblerait que pour les résultats de régression la ligne <strong><code>collect layout (colname) (cmdset#result)</code></strong> soit obligatoire.</p>
 <p>Pour un simple modèle (exemple1 Ols), sans style.</p>
 <div class="cell" data-execution_count="8">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">clear</span></span>
+<div class="sourceCode" id="cb17"><pre class="sourceCode stata cell-code"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>collect <span class="kw">clear</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region i.sex</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>collect preview</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -924,7 +918,7 @@ Race      White        0.000          .       .       0.000          .       .
 <span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>collect layout (colname) (cmdset#result)</span>
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>                          </span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="kw">quietly</span>: collect _r_b _r_se _r_p: <span class="kw">regress</span> bpsystol i.agegrp i.region i.sex</span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>collect preview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>collect preview</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Your layout specification does not identify any items.
@@ -974,12 +968,16 @@ Intercept |    119.6719   .6205858   0.000
 <li><a href="https://www.youtube.com/watch?v=u_Efw1oWxWk" class="uri">https://www.youtube.com/watch?v=u_Efw1oWxWk</a></li>
 </ul></li>
 </ul>
-
-
+<div id="quarto-navigation-envelope" class="hidden">
+<p><span class="hidden" data-render-id="quarto-int-sidebar-title"><strong>Editer des outputs avec collect</strong></span> <span class="hidden" data-render-id="quarto-int-navbar-title"><strong>Editer des outputs avec collect</strong></span> <span class="hidden" data-render-id="quarto-int-sidebar:/maj.html">Infos &amp; maj</span> <span class="hidden" data-render-id="quarto-int-sidebar:/versions.html">Versions Stata</span> <span class="hidden" data-render-id="quarto-int-sidebar:/conferences.html">Conférences</span> <span class="hidden" data-render-id="quarto-int-sidebar:/Stata_journal.html">Stata Journal</span> <span class="hidden" data-render-id="quarto-int-navbar:Stata Ined">Stata Ined</span> <span class="hidden" data-render-id="quarto-int-navbar:/index.html">/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Articles">Articles</span> <span class="hidden" data-render-id="quarto-int-navbar:/articles/index.html">/articles/index.html</span> <span class="hidden" data-render-id="quarto-int-navbar:Formations">Formations</span> <span class="hidden" data-render-id="quarto-int-navbar:Formation initiale">Formation initiale</span> <span class="hidden" data-render-id="quarto-int-navbar:https://mthevenin.github.io/stata_programmation/">https://mthevenin.github.io/stata_programmation/</span> <span class="hidden" data-render-id="quarto-int-navbar:Graphiques">Graphiques</span> <span class="hidden" data-render-id="quarto-int-navbar:https://mthevenin.github.io/stata_graphiques/">https://mthevenin.github.io/stata_graphiques/</span> <span class="hidden" data-render-id="footer-left">Marc Thévenin / Ined-Sms / Juillet 2023</span></p>
+</div>
+<div id="quarto-meta-markdown" class="hidden">
+<p><span class="hidden" data-render-id="quarto-metatitle"><strong>Editer des outputs avec collect</strong></span> <span class="hidden" data-render-id="quarto-twittercardtitle"><strong>Editer des outputs avec collect</strong></span> <span class="hidden" data-render-id="quarto-ogcardtitle"><strong>Editer des outputs avec collect</strong></span> <span class="hidden" data-render-id="quarto-twittercarddesc">La suite <strong><code>collect</code></strong> introduite avec le version 17 va t-elle remplacer <code>outreg2</code> et autres commandes de mise en forme et d’exportation de tableaux? Pas encore un tutoriel, dès éléments sont encore obscurs, mais avec quelques copier-coller issus des fichiers d’aides je présente juste deux exemples avec des régressions.</span> <span class="hidden" data-render-id="quarto-ogcardddesc">La suite <strong><code>collect</code></strong> introduite avec le version 17 va t-elle remplacer <code>outreg2</code> et autres commandes de mise en forme et d’exportation de tableaux? Pas encore un tutoriel, dès éléments sont encore obscurs, mais avec quelques copier-coller issus des fichiers d’aides je présente juste deux exemples avec des régressions.</span></p>
+</div>
 </section>
 
 </main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+<script id = "quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -1215,7 +1213,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-left">Marc Thévenin / Ined-Sms / Juillet 2023</div>   
+    <div class="nav-footer-left">
+      <div class='footer-contents'>Marc Thévenin / Ined-Sms / Juillet 2023</div>  
+    </div>   
     <div class="nav-footer-center">
       &nbsp;
     </div>
@@ -1224,8 +1224,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-<script>var lightboxQuarto = GLightbox({"descPosition":"bottom","selector":".lightbox","loop":true,"openEffect":"zoom","closeEffect":"zoom"});</script>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});</script>
 
+</body>
 
-
-</body></html>
+</html>
