@@ -27,7 +27,7 @@ lightbox: auto
 jupyter: nbstata         
                             
 abstract: | 
- La suite **`collect`** introduite avec le version 17 va t-elle remplacer `outreg2` et autres commandes de mise en forme et d'exportation de tableaux? Pas encore un tutoriel, dès éléments sont encore  obscurs, mais avec quelques copier-coller issus des fichiers d'aides je présente juste deux exemples avec des régressions.
+ La suite **`collect`** introduite avec le version 17 va t-elle remplacer `outreg2` et autres commandes de mise en forme et d'exportation de tableaux? Pas encore un tutoriel, dès éléments sont encore  obscurs, mais avec quelques copier-coller issus des fichiers d'aide, on présentera deux exemples avec des régressions.
         
 ---
 

@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Marc Thévenin">
+<meta name="dcterms.date" content="2023-07-26">
 
-<title>Conférences</title>
+<title>Stata, Jupyter et Quarto: solution ultime avec nbstata</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,20 +25,18 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<link href="./Stata_journal.html" rel="next">
-<link href="./versions.html" rel="prev">
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -53,10 +53,10 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../../../styles.css">
 </head>
 
-<body class="nav-sidebar docked nav-fixed">
+<body class="nav-sidebar docked nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -68,11 +68,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html" rel="" target="">
+    <a class="nav-link" href="../../../../index.html" rel="" target="">
  <span class="menu-text">Stata Ined</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./articles/index.html" rel="" target="">
+    <a class="nav-link" href="../../../../articles/index.html" rel="" target="">
  <span class="menu-text">Articles</span></a>
   </li>  
   <li class="nav-item dropdown ">
@@ -101,7 +101,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./conferences.html">Conférences</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><strong>Stata, Jupyter et Quarto: solution ultime avec nbstata</strong></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -120,34 +120,34 @@ ul.task-list li input[type="checkbox"] {
         </div>
         </div>
         <div class="sidebar-tools-collapse tools-wide">
-    <a href="./about.html" rel="" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
+    <a href="../../../../about.html" rel="" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-"></i></a>
     <a href="https://github.com/mthevenin" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
     <a href="mailto:marc.thevenin@ined.fr" rel="" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-envelope"></i></a>
-    <a href="./about.html" rel="" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
+    <a href="../../../../about.html" rel="" title="Marc Thévenin" class="quarto-navigation-tool px-1" aria-label="Marc Thévenin"><i class="bi bi-file-person"></i></a>
 </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./maj.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../maj.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Infos &amp; maj</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./versions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../versions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Versions Stata</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conferences.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../../../conferences.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Conférences</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Stata_journal.html" class="sidebar-item-text sidebar-link">
+  <a href="../../../../Stata_journal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Stata Journal</span></a>
   </div>
 </li>
@@ -156,158 +156,83 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Conférences</h1>
-</div>
+<h1 class="title"><strong>Stata, Jupyter et Quarto: solution ultime avec nbstata</strong></h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Notebook</div>
+    <div class="quarto-category">Quarto</div>
+    <div class="quarto-category">Jupyter</div>
+  </div>
+  </div>
 
 
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Author</div>
+  <div class="quarto-title-meta-heading">Affiliation</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author">Marc Thévenin </p>
+  </div>
+    <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Ined
+          </p>
+      </div>
+    </div>
 
 <div class="quarto-title-meta">
 
-    
+      
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 26, 2023</p>
+    </div>
+  </div>
   
     
   </div>
   
+<div>
+  <div class="abstract">
+    <div class="abstract-title">Abstract</div>
+    <p>putdoc, puthtml… Oublier! Depuis plusieurs années il est possible d’exécuter un programme Stata avec le notebook Jupyter avec le <code>Stata_kernel</code> de K.Barron ou plus récemment avec la librairie officielle <code>pystata</code> (version 17). Du côté de RStudio on pouvait également exécuter un programme Stata dans un document Rmarkdown, avec la librairie <code>statamarkdown</code>. En 2022 avec l’arrivée de <strong>Quarto</strong>, évolution de rmarkdown, et le nouveau noyau Jupyter <strong><code>nbstata</code></strong> de <strong>Tim Huegerich</strong>, on dispose d’une solution particulièrement efficace pour produire toute sorte de documentation (site, article, ouvrage).</p>
+  </div>
+</div>
 
 </header>
 
-<p>Liste non exhaustive des conférences depuis 2019. J’ai sélectionné les conférences dont les présentations sont disponibles et principalement en anglais.</p>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<strong>2023</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <ul>
-<li><strong>US</strong>: <a href="https://www.stata.com/meeting/us23/" class="uri">https://www.stata.com/meeting/us23/</a>
-<ul>
-<li>Présentations disponibles</li>
-</ul></li>
-<li><strong>CAN</strong>: <a href="https://www.stata.com/meeting/canada23/" class="uri">https://www.stata.com/meeting/canada23/</a>
-<ul>
-<li>Présentations disponibles</li>
-</ul></li>
-<li><strong>FR</strong>: <a href="https://www.stata.com/meeting/france23/" class="uri">https://www.stata.com/meeting/france23/</a>
-<ul>
-<li>Présentations disponibles</li>
-</ul></li>
-<li><strong>Virtual symposium (biostatistique et épidémiologie)</strong>: <a href="https://www.stata.com/symposiums/biostatistics-and-epidemiology23/" class="uri">https://www.stata.com/symposiums/biostatistics-and-epidemiology23/</a>
-<ul>
-<li>Présentations disponibles</li>
-</ul></li>
-<li><strong>AUS</strong>: <a href="https://www.stata.com/meeting/oceania23/" class="uri">https://www.stata.com/meeting/oceania23/</a>
-<ul>
-<li>Présentations et/ou vidéos disponibles</li>
-</ul></li>
+<li><p>Documentation nbstata: <a href="https://github.com/hugetim/nbstata" class="uri">https://github.com/hugetim/nbstata</a></p></li>
+<li><p>Prérequis: Stata 17 minimum</p></li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<strong>2022</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Beaucoup de conférences prévues à l’automne, en particulier celle qui se déroulera en angleterre.</p>
+<p>Avant de débuter ce tutoriel, concernant les avantages et les inconvénients d’utiliser le notebook Jupyter:</p>
 <ul>
-<li><strong>Virtual symposium</strong>: <a href="https://www.stata.com/symposiums/economics22/" class="uri">https://www.stata.com/symposiums/economics22/</a>
-<ul>
-<li>Certaines présentations disponibles</li>
-</ul></li>
-<li><strong>CH</strong>: <a href="https://www.stata.com/meeting/switzerland22/" class="uri">https://www.stata.com/meeting/switzerland22/</a>
-<ul>
-<li>présentations disponibles.</li>
-</ul></li>
-<li><strong>UK</strong>: <a href="https://www.stata.com/meeting/uk22/" class="uri">https://www.stata.com/meeting/uk22/</a>
-<ul>
-<li>Présentations disponibles.</li>
-</ul></li>
-<li><strong>US</strong>: <a href="https://www.stata.com/meeting/us22/" class="uri">https://www.stata.com/meeting/us22/</a>
-<ul>
-<li>Présentations disponibles</li>
-</ul></li>
-<li><strong>FR</strong>: <a href="https://www.stata.com/meeting/france22/" class="uri">https://www.stata.com/meeting/france22/</a>
-<ul>
-<li>Econométrie appliquée, pas d’éléments propres à la programmation ou aux mises à jour du logiciel</li>
-<li>Certaines présentations sont disponibles</li>
-</ul></li>
-<li><strong>IT</strong>: <a href="https://www.stata.com/meeting/italy22/" class="uri">https://www.stata.com/meeting/italy22/</a></li>
+<li><p>Les graphiques sont afficher sous le programme et non dans une fenêtre externe.</p></li>
+<li><p>Le programme est exécuter dans des cellules de code et non dans un éditeur de programme. Avec Jupyter, les macros temporaires (<code>local</code>) restent enregistrer d’une cellule de code à une autre.</p></li>
+<li><p>le noyau <code>nbstata</code> permet d’enregistrer l’ensemble des cellules dans un fichier .do.</p></li>
+<li><p>Niveau inconvénient ou limite d’utilisation. Les notebooks ne permettent pas d’afficher à la volée la base de données ou la frame active. Son utilisation n’est donc pas forcément adaptée au traitement et à la manipulation d’une base de données.</p></li>
 </ul>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<strong>2021</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>USA</strong>: <a href="https://www.stata.com/meeting/us21/" class="uri">https://www.stata.com/meeting/us21/</a></p></li>
-<li><p><strong>UK</strong>: <a href="https://www.stata.com/meeting/uk21/" class="uri">https://www.stata.com/meeting/uk21/</a></p></li>
-<li><p><strong>CAN</strong>: <a href="https://www.stata.com/meeting/canada21/" class="uri">https://www.stata.com/meeting/canada21/</a></p></li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<strong>2020</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>USA</strong>: <a href="https://www.stata.com/meeting/us20/" class="uri">https://www.stata.com/meeting/us20/</a></p>
-<ul>
-<li>Voir: <strong><em>The causal effects of parents’ marital status on children’s earnings</em></strong></li>
-</ul></li>
-<li><p><strong>UK</strong>: <a href="https://www.stata.com/meeting/uk20/" class="uri">https://www.stata.com/meeting/uk20/</a></p></li>
-<li><p><strong>CH</strong>: <a href="https://www.stata.com/meeting/switzerland20/" class="uri">https://www.stata.com/meeting/switzerland20/</a></p></li>
-<li><p><strong>POR</strong>: <a href="https://www.stata.com/meeting/portugal20/" class="uri">https://www.stata.com/meeting/portugal20/</a></p></li>
-</ul>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<strong>2019</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><p><strong>USA</strong>: <a href="https://www.stata.com/meeting/chicago19/" class="uri">https://www.stata.com/meeting/chicago19/</a></p></li>
-<li><p><strong>UK</strong>: <a href="https://www.stata.com/meeting/uk19/" class="uri">https://www.stata.com/meeting/uk19/</a></p></li>
-<li><p><strong>AUS</strong>: <a href="https://www.stata.com/meeting/oceania19/" class="uri">https://www.stata.com/meeting/oceania19/</a></p></li>
-</ul>
-</div>
-</div>
+<section id="installation-de-jupyter" class="level1">
+<h1>Installation de Jupyter</h1>
+<p>Une fiche dans la base d’assistance <a href="https://mthevenin.github.io/assistoolsms/"><strong>assistoolsms</strong></a> est déjà disponible [<a href="https://mthevenin.github.io/assistoolsms/R/assist/posts/R_jupyter/R_jupyter.html#installation">Lien</a>]. A l’Ined l’installation est largement facilité avec l’outil <strong>applined</strong> mise à disposition par le service informatique.</p>
+</section>
+<section id="installation-de-nbstata" class="level1">
+<h1>Installation de nbstata</h1>
+</section>
+<section id="utilisation-de-nbstata-dans-un-notebook-jupyter" class="level1">
+<h1>Utilisation de nbstata dans un notebook Jupyter</h1>
+</section>
+<section id="utilisation-de-nbstata-dans-un-document-quarto" class="level1">
+<h1>Utilisation de nbstata dans un document Quarto</h1>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -543,18 +468,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="./versions.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Versions Stata</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="./Stata_journal.html" class="pagination-link">
-        <span class="nav-page-text">Stata Journal</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
