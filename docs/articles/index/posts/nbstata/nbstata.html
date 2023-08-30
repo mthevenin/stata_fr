@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -37,6 +71,9 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "language": {
     "search-no-results-text": "No results",
@@ -221,15 +258,64 @@ ul.task-list li input[type="checkbox"] {
 <section id="installation-de-jupyter" class="level1">
 <h1>Installation de Jupyter</h1>
 <p>Une fiche dans la base d’assistance <a href="https://mthevenin.github.io/assistoolsms/"><strong>assistoolsms</strong></a> est déjà disponible [<a href="https://mthevenin.github.io/assistoolsms/R/assist/posts/R_jupyter/R_jupyter.html#installation">Lien</a>]. A l’Ined l’installation est largement facilité avec l’outil <strong>applined</strong> mise à disposition par le service informatique.</p>
+<p>Pour vérifier que tout est bien installer:</p>
+<ul>
+<li>Vérification pour python: dans Stata, exécuter <strong><code>python query</code></strong>, et éventuellement tester une opération simple: <strong><code>python: 1+1</code></strong></li>
+<li>Vérification pour Jupyther: pour lancer le notebook, dans l’invit de commande windows (cmd dans la barre de recherche), exécuter <strong><code>jupyter notebook</code></strong></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="anim1.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="anim1.gif" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 </section>
 <section id="installation-de-nbstata" class="level1">
 <h1>Installation de nbstata</h1>
+<p>Les étapes sont bien décrites dans le document de Tim Huegerich.</p>
+<p>Dans l’invite de commande windows exécuter successivement (la troisième est optionnelle)</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pip install nbstata</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>A minima:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>python -m nbstata.install</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Si on souhaite récupérer la couleur syntaxique</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>pip install jupyterlab_stata_highlight2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="utilisation-de-nbstata-dans-un-notebook-jupyter" class="level1">
 <h1>Utilisation de nbstata dans un notebook Jupyter</h1>
+<ul>
+<li>Dans <em>new</em> on choisit le kernel nbstata</li>
+<li>Une fois le noyau chargé on peut exécuté dans les cellules une plusieurs lignes de programme.</li>
+<li>Si on souhaite écrire du texte, on change le format de la cellule qui est par défaut <em>code</em>.</li>
+<li>Pour afficher l’aide par exemple, on utilise un magik: <code>%help nom_commande</code>. La liste des magiks est donnée dans la documentation.</li>
+<li>Contrairement à l’exécution de Stata dans son interface, les macro temporaires (<code>local</code>) sont conservées en mémoire d’une cellule à une autre.</li>
+<li>On peut enregistrer l’ensemble des cellules en mode <em>code</em> dans un fichier .do</li>
+</ul>
+<p>En résumé:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="anim2.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="anim2.gif" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
+<p>Remarque: on peut installer le notebook Jupyter dans VsCode. On peut donc l’utiliser comme interface pour documenter un programme au lieu d’un navigateur Web. En revanche, il ne sera pas possible de récupérer un .do à partir des commandes exécuter dans les cellules.</p>
 </section>
 <section id="utilisation-de-nbstata-dans-un-document-quarto" class="level1">
 <h1>Utilisation de nbstata dans un document Quarto</h1>
+<ul>
+<li>On indique de le header de la page (yaml) l’utilisation de jupyter et du noyau nbstata</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Exécution de Stata sous Quarto avec nbstata</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="an">jupyter:</span><span class="co"> nbstata</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Pour le bloc de codes sans option: on indique qu’on utilise stata: ```{stata}</li>
+<li>Pour le bloc de code avec option(s), on remplace #| par *|, par exemple <code>*| echo:false</code> si on ne souhaite pas que le programme soit affiché.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="anim3.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="anim3.gif" class="img-fluid figure-img"></a></p>
+</figure>
+</div>
 
 
 </section>
@@ -480,6 +566,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"openEffect":"zoom","loop":true,"closeEffect":"zoom","selector":".lightbox","descPosition":"bottom"});</script>
 
 
 

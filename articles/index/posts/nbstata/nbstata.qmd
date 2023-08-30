@@ -17,9 +17,6 @@ categories:
 
 format: 
   html: default
-#  docx:
-#    toc: true
-#    number-sections: true
     
 filters:
    - lightbox
@@ -53,14 +50,89 @@ Avant de débuter ce tutoriel, concernant les avantages et les inconvénients d'
 Une fiche dans la base d'assistance [**assistoolsms**](https://mthevenin.github.io/assistoolsms/) est déjà disponible
 [[Lien](https://mthevenin.github.io/assistoolsms/R/assist/posts/R_jupyter/R_jupyter.html#installation)]. A l'Ined l'installation est largement facilité avec l'outil **applined** mise à disposition par le service informatique.
 
+Pour vérifier que tout est bien installer: 
+
+- Vérification pour python:  dans Stata, exécuter **`python query`**, et éventuellement tester une opération simple: **`python: 1+1`**
+- Vérification pour Jupyther: pour lancer le notebook, dans l'invit de commande windows (cmd dans la barre de recherche), exécuter **`jupyter notebook`**
+
+
+![](anim1.gif)
+
 
 # Installation de nbstata
 
+Les étapes sont bien décrites dans le document de Tim Huegerich.
+
+Dans l'invite de commande windows exécuter successivement (la troisième est optionnelle)
+
+```markdown
+pip install nbstata
+```
+
+A minima: 
+```markdown
+python -m nbstata.install
+```
+
+Si on souhaite récupérer la couleur syntaxique
+
+```markdown
+pip install jupyterlab_stata_highlight2
+```
 
 # Utilisation de nbstata dans un notebook Jupyter
 
+* Dans *new* on choisit le kernel nbstata
+* Une fois le noyau chargé on peut exécuté dans les cellules une plusieurs lignes de programme.
+* Si on souhaite écrire du texte, on change le format de la cellule qui est par défaut *code*.
+* Pour afficher l'aide par exemple, on utilise un magik: `%help nom_commande`. La liste des magiks est donnée dans la documentation.
+* Contrairement à l'exécution de Stata dans son interface, les macro temporaires (`local`) sont conservées en mémoire d'une cellule à une autre. 
+* On peut enregistrer l'ensemble des cellules en mode *code* dans un fichier .do
+
+En résumé: 
+
+![](anim2.gif)
+
+Remarque: on peut installer le notebook Jupyter dans VsCode. On peut donc l'utiliser comme interface pour documenter un programme au lieu d'un navigateur Web. En revanche, il ne sera pas possible de récupérer un .do à partir des commandes exécuter dans les cellules.
+
 
 # Utilisation de nbstata dans un document Quarto
+
+* On indique de le header de la page (yaml) l'utilisation de jupyter et du noyau nbstata
+
+```markdown
+---
+title: "Exécution de Stata sous Quarto avec nbstata
+
+jupyter: nbstata
+---
+```
+
+* Pour le bloc de codes sans option: on indique qu'on utilise stata: ```{stata}
+* Pour le bloc de code avec option(s), on remplace #| par *|, par exemple `*| echo:false` si on ne souhaite pas que le programme soit affiché.
+
+
+![](anim3.gif)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
