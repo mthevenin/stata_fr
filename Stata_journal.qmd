@@ -7,7 +7,10 @@ title: "Stata Journal"
 <https://journals-sagepub-com.ezproxy.campus-condorcet.fr/toc/stja/current>
 
 
-Sommaire des 4 derniers numéros. Les sommaires antérieurs sont disponibles à cette adresse [lien](https://github.com/mthevenin/stata_fr/tree/master/sj)
+* On trouvera ici le sommaire des 4 derniers numéros. 
+* Les sommaires antérieurs depuis septembre 2021 sont disponibles à cette adresse [[Lien](https://github.com/mthevenin/stata_fr/tree/master/sj)]
+* La liste de tous les numéros depuis 2001 est accessible à cette adresse: [[Lien](https://www.stata-journal.com/archives/)]
+* Une mention spéciale peut être faite aux articles, très nombreux, de NJ.Cox en particulier les fameux ***Stata tips***. On trouvera l'ensemble de ses contributions à la revue dans sur sa page personnelle: [[Lien](https://www.durham.ac.uk/staff/n-j-cox/)]
 
 ::: panel-tabset
 
