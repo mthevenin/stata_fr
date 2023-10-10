@@ -14,6 +14,11 @@ title: "Stata Journal"
 
 ::: panel-tabset
 
+## **2023-3**
+
+<iframe src="sj/stja_23_3.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
+</iframe>
+
 ## **2023-2**
 
 <iframe src="sj/stja_23_2.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
@@ -31,10 +36,6 @@ title: "Stata Journal"
 <iframe src="sj/stja_22_4.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
 </iframe>
 
-## **2022-3**
-
-<iframe src="sj/stja_22_3.pdf" height="600" width="750" style="border: 1px solid #464646;" allowfullscreen allow="autoplay">
-</iframe>
 
 :::
 

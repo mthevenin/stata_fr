@@ -12,6 +12,11 @@ Liste non exhaustive des conférences depuis 2019. J'ai sélectionné les confé
 :::  {.callout-note appearance="simple" icon="false"}
 ## **2023**
 
+
+-   **UK**: <https://www.stata.com/meeting/uk23/>
+    - Présentations disponibles
+-   **NE**: <https://www.stata.com/meeting/northern-european23/>
+    - Présentations disponibles
 -   **US**: <https://www.stata.com/meeting/us23/>
     - Présentations disponibles
 -   **CAN**: <https://www.stata.com/meeting/canada23/>
