@@ -1,40 +1,30 @@
 ---
 title: ""
 
-listing:
-  - id: latest-content
-    contents: 
-    - /articles
-    - "!index.qmd"
-    sort: "date desc"
-    type: grid
-    fields: [date, title, author, description, categories]
-    sort-ui: false
-    filter-ui: false
-    page-size: 6
-    feed: false
-    max-description-length: 300
-
 toc: false 
 ---
 
 
+::: callout-important
 
-<!-- Derniers ajouts R-->
+## Support passé en mode archive
 
-::: {.content-container}
-::: {.listing-block}
+Mon activité avec Stata étant devenu assez résiduelle, le contenu de ce support a été déplacé dans un support collectif à d'autres outils, en particulier R. 
+On y trouvera, entre autres, la mise à jour des éléments relatifs aux conférences et au sommaire du Stata Journal et les fiches techniques réalisées ces dernières années. 
+
+Lien: 
+
+* <https://mthevenin.github.io/assistoolsms/Stata/>
+* <https://mthevenin.github.io/assistoolsms/>
 
 
-# DERNIERS AJOUTS
+Concernant les deux supports de formation, ils ont toujours directement accessible via la barre de navigation. Tant qu'une nouvelle formation ne sera pas programmée, je n'ai pas prévu de les mettre à jour ou de les compléter.
 
- [**Accéder à la liste des articles**](articles/index.html)
 
-::: {#latest-content}
 :::
 
-:::
-:::
+
+
 
 
 -    Support réalisé avec [Posit-Rstudio](https://posit.co/) - [Quarto](https://quarto.org). 
